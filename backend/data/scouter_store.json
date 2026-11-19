@@ -1257,34 +1257,36 @@
       "sector": "Industrials",
       "industry": "Specialty Business Services",
       "exchange": "NYQ",
-      "analyzed_at": "2026-11-19T09:09:09.451141+00:00",
-      "asymmetry_score": 59,
-      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "analyzed_at": "2026-11-19T22:02:45.393938+00:00",
+      "asymmetry_score": 48,
+      "verdict_label": "AVOID_DILUTION_TRAP",
       "sub_scores": {
-        "catalyst_strength": 18,
-        "financial_survival_runway": 20,
-        "insider_alignment": 5,
-        "valuation_asymmetry": 5,
-        "audit_confidence": 11
+        "catalyst_strength": 15,
+        "financial_survival_runway": 14,
+        "insider_alignment": 4,
+        "valuation_asymmetry": 8,
+        "audit_confidence": 7
       },
       "thesis_5_lines": [
-        "1. Tesi Core: BlackSky Technology Inc. (BKSY) tratta a -85.22% dal picco post-IPO; driver principale: Crescita Ricavi YoY +118.4% vs Prezzo Scontato (-85.2% dal picco).",
-        "2. Sopravvivenza: Ricavi YoY a +118.4% con cassa di $212.8M e runway di 35.8 mesi (Net Cash -$17.4M).",
-        "3. Segnali Lenti: SEC Form 4 mostra nessun acquisto open-market Codice P recente; segnale Careers 'HIRING_SPIKE' (R&D / Engineering).",
-        "4. Contro-Verifica Bear/Auditor: Rischio diluizione ALTO; affidabilità dati verificata al 92%.",
-        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$20.65; invalidazione se runway < 9m o emissione S-3 diluitiva."
+        "BlackSky opera nell'intelligence geospaziale AI e costellazioni satellitari Gen-3, sostenuta da una crescita TTM esplosiva del +118,4% YoY e margini lordi al 73,4%.",
+        "La liquidità ammonta a 212,8M USD coprendo circa 35 mesi di burn, ma il debito totale di 230,2M USD porta la cassa netta in territorio negativo (-17,45M USD).",
+        "Gli insider non mostrano convinzione con zero acquisti e vendite coordinate della C-Suite (1,19M USD), a fronte però di un forte hiring spike di 41 ruoli tecnici.",
+        "Il rischio critico evidenziato dal Bear è l'8-K Item 3.01 (avviso delisting/non conformità) unito a diluizione ATM, mitigato solo in parte dal cuscinetto di cassa per il capex.",
+        "Strategia prudente da watchlist: attendere la risoluzione della non conformità SEC prima di allocare un micro-bullet da 25 EUR, con invalidazione sotto 14,50 USD."
       ],
       "signal_tags": [
-        "Hiring Spike",
-        "Runway > 24m",
-        "Post-IPO -85%",
-        "Rischio Diluizione"
+        "CRESCITA_+118%",
+        "GEN3_SATELLITI",
+        "INSIDER_SELLING",
+        "DELISTING_ITEM_301",
+        "RUNWAY_35M",
+        "RISCHIO_ATM"
       ],
       "micro_strategy": {
-        "recommended_bullet_eur": 25.0,
-        "entry_zone": "Accumulo frazionato area $19.41 - $21.27",
-        "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
-        "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
+        "recommended_bullet_eur": 25,
+        "entry_zone": "Attendere conferma conformità SEC; accumulo solo su stabilizzazione sopra $17.00",
+        "invalidation_trigger": "Mancato superamento dei requisiti di quotazione Item 3.01 o accelerazione del burn con nuovo debito tossico",
+        "time_horizon": "12-24 mesi"
       },
       "quant_metrics": {
         "ticker": "BKSY",
@@ -1295,13 +1297,13 @@
         "currency": "USD",
         "website": "https://blacksky.com",
         "business_summary": "BlackSky Technology Inc. operates as a space-based technology company in the United States and internationally. The company offers space-based intelligence and artificial intelligence (AI) services, mission solutions, and advanced technology programs consisting of cloud computing and hosting services, direct materials to build and test specific components, and internal labor for service solutions that enhance customer adoption and operational integration of the company's technology. It also provides BlackSky Spectra, an AI-enabled software platform that processes a range of observations by integrating data from the company's proprietary satellite constellation and from other third-party sens",
-        "current_price": 20.65,
+        "current_price": 18.79,
         "ipo_date": "2019-12-20",
         "months_since_ipo": 83.0,
         "post_ipo_high": 139.76,
-        "post_ipo_drawdown_pct": -85.22,
-        "post_ipo_change_pct": -73.66,
-        "market_cap": 848750272.0,
+        "post_ipo_drawdown_pct": -86.56,
+        "post_ipo_change_pct": -76.03,
+        "market_cap": 772301120.0,
         "enterprise_value": 872332352.0,
         "cash_and_equivalents": 212788992.0,
         "total_debt": 230238000.0,
@@ -1335,7 +1337,7 @@
           "strict_ipo_6_24m": false
         },
         "quant_tags": [
-          "Post-IPO -85%",
+          "Post-IPO -87%",
           "Ricavi +118% YoY",
           "Runway 36m"
         ]
@@ -1690,7 +1692,7 @@
         "risk_headlines_count": 0
       },
       "hiring_signals": {
-        "open_roles_count": 40,
+        "open_roles_count": 41,
         "hiring_trend": "HIRING_SPIKE",
         "department_focus": "R&D / Engineering",
         "ats_source": "Greenhouse",
@@ -1702,7 +1704,7 @@
           "Cost Controller, Spacecraft ",
           "Director, Business Development, Europe"
         ],
-        "evidence_note": "Rilevate 40 posizioni aperte via Greenhouse (focus R&D / Engineering)."
+        "evidence_note": "Rilevate 41 posizioni aperte via Greenhouse (focus R&D / Engineering)."
       },
       "broker_availability": [
         {
@@ -1764,73 +1766,105 @@
           "broker": "Directa SIM",
           "fractional_supported": false,
           "zero_commission": false,
-          "min_order_amount": 20.65,
+          "min_order_amount": 18.79,
           "min_order_currency": "USD",
           "fx_fee": "Inclusa",
           "italian_tax_regime": "Regime Amministrato IT",
           "status": "SOLO_AZIONI_INTERE",
-          "notes": "Niente frazionate. Prezzo $20.65 (~€19.00) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+          "notes": "Niente frazionate. Prezzo $18.79 (~€17.29) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
         }
       ],
       "debate": {
-        "ai_engine": "forensic_rules_engine_fallback",
+        "ai_engine": "gemini-3.8-flash (4/4 Gemini)",
         "bull": {
-          "headline": "Asimmetria su BKSY: fondamentali in crescita nonostante calo post-IPO",
+          "headline": "Crescita ricavi a tripla cifra (+118% YoY) e solido runway in forte disconnessione dal drawdown del -86%",
           "core_catalysts": [
             {
-              "title": "Crescita Ricavi YoY +118.4% vs Prezzo Scontato (-85.2% dal picco)",
-              "detail": "Il titolo quota con un drawdown del 85.2% dal massimo post-IPO nonostante ricavi TTM pari a $132.1M in crescita del +118.4% YoY.",
+              "title": "Ipercrescita del fatturato e marginalità lorda elevata",
+              "detail": "I ricavi TTM hanno raggiunto 132,15M USD segnando una crescita YoY straordinaria del +118,4%, accompagnata da un margine lordo del 73,44%, a fronte di un crollo del -86,56% dai massimi post-IPO [FIN-DATA].",
               "source_tag": "[FIN-DATA]",
               "impact": "ALTO"
             },
             {
-              "title": "Espansione Organico: 40 posizioni aperte",
-              "detail": "Rilevate 40 posizioni aperte via Greenhouse (focus R&D / Engineering). Focus prevalente su R&D / Engineering.",
-              "source_tag": "[CAREERS]",
+              "title": "Cuscinetto di liquidità esteso per oltre 35 mesi",
+              "detail": "Disponibilità liquide pari a 212,79M USD e current ratio a 5,27 garantiscono una pista finanziaria (runway) stimata in 35,8 mesi, proteggendo la continuità operativa nonostante il FCF negativo [FIN-DATA].",
+              "source_tag": "[FIN-DATA]",
+              "impact": "MEDIO"
+            },
+            {
+              "title": "Rampa industriale e avanzamento tecnologia satellitare Gen-3",
+              "detail": "L'attenzione di mercato e l'evoluzione della costellazione di satelliti Gen-3 mostrano progressi operativi e scalabilità del modello di business AI-driven [NEWS].",
+              "source_tag": "[NEWS]",
               "impact": "MEDIO"
             }
           ],
-          "insider_conviction_read": "Nessun acquisto Codice P recente nei Form 4 ispezionati; allineamento affidato alle partecipazioni esistenti.",
-          "expansion_signal": "Rilevate 40 posizioni aperte via Greenhouse (focus R&D / Engineering).",
-          "bull_conviction": 71
+          "insider_conviction_read": "Assenza totale di acquisti sul mercato aperto (Codice P pari a 0). Rilevate invece vendite nette da parte dei vertici esecutivi (CEO O'Toole, CFO Dubois e General Counsel Lin) per circa 1,19M USD complessivi nel mese di ottobre 2026 [FORM-4].",
+          "expansion_signal": "Segnale fortemente positivo dalle assunzioni con 41 posizioni aperte (HIRING_SPIKE) via Greenhouse, focalizzate su R&D/Ingegneria aerospaziale (tecnici e ingegneri AI&T) e apertura commerciale internazionale (Director BD Europe) [CAREERS].",
+          "bull_conviction": 62
         },
         "bear": {
-          "headline": "Allerta diluizione e burn rate su BKSY",
+          "headline": "Avviso di delisting SEC, debito superiore alla cassa, massicce vendite insider della C-Suite e diluizione ATM",
           "red_flags": [
             {
-              "title": "Cash Burn Attivo ($5.9M/mese)",
-              "detail": "Cash flow effettivo negativo (OCF -$11.6M, FCF -$71.4M). Autonomia di cassa stimata in 35.8 mesi.",
-              "source_tag": "[FIN-DATA]",
-              "severity": "MEDIO"
+              "title": "Avviso formale di non conformità e rischio delisting (Item 3.01)",
+              "detail": "Deposito 8-K del 13 agosto 2026 relativo a Item 3.01 (Notice of Delisting or Failure to Satisfy a Continued Listing Rule or Standard), che certifica criticità regolamentari gravi sul mantenimento della quotazione.",
+              "source_tag": "[SEC-8K]",
+              "severity": "CRITICO"
             },
             {
-              "title": "Rischio Diluizione Attivo (Depositi S-3/424B5 o 8-K Item 3.02)",
-              "detail": "Rilevati 5 moduli S-3/424B5 recenti o emissioni non registrate: la società può emettere nuove azioni diluendo i micro-azionisti.",
+              "title": "Offerte continue e rischio diluitivo strutturale via S-3 e 424B5",
+              "detail": "Numerosi depositi di supplementi prospettici 424B5 (maggio 2026, dicembre 2025, settembre 2024) e registrazione S-3ASR. L'uso sistematico di ATM e shelf takedown minaccia costante diluizione del capitale per gli azionisti retail.",
               "source_tag": "[SEC-S3]",
               "severity": "ALTO"
             },
             {
-              "title": "Vendite Insider Form 4 ($1.2M)",
-              "detail": "Registrate 6 transazioni Codice S in uscita nei Form 4 recenti.",
+              "title": "Vendite coordinate a mercato da parte del top management (C-Suite)",
+              "detail": "Nel solo mese di ottobre 2026, il CEO Brian O'Toole, il CFO Henry Dubois e il General Counsel Christiana Lin hanno scaricato sul mercato oltre 30.000 azioni complessive per circa 500k USD (totale insider vendite TTM a 1,19M USD) senza alcun acquisto a mercato registrato.",
               "source_tag": "[FORM-4]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Posizione di cassa netta negativa e Free Cash Flow fortemente depresso",
+              "detail": "A fronte di un debito totale di 230,24M USD e cassa per 212,79M USD, la posizione finanziaria netta è negativa (-17,45M USD). Il Free Cash Flow TTM segna una perdita consistente di -71,38M USD.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Espansione organica aggressiva che rischia di accelerare il cash burn",
+              "detail": "Rilevate 41 posizioni aperte con focus R&D e Ingegneria/Assembly via Greenhouse. Questo aumento dell'organico rischia di appesantire ulteriormente il già elevato monthly burn rate operativo.",
+              "source_tag": "[CAREERS]",
               "severity": "MEDIO"
             }
           ],
           "dilution_risk_level": "ALTO",
-          "burn_and_balance_sheet_audit": "Cassa $212.8M, Debito $230.2M, Current Ratio 5.27x. Burn mensile $5.9M.",
-          "bear_severity": 58
+          "burn_and_balance_sheet_audit": "Sebbene la liquidità nominale (212,8M USD) conceda una runway apparente di 35,8 mesi a fronte di un burn mensile di circa 5,95M USD, il quadro patrimoniale è fragile. Il debito complessivo ammonta a 230,2M USD superando interamente le disponibilità liquide, mentre la produzione di cassa operativa rimane negativa (-11,64M USD TTM) e il FCF a -71,4M USD riflette l'alta intensità di capitale satellitare. Con obblighi di debito pendenti e runway legata all'indebitamento, l'azienda ricorre reiteratamente all'emissione azionaria per sopravvivere.",
+          "bear_severity": 78
         },
         "auditor": {
-          "verification_score": 92,
+          "verification_score": 96,
           "overall_reliability": "ALTA",
-          "accounting_sanity_check": "Coerenza verificata: Net Cash -$17.4M, Runway 35.8 mesi, Form 4 Codice P separato correttamente da grant (Codice A/M).",
+          "accounting_sanity_check": "Verifiche matematiche confermate: Cassa ($212,79M) - Debito Totale ($230,24M) = Net Cash -$17,45M; Burn Rate mensile calcolato a $5,95M/mese con Runway risultante pari a 35,8 mesi ($212,79M / $5,95M). Drawdown post-IPO confermato a -86,56%. Form 4 corretto: 0 acquisti sul mercato aperto (Codice P) e 6 vendite totali per $1,19M, di cui 30.000 azioni ($505,8k) vendute da CEO, CFO e General Counsel ad ottobre 2026 (Codice S).",
           "verified_facts": [
-            "Bilancio: Cassa $212.8M vs Debito Totale $230.2M (Net Cash: -$17.4M).",
-            "Runway calcolata: $212.8M / $5.9M al mese = 35.8 mesi.",
-            "Form 4 SEC: verificati 0 acquisti reali Codice P vs 6 vendite Codice S (esclusi grant/opzioni).",
-            "Drawdown post-IPO confermato a -85.22% rispetto al picco di $140."
+            "I ricavi TTM ammontano a 132,15M USD, in crescita del +118,4% YoY con margine lordo del 73,44%.",
+            "La posizione di cassa netta è negativa per -17,45M USD a fronte di 230,24M USD di debito e 212,79M USD di cassa.",
+            "Presente filing formale 8-K (Item 3.01) depositato il 13 agosto 2026 relativo ad avviso di delisting/non conformità ai requisiti di quotazione.",
+            "Rilevati molteplici depositi S-3ASR e 424B5 (inclusi maggio 2026 e dicembre 2025) a supporto del rischio di diluizione.",
+            "Form 4 conferma totale assenza di acquisti a mercato aperto (Codice P = 0) e vendite per 1,19M USD registrate."
           ],
-          "challenged_claims": []
+          "challenged_claims": [
+            {
+              "agent": "BULL",
+              "claim": "Cuscinetto di liquidità esteso per oltre 35 mesi protegge la continuità operativa",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "Sebbene la runway nominale sia di 35,8 mesi ($212,79M su $5,95M di burn mensile), la cassa è interamente compensata da 230,24M USD di debito (Net Cash negativa di -17,45M USD), rendendo la liquidità vincolata alla sostenibilità della struttura debitoria."
+            },
+            {
+              "agent": "BEAR",
+              "claim": "L'azienda ricorre reiteratamente all'emissione azionaria per sopravvivere",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "I filing S-3 e 424B5 confermano la presenza di strumenti ATM/shelf takedown attivi, ma con oltre 212M USD di cassa disponibile e 35 mesi di autonomia teorica, l'emissione non risponde a una crisi di liquidità imminente, bensì al finanziamento dell'elevata spesa in conto capitale (Capex/FCF a -71,38M USD)."
+            }
+          ]
         }
       }
     },
@@ -3082,7 +3116,7 @@
       "sector": "Technology",
       "industry": "Communication Equipment",
       "exchange": "NMS",
-      "analyzed_at": "2026-11-19T08:01:32.179016+00:00",
+      "analyzed_at": "2026-11-19T22:07:21.992955+00:00",
       "asymmetry_score": 77,
       "verdict_label": "STRONG_ASYMMETRIC_BUY",
       "sub_scores": {
@@ -3093,11 +3127,11 @@
         "audit_confidence": 11
       },
       "thesis_5_lines": [
-        "1. Tesi Core: AST SpaceMobile, Inc. (ASTS) tratta a -80.96% dal picco post-IPO; driver principale: Crescita Ricavi YoY +187.1% vs Prezzo Scontato (-81.0% dal picco).",
+        "1. Tesi Core: AST SpaceMobile, Inc. (ASTS) tratta a -80.91% dal picco post-IPO; driver principale: Crescita Ricavi YoY +187.1% vs Prezzo Scontato (-80.9% dal picco).",
         "2. Sopravvivenza: Ricavi YoY a +187.1% con cassa di $2.80B e runway di 17.7 mesi (Net Cash -$1.32B).",
         "3. Segnali Lenti: SEC Form 4 mostra 3 acquisti insider Codice P ($619K); segnale Careers 'HIRING_SPIKE' (R&D / Engineering).",
         "4. Contro-Verifica Bear/Auditor: Rischio diluizione ALTO; affidabilità dati verificata al 92%.",
-        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$25.49; invalidazione se runway < 9m o emissione S-3 diluitiva."
+        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$25.55; invalidazione se runway < 9m o emissione S-3 diluitiva."
       ],
       "signal_tags": [
         "Insider Buying",
@@ -3108,7 +3142,7 @@
       ],
       "micro_strategy": {
         "recommended_bullet_eur": 35.0,
-        "entry_zone": "Accumulo frazionato area $23.96 - $26.25",
+        "entry_zone": "Accumulo frazionato area $24.02 - $26.32",
         "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
         "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
       },
@@ -3121,13 +3155,13 @@
         "currency": "USD",
         "website": "https://ast-science.com",
         "business_summary": "AST SpaceMobile, Inc., together with its subsidiaries, designs and develops the constellation of BlueBird satellites in the United States. The company provides a cellular broadband network in space to be accessible directly by smartphones for commercial use and other applications, as well as for government use. Its SpaceMobile service provides cellular broadband services to end-users who are out of terrestrial cellular coverage. The company was founded in 2017 and is headquartered in Midland, Texas.",
-        "current_price": 25.49,
+        "current_price": 25.55,
         "ipo_date": "2019-11-01",
         "months_since_ipo": 84.6,
         "post_ipo_high": 133.86,
-        "post_ipo_drawdown_pct": -80.96,
-        "post_ipo_change_pct": 160.9,
-        "market_cap": 9943895040.0,
+        "post_ipo_drawdown_pct": -80.91,
+        "post_ipo_change_pct": 161.51,
+        "market_cap": 10222801920.0,
         "enterprise_value": 9421049856.0,
         "cash_and_equivalents": 2798910976.0,
         "total_debt": 4118731008.0,
@@ -3498,53 +3532,53 @@
       "news": {
         "articles": [
           {
-            "title": "ASTS Stock Jumps Overnight Despite New Shares For Engines And Spectrum — Bulls Cheer ULA’s Amazon Launch Clue",
-            "url": "https://stocktwits.com/news-articles/markets/equity/asts-new-shares-engines-spectrum-bulls-ula-amazon-launch-clue/cNbLyqER9iS",
-            "published": "2026-11-19T05:57:36Z",
-            "source": "Stocktwits",
+            "title": "AST SpaceMobile Just Touched a 52-Week Low. Will ASTS Stock Hit $20 or $40 First? - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPemM3YWlraUhkTkVuako0cC1YczlTTldsM1lkOFA0TGo3dy1MSERiTDY5WVVYZzM4M3c5eXVhQ1NLV0hjR0pGU0RFQlFnS0lCMjhldjBPVTJDT1NLQkwySWY4QkpVUDlaX2IyMGVhRE1lcWZlbzVyTWtMQ0tlc2lXRzZXQmwzV2ZhQ3FzcEtiOXl2dDVtRzdHSS1HbDk?oc=5",
+            "published": "Wed, 18 Nov 2026 19:02:57 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "AST SpaceMobile Stock Could Be Headed for a Major Revaluation by 2027 - 24/7 Wall St.",
+            "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbXI1YWdGYW5xcFpkNkJsMjc5QktLaExCaks2TlhERFNCTkNZX3diY09NanBoV212R3F1R2tMSjZMVWRqVUxzUFMxaWNRbTdDX09jNnIzempoRUlraWt1UlFJTFZNVzZUODg0NnpNTmhXRlJ5S2pfSzVERmxVd243eUpMOWhhUkZFeVFmbjh5LUt2T0VNUHk0RWZ0Wk9aQjJEUnZrUXJoejY0V1djMjFlQ0E5cw?oc=5",
+            "published": "Mon, 16 Nov 2026 16:33:00 GMT",
+            "source": "24/7 Wall St.",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "AST SpaceMobile (ASTS) Stock May Be Below Fair Value As Blacklift Spending Looms - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOMGpBemUwTzZEZFUwRVdTcmVQRUY1YXU4YU52MzNLWDlkQXpWcDJ1dEdNM0JBWUpzRWZMSFkxanYweHBHNnFHOVVKNG9xVk1XemUxUHUybXI0YXFkaW4yVVI3TW5wVmVseUJtMzhZOS1KVjdrRGo2NnBxNEJ4bklfRUh1T2Vic1ZpS1ZWa3dvbFBrYXhGNkNfcTRfdw?oc=5",
+            "published": "Wed, 18 Nov 2026 15:14:35 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "AST SpaceMobile Falls 5% After Jim Cramer Calls It ‘a Very Hard Stock to Own’; SpaceX Rises 3%, Rocket Lab Holds Steady - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbW9adXlpVXFEM3FLYlZIMGtXV0g5TGNKNlpSNzBJUGpwSk1meUs2TjZ3UHVQVTZya3BzM2ZUSWJ2MFhkbmNFV0czSzZHOWh5dEtoTmZUYWVBRmlpRFNCbU5kVWMyNmQ1Q3d3MkoyRVNKMGdWOHdxVEpPTzcxV3BuUlc0VVRia210clRid3JYZnFuSHZuU1dn?oc=5",
+            "published": "Wed, 18 Nov 2026 15:57:51 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "AST SpaceMobile Stock: My Price Target Depends on One Important Milestone - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQT0IyN1VIa011WVR6QWUzQWNiWHprcUxlZk1RMU1aM2ducHZhYm9ualh3elhlbnlzUjVfcHc2cGRyX3dfb09wOGxiRURscnZ1Qlo4bVNKTzNMLWxyZ21qaWp5V3F3YTdib3VScGxPS1VYSkdCcU5URDhfY01lTDE4T29tVll5RXAyMXRyVTAzMDdPU1ZhYmtMdFVQZ2syVVU2?oc=5",
+            "published": "Wed, 18 Nov 2026 14:04:07 GMT",
+            "source": "Yahoo Finance",
             "sentiment_hint": "CATALYST"
           },
           {
-            "title": "AST SpaceMobile Sinks 8% as New Offering Filing Revives Dilution Fears",
-            "url": "https://www.tikr.com/blog/ast-spacemobile-sinks-8-as-new-offering-filing-revives-dilution-fears?ref=yahoofinance&tlnk=yf-261118-w92886xc",
-            "published": "2026-11-18T21:42:17Z",
-            "source": "TIKR",
-            "sentiment_hint": "RISK"
-          },
-          {
-            "title": "AST SpaceMobile Just Touched a 52-Week Low. Will ASTS Stock Hit $20 or $40 First?",
-            "url": "https://247wallst.com/investing/2026/11/18/ast-spacemobile-just-touched-a-52-week-low-will-asts-stock-hit-20-or-40-first/",
-            "published": "2026-11-18T19:02:57Z",
-            "source": "24/7 Wall St.",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "Will 798 Million Unlocked SpaceX Shares on December 8 Swamp Starship’s Catch?",
-            "url": "https://www.tikr.com/blog/will-798-million-unlocked-spacex-shares-on-december-8-swamp-starships-catch?ref=yahoofinance&tlnk=yf-261118-qx27g85m",
-            "published": "2026-11-18T18:38:45Z",
-            "source": "TIKR",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "AST SpaceMobile Falls 5% After Jim Cramer Calls It ‘a Very Hard Stock to Own’; SpaceX Rises 3%, Rocket Lab Holds Steady",
-            "url": "https://247wallst.com/investing/2026/11/18/ast-spacemobile-falls-5-after-jim-cramer-calls-it-a-very-hard-stock-to-own-spacex-rises-3-rocket-lab-holds-steady/",
-            "published": "2026-11-18T15:57:51Z",
-            "source": "24/7 Wall St.",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "AST SpaceMobile (ASTS) Stock May Be Below Fair Value As Blacklift Spending Looms",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/ast-spacemobile-asts-stock-may-151435040.html",
-            "published": "2026-11-18T15:14:35Z",
-            "source": "Simply Wall St.",
+            "title": "AST SpaceMobile (ASTS) Takes a Beating. Here’s What Happened - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPV1ZkbmR3OWl5RnhyMnZzT3pqelBfcXdyT2dEdE4zTlFKNDQ4OERtVklFMVQwSlV0WlNxYkEzc1M0ZnMyVVFMbXhEYnE3U3NvSzBIZzBWNGZtT1lMcWJBdVdZR2ZHU2Itajk3NFhYR0FaNDh1ZmJqS1pOVzBFalJ2VzdWZnBmTHlfM1NDX3piYXpVNXVienZXekdIR1FRTUhh?oc=5",
+            "published": "Tue, 17 Nov 2026 02:03:00 GMT",
+            "source": "Yahoo Finance",
             "sentiment_hint": "NEUTRAL"
           }
         ],
         "catalyst_headlines_count": 1,
-        "risk_headlines_count": 1
+        "risk_headlines_count": 0
       },
       "hiring_signals": {
-        "open_roles_count": 280,
+        "open_roles_count": 277,
         "hiring_trend": "HIRING_SPIKE",
         "department_focus": "R&D / Engineering",
         "ats_source": "Greenhouse",
@@ -3556,7 +3590,7 @@
           "5-Axis CNC Programmer 2nd shift, Site 2",
           "AI Lab Manager "
         ],
-        "evidence_note": "Rilevate 280 posizioni aperte via Greenhouse (focus R&D / Engineering)."
+        "evidence_note": "Rilevate 277 posizioni aperte via Greenhouse (focus R&D / Engineering)."
       },
       "broker_availability": [
         {
@@ -3618,12 +3652,12 @@
           "broker": "Directa SIM",
           "fractional_supported": false,
           "zero_commission": false,
-          "min_order_amount": 25.49,
+          "min_order_amount": 25.55,
           "min_order_currency": "USD",
           "fx_fee": "Inclusa",
           "italian_tax_regime": "Regime Amministrato IT",
           "status": "SOLO_AZIONI_INTERE",
-          "notes": "Niente frazionate. Prezzo $25.49 (~€23.45) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+          "notes": "Niente frazionate. Prezzo $25.55 (~€23.51) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
         }
       ],
       "debate": {
@@ -3632,8 +3666,8 @@
           "headline": "Asimmetria su ASTS: fondamentali in crescita nonostante calo post-IPO",
           "core_catalysts": [
             {
-              "title": "Crescita Ricavi YoY +187.1% vs Prezzo Scontato (-81.0% dal picco)",
-              "detail": "Il titolo quota con un drawdown del 81.0% dal massimo post-IPO nonostante ricavi TTM pari a $142.9M in crescita del +187.1% YoY.",
+              "title": "Crescita Ricavi YoY +187.1% vs Prezzo Scontato (-80.9% dal picco)",
+              "detail": "Il titolo quota con un drawdown del 80.9% dal massimo post-IPO nonostante ricavi TTM pari a $142.9M in crescita del +187.1% YoY.",
               "source_tag": "[FIN-DATA]",
               "impact": "ALTO"
             },
@@ -3650,20 +3684,20 @@
               "impact": "ALTO"
             },
             {
-              "title": "Espansione Organico: 280 posizioni aperte",
-              "detail": "Rilevate 280 posizioni aperte via Greenhouse (focus R&D / Engineering). Focus prevalente su R&D / Engineering.",
+              "title": "Espansione Organico: 277 posizioni aperte",
+              "detail": "Rilevate 277 posizioni aperte via Greenhouse (focus R&D / Engineering). Focus prevalente su R&D / Engineering.",
               "source_tag": "[CAREERS]",
               "impact": "MEDIO"
             },
             {
               "title": "Catalizzatori Media & News (1 articoli positivi)",
-              "detail": "ASTS Stock Jumps Overnight Despite New Shares For Engines And Spectrum — Bulls Cheer ULA’s Amazon Launch Clue",
+              "detail": "AST SpaceMobile Stock: My Price Target Depends on One Important Milestone - Yahoo Finance",
               "source_tag": "[NEWS]",
               "impact": "MEDIO"
             }
           ],
           "insider_conviction_read": "Segnale forte: 3 acquisti diretti Codice P ($619K).",
-          "expansion_signal": "Rilevate 280 posizioni aperte via Greenhouse (focus R&D / Engineering).",
+          "expansion_signal": "Rilevate 277 posizioni aperte via Greenhouse (focus R&D / Engineering).",
           "bull_conviction": 95
         },
         "bear": {
@@ -3686,12 +3720,6 @@
               "detail": "Registrate 2 transazioni Codice S in uscita nei Form 4 recenti.",
               "source_tag": "[FORM-4]",
               "severity": "MEDIO"
-            },
-            {
-              "title": "Notizie Critiche Recenti (1 alert)",
-              "detail": "AST SpaceMobile Sinks 8% as New Offering Filing Revives Dilution Fears",
-              "source_tag": "[NEWS]",
-              "severity": "MEDIO"
             }
           ],
           "dilution_risk_level": "ALTO",
@@ -3706,7 +3734,7 @@
             "Bilancio: Cassa $2.80B vs Debito Totale $4.12B (Net Cash: -$1.32B).",
             "Runway calcolata: $2.80B / $157.7M al mese = 17.7 mesi.",
             "Form 4 SEC: verificati 3 acquisti reali Codice P vs 2 vendite Codice S (esclusi grant/opzioni).",
-            "Drawdown post-IPO confermato a -80.96% rispetto al picco di $134."
+            "Drawdown post-IPO confermato a -80.91% rispetto al picco di $134."
           ],
           "challenged_claims": []
         }
@@ -4378,6 +4406,643 @@
           "challenged_claims": []
         }
       }
+    },
+    "ALAB": {
+      "ticker": "ALAB",
+      "company_name": "Astera Labs, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "exchange": "NMS",
+      "analyzed_at": "2026-11-19T22:07:11.959146+00:00",
+      "asymmetry_score": 72,
+      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "sub_scores": {
+        "catalyst_strength": 18,
+        "financial_survival_runway": 25,
+        "insider_alignment": 5,
+        "valuation_asymmetry": 13,
+        "audit_confidence": 11
+      },
+      "thesis_5_lines": [
+        "1. Tesi Core: Astera Labs, Inc. (ALAB) tratta a -57.64% dal picco post-IPO; driver principale: Disallineamento tra crescita fondamentale e drawdown post-IPO.",
+        "2. Sopravvivenza: Ricavi YoY a +153.7% con cassa di $1.38B e Cash Flow Positivo (Net Cash $1.33B).",
+        "3. Segnali Lenti: SEC Form 4 mostra nessun acquisto open-market Codice P recente; segnale Careers 'HIRING_SPIKE' (R&D / Engineering).",
+        "4. Contro-Verifica Bear/Auditor: Rischio diluizione MODERATO; affidabilità dati verificata al 92%.",
+        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$211.60; invalidazione se runway < 9m o emissione S-3 diluitiva."
+      ],
+      "signal_tags": [
+        "Hiring Spike",
+        "Cash Flow Positivo",
+        "Net Cash",
+        "Post-IPO -58%",
+        "Rischio Diluizione"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 35.0,
+        "entry_zone": "Accumulo frazionato area $198.90 - $217.95",
+        "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
+        "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
+      },
+      "quant_metrics": {
+        "ticker": "ALAB",
+        "company_name": "Astera Labs, Inc.",
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "exchange": "NMS",
+        "currency": "USD",
+        "website": "https://www.asteralabs.com",
+        "business_summary": "Astera Labs, Inc. designs, manufactures, and sells semiconductor-based connectivity solutions for cloud and AI infrastructure in Taiwan and the United States. It offers an intelligent connectivity platform, comprised of semiconductor-based, high-speed, mixed-signal connectivity products that integrate a matrix of microcontrollers and sensors, and COSMOS. The company provides COSMOS software suite, a connectivity system management and optimization software that enables management and optimization of resources for large fleets at cloud-scale via link, fleet, and RAS management capabilities. In addition, it offers PCIe/CXL smart DSP retimers and cable modules; ethernet smart cable modules for c",
+        "current_price": 211.6,
+        "ipo_date": "2024-03-20",
+        "months_since_ipo": 32.0,
+        "post_ipo_high": 499.48,
+        "post_ipo_drawdown_pct": -57.64,
+        "post_ipo_change_pct": 241.13,
+        "market_cap": 36983889920.0,
+        "enterprise_value": 36550766592.0,
+        "cash_and_equivalents": 1378242944.0,
+        "total_debt": 44993000.0,
+        "net_cash": 1333249944.0,
+        "revenue_ttm": 1556242944.0,
+        "revenue_growth_yoy_pct": 153.7,
+        "gross_margin_pct": 73.89,
+        "ev_to_sales": 23.49,
+        "operating_cash_flow_ttm": 436742016.0,
+        "free_cash_flow_ttm": 131361376.0,
+        "monthly_burn_usd": 0.0,
+        "is_cash_flow_positive": true,
+        "runway_months": 99.0,
+        "current_ratio": 8.03,
+        "debt_to_equity": 2.25,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 756,
+        "is_micro_or_small_cap": false,
+        "data_available": true
+      },
+      "screening": {
+        "passed": false,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": false,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -58%",
+          "Ricavi +154% YoY",
+          "Cash Flow Positivo",
+          "Net Cash Positiva"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "ALAB",
+        "cik": "0001736297",
+        "entity_name": "Astera Labs, Inc.",
+        "sic_description": "Semiconductors & Related Devices",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001736297",
+        "filings_8k": [
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-04",
+            "items": [
+              "5.02"
+            ],
+            "item_descriptions": [
+              "Item 5.02: Cambio Dirigenti / CdA"
+            ],
+            "description": "Item 5.02: Cambio Dirigenti / CdA",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000162828026070258/alab-20261102.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-03",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000044/alab-20261103.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-08-04",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000033/alab-20260804.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-06-08",
+            "items": [
+              "5.07"
+            ],
+            "item_descriptions": [
+              "Item 5.07: Voto Azionisti"
+            ],
+            "description": "Item 5.07: Voto Azionisti",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000027/alab-20260604.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-05-05",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000017/alab-20260505.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-02-10",
+            "items": [
+              "5.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 5.02: Cambio Dirigenti / CdA",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 5.02: Cambio Dirigenti / CdA, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000110465926012649/tm265461d2_8k.htm"
+          }
+        ],
+        "filings_periodic": [
+          {
+            "form": "10-Q",
+            "filing_date": "2026-11-04",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000045/alab-20260930.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-08-05",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000035/alab-20260630.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-05-06",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000020/alab-20260331.htm"
+          },
+          {
+            "form": "10-K",
+            "filing_date": "2026-02-20",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000173629726000010/alab-20251231.htm"
+          }
+        ],
+        "filings_s1_ipo": [
+          {
+            "form": "424B4",
+            "filing_date": "2024-03-21",
+            "description": "424B4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000119312524073873/d285484d424b4.htm"
+          },
+          {
+            "form": "S-1/A",
+            "filing_date": "2024-03-18",
+            "description": "S-1/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000119312524069611/d285484ds1a.htm"
+          },
+          {
+            "form": "S-1/A",
+            "filing_date": "2024-03-08",
+            "description": "S-1/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000119312524062817/d285484ds1a.htm"
+          }
+        ],
+        "filings_s3_shelf": [
+          {
+            "form": "S-3ASR",
+            "filing_date": "2026-03-20",
+            "description": "Shelf / ATM Takedown S-3ASR (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000110465926032743/tm269088-1_s3asr.htm"
+          }
+        ],
+        "shelf_dilution_risk": true,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 2.0,
+            "price_usd": 209.6586,
+            "value_usd": 419.32,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 5.0,
+            "price_usd": 208.7492,
+            "value_usd": 1043.75,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 7.0,
+            "price_usd": 207.8707,
+            "value_usd": 1455.09,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 6.0,
+            "price_usd": 206.7493,
+            "value_usd": 1240.5,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 5.0,
+            "price_usd": 205.9011,
+            "value_usd": 1029.51,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 6.0,
+            "price_usd": 204.8121,
+            "value_usd": 1228.87,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 3.0,
+            "price_usd": 203.8384,
+            "value_usd": 611.52,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Cota Germaine",
+            "role": "Chief Accting. Off. & VP, Fin.",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 1.0,
+            "price_usd": 201.895,
+            "value_usd": 201.9,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000183053226000011/xslF345X06/wk-form4_1795039757.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Mazzara Philip",
+            "role": "General Counsel and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 50.0,
+            "price_usd": 210.6653,
+            "value_usd": 10533.26,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000199816326000024/xslF345X06/wk-form4_1795037942.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Mazzara Philip",
+            "role": "General Counsel and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 230.0,
+            "price_usd": 209.6586,
+            "value_usd": 48221.48,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000199816326000024/xslF345X06/wk-form4_1795037942.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Mazzara Philip",
+            "role": "General Counsel and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 551.0,
+            "price_usd": 208.7492,
+            "value_usd": 115020.81,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000199816326000024/xslF345X06/wk-form4_1795037942.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Mazzara Philip",
+            "role": "General Counsel and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 954.0,
+            "price_usd": 207.8707,
+            "value_usd": 198308.65,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000199816326000024/xslF345X06/wk-form4_1795037942.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Mazzara Philip",
+            "role": "General Counsel and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 739.0,
+            "price_usd": 206.7493,
+            "value_usd": 152787.73,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000199816326000024/xslF345X06/wk-form4_1795037942.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Mazzara Philip",
+            "role": "General Counsel and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 653.0,
+            "price_usd": 205.9011,
+            "value_usd": 134453.42,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000199816326000024/xslF345X06/wk-form4_1795037942.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Mazzara Philip",
+            "role": "General Counsel and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 681.0,
+            "price_usd": 204.8121,
+            "value_usd": 139477.04,
+            "url": "https://www.sec.gov/Archives/edgar/data/1736297/000199816326000024/xslF345X06/wk-form4_1795037942.xml"
+          }
+        ],
+        "open_market_buys_count": 0,
+        "open_market_buys_usd": 0,
+        "open_market_sales_count": 80,
+        "open_market_sales_usd": 102662743.84,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "Rischio Diluizione (S-3/424B5)"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "Astera Labs (ALAB) Stock May Be 21% Below Fair Value Despite Strong Q4 Guidance - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUjd5NjA2N2tBQVYxRjhLa2RlSWZGbmFZSDNfWEVJclhPUW50VmF6N3VKRjVoOENaTkFOTW04ckVzLUxESkNqbndOMDFkYXBBQlVGY2MzUDVtUllSNWxtTS1lRnVUX1BydWtCekp2akxkREtNenZxY3hDaVhmdmplcWJDNTVRdUsySTRva1QteDN6bk5HNHc?oc=5",
+            "published": "Sat, 14 Nov 2026 21:08:34 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Why Is Astera Labs Stock Falling Again? - Trefis",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxObEhLSGNHR3BKTGR4QzhTMU9JTXNzVFBuWTFTQ0t6ZHg3b3J5TjFUTnlKcHBObjVVX0hwaHFJWUZIQnBpTTUzdFVacHBXOF9wdUsyNDFKbkZTbVRfYnJmaE50UVpTU0lkeUZOUzVJbkpSSEtvMThRaWtqZ1FzUU1yU1BsY0ZlNU5UZjh2U2Z4UFhfT2NjLVhkZ29ILW5jenhl?oc=5",
+            "published": "Tue, 17 Nov 2026 12:51:44 GMT",
+            "source": "Trefis",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Astera Labs vs. Amphenol: Which Connectivity Stock Is the Better Buy? - TradingView",
+            "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbzdqRnlQX2s0bXptbGFrR0VUWnRVR0NXNGJqYlhNMHV0OWh6R3IzZjRIc0lqV2cxVlVVOFdkdFZTMHViWjlxc0NXZ1pXaFFSSF84c25jc1Q1LTdqSFd6b1RxLW9HenB3TW9JcE1tNjBKTEZtb01vcHNnSmhISnAxd3loRm1yQy1vNUNXN3JuQkhjRTdDTlM4MVkyd3VieExYUE16WTBWYk55MGtKQUFEQWp1Yy1wWnBrV2lSZ2laRQ?oc=5",
+            "published": "Tue, 17 Nov 2026 17:57:40 GMT",
+            "source": "TradingView",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "How Astera Labs (ALAB) Is Expanding Its Role in AI Connectivity - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPeVZyUm5sVVloQkwxZ1FrTjZWdlVtUmZ5M3J4TFlrZ2ZTTXE5RE85U05fZDBjblAzMWxqUC15bWktVzh3bUNHeEREc0g3U1ZuNnpscFhEUkFzNjZhekVJTW9sQi1kYUhaSzA4anNLaW1BcmluMXRqekUwbkpYWHBNaGQ0WXI0Ukxhcl9OYnB4ajc2UldqdTV4QjVDbw?oc=5",
+            "published": "Wed, 18 Nov 2026 15:24:08 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Astera Labs (ALAB) Stock May Be 21% Undervalued After Record Revenue - Simply Wall St",
+            "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQTzhlUFhfOFBvMDVWZTYyUEdBRmpsWl9wSW1RQldwU0E5WjVpdGQ0cXJ2TENXbHFXVXpoZTkwLXVwYmRTVDhEc3hhZllVWGxndjU5V2JCWk91MUJPYjZCOWY3YUlKRTAyMDhkMEN5VHpkeE1idHhpa1VxMTlRSU5YX2E1X2NEeG1GMWxzVmRqWXE1S2JPOEx3OTdmbTFneU9hRElFZ09xbnMzX05HQlM1YlVhbmpKTENkNUF5TmVGdWpfb1VIVTA2Nmg2enNsTmlPeEHSAdcBQVVfeXFMTm0tS1QwV3pMcUhnYWFrbUFxQklTaWNGWTBCR3dlaVh2RU5FRV84czRTTHNQZTA3aExXT1NFX2k5QjRCbTJUX3g5dE1SclEtZ3RFODB0V0ZtRS1kQnJzT1JXakVZTXMzMFgxd2V1dFYzc2FyWE5BVXJST3FXZnNGOHBlSGRZUjFDZjFmOEhlUmZ2ZTBUUnNneWZuSW5qcU96S3NPQnJuV1JuaExOai0zLVZUalFidGdfcVhlYm9qdjh5SjB1bGhfUEc2cmc5WjhpQ25tWGJzVk0?oc=5",
+            "published": "Sat, 14 Nov 2026 21:24:56 GMT",
+            "source": "Simply Wall St",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Astera Labs: Down 56% From The High, Don't Miss This Pullback (Rating Upgrade) (ALAB) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPb1hDalEydEVZUHpDS1dwLVVIS19ZQklwYUoyRDYzbnFWdTNKQ0NqZmo4RmlxbTBoVnJlOU1UdlE3anhMZFU4TEd1eHAzOFFKY1hlVEktTW9FX2lWU284bFhLN0N6a3J0RWEybkpVY0VWY0tVTHVqTlppNk1tbHBRZjcwbEgxYy1rUzhkWHdxQ0QxR3VtRENRVGRnSnc5SkM2akVfR0VtYnZuclJaNFozUnhmVURHMTMy?oc=5",
+            "published": "Mon, 16 Nov 2026 21:55:46 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": 174,
+        "hiring_trend": "HIRING_SPIKE",
+        "department_focus": "R&D / Engineering",
+        "ats_source": "Greenhouse",
+        "careers_url": "https://boards.greenhouse.io/asteralabs",
+        "sample_roles": [
+          "Active Electrical Cable Module FW Engineer – Tech Lead ",
+          "Active Electric Cable / Smart Cable Module Lead, AVP",
+          "AE| Principal Product Application Engineer (Scorpio)",
+          "Analog Mixed Signal Design Engineer",
+          " Applications Engineering Manager - Ethernet"
+        ],
+        "evidence_note": "Rilevate 174 posizioni aperte via Greenhouse (focus R&D / Engineering)."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "ALAB negoziabile frazionato da €1 su NMS; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 211.6,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate e 1 azione ($211.60, ~€194.67) supera il micro-ticket da €35."
+        }
+      ],
+      "debate": {
+        "ai_engine": "hybrid (2/4 Gemini + Fallback)",
+        "bull": {
+          "headline": "Ipercrescita ricavi (+153,7% YoY) e cassa netta di 1,33 mld $ a fronte di un drawdown del 57,6% dai massimi",
+          "core_catalysts": [
+            {
+              "title": "Disallineamento tra crescita fondamentale e drawdown post-IPO",
+              "detail": "A fronte di un crollo del titolo del -57,64% dai massimi storici (da 499,48 $ a 211,60 $), la società mostra una crescita dei ricavi del 153,70% YoY con margine lordo del 73,89% e Free Cash Flow positivo per 131,36M $.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Bilancio blindato e assenza di fabbisogno finanziario immediato",
+              "detail": "Posizione finanziaria netta ampiamente positiva con 1,33 miliardi $ di net cash (1,38 miliardi $ in cassa contro soli 44,99M $ di debito), OCF TTM pari a 436,74M $ e current ratio pari a 8,03.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Aggressiva espansione del personale R&D su connettività AI",
+              "detail": "Rilevato un picco di assunzioni ('HIRING_SPIKE') con 174 ruoli aperti su Greenhouse focalizzati su R&D e Engineering per lo sviluppo di cavi intelligenti (AEC) e controller Mixed Signal Ethernet/PCIe.",
+              "source_tag": "[CAREERS]",
+              "impact": "MEDIO"
+            },
+            {
+              "title": "Nuova evidenza di trimestrali record e guidance Q4 positiva",
+              "detail": "I recenti depositi Item 2.02 e le rilevazioni di settore evidenziano ricavi record e una guidance robusta per il quarto trimestre, con commenti di mercato che segnalano una sottovalutazione implicita di circa il 21%.",
+              "source_tag": "[NEWS]",
+              "impact": "MEDIO"
+            }
+          ],
+          "insider_conviction_read": "Nessuna convinzione rilevabile tramite acquisti Form 4: sono stati registrati zero acquisti sul mercato aperto (Codice P) e 80 transazioni di vendita (Codice S) per oltre 102,66 milioni $ complessivi [FORM-4].",
+          "expansion_signal": "Segnale fortemente espansivo sul piano operativo/ingegneristico: 174 posizioni aperte con focus esclusivo su R&D, firmware e architettura hardware per data center e AI [CAREERS].",
+          "bull_conviction": 68
+        },
+        "bear": {
+          "headline": "Valutazione estrema (EV/Sales 23.5x), oltre $102M scaricati da insider e shelf S-3ASR pendente",
+          "red_flags": [
+            {
+              "title": "Scarico massiccio di azioni da parte degli insider ($102.6M venduti)",
+              "detail": "Rilevate 80 vendite sul mercato aperto (Codice S) a fronte di zero acquisti, per un controvalore totale di circa 102.66 milioni di dollari, coinvolgendo anche figure contabili chiave come il Chief Accounting Officer.",
+              "source_tag": "[FORM-4]",
+              "severity": "CRITICO"
+            },
+            {
+              "title": "Presenza di Shelf Registration attiva (S-3ASR)",
+              "detail": "La società ha depositato un filing S-3ASR che abilita l'emissione continuativa di nuove azioni sul mercato (ATM o secondarie), aumentando l'overhang potenziale e il rischio di diluizione opportunistica.",
+              "source_tag": "[SEC-S3]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Multipli di valutazione tirati e drawdown post-IPO del 57.6%",
+              "detail": "Nonostante la correzione del -57.64% dai massimi storici di $499.48, il titolo scambia a un multiplo EV/Sales di 23.49x, rendendo il prezzo estremamente vulnerabile a qualsiasi rallentamento del ciclo AI.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Turnover nel management / consiglio di amministrazione",
+              "detail": "Filing 8-K (Item 5.02) registrato il 04/11/2026 relativo a cambiamenti nei vertici aziendali o nel Board, evento da monitorare in coincidenza con le vendite insider.",
+              "source_tag": "[SEC-8K]",
+              "severity": "MEDIO"
+            }
+          ],
+          "dilution_risk_level": "MODERATO",
+          "burn_and_balance_sheet_audit": "La struttura finanziaria è solida (cassa per $1.38B contro un debito trascurabile di $45M, FCF ttm positivo a $131.4M e current ratio a 8.03). Non sussiste rischio di liquidità immediato; tuttavia, l'attivazione della shelf S-3ASR e le vendite insider aggressive segnalano la volontà della dirigenza di monetizzare la valutazione generosa a spese degli investitori retail.",
+          "bear_severity": 68
+        },
+        "auditor": {
+          "verification_score": 92,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Coerenza verificata: Net Cash $1.33B, Runway CF Positivo, Form 4 Codice P separato correttamente da grant (Codice A/M).",
+          "verified_facts": [
+            "Bilancio: Cassa $1.38B vs Debito Totale $45.0M (Net Cash: $1.33B).",
+            "Sostenibilità: Cash flow positivo, nessuna dipendenza immediata da aumenti di capitale.",
+            "Form 4 SEC: verificati 0 acquisti reali Codice P vs 80 vendite Codice S (esclusi grant/opzioni).",
+            "Drawdown post-IPO confermato a -57.64% rispetto al picco di $499."
+          ],
+          "challenged_claims": []
+        }
+      }
     }
   },
   "micro_orders": [
@@ -4395,8 +5060,8 @@
       "initial_ai_score": 77,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.133741+00:00",
-      "last_live_price_usd": 25.49,
-      "last_monitored_at": "2026-11-19T13:35:14.853627+00:00",
+      "last_live_price_usd": 25.55,
+      "last_monitored_at": "2026-11-19T22:07:22.484414+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -4451,11 +5116,17 @@
           "price_usd": 25.49,
           "pnl_pct": 4.04,
           "ai_score": 77
+        },
+        {
+          "ts": "2026-11-19T22:07:22.484414+00:00",
+          "price_usd": 25.55,
+          "pnl_pct": 4.29,
+          "ai_score": 77
         }
       ],
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "peak_price_usd": 25.49
+      "peak_price_usd": 25.55
     },
     {
       "id": "002e9cf8",
@@ -4471,8 +5142,8 @@
       "initial_ai_score": 73,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.148135+00:00",
-      "last_live_price_usd": 6.82,
-      "last_monitored_at": "2026-11-19T13:35:14.853627+00:00",
+      "last_live_price_usd": 6.51,
+      "last_monitored_at": "2026-11-19T22:07:22.484414+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -4527,6 +5198,12 @@
           "price_usd": 6.82,
           "pnl_pct": 6.56,
           "ai_score": 73
+        },
+        {
+          "ts": "2026-11-19T22:07:22.484414+00:00",
+          "price_usd": 6.51,
+          "pnl_pct": 1.72,
+          "ai_score": 73
         }
       ],
       "take_profit_pct": 80.0,
@@ -4546,8 +5223,8 @@
       "auto_registered": true,
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "last_live_price_usd": 53.07,
-      "last_monitored_at": "2026-11-19T13:35:14.853627+00:00",
+      "last_live_price_usd": 50.99,
+      "last_monitored_at": "2026-11-19T22:07:22.484414+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -4594,6 +5271,12 @@
           "price_usd": 53.07,
           "pnl_pct": 0.0,
           "ai_score": 76
+        },
+        {
+          "ts": "2026-11-19T22:07:22.484414+00:00",
+          "price_usd": 50.99,
+          "pnl_pct": -3.92,
+          "ai_score": 76
         }
       ],
       "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -4605,6 +5288,110 @@
     }
   ],
   "pipeline_runs": [
+    {
+      "run_at": "2026-11-19T22:07:22.476879+00:00",
+      "candidates_scanned": 12,
+      "analyzed_count": 3,
+      "skipped_count": 5,
+      "error_count": 3,
+      "top_tickers": [
+        {
+          "ticker": "ASTS",
+          "score": 77,
+          "verdict": "STRONG_ASYMMETRIC_BUY"
+        },
+        {
+          "ticker": "ALAB",
+          "score": 72,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        },
+        {
+          "ticker": "BKSY",
+          "score": 48,
+          "verdict": "AVOID_DILUTION_TRAP"
+        }
+      ],
+      "skipped": [
+        {
+          "ticker": "TEM",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ENVX",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "HNST",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "NRDY",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "COOK",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        }
+      ],
+      "errors": [
+        {
+          "ticker": "RDW",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "PL",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "OUST",
+          "error": "name 'time' is not defined"
+        }
+      ],
+      "auto_monitor": {
+        "checked_count": 3,
+        "auto_closed": [],
+        "alerts": []
+      },
+      "auto_register": {
+        "registered_tickers": [],
+        "skipped_count": 8
+      }
+    },
     {
       "run_at": "2026-11-19T13:32:11.478764+00:00",
       "candidates_scanned": 12,
@@ -4836,7 +5623,7 @@
       "errors": []
     }
   ],
-  "updated_at": "2026-11-19T13:35:15.959704+00:00",
+  "updated_at": "2026-11-19T22:07:23.039155+00:00",
   "autopilot_config": {
     "enabled": true,
     "background_monitor_enabled": false,
@@ -4867,6 +5654,34 @@
     "notify_telegram": true
   },
   "autopilot_logs": [
+    {
+      "id": "18f7546a",
+      "ts": "2026-11-19T22:07:23.027996+00:00",
+      "action": "SKIPPED_GUARDRAIL",
+      "ticker": "ALL",
+      "summary": "Nessun nuovo ordine auto-registrato: 8 candidati filtrati dai guardrail.",
+      "details": {
+        "skipped_tickers": [
+          "ASTS",
+          "RKLB",
+          "RDW",
+          "ALAB",
+          "PL",
+          "OUST"
+        ]
+      }
+    },
+    {
+      "id": "d4ae144b",
+      "ts": "2026-11-19T22:07:23.008385+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "RKLB,RDW,ASTS",
+      "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 3,
+        "rescan_ai": false
+      }
+    },
     {
       "id": "6eb82aa1",
       "ts": "2026-11-19T13:35:15.958622+00:00",
