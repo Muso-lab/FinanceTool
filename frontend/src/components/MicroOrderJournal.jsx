@@ -431,7 +431,7 @@ export default function MicroOrderJournal({
 
             <button
               type="submit"
-              disabled={submitting || isReadOnly}
+              disabled={submitting}
               className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-cyan-600 py-2.5 text-xs font-semibold text-white transition hover:bg-cyan-500 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Plus className="h-4 w-4" />

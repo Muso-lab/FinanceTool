@@ -684,8 +684,8 @@ export default function AutoPilotPanel({
 
             <button
               type="submit"
-              disabled={isSavingConfig || isReadOnly}
-              title={isReadOnly ? "Modalità Cloud Read-Only: modifica regole in locale o via GitHub" : "Salva regole Auto-Pilot"}
+              disabled={isSavingConfig}
+              title="Salva regole Auto-Pilot"
               className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 py-2 font-semibold text-slate-100 transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Save className="h-3.5 w-3.5" />

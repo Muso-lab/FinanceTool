@@ -55,6 +55,8 @@ async function loadStaticSnapshot() {
 }
 
 function resolveSnapshotEndpoint(path, snapshot) {
+  const localCfg = JSON.parse(localStorage.getItem("autopilot_config_override") || "{}");
+
   if (path === "/health" || path.startsWith("/health?")) {
     return {
       ...(snapshot.health || {}),
@@ -75,10 +77,19 @@ function resolveSnapshotEndpoint(path, snapshot) {
     };
   }
   if (path === "/journal" || path.startsWith("/journal?")) {
-    return snapshot.journal || { orders: [], summary: {} };
+    const base = snapshot.journal || { orders: [], summary: {} };
+    const localOrders = JSON.parse(localStorage.getItem("journal_local_orders") || "[]");
+    return {
+      ...base,
+      orders: [...localOrders, ...(base.orders || [])],
+    };
   }
   if (path === "/autopilot/status") {
-    return snapshot.autopilot || { config: {}, logs: [], last_monitor_at: null, journal: { orders: [], summary: {} } };
+    const base = snapshot.autopilot || { config: {}, logs: [], last_monitor_at: null, journal: { orders: [], summary: {} } };
+    return {
+      ...base,
+      config: { ...(base.config || {}), ...localCfg },
+    };
   }
   return null;
 }
@@ -159,18 +170,52 @@ async function request(path, options = {}) {
 export const apiClient = {
   getHealth: () => request("/health"),
   getOpportunities: (minScore = 0) => request(`/opportunities?min_score=${minScore}`),
-  scanTicker: (ticker) => request(`/scan/${encodeURIComponent(ticker)}`, { method: "POST" }),
+  scanTicker: async (ticker) => {
+    try {
+      return await request(`/scan/${encodeURIComponent(ticker)}`, { method: "POST" });
+    } catch (err) {
+      const snap = await loadStaticSnapshot();
+      const sym = ticker.trim().toUpperCase();
+      const allItems = snap.opportunities?.items || [];
+      const found = allItems.find((o) => (o.ticker || "").toUpperCase() === sym);
+      if (found) {
+        return found;
+      }
+      throw new Error(
+        `Ticker ${sym} non ancora presente nel database cloud. Avvia la pipeline da GitHub Actions inserendo ${sym} nel campo tickers.`
+      );
+    }
+  },
   runPipeline: (tickers = null) =>
     request("/pipeline/run", {
       method: "POST",
       body: JSON.stringify({ tickers, max_candidates: 8, notify: false }),
     }),
   getJournal: () => request("/journal"),
-  createOrder: (payload) =>
-    request("/journal", {
-      method: "POST",
-      body: JSON.stringify(payload),
-    }),
+  createOrder: async (payload) => {
+    try {
+      return await request("/journal", {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      const newOrder = {
+        id: `local-${Date.now().toString(36)}`,
+        status: "APERTO",
+        created_at: new Date().toISOString(),
+        order_date: new Date().toISOString().slice(0, 10),
+        amount_eur: Number(payload.amount_eur || 35),
+        entry_price_usd: Number(payload.entry_price_usd || 10),
+        latest_price_usd: Number(payload.entry_price_usd || 10),
+        pnl_pct: 0,
+        ...payload,
+      };
+      const localOrders = JSON.parse(localStorage.getItem("journal_local_orders") || "[]");
+      localOrders.unshift(newOrder);
+      localStorage.setItem("journal_local_orders", JSON.stringify(localOrders));
+      return newOrder;
+    }
+  },
   updateOrder: (orderId, payload) =>
     request(`/journal/${orderId}`, {
       method: "PATCH",
@@ -181,11 +226,22 @@ export const apiClient = {
       method: "DELETE",
     }),
   getAutopilotStatus: () => request("/autopilot/status"),
-  updateAutopilotConfig: (payload) =>
-    request("/autopilot/config", {
-      method: "PUT",
-      body: JSON.stringify(payload),
-    }),
+  updateAutopilotConfig: async (payload) => {
+    try {
+      return await request("/autopilot/config", {
+        method: "PUT",
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      const existing = JSON.parse(localStorage.getItem("autopilot_config_override") || "{}");
+      const updated = { ...existing, ...payload };
+      localStorage.setItem("autopilot_config_override", JSON.stringify(updated));
+      return {
+        config: updated,
+        message: "Regole Auto-Pilot salvate con successo nel browser.",
+      };
+    }
+  },
   runAutoRegister: (dryRun = false, force = false) =>
     request("/autopilot/auto-register", {
       method: "POST",
