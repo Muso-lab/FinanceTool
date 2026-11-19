@@ -200,8 +200,8 @@ def _call_gemini_agent(
                     return res
         except Exception as exc:
             err_msg = str(exc)
-            if "404" in err_msg or "NOT_FOUND" in err_msg:
-                logger.warning("Gemini model %s returned 404, trying fallback...", target_model)
+            if any(k in err_msg for k in ["404", "NOT_FOUND", "503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED"]):
+                logger.warning("Gemini model %s transient error (%s), trying fallback model...", target_model, err_msg[:60])
                 continue
             logger.warning("Gemini agent call failed (%s): %s", target_model, exc)
             return None

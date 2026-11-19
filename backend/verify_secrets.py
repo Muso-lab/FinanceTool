@@ -64,8 +64,9 @@ def test_gemini(api_key: str | None) -> bool:
             except Exception as exc:
                 last_error = exc
                 err_msg = str(exc)
-                if "404" in err_msg or "NOT_FOUND" in err_msg:
-                    print(f"   ⚠️ Modello '{model_name}' non disponibile o deprecato, provo il fallback...")
+                # Se è un 404 (non trovato), 503 (sovraccarico temporaneo) o 429 (rate limit), proviamo il modello successivo
+                if any(k in err_msg for k in ["404", "NOT_FOUND", "503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED"]):
+                    print(f"   ⚠️ Modello '{model_name}' temporaneamente non disponibile ({err_msg[:70]}...), provo il fallback...")
                     continue
                 else:
                     print(f"❌ GEMINI_API_KEY: ERRORE DURANTE LA CHIAMATA API ({model_name}): {exc}")
