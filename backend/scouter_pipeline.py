@@ -15,7 +15,7 @@ from services.alt_data import (
     check_broker_fractional_availability,
     fetch_ticker_news,
 )
-from services.notifier import send_telegram_alert
+from services.notifier import send_telegram_alert, send_daily_portfolio_briefing
 from services.quant_screener import (
     discover_candidate_tickers,
     evaluate_screening_criteria,
@@ -1024,6 +1024,16 @@ def run_daily_pipeline(
     if export_snapshot:
         snapshot_path = storage.export_frontend_snapshot()
         summary["snapshot_exported"] = str(snapshot_path)
+
+    if notify:
+        try:
+            send_daily_portfolio_briefing(
+                journal=storage.list_micro_orders(),
+                top_candidates=top_picks,
+            )
+        except Exception as b_exc:
+            logger.warning("Daily portfolio briefing notification failed: %s", b_exc)
+
     return summary
 
 
@@ -1058,9 +1068,17 @@ if __name__ == "__main__":
         action="store_true",
         help="Skip full screening and only refresh live prices, TP/SL exits, and static snapshot",
     )
+    parser.add_argument(
+        "--briefing-only",
+        action="store_true",
+        help="Send daily Telegram portfolio briefing and exit",
+    )
     args = parser.parse_args()
 
-    if args.monitor_only:
+    if args.briefing_only:
+        send_daily_portfolio_briefing(journal=storage.list_micro_orders(), top_candidates=None)
+        result = {"status": "briefing_sent"}
+    elif args.monitor_only:
         result = run_monitor_only(export_snapshot=True)
     else:
         result = run_daily_pipeline(
