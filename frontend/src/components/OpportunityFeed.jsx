@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import HowItWorksBanner from "./HowItWorksBanner";
 import {
   TrendingDown,
   ShieldCheck,
@@ -104,6 +105,9 @@ export default function OpportunityFeed({
 
   return (
     <div className="space-y-6">
+      {/* Guida Metodologia & Come Funziona */}
+      <HowItWorksBanner />
+
       {/* KPI Summary Strip */}
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
