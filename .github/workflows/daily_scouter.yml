@@ -1,0 +1,115 @@
+name: Daily IPO & Micro-Cap AI Scouter
+
+on:
+  schedule:
+    # Lun-Ven alle 13:30 UTC (prima dell'apertura US) — gira nel cloud GitHub a PC spento
+    - cron: "30 13 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: "Optional space-separated ticker override (e.g. RDW PL BKSY)"
+        required: false
+        default: ""
+      auto_register:
+        description: "Enable automated paper micro-order registration"
+        required: false
+        default: "true"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Concurrency condivisa con autopilot_monitor.yml per evitare race/conflitti sui commit dello store
+concurrency:
+  group: "scouter-state-writer"
+  cancel-in-progress: false
+
+jobs:
+  run-scouter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      - name: Configure optional Firebase Service Account
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SA" ]; then
+            printf '%s' "$FIREBASE_SA" > backend/firebase-sa.json
+            echo "FIREBASE_SERVICE_ACCOUNT_PATH=firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "FIREBASE_SERVICE_ACCOUNT_PATH=" >> "$GITHUB_ENV"
+          fi
+
+      - name: Run Multi-Agent Scouter Pipeline + Auto-Pilot
+        working-directory: backend
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ALERT_SCORE_THRESHOLD: "75"
+          TICKERS_OVERRIDE: ${{ github.event.inputs.tickers }}
+          AUTO_REGISTER_INPUT: ${{ github.event.inputs.auto_register }}
+        run: |
+          EXTRA_FLAGS="--auto-monitor"
+          if [ "$AUTO_REGISTER_INPUT" = "true" ] || [ -z "$AUTO_REGISTER_INPUT" ]; then
+            EXTRA_FLAGS="$EXTRA_FLAGS --auto-register"
+          fi
+          if [ -n "$TICKERS_OVERRIDE" ]; then
+            # shellcheck disable=SC2086
+            python scouter_pipeline.py --tickers $TICKERS_OVERRIDE $EXTRA_FLAGS
+          else
+            python scouter_pipeline.py --max-candidates 12 $EXTRA_FLAGS
+          fi
+
+      - name: Clean temporary Firebase key file
+        if: always()
+        run: rm -f backend/firebase-sa.json
+
+      - name: Commit updated store & static snapshot back to repo
+        run: |
+          git config user.name "scouter-autopilot-bot"
+          git config user.email "scouter-bot@users.noreply.github.com"
+          git add backend/data/scouter_store.json frontend/public/scouter_snapshot.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(bot): daily scouter scan & autopilot state [skip ci]"
+            git pull --rebase --autostash origin "${{ github.ref_name }}"
+            git push origin "HEAD:${{ github.ref_name }}"
+          else
+            echo "No state changes to commit."
+          fi
+
+      - name: Upload Scouter Results Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scouter-store-${{ github.run_id }}
+          path: backend/data/scouter_store.json
+          retention-days: 14
+
+  deploy-pages:
+    needs: run-scouter
+    if: success()
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy_pages.yml

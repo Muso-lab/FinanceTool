@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Environment & Secrets (mai versionati su GitHub)
+.env
+.env.*
+!.env.example
+!backend/.env.example
+firebase-sa.json
+*serviceAccount*.json
+firebase-adminsdk*.json
+
+# Local caches & temporary staging files (lo store e lo snapshot pubblico restano tracciati!)
+backend/data/sec_tickers_cache.json
+backend/data/*.tmp
+frontend/public/*.tmp
+*.json.bak
+
+# Node / Frontend build artifacts
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.DS_Store
+Thumbs.db
