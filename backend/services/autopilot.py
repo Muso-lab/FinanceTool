@@ -41,6 +41,32 @@ def fetch_fast_live_price(ticker: str) -> float | None:
     return None
 
 
+def _calculate_dynamic_ticket(
+    opp: dict[str, Any],
+    cfg: dict[str, Any],
+    virtual_cash: float,
+) -> float:
+    """Calcola il ticket dinamico in base all'Asymmetry Score di Gemini (Dynamic Position Sizing)."""
+    base = float(cfg.get("default_ticket_eur") or 35.0)
+    if not cfg.get("enable_dynamic_sizing", False):
+        return base
+
+    score = int(opp.get("asymmetry_score") or 0)
+    if score >= 90:
+        multiplier = float(cfg.get("dynamic_size_score_90_multiplier") or 2.0)
+        target = round(base * multiplier, 2)
+    elif score >= 80:
+        multiplier = float(cfg.get("dynamic_size_score_80_multiplier") or 1.43)
+        target = round(base * multiplier, 2)
+    else:
+        target = base
+
+    # Se la cassa è inferiore al target aumentato ma sufficiente per il ticket base, usa il cash disponibile
+    if target > base and virtual_cash < target and virtual_cash >= base:
+        return round(virtual_cash, 2)
+    return round(target, 2)
+
+
 def _evaluate_candidate_guardrails(
     opp: dict[str, Any],
     cfg: dict[str, Any],
@@ -48,6 +74,7 @@ def _evaluate_candidate_guardrails(
     remaining_slots: int,
     virtual_cash_available: float,
     ticket_eur: float,
+    open_counts_by_sector: dict[str, int] | None = None,
 ) -> tuple[bool, list[str]]:
     """Verify whether an analyzed opportunity satisfies every Auto-Pilot & virtual-budget guardrail."""
     reasons: list[str] = []
@@ -57,6 +84,7 @@ def _evaluate_candidate_guardrails(
     bear = (opp.get("debate") or {}).get("bear") or {}
     quant = opp.get("quant_metrics") or {}
     sec = opp.get("sec_filings") or {}
+    sector = (opp.get("sector") or quant.get("sector") or "").strip()
 
     audit_score = int(auditor.get("verification_score") or 0)
     is_cf_pos = bool(quant.get("is_cash_flow_positive"))
@@ -84,6 +112,12 @@ def _evaluate_candidate_guardrails(
     max_pos = int(cfg.get("max_positions_per_ticker") or 1)
     if open_counts_by_ticker.get(sym, 0) >= max_pos:
         reasons.append("Posizione già aperta su questo ticker")
+
+    # Guardrail di concentrazione settoriale (Sector Concentration Cap)
+    max_sec = int(cfg.get("max_positions_per_sector") or 2)
+    if open_counts_by_sector and sector and sector.lower() not in ("", "unknown", "n/d"):
+        if open_counts_by_sector.get(sector, 0) >= max_sec:
+            reasons.append(f"Tetto settoriale: già {open_counts_by_sector[sector]}/{max_sec} posizioni nel settore '{sector}'")
 
     if cfg.get("respect_monthly_5_limit", True) and remaining_slots <= 0:
         reasons.append(f"Limite mensile {monthly_limit}/{monthly_limit} raggiunto")
@@ -125,18 +159,31 @@ def evaluate_and_auto_register(
     opps = st.list_opportunities(min_score=0, limit=50)
 
     open_counts_by_ticker: dict[str, int] = {}
+    open_counts_by_sector: dict[str, int] = {}
     for ord_item in journal["orders"]:
         if ord_item.get("status", "APERTO") == "APERTO":
             t = (ord_item.get("ticker") or "").upper()
             open_counts_by_ticker[t] = open_counts_by_ticker.get(t, 0) + 1
+            t_opp = st.get_opportunity(t)
+            sec = ((t_opp.get("sector") if t_opp else None) or "").strip()
+            if sec:
+                open_counts_by_sector[sec] = open_counts_by_sector.get(sec, 0) + 1
 
     registered: list[dict[str, Any]] = []
     skipped: list[dict[str, Any]] = []
 
     for opp in opps:
         sym = (opp.get("ticker") or "").upper()
+        # Calcolo ticket dinamico in base all'Asymmetry Score
+        dynamic_ticket = _calculate_dynamic_ticket(opp, cfg, virtual_cash)
         passed, reasons = _evaluate_candidate_guardrails(
-            opp, cfg, open_counts_by_ticker, remaining_slots, virtual_cash, ticket_eur
+            opp,
+            cfg,
+            open_counts_by_ticker,
+            remaining_slots,
+            virtual_cash,
+            dynamic_ticket,
+            open_counts_by_sector=open_counts_by_sector,
         )
         if not passed:
             skipped.append(
@@ -167,7 +214,7 @@ def evaluate_and_auto_register(
                     "ticker": sym,
                     "asymmetry_score": opp.get("asymmetry_score"),
                     "entry_price_usd": price,
-                    "amount_eur": ticket_eur,
+                    "amount_eur": dynamic_ticket,
                     "mode": "PAPER_AUTO",
                     "take_profit_pct": cfg["take_profit_pct"],
                     "stop_loss_pct": cfg["stop_loss_pct"],
@@ -178,7 +225,7 @@ def evaluate_and_auto_register(
                 order = st.add_micro_order(
                     {
                         "ticker": sym,
-                        "amount_eur": ticket_eur,
+                        "amount_eur": dynamic_ticket,
                         "entry_price_usd": price,
                         "broker": cfg.get("default_broker") or "Trading 212 (Paper)",
                         "fractional": True,
@@ -205,7 +252,7 @@ def evaluate_and_auto_register(
 
             registered.append(order)
             msg = (
-                f"Auto-registrato micro-ordine PAPER_AUTO €{ticket_eur:.2f} su {sym} @ ${price:.2f} "
+                f"Auto-registrato micro-ordine PAPER_AUTO €{dynamic_ticket:.2f} su {sym} @ ${price:.2f} "
                 f"(Score {opp.get('asymmetry_score')}/100, TP1 +{cfg['tp1_pct']}%, TP2 +{cfg['take_profit_pct']}%)."
             )
             st.append_autopilot_log(
@@ -218,7 +265,10 @@ def evaluate_and_auto_register(
                 send_autopilot_event_alert("AUTO_REGISTER", sym, msg)
 
         open_counts_by_ticker[sym] = open_counts_by_ticker.get(sym, 0) + 1
-        virtual_cash = round(virtual_cash - ticket_eur, 2)
+        cand_sec = ((opp.get("sector") or quant.get("sector") or "")).strip()
+        if cand_sec:
+            open_counts_by_sector[cand_sec] = open_counts_by_sector.get(cand_sec, 0) + 1
+        virtual_cash = round(virtual_cash - dynamic_ticket, 2)
         if cfg.get("respect_monthly_5_limit", True):
             remaining_slots = max(0, remaining_slots - 1)
 
@@ -464,6 +514,21 @@ def run_portfolio_monitor(
             elif score_dropped:
                 close_key = "THESIS_STOP"
                 close_reason = f"THESIS_STOP (Calo Score {initial_score} -> {latest_score})"
+
+        # Time Stop (uscita disciplinata se il titolo rimane piatto dopo N giorni)
+        if close_reason is None and cfg.get("enable_time_stop", True) and is_paper:
+            created_str = ord_item.get("created_at") or ord_item.get("order_date")
+            if created_str:
+                try:
+                    c_dt = datetime.fromisoformat(str(created_str).replace("Z", "+00:00"))
+                    age_days = (now_dt - c_dt).days
+                    max_days = int(cfg.get("time_stop_days") or 60)
+                    max_band = float(cfg.get("time_stop_max_pnl_pct") or 10.0)
+                    if age_days >= max_days and abs(pnl_pct) <= max_band:
+                        close_key = "TIME_STOP_EXPIRED"
+                        close_reason = f"TIME_STOP ({age_days}gg >= {max_days}gg piatto, capitale riallocato)"
+                except Exception:
+                    pass
 
         # Regola di sicurezza: le posizioni simulate si chiudono automaticamente;
         # le posizioni REAL non vengono mai toccate automaticamente (solo alert deduplicato 12h).

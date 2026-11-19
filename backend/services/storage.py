@@ -49,6 +49,14 @@ DEFAULT_AUTOPILOT_CONFIG: dict[str, Any] = {
     "thesis_degrade_min_score": 55,
     "thesis_degrade_drop_pts": 18,
     "notify_telegram": True,
+    # Migliorie Auto-Trading Avanzato
+    "enable_dynamic_sizing": False,
+    "dynamic_size_score_80_multiplier": 1.43,
+    "dynamic_size_score_90_multiplier": 2.0,
+    "max_positions_per_sector": 2,
+    "enable_time_stop": True,
+    "time_stop_days": 60,
+    "time_stop_max_pnl_pct": 10.0,
 }
 
 
@@ -590,7 +598,7 @@ class ScouterStorage:
                 "invalidation_rule": payload.get("invalidation_rule", "").strip(),
                 "initial_ai_score": initial_score,
                 "status": payload.get("status") or "APERTO",
-                "created_at": now_iso,
+                "created_at": payload.get("created_at") or now_iso,
             }
             data.setdefault("micro_orders", []).append(order)
             self._write_local(data)

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sys
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -721,4 +722,103 @@ def test_real_order_tp1_does_not_block_trailing_and_uses_canonical_cooldown(tmp_
     resp = client.put("/api/autopilot/config", json={"virtual_budget_eur": 2000.0, "tp1_pct": None})
     assert resp.status_code == 200
     assert resp.json()["journal"]["summary"]["virtual_budget_eur"] == 2000.0
+
+
+def test_dynamic_position_sizing_and_sector_cap(tmp_path: Path) -> None:
+    """Verify Dynamic Sizing scales tickets with AI Score and Sector Cap prevents over-concentration."""
+    store = ScouterStorage(store_path=tmp_path / "advanced_store.json")
+    store.update_autopilot_config(
+        {
+            "virtual_budget_eur": 1000.0,
+            "default_ticket_eur": 35.0,
+            "enable_dynamic_sizing": True,
+            "dynamic_size_score_80_multiplier": 1.43,
+            "dynamic_size_score_90_multiplier": 2.0,
+            "max_positions_per_sector": 2,
+        }
+    )
+
+    # Candidate 1: High conviction score 92 in Technology -> should size to 70.0€ (2.0x)
+    store.upsert_opportunity(
+        {
+            "ticker": "TECH1",
+            "sector": "Technology",
+            "asymmetry_score": 92,
+            "quant_metrics": {"current_price": 10.0, "runway_months": 24.0, "sector": "Technology"},
+            "debate": {"auditor": {"verification_score": 90}, "bear": {"dilution_risk_level": "BASSO"}},
+        }
+    )
+    # Candidate 2: Score 83 in Technology -> should size to 50.05€ (1.43x)
+    store.upsert_opportunity(
+        {
+            "ticker": "TECH2",
+            "sector": "Technology",
+            "asymmetry_score": 83,
+            "quant_metrics": {"current_price": 15.0, "runway_months": 20.0, "sector": "Technology"},
+            "debate": {"auditor": {"verification_score": 85}, "bear": {"dilution_risk_level": "BASSO"}},
+        }
+    )
+    # Candidate 3: Score 85 in Technology -> should be BLOCKED by sector cap (max 2)
+    store.upsert_opportunity(
+        {
+            "ticker": "TECH3",
+            "sector": "Technology",
+            "asymmetry_score": 85,
+            "quant_metrics": {"current_price": 12.0, "runway_months": 18.0, "sector": "Technology"},
+            "debate": {"auditor": {"verification_score": 85}, "bear": {"dilution_risk_level": "BASSO"}},
+        }
+    )
+
+    reg = autopilot.evaluate_and_auto_register(dry_run=False, store=store)
+    reg_tickers = [r["ticker"] for r in reg["registered"]]
+    assert "TECH1" in reg_tickers
+    assert "TECH3" in reg_tickers
+    assert "TECH2" not in reg_tickers
+
+    orders = reg["journal"]["orders"]
+    tech1_ord = next(o for o in orders if o["ticker"] == "TECH1")
+    tech3_ord = next(o for o in orders if o["ticker"] == "TECH3")
+    assert tech1_ord["amount_eur"] == 70.0
+    assert tech3_ord["amount_eur"] == 50.05
+
+    tech2_skip = next(s for s in reg["skipped"] if s["ticker"] == "TECH2")
+    assert any("Tetto settoriale" in r for r in tech2_skip["reasons"])
+
+
+def test_time_stop_catalyst_expiration(tmp_path: Path) -> None:
+    """Verify positions older than time_stop_days with flat performance are closed to liberate cash."""
+    store = ScouterStorage(store_path=tmp_path / "timestop_store.json")
+    store.update_autopilot_config(
+        {
+            "virtual_budget_eur": 500.0,
+            "default_ticket_eur": 50.0,
+            "enable_time_stop": True,
+            "time_stop_days": 60,
+            "time_stop_max_pnl_pct": 10.0,
+        }
+    )
+
+    old_date = (datetime.now(timezone.utc) - timedelta(days=65)).isoformat()
+    ord_item = store.add_micro_order(
+        {
+            "ticker": "STAGNANT",
+            "amount_eur": 50.0,
+            "entry_price_usd": 10.0,
+            "mode": "PAPER_AUTO",
+            "created_at": old_date,
+            "order_date": old_date[:10],
+            "initial_thesis": "Catalyst expected within 45 days",
+        }
+    )
+
+    # Monitor at $10.10 (+1.0% PnL, flat within +/- 10% band after 65 days) -> TIME_STOP_EXPIRED
+    mon = autopilot.run_portfolio_monitor(True, False, store=store, price_fetcher=lambda _s: 10.10)
+    assert any(c["ticker"] == "STAGNANT" and "TIME_STOP" in c["reason"] for c in mon["auto_closed"])
+
+    st_ord = next(o for o in mon["journal"]["orders"] if o["id"] == ord_item["id"])
+    assert st_ord["status"] == "CHIUSO"
+    assert "TIME_STOP" in st_ord["close_reason"]
+    # Proceeds must be refunded to available cash
+    assert mon["journal"]["summary"]["paper_cash_available_eur"] == 500.50
+
 

@@ -633,6 +633,46 @@ export default function AutoPilotPanel({
                 />
               </label>
               <label className="flex items-center justify-between gap-2 text-slate-300">
+                <span>Dynamic Position Sizing (scala con AI Score: 80+ &rarr; 1.4x, 90+ &rarr; 2.0x)</span>
+                <input
+                  type="checkbox"
+                  checked={Boolean(formCfg.enable_dynamic_sizing)}
+                  onChange={(e) => handleField("enable_dynamic_sizing", e.target.checked)}
+                />
+              </label>
+              <label className="flex items-center justify-between gap-2 text-slate-300">
+                <span>Time-Stop Automatico ({formCfg.time_stop_days ?? 60}gg piatto)</span>
+                <input
+                  type="checkbox"
+                  checked={Boolean(formCfg.enable_time_stop)}
+                  onChange={(e) => handleField("enable_time_stop", e.target.checked)}
+                />
+              </label>
+              <div className="grid grid-cols-2 gap-2 pt-1">
+                <div>
+                  <label className="block text-[10px] text-slate-400">Max Posizioni/Settore</label>
+                  <input
+                    type="number"
+                    min={1}
+                    max={10}
+                    value={formCfg.max_positions_per_sector ?? 2}
+                    onChange={(e) => handleField("max_positions_per_sector", Number(e.target.value))}
+                    className="mt-0.5 w-full rounded border border-slate-700 bg-slate-900 px-2 py-1 font-mono-num text-xs text-slate-100"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] text-slate-400">Giorni Time-Stop</label>
+                  <input
+                    type="number"
+                    min={15}
+                    max={365}
+                    value={formCfg.time_stop_days ?? 60}
+                    onChange={(e) => handleField("time_stop_days", Number(e.target.value))}
+                    className="mt-0.5 w-full rounded border border-slate-700 bg-slate-900 px-2 py-1 font-mono-num text-xs text-slate-100"
+                  />
+                </div>
+              </div>
+              <label className="flex items-center justify-between gap-2 text-slate-300">
                 <span>Polling Background Locale</span>
                 <input
                   type="checkbox"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T13:35:15.970830+00:00",
+  "generated_at": "2026-11-19T13:52:27.861575+00:00",
   "health": {
     "status": "ok",
     "storage_mode": "local_json",
@@ -7863,7 +7863,14 @@
       "auto_close_on_thesis_degrade": true,
       "thesis_degrade_min_score": 55,
       "thesis_degrade_drop_pts": 18,
-      "notify_telegram": true
+      "notify_telegram": true,
+      "enable_dynamic_sizing": false,
+      "dynamic_size_score_80_multiplier": 1.43,
+      "dynamic_size_score_90_multiplier": 2.0,
+      "max_positions_per_sector": 2,
+      "enable_time_stop": true,
+      "time_stop_days": 60,
+      "time_stop_max_pnl_pct": 10.0
     },
     "logs": [
       {
