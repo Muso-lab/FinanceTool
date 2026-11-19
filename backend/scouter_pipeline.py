@@ -178,22 +178,33 @@ def _call_gemini_agent(
 ) -> dict[str, Any] | None:
     if client is None:
         return None
-    try:
-        config_kwargs: dict[str, Any] = {
-            "system_instruction": system_prompt,
-            "temperature": 0.2,
-            "response_mime_type": "application/json",
-        }
-        response = client.models.generate_content(
-            model=model_name,
-            contents=json.dumps(payload, ensure_ascii=False, default=str),
-            config=genai_types.GenerateContentConfig(**config_kwargs) if genai_types else None,
-        )
-        if response and response.text:
-            return _extract_json_block(response.text)
-    except Exception as exc:
-        logger.warning("Gemini agent call failed (%s): %s", model_name, exc)
-        return None
+
+    candidate_models = [model_name, "gemini-3.8-flash", "gemini-2.5-flash", "gemini-2.0-flash"]
+    models_to_try = [m for i, m in enumerate(candidate_models) if m and m not in candidate_models[:i]]
+
+    for target_model in models_to_try:
+        try:
+            config_kwargs: dict[str, Any] = {
+                "system_instruction": system_prompt,
+                "temperature": 0.2,
+                "response_mime_type": "application/json",
+            }
+            response = client.models.generate_content(
+                model=target_model,
+                contents=json.dumps(payload, ensure_ascii=False, default=str),
+                config=genai_types.GenerateContentConfig(**config_kwargs) if genai_types else None,
+            )
+            if response and response.text:
+                res = _extract_json_block(response.text)
+                if res:
+                    return res
+        except Exception as exc:
+            err_msg = str(exc)
+            if "404" in err_msg or "NOT_FOUND" in err_msg:
+                logger.warning("Gemini model %s returned 404, trying fallback...", target_model)
+                continue
+            logger.warning("Gemini agent call failed (%s): %s", target_model, exc)
+            return None
     return None
 
 

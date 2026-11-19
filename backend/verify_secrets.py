@@ -35,21 +35,46 @@ def test_gemini(api_key: str | None) -> bool:
         return False
 
     print(f"   Valore rilevato: {mask(api_key)}")
+    candidate_models = [
+        os.getenv("GEMINI_MODEL_FAST", "").strip(),
+        "gemini-3.8-flash",
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+        "gemini-1.5-flash",
+    ]
+    # Rimuovi duplicati e stringhe vuote mantenendo l'ordine
+    models_to_test = [m for i, m in enumerate(candidate_models) if m and m not in candidate_models[:i]]
+
     try:
         from google import genai
 
         client = genai.Client(api_key=api_key.strip())
-        model_name = os.getenv("GEMINI_MODEL_FAST", "gemini-3.8-flash")
-        resp = client.models.generate_content(
-            model=model_name,
-            contents="Rispondi solo con la parola 'FUNZIONA'.",
-        )
-        reply = resp.text.strip() if resp and resp.text else ""
-        print(f"✅ GEMINI_API_KEY: VALIDO E FUNZIONANTE! (Modello: {model_name})")
-        print(f"   Risposta AI: {reply}")
-        return True
+        last_error = None
+        for model_name in models_to_test:
+            try:
+                print(f"   Tentativo chiamata con modello: '{model_name}'...")
+                resp = client.models.generate_content(
+                    model=model_name,
+                    contents="Rispondi solo con la parola 'FUNZIONA'.",
+                )
+                reply = resp.text.strip() if resp and resp.text else ""
+                print(f"✅ GEMINI_API_KEY: VALIDO E FUNZIONANTE! (Modello attivo: {model_name})")
+                print(f"   Risposta AI: {reply}")
+                return True
+            except Exception as exc:
+                last_error = exc
+                err_msg = str(exc)
+                if "404" in err_msg or "NOT_FOUND" in err_msg:
+                    print(f"   ⚠️ Modello '{model_name}' non disponibile o deprecato, provo il fallback...")
+                    continue
+                else:
+                    print(f"❌ GEMINI_API_KEY: ERRORE DURANTE LA CHIAMATA API ({model_name}): {exc}")
+                    return False
+
+        print(f"❌ GEMINI_API_KEY: Nessun modello compatibile tra quelli testati: {last_error}")
+        return False
     except Exception as exc:
-        print(f"❌ GEMINI_API_KEY: ERRORE DURANTE LA CHIAMATA API: {exc}")
+        print(f"❌ GEMINI_API_KEY: Errore inizializzazione client: {exc}")
         return False
 
 
