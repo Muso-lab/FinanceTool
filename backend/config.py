@@ -47,8 +47,8 @@ class Settings:
 
     # Motore AI Gemini (opzionale: se assente attiva il motore forense deterministico locale)
     GEMINI_API_KEY: str = _env_str("GEMINI_API_KEY", "")
-    GEMINI_MODEL_FAST: str = _env_str("GEMINI_MODEL_FAST", "gemini-2.5-flash")
-    GEMINI_MODEL_REASONING: str = _env_str("GEMINI_MODEL_REASONING", "gemini-2.5-pro")
+    GEMINI_MODEL_FAST: str = _env_str("GEMINI_MODEL_FAST", "gemini-3.8-flash")
+    GEMINI_MODEL_REASONING: str = _env_str("GEMINI_MODEL_REASONING", "gemini-3.8-flash")
 
     # Provider dati mercato e SEC EDGAR (User-Agent obbligatorio per evitare HTTP 403 da sec.gov)
     FINNHUB_API_KEY: str = _env_str("FINNHUB_API_KEY", "")

@@ -39,12 +39,13 @@ def test_gemini(api_key: str | None) -> bool:
         from google import genai
 
         client = genai.Client(api_key=api_key.strip())
+        model_name = os.getenv("GEMINI_MODEL_FAST", "gemini-3.8-flash")
         resp = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model=model_name,
             contents="Rispondi solo con la parola 'FUNZIONA'.",
         )
         reply = resp.text.strip() if resp and resp.text else ""
-        print(f"✅ GEMINI_API_KEY: VALIDO E FUNZIONANTE!")
+        print(f"✅ GEMINI_API_KEY: VALIDO E FUNZIONANTE! (Modello: {model_name})")
         print(f"   Risposta AI: {reply}")
         return True
     except Exception as exc:
