@@ -35,44 +35,65 @@ def test_gemini(api_key: str | None) -> bool:
         return False
 
     print(f"   Valore rilevato: {mask(api_key)}")
-    candidate_models = [
-        os.getenv("GEMINI_MODEL_FAST", "").strip(),
-        "gemini-3.8-flash",
-        "gemini-2.5-flash",
-        "gemini-2.0-flash",
-        "gemini-1.5-flash",
-    ]
-    # Rimuovi duplicati e stringhe vuote mantenendo l'ordine
-    models_to_test = [m for i, m in enumerate(candidate_models) if m and m not in candidate_models[:i]]
-
     try:
+        import time
         from google import genai
 
         client = genai.Client(api_key=api_key.strip())
-        last_error = None
-        for model_name in models_to_test:
-            try:
-                print(f"   Tentativo chiamata con modello: '{model_name}'...")
-                resp = client.models.generate_content(
-                    model=model_name,
-                    contents="Rispondi solo con la parola 'FUNZIONA'.",
-                )
-                reply = resp.text.strip() if resp and resp.text else ""
-                print(f"✅ GEMINI_API_KEY: VALIDO E FUNZIONANTE! (Modello attivo: {model_name})")
-                print(f"   Risposta AI: {reply}")
-                return True
-            except Exception as exc:
-                last_error = exc
-                err_msg = str(exc)
-                # Se è un 404 (non trovato), 503 (sovraccarico temporaneo) o 429 (rate limit), proviamo il modello successivo
-                if any(k in err_msg for k in ["404", "NOT_FOUND", "503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED"]):
-                    print(f"   ⚠️ Modello '{model_name}' temporaneamente non disponibile ({err_msg[:70]}...), provo il fallback...")
-                    continue
-                else:
-                    print(f"❌ GEMINI_API_KEY: ERRORE DURANTE LA CHIAMATA API ({model_name}): {exc}")
-                    return False
 
-        print(f"❌ GEMINI_API_KEY: Nessun modello compatibile tra quelli testati: {last_error}")
+        # 1. Interroga direttamente le API di Google per avere l'elenco esatto dei modelli abilitati
+        print("   Interrogazione ModelService di Google AI Studio per modelli attivi...")
+        available_models: list[str] = []
+        try:
+            for m in client.models.list():
+                m_name = getattr(m, "name", "") or ""
+                clean_name = m_name.replace("models/", "").strip()
+                actions = getattr(m, "supported_actions", None) or []
+                if not actions or "generateContent" in actions:
+                    available_models.append(clean_name)
+        except Exception as list_exc:
+            print(f"   ⚠️ Enumerazione automatica modelli non riuscita: {list_exc}")
+
+        if available_models:
+            print(f"   Modelli disponibili sul tuo account ({len(available_models)}): {', '.join(available_models[:8])}")
+
+        # 2. Costruisci la lista prioritaria di test
+        preferred = [os.getenv("GEMINI_MODEL_FAST", "").strip(), "gemini-3.8-flash"]
+        models_to_test = [m for m in preferred if m] + [m for m in available_models if m not in preferred]
+        if not models_to_test:
+            models_to_test = ["gemini-3.8-flash", "gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+
+        # 3. Testa con retry intelligente per gestire spike di traffico temporanei (503 UNAVAILABLE)
+        for model_name in models_to_test:
+            for attempt in range(1, 4):
+                try:
+                    print(f"   Tentativo {attempt}/3 con modello: '{model_name}'...")
+                    resp = client.models.generate_content(
+                        model=model_name,
+                        contents="Rispondi solo con la parola 'FUNZIONA'.",
+                    )
+                    reply = resp.text.strip() if resp and resp.text else ""
+                    print(f"✅ GEMINI_API_KEY: VALIDO E FUNZIONANTE! (Modello attivo: {model_name})")
+                    print(f"   Risposta AI: {reply}")
+                    return True
+                except Exception as exc:
+                    err_msg = str(exc)
+                    if "503" in err_msg or "UNAVAILABLE" in err_msg:
+                        print(f"   ⚠️ Spike temporaneo di traffico (503) su '{model_name}'. Attendo 3 secondi e riprovo...")
+                        time.sleep(3)
+                        continue
+                    elif "404" in err_msg or "NOT_FOUND" in err_msg:
+                        print(f"   ⚠️ Modello '{model_name}' non disponibile su questa versione API, passo al successivo...")
+                        break
+                    elif "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg:
+                        print(f"   ⚠️ Rate limit temporaneo (429) su '{model_name}'. Attendo 3 secondi...")
+                        time.sleep(3)
+                        continue
+                    else:
+                        print(f"   ⚠️ Errore con '{model_name}': {exc}")
+                        break
+
+        print("❌ GEMINI_API_KEY: Nessun modello ha risposto con successo dopo i tentativi di retry.")
         return False
     except Exception as exc:
         print(f"❌ GEMINI_API_KEY: Errore inizializzazione client: {exc}")

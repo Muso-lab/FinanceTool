@@ -183,28 +183,33 @@ def _call_gemini_agent(
     models_to_try = [m for i, m in enumerate(candidate_models) if m and m not in candidate_models[:i]]
 
     for target_model in models_to_try:
-        try:
-            config_kwargs: dict[str, Any] = {
-                "system_instruction": system_prompt,
-                "temperature": 0.2,
-                "response_mime_type": "application/json",
-            }
-            response = client.models.generate_content(
-                model=target_model,
-                contents=json.dumps(payload, ensure_ascii=False, default=str),
-                config=genai_types.GenerateContentConfig(**config_kwargs) if genai_types else None,
-            )
-            if response and response.text:
-                res = _extract_json_block(response.text)
-                if res:
-                    return res
-        except Exception as exc:
-            err_msg = str(exc)
-            if any(k in err_msg for k in ["404", "NOT_FOUND", "503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED"]):
-                logger.warning("Gemini model %s transient error (%s), trying fallback model...", target_model, err_msg[:60])
-                continue
-            logger.warning("Gemini agent call failed (%s): %s", target_model, exc)
-            return None
+        for attempt in range(1, 3):
+            try:
+                config_kwargs: dict[str, Any] = {
+                    "system_instruction": system_prompt,
+                    "temperature": 0.2,
+                    "response_mime_type": "application/json",
+                }
+                response = client.models.generate_content(
+                    model=target_model,
+                    contents=json.dumps(payload, ensure_ascii=False, default=str),
+                    config=genai_types.GenerateContentConfig(**config_kwargs) if genai_types else None,
+                )
+                if response and response.text:
+                    res = _extract_json_block(response.text)
+                    if res:
+                        return res
+            except Exception as exc:
+                err_msg = str(exc)
+                if "503" in err_msg or "UNAVAILABLE" in err_msg:
+                    logger.warning("Gemini model %s 503 spike (attempt %d/2), retrying in 2s...", target_model, attempt)
+                    time.sleep(2)
+                    continue
+                if any(k in err_msg for k in ["404", "NOT_FOUND", "429", "RESOURCE_EXHAUSTED"]):
+                    logger.warning("Gemini model %s transient error (%s), trying fallback model...", target_model, err_msg[:60])
+                    break
+                logger.warning("Gemini agent call failed (%s): %s", target_model, exc)
+                break
     return None
 
 
