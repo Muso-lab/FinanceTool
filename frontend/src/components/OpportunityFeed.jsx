@@ -10,6 +10,9 @@ import {
   PlusCircle,
   Clock,
   DollarSign,
+  Briefcase,
+  ChevronRight,
+  TrendingUp,
 } from "lucide-react";
 
 function formatCompactUsd(val) {
@@ -64,12 +67,20 @@ function getTagStyle(tag) {
 export default function OpportunityFeed({
   opportunities,
   journalSummary,
+  orders = [],
   onSelectTicker,
   onQuickLogOrder,
+  onGoToJournal,
+  onGoToAutoPilot,
 }) {
   const [minScoreFilter, setMinScoreFilter] = useState(0);
   const [tagFilter, setTagFilter] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const openOrders = useMemo(
+    () => orders.filter((o) => (o.status || "APERTO") === "APERTO"),
+    [orders]
+  );
 
   const availableTags = useMemo(() => {
     const set = new Set();
@@ -161,6 +172,114 @@ export default function OpportunityFeed({
           </div>
         </div>
       </section>
+
+      {/* Portafoglio Attivo (Paper Trading Auto-Pilot) */}
+      {openOrders.length > 0 && (
+        <section className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-slate-900/95 via-slate-900/70 to-slate-950 p-4 sm:p-5 shadow-lg shadow-emerald-950/15">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-slate-800/80 pb-3.5">
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-400">
+                <Briefcase className="h-4 w-4" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-slate-100">Il Tuo Portafoglio Attivo</h3>
+                  <span className="rounded-full border border-emerald-500/40 bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                    {openOrders.length} {openOrders.length === 1 ? "posizione aperta" : "posizioni aperte"}
+                  </span>
+                  <span className="rounded-full border border-cyan-500/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-semibold text-cyan-300">
+                    Paper Auto-Pilot
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400">Monitoraggio prezzi in tempo reale con exit strategy asimmetrica</p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs">
+              <div>
+                <span className="text-slate-400">Equity: </span>
+                <span className="font-mono-num font-bold text-slate-100">€{(journalSummary?.paper_total_equity_eur ?? 1000).toFixed(2)}</span>
+              </div>
+              <div>
+                <span className="text-slate-400">P&L Totale: </span>
+                <span className={`font-mono-num font-bold ${(journalSummary?.total_pnl_pct ?? 0) >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                  {(journalSummary?.total_pnl_pct ?? 0) >= 0 ? "+" : ""}{(journalSummary?.total_pnl_pct ?? 0).toFixed(2)}% (€{((journalSummary?.total_pnl_eur ?? 0) >= 0 ? "+" : "")}{(journalSummary?.total_pnl_eur ?? 0).toFixed(2)})
+                </span>
+              </div>
+              {onGoToJournal && (
+                <button
+                  type="button"
+                  onClick={onGoToJournal}
+                  className="inline-flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800/80 px-2.5 py-1 text-xs font-medium text-slate-200 hover:border-slate-600 hover:text-white transition"
+                >
+                  Dettagli Diario <ChevronRight className="h-3.5 w-3.5 text-cyan-400" />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Griglia delle posizioni aperte */}
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {openOrders.map((ord) => {
+              const pnl = ord.pnl_pct ?? 0;
+              const isProfit = pnl >= 0;
+              const entry = ord.entry_price_usd ? `$${ord.entry_price_usd.toFixed(2)}` : "N/D";
+              const current = ord.latest_price_usd ? `$${ord.latest_price_usd.toFixed(2)}` : entry;
+              const tp1Target = ord.take_profit_pct ? ord.take_profit_pct : 25;
+              const progressTp1 = Math.max(0, Math.min(100, Math.round((pnl / tp1Target) * 100)));
+
+              return (
+                <div
+                  key={ord.id}
+                  className="rounded-xl border border-slate-800/90 bg-slate-900/60 p-3.5 hover:border-slate-700 transition"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono-num text-sm font-bold text-white">{ord.ticker}</span>
+                      <span className="rounded bg-slate-800 px-1.5 py-0.5 text-[10px] text-slate-300">
+                        €{(ord.current_value_eur ?? ord.amount_eur ?? 35).toFixed(2)}
+                      </span>
+                    </div>
+                    <span
+                      className={`rounded-full px-2 py-0.5 font-mono-num text-[11px] font-bold ${
+                        isProfit
+                          ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-300"
+                          : "border border-rose-500/40 bg-rose-500/15 text-rose-300"
+                      }`}
+                    >
+                      {isProfit ? "+" : ""}{pnl.toFixed(2)}%
+                    </span>
+                  </div>
+
+                  <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-400">
+                    <span>Ingresso: <strong className="text-slate-200">{entry}</strong></span>
+                    <span>Prezzo Live: <strong className="text-slate-200">{current}</strong></span>
+                  </div>
+
+                  {/* Barra di avanzamento verso TP1 */}
+                  <div className="mt-3">
+                    <div className="flex items-center justify-between text-[10px] text-slate-400 mb-1">
+                      <span>Avanzamento TP1 (+{tp1Target}%)</span>
+                      <span className="font-mono-num font-semibold text-emerald-400">{progressTp1}%</span>
+                    </div>
+                    <div className="h-1.5 w-full rounded-full bg-slate-800 overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500"
+                        style={{ width: `${progressTp1}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-2.5 flex items-center justify-between text-[10px] text-slate-500 border-t border-slate-800/60 pt-2">
+                    <span>SL: {ord.stop_loss_pct ? `${ord.stop_loss_pct}%` : "-20%"}</span>
+                    <span className="text-slate-400">{ord.broker || "Trading 212 (Paper)"}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Top 3-5 Daily Opportunities Highlight Strip */}
       {topDaily.length > 0 && (

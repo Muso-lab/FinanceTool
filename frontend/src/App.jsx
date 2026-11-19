@@ -271,8 +271,11 @@ export default function App() {
           <OpportunityFeed
             opportunities={opportunities}
             journalSummary={journalData.summary}
+            orders={journalData.orders || []}
             onSelectTicker={(opp) => setSelectedOpportunity(opp)}
             onQuickLogOrder={handleQuickLogOrder}
+            onGoToJournal={() => setActiveTab("journal")}
+            onGoToAutoPilot={() => setActiveTab("autopilot")}
           />
         ) : activeTab === "journal" ? (
           <MicroOrderJournal

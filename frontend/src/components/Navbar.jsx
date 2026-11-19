@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Radar, BookOpen, Search, RefreshCw, Sparkles, ShieldCheck, Bot } from "lucide-react";
+import { Radar, BookOpen, Search, RefreshCw, Sparkles, ShieldCheck, Bot, ArrowUpRight } from "lucide-react";
 
 export default function Navbar({
   activeTab,
@@ -22,7 +22,11 @@ export default function Navbar({
     e.preventDefault();
     const cleaned = tickerInput.trim().toUpperCase();
     if (!cleaned || busy) return;
-    onScanTicker(cleaned);
+    if (isReadOnly) {
+      window.open("https://github.com/Muso-lab/FinanceTool/actions/workflows/daily_scouter.yml", "_blank");
+    } else {
+      onScanTicker(cleaned);
+    }
     setTickerInput("");
   };
 
@@ -122,7 +126,7 @@ export default function Navbar({
               </button>
             </nav>
 
-            {/* Live Single Ticker Scan */}
+            {/* Live Single Ticker Scan or Cloud Dispatch */}
             <form onSubmit={handleSubmit} className="flex items-center gap-1.5">
               <div className="relative">
                 <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-500" />
@@ -130,16 +134,16 @@ export default function Navbar({
                   type="text"
                   value={tickerInput}
                   onChange={(e) => setTickerInput(e.target.value)}
-                  disabled={busy || isReadOnly}
-                  placeholder={isReadOnly ? "Solo backend locale" : "Scansiona Ticker (es. RKLB)"}
+                  disabled={busy}
+                  placeholder="Scansiona Ticker (es. RKLB)"
                   aria-label="Scansiona ticker live"
-                  className="w-40 rounded-lg border border-slate-700/80 bg-slate-900/90 py-1.5 pl-8 pr-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none disabled:opacity-60 sm:w-44"
+                  className="w-40 rounded-lg border border-slate-700/80 bg-slate-900/90 py-1.5 pl-8 pr-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none sm:w-44"
                 />
               </div>
               <button
                 type="submit"
-                disabled={busy || isReadOnly || !tickerInput.trim()}
-                title={isReadOnly ? "In modalità GitHub Pages le scansioni girano su GitHub Actions" : "Scansiona ticker in tempo reale"}
+                disabled={busy || !tickerInput.trim()}
+                title={isReadOnly ? "In modalità Cloud le scansioni possono essere lanciate su GitHub Actions" : "Scansiona ticker in tempo reale"}
                 className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isScanning ? (
@@ -151,16 +155,29 @@ export default function Navbar({
               </button>
             </form>
 
-            <button
-              type="button"
-              onClick={onRunPipeline}
-              disabled={busy || isReadOnly}
-              title={isReadOnly ? "In modalità Cloud la pipeline gira automaticamente su GitHub Actions" : "Esegui pipeline batch su nuovi candidati post-IPO"}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs font-medium text-slate-200 transition hover:border-slate-600 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
-            >
-              <RefreshCw className={`h-3.5 w-3.5 ${isRunningPipeline ? "animate-spin text-emerald-400" : ""}`} />
-              {isRunningPipeline ? "Pipeline..." : "Aggiorna Pipeline"}
-            </button>
+            {isReadOnly ? (
+              <a
+                href="https://github.com/Muso-lab/FinanceTool/actions/workflows/daily_scouter.yml"
+                target="_blank"
+                rel="noreferrer"
+                title="Apri GitHub Actions per eseguire la pipeline manuale nel Cloud"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-cyan-500/40 bg-cyan-500/10 px-3 py-1.5 text-xs font-medium text-cyan-300 transition hover:bg-cyan-500/20"
+              >
+                <ArrowUpRight className="h-3.5 w-3.5 text-cyan-400" />
+                Esegui Pipeline Cloud ↗
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={onRunPipeline}
+                disabled={busy}
+                title="Esegui pipeline batch su nuovi candidati post-IPO"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs font-medium text-slate-200 transition hover:border-slate-600 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <RefreshCw className={`h-3.5 w-3.5 ${isRunningPipeline ? "animate-spin text-emerald-400" : ""}`} />
+                {isRunningPipeline ? "Pipeline..." : "Aggiorna Pipeline"}
+              </button>
+            )}
           </div>
         </div>
       </div>

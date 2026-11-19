@@ -366,6 +366,36 @@ export default function AutoPilotPanel({
             </span>
           </div>
 
+          {isReadOnly && (
+            <div className="rounded-xl border border-cyan-500/30 bg-cyan-950/20 p-3 text-xs text-slate-300">
+              <div className="flex items-center gap-1.5 font-semibold text-cyan-300 mb-1">
+                <Bot className="h-4 w-4" />
+                <span>Esecuzione Cloud (GitHub Actions)</span>
+              </div>
+              <p className="text-[11px] text-slate-400 leading-relaxed mb-2">
+                Su GitHub Pages il monitoraggio prezzi e l'auto-trading girano nel cloud a PC spento (schedulati ogni 2h e alle 13:30 UTC). Puoi lanciarli al volo con 1 click:
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1">
+                <a
+                  href="https://github.com/Muso-lab/FinanceTool/actions/workflows/daily_scouter.yml"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-medium text-emerald-300 hover:bg-emerald-500/20 transition"
+                >
+                  <Play className="h-3 w-3" /> Esegui Scouter Cloud ↗
+                </a>
+                <a
+                  href="https://github.com/Muso-lab/FinanceTool/actions/workflows/autopilot_monitor.yml"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/10 px-2.5 py-1 text-[11px] font-medium text-indigo-300 hover:bg-indigo-500/20 transition"
+                >
+                  <RefreshCw className="h-3 w-3" /> Esegui Monitor TP/SL ↗
+                </a>
+              </div>
+            </div>
+          )}
+
           {cfgError && (
             <div className="rounded-lg border border-rose-500/40 bg-rose-500/10 p-2.5 text-xs text-rose-200">
               {cfgError}
