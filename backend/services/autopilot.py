@@ -1,4 +1,4 @@
-"""Auto-Pilot Paper Trading Engine: Guardrail Auto-Registration & Live Portfolio Monitoring."""
+"""Auto-Pilot Paper Trading Engine: Guardrail Auto-Registration, Virtual Budget & Multi-Tier Exit Monitor."""
 
 from __future__ import annotations
 
@@ -8,7 +8,6 @@ from typing import Any, Callable
 
 import yfinance as yf
 
-from config import settings
 from services.notifier import send_autopilot_event_alert
 from services.storage import ScouterStorage, storage as default_storage
 
@@ -47,8 +46,10 @@ def _evaluate_candidate_guardrails(
     cfg: dict[str, Any],
     open_counts_by_ticker: dict[str, int],
     remaining_slots: int,
+    virtual_cash_available: float,
+    ticket_eur: float,
 ) -> tuple[bool, list[str]]:
-    """Verify whether an analyzed opportunity satisfies every Auto-Pilot guardrail."""
+    """Verify whether an analyzed opportunity satisfies every Auto-Pilot & virtual-budget guardrail."""
     reasons: list[str] = []
     sym = (opp.get("ticker") or "").upper()
     score = int(opp.get("asymmetry_score") or 0)
@@ -61,6 +62,7 @@ def _evaluate_candidate_guardrails(
     is_cf_pos = bool(quant.get("is_cash_flow_positive"))
     runway = quant.get("runway_months")
     price = quant.get("current_price")
+    monthly_limit = int(cfg.get("monthly_order_limit") or 10)
 
     if score < int(cfg["min_asymmetry_score"]):
         reasons.append(f"Score AI {score} < soglia {cfg['min_asymmetry_score']}")
@@ -84,7 +86,10 @@ def _evaluate_candidate_guardrails(
         reasons.append("Posizione già aperta su questo ticker")
 
     if cfg.get("respect_monthly_5_limit", True) and remaining_slots <= 0:
-        reasons.append(f"Limite mensile {settings.MONTHLY_MICRO_ORDER_LIMIT}/5 raggiunto")
+        reasons.append(f"Limite mensile {monthly_limit}/{monthly_limit} raggiunto")
+
+    if virtual_cash_available < ticket_eur:
+        reasons.append(f"Cassa virtuale insufficiente (€{virtual_cash_available:.2f} < €{ticket_eur:.2f})")
 
     return len(reasons) == 0, reasons
 
@@ -94,12 +99,14 @@ def evaluate_and_auto_register(
     force: bool = False,
     store: ScouterStorage | None = None,
 ) -> dict[str, Any]:
-    """Screen opportunities against guardrails and auto-register qualifying PAPER_AUTO micro-orders."""
+    """Screen opportunities against guardrails & virtual budget, opening qualifying PAPER_AUTO micro-orders."""
     st = store or default_storage
     cfg = st.get_autopilot_config()
     journal = st.list_micro_orders()
     summary = journal["summary"]
     remaining_slots = int(summary["monthly_slots_remaining"])
+    virtual_cash = float(summary.get("paper_cash_available_eur", cfg.get("virtual_budget_eur", 1000.0)))
+    ticket_eur = float(cfg.get("default_ticket_eur") or 35.0)
 
     if not cfg.get("enabled", True) and not dry_run and not force:
         return {
@@ -108,6 +115,7 @@ def evaluate_and_auto_register(
             "registered": [],
             "skipped": [],
             "remaining_slots": remaining_slots,
+            "virtual_cash_available_eur": round(virtual_cash, 2),
             "config_used": cfg,
             "message": "Auto-Pilot disabilitato nelle regole.",
             "journal": journal,
@@ -128,7 +136,7 @@ def evaluate_and_auto_register(
     for opp in opps:
         sym = (opp.get("ticker") or "").upper()
         passed, reasons = _evaluate_candidate_guardrails(
-            opp, cfg, open_counts_by_ticker, remaining_slots
+            opp, cfg, open_counts_by_ticker, remaining_slots, virtual_cash, ticket_eur
         )
         if not passed:
             skipped.append(
@@ -143,7 +151,6 @@ def evaluate_and_auto_register(
 
         quant = opp.get("quant_metrics") or {}
         price = float(quant["current_price"])
-        ticket_eur = float(cfg.get("default_ticket_eur") or settings.DEFAULT_MICRO_ORDER_EUR)
         thesis_lines = opp.get("thesis_5_lines") or []
         initial_thesis = (
             " ".join(thesis_lines[:2])
@@ -151,7 +158,7 @@ def evaluate_and_auto_register(
             else f"Auto-Pilot Asymmetry Score {opp.get('asymmetry_score')}/100"
         )
         invalidation_rule = (opp.get("micro_strategy") or {}).get("invalidation_trigger") or (
-            f"TP +{cfg['take_profit_pct']}% / SL {cfg['stop_loss_pct']}% / AI Score < {cfg['thesis_degrade_min_score']}"
+            f"TP1 +{cfg['tp1_pct']}% / TP2 +{cfg['take_profit_pct']}% / SL {cfg['stop_loss_pct']}%"
         )
 
         if dry_run:
@@ -199,7 +206,7 @@ def evaluate_and_auto_register(
             registered.append(order)
             msg = (
                 f"Auto-registrato micro-ordine PAPER_AUTO €{ticket_eur:.2f} su {sym} @ ${price:.2f} "
-                f"(Score {opp.get('asymmetry_score')}/100, Audit {((opp.get('debate') or {}).get('auditor') or {}).get('verification_score')}%)."
+                f"(Score {opp.get('asymmetry_score')}/100, TP1 +{cfg['tp1_pct']}%, TP2 +{cfg['take_profit_pct']}%)."
             )
             st.append_autopilot_log(
                 "AUTO_REGISTER",
@@ -211,6 +218,7 @@ def evaluate_and_auto_register(
                 send_autopilot_event_alert("AUTO_REGISTER", sym, msg)
 
         open_counts_by_ticker[sym] = open_counts_by_ticker.get(sym, 0) + 1
+        virtual_cash = round(virtual_cash - ticket_eur, 2)
         if cfg.get("respect_monthly_5_limit", True):
             remaining_slots = max(0, remaining_slots - 1)
 
@@ -228,15 +236,16 @@ def evaluate_and_auto_register(
         "registered": registered,
         "skipped": skipped,
         "remaining_slots": remaining_slots,
+        "virtual_cash_available_eur": round(virtual_cash, 2),
         "config_used": cfg,
         "journal": st.list_micro_orders(),
         "logs": st.list_autopilot_logs(),
     }
 
 
-def _should_send_real_alert(ord_item: dict[str, Any], trigger_reason: str, now_dt: datetime) -> bool:
-    """Deduplicate REAL alerts if same trigger fired within the last 12 hours."""
-    if ord_item.get("last_alert_reason") != trigger_reason:
+def _should_send_real_alert(ord_item: dict[str, Any], alert_key: str, now_dt: datetime) -> bool:
+    """Deduplicate REAL alerts using canonical trigger key across a 12-hour cooldown."""
+    if ord_item.get("last_alert_reason") != alert_key:
         return True
     last_at = ord_item.get("last_alert_at")
     if not last_at:
@@ -254,7 +263,7 @@ def run_portfolio_monitor(
     store: ScouterStorage | None = None,
     price_fetcher: Callable[[str], float | None] | None = None,
 ) -> dict[str, Any]:
-    """Monitor open positions: refresh live quotes, append price_history, and evaluate TP/SL/Thesis exits."""
+    """Monitor open positions: refresh quotes, track peaks, and execute TP1 Free-Ride / TP2 / Trailing / SL / Thesis exits."""
     st = store or default_storage
     fetcher = price_fetcher or fetch_fast_live_price
     cfg = st.get_autopilot_config()
@@ -289,6 +298,7 @@ def run_portfolio_monitor(
                     live_quotes[sym] = q_price
 
     price_updates: list[dict[str, Any]] = []
+    partial_exits: list[dict[str, Any]] = []
     auto_closed: list[dict[str, Any]] = []
     alerts: list[dict[str, Any]] = []
 
@@ -301,7 +311,6 @@ def run_portfolio_monitor(
         if fresh_price is not None:
             eval_price = float(fresh_price)
         else:
-            # Preserve 4-decimal precision without polluting checkpoints with stale data
             eval_price = float(
                 ord_item.get("raw_latest_price_usd")
                 or ord_item.get("last_live_price_usd")
@@ -313,8 +322,12 @@ def run_portfolio_monitor(
             latest_score = opp.get("asymmetry_score", latest_score)
 
         pnl_pct = round(((eval_price - entry_price) / entry_price) * 100.0, 2) if entry_price > 0 else 0.0
+        peak_price = max(float(ord_item.get("peak_price_usd") or entry_price), eval_price)
+        peak_gain_pct = round(((peak_price - entry_price) / entry_price) * 100.0, 2) if entry_price > 0 else 0.0
+        pullback_from_peak_pct = (
+            round(((peak_price - eval_price) / peak_price) * 100.0, 2) if peak_price > 0 else 0.0
+        )
 
-        # Only record a checkpoint if we actually got a fresh live quote (or rescan), avoiding stale history inflation
         if fresh_price is not None:
             st.record_order_checkpoint(
                 order_id=ord_item["id"],
@@ -335,7 +348,9 @@ def run_portfolio_monitor(
             }
         )
 
-        # Evaluate automated exit rules
+        mode = ord_item.get("mode") or ("PAPER_AUTO" if ord_item.get("auto_registered") else "PAPER_MANUAL")
+        is_paper = mode in ("PAPER_AUTO", "PAPER_MANUAL")
+
         tp_target = float(
             ord_item.get("take_profit_pct")
             if ord_item.get("take_profit_pct") is not None
@@ -348,69 +363,154 @@ def run_portfolio_monitor(
         )
         initial_score = ord_item.get("initial_ai_score")
 
-        trigger_reason: str | None = None
-        if cfg.get("auto_close_on_tp_sl", True):
+        # Scala obiettivi di uscita:
+        # 1) Hard Stop-Loss (o Break-Even Stop a 0% dopo TP1)
+        # 2) TP2 Finale (chiusura totale al raggiungimento del target massimo)
+        # 3) TP1 Parziale "Free Ride" (incassa metà posizione a +35% e sposta SL a 0%)
+        # 4) Trailing Stop protettivo (protegge guadagni dopo un picco >= +25%)
+        # 5) Thesis Stop AI (degrado fondamentale o diluizione)
+        close_reason: str | None = None
+        close_key: str | None = None
+        if cfg.get("auto_close_on_tp_sl", True) or not is_paper:
             if pnl_pct <= sl_target:
-                trigger_reason = f"STOP_LOSS ({pnl_pct:.1f}% <= {sl_target:.1f}%)"
+                label = "BREAK_EVEN_STOP" if (ord_item.get("tp1_executed") and sl_target == 0.0) else "STOP_LOSS"
+                close_key = label
+                close_reason = f"{label} ({pnl_pct:.1f}% <= {sl_target:.1f}%)"
             elif pnl_pct >= tp_target:
-                trigger_reason = f"TAKE_PROFIT (+{pnl_pct:.1f}% >= +{tp_target:.1f}%)"
+                close_key = "TAKE_PROFIT_FINAL"
+                close_reason = f"TAKE_PROFIT_FINAL (+{pnl_pct:.1f}% >= +{tp_target:.1f}%)"
 
-        if trigger_reason is None and cfg.get("auto_close_on_thesis_degrade", True) and latest_score is not None:
+        # TP1 Parziale (solo se non ha già attivato TP2 / SL)
+        if (
+            close_reason is None
+            and cfg.get("enable_partial_tp1", True)
+            and not ord_item.get("tp1_executed", False)
+            and pnl_pct >= float(cfg.get("tp1_pct") or 35.0)
+        ):
+            tp1_pct = float(cfg.get("tp1_pct") or 35.0)
+            sell_ratio = max(10.0, min(90.0, float(cfg.get("tp1_sell_ratio_pct") or 50.0))) / 100.0
+            tp1_label = f"TP1_PARZIALE (+{pnl_pct:.1f}% >= +{tp1_pct:.1f}%)"
+            if is_paper:
+                active_amt = float(ord_item.get("amount_eur") or 0.0)
+                sold_basis = round(active_amt * sell_ratio, 2)
+                remaining_amt = round(active_amt - sold_basis, 2)
+                ratio = (eval_price / entry_price) if entry_price > 0 else 1.0
+                sold_proceeds = round(sold_basis * ratio, 2)
+                tp1_profit = round(sold_proceeds - sold_basis, 2)
+                new_partial_realized = round(float(ord_item.get("partial_realized_pnl_eur") or 0.0) + tp1_profit, 2)
+                note = (
+                    f"TP1 +{pnl_pct:.1f}% @ ${eval_price:.2f}: venduto {int(sell_ratio * 100)}% "
+                    f"(+€{tp1_profit:.2f} incassati), SL spostato a 0% Break-Even."
+                )
+                st.update_micro_order(
+                    ord_item["id"],
+                    {
+                        "amount_eur": remaining_amt,
+                        "partial_realized_pnl_eur": new_partial_realized,
+                        "tp1_executed": True,
+                        "tp1_note": note,
+                        "stop_loss_pct": 0.0,
+                        "peak_price_usd": peak_price,
+                    },
+                )
+                st.append_autopilot_log(
+                    "PARTIAL_TP1",
+                    sym,
+                    note,
+                    {"order_id": ord_item["id"], "profit_eur": tp1_profit, "remaining_eur": remaining_amt},
+                )
+                if cfg.get("notify_telegram"):
+                    send_autopilot_event_alert("PARTIAL_TP1", sym, note)
+                partial_exits.append({"order_id": ord_item["id"], "ticker": sym, "profit_eur": tp1_profit})
+                # La restante quota paper prosegue in Free-Ride fino al prossimo ciclo
+                continue
+            else:
+                # Per gli ordini REAL emette alert TP1 con cooldown canonico ma prosegue
+                # la valutazione di Trailing Stop e Thesis Stop (niente `continue`!).
+                if _should_send_real_alert(ord_item, "TP1_PARZIALE", now_dt):
+                    st.update_micro_order(
+                        ord_item["id"],
+                        {"last_alert_reason": "TP1_PARZIALE", "last_alert_at": now_iso},
+                    )
+                    ord_item["last_alert_reason"] = "TP1_PARZIALE"
+                    ord_item["last_alert_at"] = now_iso
+                    msg = f"Posizione REALE {sym} ha raggiunto {tp1_label} (@ ${eval_price:.2f}). Valuta presa di profitto parziale."
+                    st.append_autopilot_log("ALERT", sym, msg, {"order_id": ord_item["id"], "reason": tp1_label})
+                    if cfg.get("notify_telegram"):
+                        send_autopilot_event_alert("ALERT", sym, msg)
+                alerts.append({"order_id": ord_item["id"], "ticker": sym, "reason": tp1_label, "pnl_pct": pnl_pct})
+
+        # Trailing Stop protettivo
+        if (
+            close_reason is None
+            and cfg.get("enable_trailing_stop", True)
+            and peak_gain_pct >= float(cfg.get("trailing_activation_pct") or 25.0)
+            and pullback_from_peak_pct >= float(cfg.get("trailing_stop_pct") or 15.0)
+        ):
+            close_key = "TRAILING_STOP"
+            close_reason = (
+                f"TRAILING_STOP (-{pullback_from_peak_pct:.1f}% dal picco ${peak_price:.2f}, P&L {pnl_pct:+.1f}%)"
+            )
+
+        # Thesis Stop (degrado AI Score)
+        if close_reason is None and cfg.get("auto_close_on_thesis_degrade", True) and latest_score is not None:
             min_s = int(cfg.get("thesis_degrade_min_score") or 55)
             drop_pts = int(cfg.get("thesis_degrade_drop_pts") or 18)
             score_dropped = initial_score is not None and (int(initial_score) - int(latest_score)) >= drop_pts
             entered_above_min = initial_score is None or int(initial_score) >= min_s
             if entered_above_min and int(latest_score) < min_s:
-                trigger_reason = f"THESIS_STOP (AI Score {latest_score} < {min_s})"
+                close_key = "THESIS_STOP"
+                close_reason = f"THESIS_STOP (AI Score {latest_score} < {min_s})"
             elif score_dropped:
-                trigger_reason = f"THESIS_STOP (Calo Score {initial_score} -> {latest_score})"
+                close_key = "THESIS_STOP"
+                close_reason = f"THESIS_STOP (Calo Score {initial_score} -> {latest_score})"
 
-        # Regola di sicurezza: le posizioni simulate si chiudono automaticamente su TP/SL/Thesis Stop;
-        # le posizioni REAL non vengono mai toccate automaticamente (solo alert deduplicato con cooldown 12h).
-        if trigger_reason:
-            mode = ord_item.get("mode") or ("PAPER_AUTO" if ord_item.get("auto_registered") else "PAPER_MANUAL")
-            if mode in ("PAPER_AUTO", "PAPER_MANUAL"):
+        # Regola di sicurezza: le posizioni simulate si chiudono automaticamente;
+        # le posizioni REAL non vengono mai toccate automaticamente (solo alert deduplicato 12h).
+        if close_reason:
+            if is_paper:
                 st.update_micro_order(
                     ord_item["id"],
                     {
                         "status": "CHIUSO",
                         "exit_price_usd": round(eval_price, 4),
                         "closed_at": now_iso,
-                        "close_reason": trigger_reason,
+                        "close_reason": close_reason,
+                        "peak_price_usd": peak_price,
                     },
                 )
-                msg = f"Chiusa posizione simulata {sym} ({mode}) @ ${eval_price:.2f} | P&L {pnl_pct:+.2f}% | {trigger_reason}"
+                msg = f"Chiusa posizione simulata {sym} ({mode}) @ ${eval_price:.2f} | P&L {pnl_pct:+.2f}% | {close_reason}"
                 st.append_autopilot_log(
                     "AUTO_CLOSE",
                     sym,
                     msg,
-                    {"order_id": ord_item["id"], "reason": trigger_reason, "pnl_pct": pnl_pct},
+                    {"order_id": ord_item["id"], "reason": close_reason, "pnl_pct": pnl_pct},
                 )
                 if cfg.get("notify_telegram"):
                     send_autopilot_event_alert("AUTO_CLOSE", sym, msg)
-                auto_closed.append({"order_id": ord_item["id"], "ticker": sym, "reason": trigger_reason, "pnl_pct": pnl_pct})
+                auto_closed.append({"order_id": ord_item["id"], "ticker": sym, "reason": close_reason, "pnl_pct": pnl_pct})
             else:
-                # REAL positions are strictly protected: alert with cooldown, never auto-closed
-                if _should_send_real_alert(ord_item, trigger_reason, now_dt):
+                alert_key = close_key or close_reason
+                if _should_send_real_alert(ord_item, alert_key, now_dt):
                     st.update_micro_order(
                         ord_item["id"],
-                        {"last_alert_reason": trigger_reason, "last_alert_at": now_iso},
+                        {"last_alert_reason": alert_key, "last_alert_at": now_iso},
                     )
-                    msg = f"Posizione REALE {sym} ha attivato {trigger_reason} (@ ${eval_price:.2f}, {pnl_pct:+.2f}%). Nessuna chiusura automatica."
+                    msg = f"Posizione REALE {sym} ha attivato {close_reason} (@ ${eval_price:.2f}, {pnl_pct:+.2f}%). Nessuna chiusura automatica."
                     st.append_autopilot_log(
                         "ALERT",
                         sym,
                         msg,
-                        {"order_id": ord_item["id"], "reason": trigger_reason, "pnl_pct": pnl_pct},
+                        {"order_id": ord_item["id"], "reason": close_reason, "pnl_pct": pnl_pct},
                     )
                     if cfg.get("notify_telegram"):
                         send_autopilot_event_alert("ALERT", sym, msg)
-                alerts.append({"order_id": ord_item["id"], "ticker": sym, "reason": trigger_reason, "pnl_pct": pnl_pct})
+                alerts.append({"order_id": ord_item["id"], "ticker": sym, "reason": close_reason, "pnl_pct": pnl_pct})
 
     st.append_autopilot_log(
         "MONITOR_CHECK",
         ",".join(unique_tickers) if unique_tickers else "NONE",
-        f"Monitorate {len(open_orders)} posizioni aperte ({len(live_quotes)} quote aggiornate, {len(auto_closed)} chiusure automatiche).",
+        f"Monitorate {len(open_orders)} posizioni aperte ({len(live_quotes)} quote aggiornate, {len(partial_exits)} TP1 parziali, {len(auto_closed)} chiusure).",
         {"checked_count": len(open_orders), "rescan_ai": rescan_ai},
     )
 
@@ -418,6 +518,7 @@ def run_portfolio_monitor(
         "monitored_at": now_iso,
         "checked_count": len(open_orders),
         "price_updates": price_updates,
+        "partial_exits": partial_exits,
         "auto_closed": auto_closed,
         "alerts": alerts,
         "journal": st.list_micro_orders(),

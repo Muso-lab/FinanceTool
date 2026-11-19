@@ -13,6 +13,8 @@ import {
   TrendingUp,
   TrendingDown,
   ShieldCheck,
+  Wallet,
+  Target,
 } from "lucide-react";
 
 function PriceSparkline({ history }) {
@@ -56,26 +58,31 @@ function PriceSparkline({ history }) {
   );
 }
 
-function TpSlMeter({ pnlPct, slPct, tpPct }) {
-  const min = slPct ?? -35;
-  const max = tpPct ?? 60;
+function TpSlMeter({ pnlPct, slPct, tp1Pct, tp2Pct, tp1Executed }) {
+  const min = slPct ?? -30;
+  const max = tp2Pct ?? 80;
   const span = max - min || 1;
   const clamped = Math.max(min, Math.min(max, pnlPct));
   const markerPos = ((clamped - min) / span) * 100;
   const zeroPos = ((0 - min) / span) * 100;
+  const tp1Pos = tp1Pct && tp1Pct < max ? ((tp1Pct - min) / span) * 100 : null;
 
   return (
     <div className="mt-2">
       <div className="flex justify-between font-mono-num text-[10px] text-slate-400">
-        <span className="text-rose-400">SL {min}%</span>
-        <span>0%</span>
-        <span className="text-emerald-400">TP +{max}%</span>
+        <span className="text-rose-400">{tp1Executed && min === 0 ? "BE 0%" : `SL ${min}%`}</span>
+        {tp1Pos !== null && (
+          <span className={tp1Executed ? "text-emerald-400 font-semibold" : "text-cyan-400"}>
+            TP1 +{tp1Pct}% {tp1Executed ? "✓" : ""}
+          </span>
+        )}
+        <span className="text-emerald-400">TP2 +{max}%</span>
       </div>
       <div className="relative mt-1 h-2 w-full rounded-full bg-slate-800">
-        <div
-          className="absolute top-0 bottom-0 w-0.5 bg-slate-500/60"
-          style={{ left: `${zeroPos}%` }}
-        />
+        <div className="absolute top-0 bottom-0 w-0.5 bg-slate-500/60" style={{ left: `${zeroPos}%` }} />
+        {tp1Pos !== null && (
+          <div className="absolute top-0 bottom-0 w-0.5 bg-cyan-400/70" style={{ left: `${tp1Pos}%` }} />
+        )}
         <div
           className={`absolute top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-slate-950 ${
             pnlPct >= 0 ? "bg-emerald-400" : "bg-rose-400"
@@ -112,6 +119,7 @@ function ModeBadge({ mode }) {
 function ActionLogBadge({ action }) {
   const styles = {
     AUTO_REGISTER: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+    PARTIAL_TP1: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
     AUTO_CLOSE: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
     ALERT: "bg-amber-500/20 text-amber-300 border-amber-500/30",
     SKIPPED_GUARDRAIL: "bg-slate-800 text-slate-400 border-slate-700",
@@ -167,12 +175,17 @@ export default function AutoPilotPanel({
     e.preventDefault();
     setCfgError("");
     const requiredNumeric = [
+      "virtual_budget_eur",
+      "monthly_order_limit",
+      "portfolio_roi_target_pct",
       "monitor_interval_minutes",
       "min_asymmetry_score",
       "min_audit_score",
       "min_runway_months",
       "default_ticket_eur",
+      "tp1_pct",
       "take_profit_pct",
+      "trailing_stop_pct",
       "stop_loss_pct",
       "thesis_degrade_min_score",
     ];
@@ -186,19 +199,30 @@ export default function AutoPilotPanel({
       setCfgError("La soglia Thesis Stop deve essere inferiore al Min AI Score d'ingresso.");
       return;
     }
+    if (formCfg.enable_partial_tp1 && Number(formCfg.tp1_pct) >= Number(formCfg.take_profit_pct)) {
+      setCfgError("Il target parziale TP1 deve essere inferiore al target finale TP2.");
+      return;
+    }
 
     await onSaveConfig({
       enabled: Boolean(formCfg.enabled),
       background_monitor_enabled: Boolean(formCfg.background_monitor_enabled),
       monitor_interval_minutes: Number(formCfg.monitor_interval_minutes),
+      monthly_order_limit: Number(formCfg.monthly_order_limit),
+      virtual_budget_eur: Number(formCfg.virtual_budget_eur),
+      portfolio_roi_target_pct: Number(formCfg.portfolio_roi_target_pct),
       min_asymmetry_score: Number(formCfg.min_asymmetry_score),
       min_audit_score: Number(formCfg.min_audit_score),
       min_runway_months: Number(formCfg.min_runway_months),
       block_high_dilution_risk: Boolean(formCfg.block_high_dilution_risk),
       default_ticket_eur: Number(formCfg.default_ticket_eur),
       respect_monthly_5_limit: Boolean(formCfg.respect_monthly_5_limit),
+      enable_partial_tp1: Boolean(formCfg.enable_partial_tp1),
+      tp1_pct: Number(formCfg.tp1_pct),
       take_profit_pct: Number(formCfg.take_profit_pct),
       stop_loss_pct: Number(formCfg.stop_loss_pct),
+      enable_trailing_stop: Boolean(formCfg.enable_trailing_stop),
+      trailing_stop_pct: Number(formCfg.trailing_stop_pct),
       auto_close_on_tp_sl: Boolean(formCfg.auto_close_on_tp_sl),
       auto_close_on_thesis_degrade: Boolean(formCfg.auto_close_on_thesis_degrade),
       thesis_degrade_min_score: Number(formCfg.thesis_degrade_min_score),
@@ -215,46 +239,64 @@ export default function AutoPilotPanel({
     if (res) setPreviewResult(res);
   };
 
+  const virtualBudget = summary.virtual_budget_eur ?? Number(config.virtual_budget_eur || 1000);
+  const cashAvail = summary.paper_cash_available_eur ?? virtualBudget;
+  const totalEquity = summary.paper_total_equity_eur ?? virtualBudget;
+  const totalRoi = summary.paper_total_roi_pct ?? 0;
+  const roiTarget = summary.portfolio_roi_target_pct ?? Number(config.portfolio_roi_target_pct || 20);
+  const targetEur = summary.portfolio_target_eur ?? virtualBudget * (1 + roiTarget / 100);
+  const targetProgress = roiTarget > 0 ? Math.max(0, Math.min(100, Math.round((totalRoi / roiTarget) * 100))) : 0;
+
   const paperRealized = summary.paper_realized_pnl_eur ?? 0;
   const paperUnrealized = summary.paper_unrealized_pnl_eur ?? 0;
 
   return (
     <div className="space-y-6">
-      {/* Top KPI Strip */}
+      {/* Top KPI Strip: Virtual Portfolio + Goal + Cash + Monthly Cap */}
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-xl border border-emerald-500/25 bg-slate-900/70 p-4">
           <div className="flex items-center justify-between text-xs text-slate-400">
-            <span>Stato Auto-Pilot Paper</span>
-            <Bot className="h-4 w-4 text-emerald-400" />
+            <span>Equity Virtuale &amp; Obiettivo</span>
+            <Target className="h-4 w-4 text-emerald-400" />
           </div>
-          <div className="mt-2 flex items-center gap-2">
+          <div className="mt-2 flex items-baseline gap-2">
+            <span className="font-mono-num text-2xl font-bold text-slate-100">
+              €{totalEquity.toFixed(2)}
+            </span>
             <span
-              className={`rounded-md px-2 py-0.5 text-xs font-bold ${
-                config.enabled ? "bg-emerald-500/20 text-emerald-300" : "bg-slate-800 text-slate-400"
+              className={`font-mono-num text-xs font-semibold ${
+                totalRoi >= 0 ? "text-emerald-400" : "text-rose-400"
               }`}
             >
-              {config.enabled ? "ATTIVO" : "IN PAUSA"}
+              {totalRoi >= 0 ? "+" : ""}
+              {totalRoi}%
             </span>
-            <span className="text-xs text-slate-400">
-              {config.background_monitor_enabled
-                ? `Polling ogni ${config.monitor_interval_minutes}m`
-                : "Manuale / CI"}
-            </span>
+          </div>
+          <div className="mt-2">
+            <div className="flex justify-between text-[10px] text-slate-400">
+              <span>Obiettivo +{roiTarget}%</span>
+              <span className="font-mono-num text-emerald-300">€{targetEur.toFixed(0)}</span>
+            </div>
+            <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
+              <div className="h-full bg-emerald-500 transition-all" style={{ width: `${targetProgress}%` }} />
+            </div>
           </div>
         </div>
 
         <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
           <div className="flex items-center justify-between text-xs text-slate-400">
-            <span>Posizioni Paper / Auto</span>
-            <Activity className="h-4 w-4 text-cyan-400" />
+            <span>Cassa Virtuale Disponibile</span>
+            <Wallet className="h-4 w-4 text-cyan-400" />
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span className="font-mono-num text-2xl font-bold text-slate-100">
-              {summary.paper_open_count ?? 0}
+              €{cashAvail.toFixed(2)}
             </span>
-            <span className="text-xs text-slate-400">
-              aperte · {summary.paper_closed_count ?? 0} chiuse · {summary.auto_orders_count ?? 0} auto
-            </span>
+            <span className="text-xs text-slate-400">su €{virtualBudget.toFixed(0)}</span>
+          </div>
+          <div className="mt-1.5 text-[11px] text-slate-400">
+            Investito Paper: <strong className="font-mono-num text-slate-200">€{(summary.paper_invested_eur ?? 0).toFixed(2)}</strong> ·{" "}
+            {summary.paper_open_count ?? 0} aperte
           </div>
         </div>
 
@@ -277,41 +319,50 @@ export default function AutoPilotPanel({
               Realiz. {paperRealized >= 0 ? "+" : ""}€{paperRealized.toFixed(2)}
             </span>
           </div>
+          <div className="mt-1.5 text-[11px] text-slate-400">
+            Non realizzato:{" "}
+            <span className={`font-mono-num font-semibold ${paperUnrealized >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
+              {paperUnrealized >= 0 ? "+" : ""}€{paperUnrealized.toFixed(2)}
+            </span>
+          </div>
         </div>
 
         <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
           <div className="flex items-center justify-between text-xs text-slate-400">
-            <span>Ultimo Auto-Monitoraggio</span>
+            <span>Auto-Pilot &amp; Slot Mensili</span>
             <Clock className="h-4 w-4 text-amber-400" />
           </div>
-          <div className="mt-2 font-mono-num text-xs text-slate-200">
-            {autopilotData?.last_monitor_at
-              ? new Date(autopilotData.last_monitor_at).toLocaleString("it-IT")
-              : "Mai eseguito ancora"}
-          </div>
-          <div className="mt-1 text-[11px] text-slate-400">
-            Non realizzato Paper:{" "}
+          <div className="mt-2 flex items-center gap-2">
             <span
-              className={`font-mono-num font-semibold ${
-                paperUnrealized >= 0 ? "text-emerald-300" : "text-rose-300"
+              className={`rounded-md px-2 py-0.5 text-xs font-bold ${
+                config.enabled ? "bg-emerald-500/20 text-emerald-300" : "bg-slate-800 text-slate-400"
               }`}
             >
-              {paperUnrealized >= 0 ? "+" : ""}€{paperUnrealized.toFixed(2)}
+              {config.enabled ? "ATTIVO" : "IN PAUSA"}
             </span>
+            <span className="font-mono-num text-xs font-semibold text-cyan-300">
+              {summary.monthly_orders_used ?? 0}/{summary.monthly_orders_limit ?? 10} ordini
+            </span>
+          </div>
+          <div className="mt-1.5 font-mono-num text-[10px] text-slate-400">
+            Monitor:{" "}
+            {autopilotData?.last_monitor_at
+              ? new Date(autopilotData.last_monitor_at).toLocaleString("it-IT")
+              : "Mai eseguito"}
           </div>
         </div>
       </section>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {/* Left Panel: Guardrails Configuration & Action Triggers */}
+        {/* Left Panel: Guardrails & Exit Ladder Configuration */}
         <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/75 p-5">
           <div className="flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-sm font-bold text-slate-100">
               <Bot className="h-4 w-4 text-emerald-400" />
-              Regole &amp; Guardrail Auto-Pilot
+              Regole, Budget &amp; Obiettivi Exit
             </h2>
             <span className="rounded border border-slate-700 bg-slate-800 px-2 py-0.5 font-mono-num text-[10px] text-slate-300">
-              Slot {summary.monthly_orders_used ?? 0}/{summary.monthly_orders_limit ?? 5}
+              Slot {summary.monthly_orders_used ?? 0}/{summary.monthly_orders_limit ?? 10}
             </span>
           </div>
 
@@ -322,26 +373,28 @@ export default function AutoPilotPanel({
           )}
 
           <form onSubmit={handleSave} className="space-y-3 text-xs">
+            {/* Virtual Budget & Monthly Cap */}
             <div className="grid grid-cols-2 gap-2.5">
               <div>
-                <label className="block text-[11px] text-slate-400">Min AI Score (1-100)</label>
+                <label className="block text-[11px] text-slate-400">Budget Virtuale (€)</label>
                 <input
                   type="number"
                   min={1}
-                  max={100}
-                  value={formCfg.min_asymmetry_score ?? 75}
-                  onChange={(e) => handleField("min_asymmetry_score", e.target.value)}
-                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-slate-100 focus:border-emerald-500 focus:outline-none"
+                  max={1000000}
+                  step="any"
+                  value={formCfg.virtual_budget_eur ?? 1000}
+                  onChange={(e) => handleField("virtual_budget_eur", e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-cyan-300 focus:border-emerald-500 focus:outline-none"
                 />
               </div>
               <div>
-                <label className="block text-[11px] text-slate-400">Min Audit %</label>
+                <label className="block text-[11px] text-slate-400">Ordini Max / Mese</label>
                 <input
                   type="number"
-                  min={0}
-                  max={100}
-                  value={formCfg.min_audit_score ?? 80}
-                  onChange={(e) => handleField("min_audit_score", e.target.value)}
+                  min={1}
+                  max={30}
+                  value={formCfg.monthly_order_limit ?? 10}
+                  onChange={(e) => handleField("monthly_order_limit", e.target.value)}
                   className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-slate-100 focus:border-emerald-500 focus:outline-none"
                 />
               </div>
@@ -349,15 +402,15 @@ export default function AutoPilotPanel({
 
             <div className="grid grid-cols-2 gap-2.5">
               <div>
-                <label className="block text-[11px] text-slate-400">Min Runway (mesi)</label>
+                <label className="block text-[11px] text-slate-400">Obiettivo Portafoglio (+%)</label>
                 <input
                   type="number"
-                  min={0}
-                  max={120}
+                  min={0.5}
+                  max={500}
                   step="any"
-                  value={formCfg.min_runway_months ?? 12}
-                  onChange={(e) => handleField("min_runway_months", e.target.value)}
-                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-slate-100 focus:border-emerald-500 focus:outline-none"
+                  value={formCfg.portfolio_roi_target_pct ?? 20}
+                  onChange={(e) => handleField("portfolio_roi_target_pct", e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-emerald-300 focus:border-emerald-500 focus:outline-none"
                 />
               </div>
               <div>
@@ -374,27 +427,93 @@ export default function AutoPilotPanel({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            {/* Entry Guardrails */}
+            <div className="grid grid-cols-3 gap-2">
               <div>
-                <label className="block text-[11px] text-slate-400">Take Profit (+%)</label>
+                <label className="block text-[11px] text-slate-400">Min AI Score</label>
                 <input
                   type="number"
-                  min={0.5}
+                  min={1}
+                  max={100}
+                  value={formCfg.min_asymmetry_score ?? 75}
+                  onChange={(e) => handleField("min_asymmetry_score", e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2 py-1.5 font-mono-num text-slate-100 focus:border-emerald-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] text-slate-400">Min Audit %</label>
+                <input
+                  type="number"
+                  min={0}
+                  max={100}
+                  value={formCfg.min_audit_score ?? 80}
+                  onChange={(e) => handleField("min_audit_score", e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2 py-1.5 font-mono-num text-slate-100 focus:border-emerald-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] text-slate-400">Runway (m)</label>
+                <input
+                  type="number"
+                  min={0}
+                  max={120}
+                  step="any"
+                  value={formCfg.min_runway_months ?? 12}
+                  onChange={(e) => handleField("min_runway_months", e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2 py-1.5 font-mono-num text-slate-100 focus:border-emerald-500 focus:outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Multi-Tier Exit Goals */}
+            <div className="grid grid-cols-2 gap-2.5">
+              <div>
+                <label className="block text-[11px] text-slate-400">TP1 Parziale (+%)</label>
+                <input
+                  type="number"
+                  min={1}
+                  max={500}
+                  step="any"
+                  value={formCfg.tp1_pct ?? 35}
+                  onChange={(e) => handleField("tp1_pct", e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-cyan-300 focus:border-emerald-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] text-slate-400">TP2 Finale (+%)</label>
+                <input
+                  type="number"
+                  min={1}
                   max={1000}
                   step="any"
-                  value={formCfg.take_profit_pct ?? 60}
+                  value={formCfg.take_profit_pct ?? 80}
                   onChange={(e) => handleField("take_profit_pct", e.target.value)}
                   className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-emerald-300 focus:border-emerald-500 focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              <div>
+                <label className="block text-[11px] text-slate-400">Trailing Stop (-% picco)</label>
+                <input
+                  type="number"
+                  min={3}
+                  max={80}
+                  step="any"
+                  value={formCfg.trailing_stop_pct ?? 15}
+                  onChange={(e) => handleField("trailing_stop_pct", e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-amber-300 focus:border-emerald-500 focus:outline-none"
                 />
               </div>
               <div>
                 <label className="block text-[11px] text-slate-400">Stop Loss (-%)</label>
                 <input
                   type="number"
-                  max={-0.5}
+                  max={-0.1}
                   min={-99}
                   step="any"
-                  value={formCfg.stop_loss_pct ?? -35}
+                  value={formCfg.stop_loss_pct ?? -30}
                   onChange={(e) => handleField("stop_loss_pct", e.target.value)}
                   className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 font-mono-num text-rose-300 focus:border-emerald-500 focus:outline-none"
                 />
@@ -436,23 +555,23 @@ export default function AutoPilotPanel({
                 />
               </label>
               <label className="flex items-center justify-between gap-2 text-slate-300">
-                <span>Rispetta Limite 5 Ordini/Mese</span>
+                <span>TP1 Parziale Free-Ride (vendi {formCfg.tp1_sell_ratio_pct ?? 50}% + SL 0%)</span>
                 <input
                   type="checkbox"
-                  checked={Boolean(formCfg.respect_monthly_5_limit)}
-                  onChange={(e) => handleField("respect_monthly_5_limit", e.target.checked)}
+                  checked={Boolean(formCfg.enable_partial_tp1)}
+                  onChange={(e) => handleField("enable_partial_tp1", e.target.checked)}
                 />
               </label>
               <label className="flex items-center justify-between gap-2 text-slate-300">
-                <span>Blocca se Diluizione S-3 ALTA</span>
+                <span>Trailing Stop Protettivo (da +{formCfg.trailing_activation_pct ?? 25}%)</span>
                 <input
                   type="checkbox"
-                  checked={Boolean(formCfg.block_high_dilution_risk)}
-                  onChange={(e) => handleField("block_high_dilution_risk", e.target.checked)}
+                  checked={Boolean(formCfg.enable_trailing_stop)}
+                  onChange={(e) => handleField("enable_trailing_stop", e.target.checked)}
                 />
               </label>
               <label className="flex items-center justify-between gap-2 text-slate-300">
-                <span>Auto-Chiusura Paper su TP/SL</span>
+                <span>Auto-Chiusura Paper su TP2/SL</span>
                 <input
                   type="checkbox"
                   checked={Boolean(formCfg.auto_close_on_tp_sl)}
@@ -468,7 +587,23 @@ export default function AutoPilotPanel({
                 />
               </label>
               <label className="flex items-center justify-between gap-2 text-slate-300">
-                <span>Polling Background Attivo</span>
+                <span>Rispetta Limite {formCfg.monthly_order_limit ?? 10} Ordini/Mese</span>
+                <input
+                  type="checkbox"
+                  checked={Boolean(formCfg.respect_monthly_5_limit)}
+                  onChange={(e) => handleField("respect_monthly_5_limit", e.target.checked)}
+                />
+              </label>
+              <label className="flex items-center justify-between gap-2 text-slate-300">
+                <span>Blocca se Diluizione S-3 ALTA</span>
+                <input
+                  type="checkbox"
+                  checked={Boolean(formCfg.block_high_dilution_risk)}
+                  onChange={(e) => handleField("block_high_dilution_risk", e.target.checked)}
+                />
+              </label>
+              <label className="flex items-center justify-between gap-2 text-slate-300">
+                <span>Polling Background Locale</span>
                 <input
                   type="checkbox"
                   checked={Boolean(formCfg.background_monitor_enabled)}
@@ -547,9 +682,7 @@ export default function AutoPilotPanel({
                   ✕
                 </button>
               </div>
-              {previewResult.message && (
-                <p className="mb-2 text-amber-300">{previewResult.message}</p>
-              )}
+              {previewResult.message && <p className="mb-2 text-amber-300">{previewResult.message}</p>}
               <div className="space-y-1.5">
                 {(previewResult.registered || []).map((r) => (
                   <div key={r.ticker} className="flex items-center justify-between rounded bg-emerald-500/10 px-2 py-1 text-emerald-300">
@@ -574,7 +707,7 @@ export default function AutoPilotPanel({
           )}
         </section>
 
-        {/* Right Panel: Monitored Positions with TP/SL Meter & Sparkline */}
+        {/* Right Panel: Monitored Positions with TP1/TP2/SL Meter & Sparkline */}
         <section className="lg:col-span-2 space-y-3">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-slate-100">
@@ -589,7 +722,7 @@ export default function AutoPilotPanel({
             <div className="rounded-2xl border border-dashed border-slate-800 bg-slate-900/40 p-10 text-center">
               <p className="text-sm text-slate-300">Nessuna posizione attiva o simulata nel registro.</p>
               <p className="mt-1 text-xs text-slate-500">
-                Usa &ldquo;Anteprima Dry-Run&rdquo; o &ldquo;Auto-Registra&rdquo; per avviare ordini simulati dalle migliori opportunità.
+                Usa &ldquo;Anteprima Dry-Run&rdquo; o &ldquo;Auto-Registra&rdquo; per avviare ordini simulati dal budget virtuale.
               </p>
             </div>
           ) : (
@@ -597,16 +730,11 @@ export default function AutoPilotPanel({
               {orders.map((ord) => {
                 const isPos = ord.pnl_pct >= 0;
                 return (
-                  <div
-                    key={ord.id}
-                    className="rounded-2xl border border-slate-800 bg-slate-900/75 p-4"
-                  >
+                  <div key={ord.id} className="rounded-2xl border border-slate-800 bg-slate-900/75 p-4">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="font-mono-num text-lg font-bold text-slate-100">
-                            {ord.ticker}
-                          </span>
+                          <span className="font-mono-num text-lg font-bold text-slate-100">{ord.ticker}</span>
                           <ModeBadge mode={ord.mode} />
                           <span
                             className={`rounded px-2 py-0.5 text-[10px] font-semibold ${
@@ -617,6 +745,11 @@ export default function AutoPilotPanel({
                           >
                             {ord.status}
                           </span>
+                          {ord.tp1_executed && (
+                            <span className="rounded border border-cyan-500/30 bg-cyan-500/15 px-2 py-0.5 font-mono-num text-[10px] font-semibold text-cyan-300">
+                              TP1 +€{(ord.partial_realized_pnl_eur ?? 0).toFixed(2)} INCASSATO
+                            </span>
+                          )}
                           {ord.close_reason && (
                             <span className="rounded border border-indigo-500/30 bg-indigo-500/15 px-2 py-0.5 font-mono-num text-[10px] text-indigo-300">
                               {ord.close_reason}
@@ -630,6 +763,9 @@ export default function AutoPilotPanel({
                           </span>
                           <span>
                             Live/Exit: <strong className="font-mono-num text-slate-200">${ord.latest_price_usd}</strong>
+                          </span>
+                          <span>
+                            Picco: <strong className="font-mono-num text-emerald-300">${Number(ord.peak_price_usd ?? ord.entry_price_usd).toFixed(2)}</strong>
                           </span>
                           <span>
                             AI Score: <strong className="font-mono-num text-cyan-300">{ord.initial_ai_score ?? "N/D"} → {ord.latest_ai_score ?? "N/D"}</strong>
@@ -649,7 +785,11 @@ export default function AutoPilotPanel({
                           >
                             {isPos ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
                             {isPos ? "+" : ""}
-                            {ord.pnl_pct}% ({ord.pnl_eur >= 0 ? "+" : ""}€{(ord.pnl_eur ?? 0).toFixed(2)})
+                            {ord.pnl_pct}% ({ord.pnl_eur >= 0 ? "+" : ""}€{(ord.pnl_eur ?? 0).toFixed(2)}
+                            {ord.tp1_executed
+                              ? ` | tot. ${(ord.total_order_pnl_eur ?? 0) >= 0 ? "+" : ""}€${(ord.total_order_pnl_eur ?? 0).toFixed(2)}`
+                              : ""}
+                            )
                           </div>
                         </div>
                         <PriceSparkline history={ord.price_history} />
@@ -660,7 +800,9 @@ export default function AutoPilotPanel({
                       <TpSlMeter
                         pnlPct={ord.pnl_pct}
                         slPct={ord.stop_loss_pct}
-                        tpPct={ord.take_profit_pct}
+                        tp1Pct={config.enable_partial_tp1 ? config.tp1_pct : null}
+                        tp2Pct={ord.take_profit_pct}
+                        tp1Executed={ord.tp1_executed}
                       />
                     )}
                   </div>

@@ -254,7 +254,7 @@ def test_journal_crud_and_monthly_limit_enforcement(tmp_path: Path, monkeypatch)
 
     client = TestClient(api.app)
     created_ids = []
-    for i in range(5):
+    for i in range(10):
         resp = client.post(
             "/api/journal",
             json={
@@ -272,7 +272,7 @@ def test_journal_crud_and_monthly_limit_enforcement(tmp_path: Path, monkeypatch)
         assert resp.status_code == 201
         created_ids.append(resp.json()["order"]["id"])
 
-    # 6th order in same month must be rejected without override
+    # 11th order in same month must be rejected without override
     blocked = client.post(
         "/api/journal",
         json={
@@ -290,7 +290,7 @@ def test_journal_crud_and_monthly_limit_enforcement(tmp_path: Path, monkeypatch)
     # Delete one and verify slots free up
     del_resp = client.delete(f"/api/journal/{created_ids[0]}")
     assert del_resp.status_code == 200
-    assert del_resp.json()["journal"]["summary"]["monthly_orders_used"] == 4
+    assert del_resp.json()["journal"]["summary"]["monthly_orders_used"] == 9
 
 
 def _seed_autopilot_opportunities(store: ScouterStorage) -> None:
@@ -594,4 +594,131 @@ def test_snapshot_export_and_monitor_only(tmp_path: Path, monkeypatch) -> None:
     assert snap["opportunities"]["count"] == 1
     assert snap["journal"]["summary"]["monthly_orders_used"] == 1
     assert len(snap["autopilot"]["logs"]) >= 1
+
+
+def test_virtual_budget_tp1_free_ride_and_trailing_stop(tmp_path: Path) -> None:
+    store = ScouterStorage(store_path=tmp_path / "tp1_store.json")
+    store.update_autopilot_config(
+        {
+            "virtual_budget_eur": 60.0,
+            "default_ticket_eur": 40.0,
+            "enable_partial_tp1": True,
+            "tp1_pct": 35.0,
+            "tp1_sell_ratio_pct": 50.0,
+            "take_profit_pct": 80.0,
+            "stop_loss_pct": -30.0,
+            "enable_trailing_stop": True,
+            "trailing_activation_pct": 25.0,
+            "trailing_stop_pct": 15.0,
+        }
+    )
+    store.upsert_opportunity(
+        {
+            "ticker": "OP1",
+            "asymmetry_score": 85,
+            "quant_metrics": {"current_price": 10.0, "runway_months": 30.0},
+            "debate": {"auditor": {"verification_score": 90}, "bear": {"dilution_risk_level": "BASSO"}},
+        }
+    )
+    store.upsert_opportunity(
+        {
+            "ticker": "OP2",
+            "asymmetry_score": 82,
+            "quant_metrics": {"current_price": 10.0, "runway_months": 30.0},
+            "debate": {"auditor": {"verification_score": 90}, "bear": {"dilution_risk_level": "BASSO"}},
+        }
+    )
+
+    # Budget is €60, ticket is €40 -> OP1 opens (€20 cash left), OP2 blocked by budget guardrail
+    reg_res = autopilot.evaluate_and_auto_register(dry_run=False, store=store)
+    assert [r["ticker"] for r in reg_res["registered"]] == ["OP1"]
+    op2_skip = next(s for s in reg_res["skipped"] if s["ticker"] == "OP2")
+    assert any("Cassa virtuale insufficiente" in r for r in op2_skip["reasons"])
+    assert reg_res["journal"]["summary"]["paper_cash_available_eur"] == 20.0
+
+    # Price surges +40% ($14.0) -> triggers TP1_PARZIALE (sells 50% €20 for €28 -> +€8 realized, SL moved to 0%)
+    mon1 = autopilot.run_portfolio_monitor(
+        refresh_live_prices=True,
+        rescan_ai=False,
+        store=store,
+        price_fetcher=lambda _s: 14.0,
+    )
+    assert len(mon1["partial_exits"]) == 1
+    assert mon1["partial_exits"][0]["profit_eur"] == 8.0
+    s1 = mon1["journal"]["summary"]
+    o1 = mon1["journal"]["orders"][0]
+    assert o1["status"] == "APERTO"
+    assert o1["tp1_executed"] is True
+    assert o1["amount_eur"] == 20.0
+    assert o1["stop_loss_pct"] == 0.0
+    assert s1["paper_realized_pnl_eur"] == 8.0
+    assert s1["paper_unrealized_pnl_eur"] == 8.0
+    assert s1["paper_cash_available_eur"] == 48.0  # 60 - 20 + 8 = 48
+    assert s1["paper_total_equity_eur"] == 76.0    # 60 + 16 = 76
+
+    # Price drops to $10.0 (0% vs entry) -> triggers BREAK_EVEN_STOP on remaining half, total order profit = +€8 (WIN)
+    mon2 = autopilot.run_portfolio_monitor(
+        refresh_live_prices=True,
+        rescan_ai=False,
+        store=store,
+        price_fetcher=lambda _s: 10.0,
+    )
+    assert len(mon2["auto_closed"]) == 1
+    assert "BREAK_EVEN_STOP" in mon2["auto_closed"][0]["reason"]
+    s2 = mon2["journal"]["summary"]
+    assert s2["paper_cash_available_eur"] == 68.0
+    assert s2["paper_total_equity_eur"] == 68.0
+    assert s2["paper_win_rate_pct"] == 100.0
+
+    # Trailing stop test: disable TP1, open TRAIL @ $10, peak at $13 (+30% >= 25%), then pull back to $10.80 (-16.9% >= 15%)
+    store.update_autopilot_config({"enable_partial_tp1": False, "virtual_budget_eur": 200.0})
+    tr_order = store.add_micro_order(
+        {
+            "ticker": "TRAIL",
+            "amount_eur": 40.0,
+            "entry_price_usd": 10.0,
+            "mode": "PAPER_AUTO",
+            "initial_thesis": "Trailing test",
+            "initial_ai_score": 82,
+        }
+    )
+    autopilot.run_portfolio_monitor(True, False, store=store, price_fetcher=lambda s: 13.0 if s == "TRAIL" else 10.0)
+    mon_trail = autopilot.run_portfolio_monitor(True, False, store=store, price_fetcher=lambda s: 10.8 if s == "TRAIL" else 10.0)
+    closed_trail = next(c for c in mon_trail["auto_closed"] if c["order_id"] == tr_order["id"])
+    assert "TRAILING_STOP" in closed_trail["reason"]
+
+
+def test_real_order_tp1_does_not_block_trailing_and_uses_canonical_cooldown(tmp_path: Path, monkeypatch) -> None:
+    store = ScouterStorage(store_path=tmp_path / "real_tp1_store.json")
+    monkeypatch.setattr(api, "storage", store)
+    monkeypatch.setattr(autopilot, "default_storage", store)
+
+    real_o = store.add_micro_order(
+        {
+            "ticker": "REALTP",
+            "amount_eur": 35.0,
+            "entry_price_usd": 10.0,
+            "mode": "REAL",
+            "initial_thesis": "Real TP1 + Trailing check",
+            "initial_ai_score": 82,
+        }
+    )
+
+    # Tick 1 at +40% -> TP1 alert logged once
+    autopilot.run_portfolio_monitor(True, False, store=store, price_fetcher=lambda _s: 14.0)
+    # Tick 2 at +41% -> canonical key "TP1_PARZIALE" must suppress duplicate alert within 12h
+    autopilot.run_portfolio_monitor(True, False, store=store, price_fetcher=lambda _s: 14.1)
+    tp1_alerts = [lg for lg in store.list_autopilot_logs() if lg["action"] == "ALERT" and lg["ticker"] == "REALTP"]
+    assert len(tp1_alerts) == 1
+
+    # Tick 3 drops to $11.50 (-18.4% from peak $14.10) -> must trigger TRAILING_STOP alert even while in TP1 zone!
+    mon3 = autopilot.run_portfolio_monitor(True, False, store=store, price_fetcher=lambda _s: 11.5)
+    assert any("TRAILING_STOP" in a["reason"] for a in mon3["alerts"])
+    assert next(o for o in mon3["journal"]["orders"] if o["id"] == real_o["id"])["status"] == "APERTO"
+
+    # Explicit null fields in PUT /api/autopilot/config must not crash and must return updated journal
+    client = TestClient(api.app)
+    resp = client.put("/api/autopilot/config", json={"virtual_budget_eur": 2000.0, "tp1_pct": None})
+    assert resp.status_code == 200
+    assert resp.json()["journal"]["summary"]["virtual_budget_eur"] == 2000.0
 

@@ -142,7 +142,16 @@ export default function App() {
     setIsSavingConfig(true);
     try {
       const res = await apiClient.updateAutopilotConfig(payload);
-      setAutopilotData((prev) => ({ ...prev, config: res.config, logs: res.logs }));
+      if (res.journal) setJournalData(res.journal);
+      setAutopilotData((prev) => ({
+        ...prev,
+        config: res.config,
+        logs: res.logs,
+        journal: res.journal || prev.journal,
+      }));
+      setHealth((prev) =>
+        prev ? { ...prev, monthly_micro_order_limit: res.config.monthly_order_limit } : prev
+      );
       setBannerMsg({ type: "success", text: "Regole Auto-Pilot salvate con successo." });
     } catch (err) {
       setBannerMsg({ type: "error", text: err.message || "Errore salvataggio regole Auto-Pilot." });
@@ -205,8 +214,8 @@ export default function App() {
         }));
       }
       setBannerMsg({
-        type: res.auto_closed.length > 0 || res.alerts.length > 0 ? "info" : "success",
-        text: `Monitoraggio completato su ${res.checked_count} posizioni aperte · ${res.auto_closed.length} chiusure automatiche Paper · ${res.alerts.length} alert reali.`,
+        type: (res.partial_exits?.length ?? 0) > 0 || res.auto_closed.length > 0 || res.alerts.length > 0 ? "info" : "success",
+        text: `Monitoraggio completato su ${res.checked_count} posizioni aperte · ${res.partial_exits?.length ?? 0} TP1 parziali · ${res.auto_closed.length} chiusure Paper · ${res.alerts.length} alert reali.`,
       });
     } catch (err) {
       setBannerMsg({ type: "error", text: err.message || "Errore Auto-Monitoraggio." });

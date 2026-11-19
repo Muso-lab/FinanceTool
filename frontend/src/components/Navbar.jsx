@@ -27,7 +27,7 @@ export default function Navbar({
   };
 
   const used = journalSummary?.monthly_orders_used ?? 0;
-  const limit = journalSummary?.monthly_orders_limit ?? 5;
+  const limit = journalSummary?.monthly_orders_limit ?? 10;
 
   return (
     <header className="sticky top-0 z-30 border-b border-slate-800/80 bg-[#090d16]/95 backdrop-blur-md">

@@ -113,6 +113,9 @@ class AutopilotConfigUpdate(BaseModel):
     enabled: bool | None = None
     background_monitor_enabled: bool | None = None
     monitor_interval_minutes: int | None = Field(default=None, ge=5, le=1440)
+    monthly_order_limit: int | None = Field(default=None, ge=1, le=30)
+    virtual_budget_eur: float | None = Field(default=None, gt=0, le=1_000_000)
+    portfolio_roi_target_pct: float | None = Field(default=None, gt=0, le=500)
     min_asymmetry_score: int | None = Field(default=None, ge=1, le=100)
     min_audit_score: int | None = Field(default=None, ge=0, le=100)
     min_runway_months: float | None = Field(default=None, ge=0, le=120)
@@ -121,8 +124,14 @@ class AutopilotConfigUpdate(BaseModel):
     default_broker: str | None = Field(default=None, min_length=2, max_length=60)
     max_positions_per_ticker: int | None = Field(default=None, ge=1, le=5)
     respect_monthly_5_limit: bool | None = None
+    enable_partial_tp1: bool | None = None
+    tp1_pct: float | None = Field(default=None, gt=0, le=500)
+    tp1_sell_ratio_pct: float | None = Field(default=None, ge=10, le=90)
     take_profit_pct: float | None = Field(default=None, gt=0, le=1000)
     stop_loss_pct: float | None = Field(default=None, lt=0, ge=-99)
+    enable_trailing_stop: bool | None = None
+    trailing_activation_pct: float | None = Field(default=None, gt=0, le=500)
+    trailing_stop_pct: float | None = Field(default=None, ge=3, le=80)
     auto_close_on_tp_sl: bool | None = None
     auto_close_on_thesis_degrade: bool | None = None
     thesis_degrade_min_score: int | None = Field(default=None, ge=1, le=99)
@@ -149,7 +158,9 @@ def health() -> dict[str, Any]:
             settings.GEMINI_API_KEY and not settings.GEMINI_API_KEY.startswith("your_")
         ),
         "alert_threshold": settings.ALERT_SCORE_THRESHOLD,
-        "monthly_micro_order_limit": settings.MONTHLY_MICRO_ORDER_LIMIT,
+        "monthly_micro_order_limit": int(
+            storage.get_autopilot_config().get("monthly_order_limit") or settings.MONTHLY_MICRO_ORDER_LIMIT
+        ),
     }
 
 
@@ -261,7 +272,7 @@ def get_autopilot_status() -> dict[str, Any]:
 
 @app.put("/api/autopilot/config")
 def put_autopilot_config(body: AutopilotConfigUpdate) -> dict[str, Any]:
-    updates = body.model_dump(exclude_unset=True)
+    updates = {k: v for k, v in body.model_dump(exclude_unset=True).items() if v is not None}
     current = storage.get_autopilot_config()
     merged = {**current, **updates}
     if int(merged["thesis_degrade_min_score"]) >= int(merged["min_asymmetry_score"]):
@@ -269,18 +280,24 @@ def put_autopilot_config(body: AutopilotConfigUpdate) -> dict[str, Any]:
             status_code=400,
             detail="La soglia Thesis Stop deve essere inferiore al Min AI Score d'ingresso per evitare chiusure immediate.",
         )
+    if merged.get("enable_partial_tp1") and float(merged["tp1_pct"]) >= float(merged["take_profit_pct"]):
+        raise HTTPException(
+            status_code=400,
+            detail="Il target parziale TP1 deve essere inferiore al target finale TP2.",
+        )
 
     updated = storage.update_autopilot_config(updates)
     storage.append_autopilot_log(
         "CONFIG_UPDATE",
         "SYSTEM",
-        f"Aggiornate regole Auto-Pilot (Min Score {updated['min_asymmetry_score']}, TP +{updated['take_profit_pct']}%, SL {updated['stop_loss_pct']}%).",
+        f"Aggiornate regole Auto-Pilot (Budget €{updated['virtual_budget_eur']:.0f}, Max {updated['monthly_order_limit']}/mese, TP1 +{updated['tp1_pct']}%, TP2 +{updated['take_profit_pct']}%, SL {updated['stop_loss_pct']}%).",
         updates,
     )
     _monitor_wakeup.set()
     return {
         "config": updated,
         "logs": storage.list_autopilot_logs(limit=40),
+        "journal": storage.list_micro_orders(),
     }
 
 

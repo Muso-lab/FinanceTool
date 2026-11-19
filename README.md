@@ -1,81 +1,53 @@
 # IPO & Micro-Cap AI Scouter (+ Paper Trading Auto-Pilot)
 
-Web app personale (single-user) progettata come scouter automatizzato di asimmetrie finanziarie su **aziende post-IPO (6–24 mesi)** e **micro-cap trascurate**, ottimizzata per una strategia disciplinata da **5 micro-ordini al mese** (es. €25–€50 su azioni frazionate), dotata di motore **Paper Trading Auto-Pilot** per validare la strategia prima di allocare capitale reale.
+Web app personale (single-user) progettata come scouter automatizzato di asimmetrie finanziarie su **aziende post-IPO (6–24 mesi)** e **micro-cap trascurate**, ottimizzata per una strategia disciplinata fino a **10 micro-ordini al mese** (es. €35 su azioni frazionate), dotata di **Budget Virtuale (€1.000)** e motore **Paper Trading Auto-Pilot** con obiettivi di rendita multi-livello per validare la strategia prima di allocare capitale reale.
 
 ---
 
 ## Architettura Cloud a PC Spento (Zero-PC-On su GitHub)
 
-**Non devi tenere il PC acceso.** Una volta caricato il progetto su GitHub (piano Free):
-1. **[`.github/workflows/daily_scouter.yml`](.github/workflows/daily_scouter.yml)** gira automaticamente dal lunedì al venerdì alle **13:30 UTC** (prima dell'apertura dei mercati US): esegue lo screening quantitativo, il parsing SEC EDGAR, i 4 agenti AI, il controllo Auto-Pilot (`--auto-monitor --auto-register`) e salva lo stato aggiornato su Git + snapshot statico + notifiche Telegram.
-2. **[`.github/workflows/autopilot_monitor.yml`](.github/workflows/autopilot_monitor.yml)** gira automaticamente ogni 2 ore durante la sessione US (`14:30–20:30 UTC`): aggiorna le quotazioni live, registra i checkpoint storici (`price_history`), chiude eventuali posizioni simulate al raggiungimento di Take Profit (`+60%`), Stop Loss (`-35%`) o Thesis Stop, e invia alert su Telegram.
-3. **[`.github/workflows/deploy_pages.yml`](.github/workflows/deploy_pages.yml)** pubblica automaticamente la dashboard React su **GitHub Pages** in modalità `Cloud Read-Only` così puoi consultarla in qualsiasi momento anche da smartphone, con il PC spento.
+**Non devi tenere il PC acceso.** Una volta caricato il progetto su GitHub:
+1. **[`.github/workflows/daily_scouter.yml`](.github/workflows/daily_scouter.yml)** gira dal lunedì al venerdì alle **13:30 UTC** (prima dell'apertura USA): analizza i titoli, applica i guardrail su budget virtuale e soglia 10/mese (`--auto-monitor --auto-register`), salva lo stato su [`scouter_store.json`](backend/data/scouter_store.json) e rigenera [`scouter_snapshot.json`](frontend/public/scouter_snapshot.json).
+2. **[`.github/workflows/autopilot_monitor.yml`](.github/workflows/autopilot_monitor.yml)** gira ogni 2 ore durante la sessione USA (`14:30, 16:30, 18:30, 20:30 UTC`, lun–ven): aggiorna i prezzi live, calcola i picchi e applica gli obiettivi automatici di uscita (**TP1 Parziale +35% Free-Ride**, **TP2 Finale +80%**, **Trailing Stop -15%**, **Stop Loss -30%**, **Thesis Stop**).
+3. **[`.github/workflows/deploy_pages.yml`](.github/workflows/deploy_pages.yml)** pubblica automaticamente la dashboard su **GitHub Pages** in modalità `Cloud Read-Only`.
 
 ---
 
-## Architettura Tecnica & Funzionalità
+## Obiettivi di Rendita & Budget Virtuale (Paper Trading)
 
-- **Screening Quantitativo Multi-Fonte (`backend/services/quant_screener.py`)**: integra Finnhub IPO Calendar (opzionale) + `yfinance` su storia prezzi completa (`period="max"`) per filtrare drawdown post-IPO negativi (-15% / -88%), crescita ricavi YoY positiva, cassa / runway > 12 mesi (calcolata su FCF negativo se CapEx-heavy) e assenza di debito tossico.
-- **Motore SEC EDGAR & Alternative Data (`backend/services/sec_edgar.py`, `backend/services/alt_data.py`)**:
-  - Parsing XML diretto dei **Form 4** per distinguere gli acquisti reali sul mercato aperto (**Codice P**, incluso *Cluster Insider Buying*) da grant (`A`) o esercizi opzioni (`M`).
-  - Estrazione **8-K** (Item `1.01`, `8.01`, `3.01`, `3.02`, `4.02`, `5.03`) e controllo a 3 anni su **`S-3` / `S-3ASR` / `424B5`** per prevenire trappole di diluizione.
-  - News RSS con regex a confini di parola + rilevazione **Hiring Spike vs Tagli** tramite board ATS pubbliche (Greenhouse, Lever, Ashby) + check **Azioni Frazionate & Commissioni Zero** (Trading 212, IBKR, Trade Republic, Scalable, Revolut, Directa).
-- **Pipeline Multi-Agente a 4 Fasi con Contro-Verifica (`backend/scouter_pipeline.py`)**:
-  1. **Agente Bull**: catalizzatori verificabili (`[SEC-8K]`, `[FORM-4]`, `[FIN-DATA]`, `[NEWS]`, `[CAREERS]`).
-  2. **Agente Bear**: red flag su diluizione S-3/ATM, burn rate, vendite insider e leva.
-  3. **Agente Auditor / Verificatore (Contro-Verifica)**: controlla la coerenza matematica (Runway, Net Cash, Form 4 Codice P) e segnala esagerazioni o affermazioni non verificate di Bull e Bear.
-  4. **Agente Giudice**: assegna `Asymmetry Score` (1–100) scomposto in 5 sub-score e genera la **tesi sintetica in 5 righe** + piano micro-ordine.
-- **Paper Trading Auto-Pilot (`backend/services/autopilot.py`)**:
-  - **Auto-Registrazione controllata da guardrail**: apre micro-ordini simulati `PAPER_AUTO` rispettando soglia AI Score, Audit %, Runway, anti-duplicato e limite 5/mese, con **Anteprima Dry-Run**.
-  - **Auto-Monitoraggio & Protezione Ordini Reali**: aggiorna i checkpoint storici, chiude automaticamente solo posizioni simulate (`PAPER_AUTO` / `PAPER_MANUAL`) su TP/SL/Thesis Stop, e protegge rigorosamente gli ordini `REAL` (emettendo solo alert deduplicati).
+- **Budget Virtuale iniziale:** `€1.000` (configurabile) · **Obiettivo Portafoglio:** `+20%` (`€1.200`).
+- **Scala di Uscita Automatica (solo su ordini simulati `PAPER`):**
+  1. **TP1 Parziale ("Free Ride") a `+35%`:** incassa metà posizione (`50%`) sul budget virtuale e sposta automaticamente lo Stop Loss della metà rimanente a `0%` (Break-Even).
+  2. **TP2 Finale a `+80%`:** chiude l'intera posizione rimanente incassando il target asimmetrico.
+  3. **Trailing Stop Protettivo (`-15%` dal picco):** si attiva automaticamente quando il titolo supera `+25%` per non restituire i guadagni al mercato.
+  4. **Hard Stop Loss (`-30%`) & Thesis Stop:** chiude se il titolo viola lo stop o se l'AI Score scende sotto `55` (o cala di `≥ 18` punti).
+  5. **Protezione Ordini Reali (`REAL`):** non vengono mai chiusi automaticamente (inviano solo alert su Telegram/Audit Log).
 
 ---
 
-## Pubblicazione su GitHub (Setup in 3 Minuti)
+## Dove trovare le chiavi per i GitHub Secrets
 
-1. **Crea un repository vuoto su GitHub** (es. `ipo-microcap-ai-scouter`, pubblico o privato).
-2. **Collega e carica il repository locale**:
-   ```bash
-   git remote add origin https://github.com/<TUO_USERNAME>/<TUO_REPO>.git
-   git push -u origin main
-   ```
-3. **Abilita i permessi Cloud su GitHub**:
-   - Vai su **Settings → Actions → General → Workflow permissions**: seleziona **Read and write permissions** e salva (serve ai workflow automatici per salvare `scouter_store.json` e `scouter_snapshot.json`).
-   - Vai su **Settings → Pages → Build and deployment → Source**: seleziona **GitHub Actions**.
-4. **Aggiungi i Secrets opzionali** in **Settings → Secrets and variables → Actions**:
-   - `GEMINI_API_KEY`: attiva l'analisi live Gemini sui 4 agenti (altrimenti gira il motore forense locale).
-   - `FINNHUB_API_KEY`: espande il feed con le nuove IPO da Finnhub.
-   - `TELEGRAM_BOT_TOKEN` & `TELEGRAM_CHAT_ID`: ricevi avvisi istantanei su smartphone per nuovi alert, auto-registrazioni e chiusure TP/SL.
-   - `SEC_USER_AGENT`: es. `IlTuoNome/1.0 (tua-email@example.com)`.
-   - `FIREBASE_SERVICE_ACCOUNT_JSON`: opzionale se vuoi sincronizzare anche su Firebase Firestore.
+Vai su **Repository → Settings → Secrets and variables → Actions → New repository secret** e inserisci solo quelle che ti servono (tutte hanno un piano gratuito):
+
+| Secret Name | Dove ottenerlo (Gratis) | A cosa serve |
+| :--- | :--- | :--- |
+| **`GEMINI_API_KEY`** | [Google AI Studio](https://aistudio.google.com/apikey) → *Create API key* | Attiva Gemini live sui 4 agenti (Bull, Bear, Auditor, Giudice) invece del motore forense locale. |
+| **`TELEGRAM_BOT_TOKEN`** | Apri Telegram → cerca **`@BotFather`** → invia `/newbot` → segui le istruzioni | Permette al tool di inviarti notifiche sul telefono su nuovi alert, TP1, TP2 e Stop Loss. |
+| **`TELEGRAM_CHAT_ID`** | Apri Telegram → cerca **`@userinfobot`** → premi *Start* (ti mostra il tuo ID numerico) — ricordati di inviare prima un `/start` anche al tuo nuovo bot! | Indica a Telegram a quale chat personale recapitare gli avvisi. |
+| **`FINNHUB_API_KEY`** | [finnhub.io/register](https://finnhub.io/register) → copia la *API Key* dalla dashboard | Aggiunge le nuove IPO dal calendario Finnhub al radar giornaliero. |
+| **`SEC_USER_AGENT`** | Nessuna registrazione: scrivi es. `FinanceTool/1.0 (tua-email@dominio.com)` | Identificativo richiesto dai server ufficiali SEC EDGAR per evitare errori 403. |
 
 ---
 
-## Sviluppo & Utilizzo in Locale (Modalità Interattiva Completa)
+## Avvio Locale (Modalità Interattiva Completa)
 
-### 1. Backend (Python + FastAPI)
 ```bash
+# Backend FastAPI (http://127.0.0.1:8000)
 cd backend
-cp .env.example .env
-.venv\Scripts\activate      # Su Linux/macOS: source .venv/bin/activate
-pip install -r requirements.txt
+.venv\Scripts\activate
 uvicorn api:app --reload --port 8000
-```
 
-Comandi CLI utili:
-```bash
-cd backend
-# Scansione completa + auto-monitoraggio + auto-registrazione paper
-python scouter_pipeline.py --tickers RDW PL BKSY OUST TEM ASTS --auto-monitor --auto-register --no-notify
-
-# Aggiornamento rapido prezzi live, TP/SL e snapshot per il frontend
-python scouter_pipeline.py --monitor-only
-```
-
-### 2. Frontend (React + Vite + Tailwind)
-```bash
+# Frontend React + Vite (http://127.0.0.1:5173)
 cd frontend
-npm install
 npm run dev -- --port 5173
 ```
-Apri `http://127.0.0.1:5173`.

@@ -139,10 +139,10 @@ export default function OpportunityFeed({
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span className="font-mono-num text-2xl font-bold text-slate-50">
-              {journalSummary?.monthly_slots_remaining ?? 5}
+              {journalSummary?.monthly_slots_remaining ?? 10}
             </span>
             <span className="text-xs text-slate-400">
-              su {journalSummary?.monthly_orders_limit ?? 5} ordini/mese
+              su {journalSummary?.monthly_orders_limit ?? 10} ordini/mese
             </span>
           </div>
         </div>

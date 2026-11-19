@@ -78,8 +78,8 @@ class Settings:
     MIN_REV_GROWTH_YOY: float = _env_float("MIN_REV_GROWTH_YOY", 0.0)
     MAX_MARKET_CAP_USD: float = _env_float("MAX_MARKET_CAP_USD", 5_000_000_000.0)
 
-    # Disciplina portafoglio micro-ordini (max 5 operazioni mensili da poche decine di euro)
-    MONTHLY_MICRO_ORDER_LIMIT: int = _env_int("MONTHLY_MICRO_ORDER_LIMIT", 5)
+    # Disciplina portafoglio micro-ordini (max 10 operazioni mensili da poche decine di euro)
+    MONTHLY_MICRO_ORDER_LIMIT: int = _env_int("MONTHLY_MICRO_ORDER_LIMIT", 10)
     DEFAULT_MICRO_ORDER_EUR: float = _env_float("DEFAULT_MICRO_ORDER_EUR", 35.0)
 
     # Universo curato di default affiancato dal calendario IPO Finnhub

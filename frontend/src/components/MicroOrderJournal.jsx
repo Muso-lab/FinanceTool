@@ -81,8 +81,8 @@ export default function MicroOrderJournal({
   const [entryPriceUsd, setEntryPriceUsd] = useState("");
   const [broker, setBroker] = useState("Trading 212");
   const [mode, setMode] = useState("PAPER_MANUAL");
-  const [takeProfitPct, setTakeProfitPct] = useState("60");
-  const [stopLossPct, setStopLossPct] = useState("-35");
+  const [takeProfitPct, setTakeProfitPct] = useState("80");
+  const [stopLossPct, setStopLossPct] = useState("-30");
   const [fractional, setFractional] = useState(true);
   const [orderDate, setOrderDate] = useState(new Date().toISOString().slice(0, 10));
   const [initialThesis, setInitialThesis] = useState("");
@@ -152,8 +152,8 @@ export default function MicroOrderJournal({
   const orders = journalData?.orders || [];
   const summary = journalData?.summary || {
     monthly_orders_used: 0,
-    monthly_orders_limit: 5,
-    monthly_slots_remaining: 5,
+    monthly_orders_limit: 10,
+    monthly_slots_remaining: 10,
     monthly_allocated_eur: 0,
     total_invested_eur: 0,
     total_current_value_eur: 0,
@@ -162,7 +162,7 @@ export default function MicroOrderJournal({
   };
   const selectedYm = (orderDate || "").slice(0, 7);
   const selectedMonthUsed = orders.filter((o) => (o.order_date || "").slice(0, 7) === selectedYm).length;
-  const selectedMonthLimitReached = selectedMonthUsed >= (summary.monthly_orders_limit || 5);
+  const selectedMonthLimitReached = selectedMonthUsed >= (summary.monthly_orders_limit || 10);
 
   return (
     <div className="space-y-6">
@@ -172,10 +172,11 @@ export default function MicroOrderJournal({
           <div>
             <h2 className="flex items-center gap-2 text-base font-bold text-slate-100">
               <BookOpen className="h-5 w-5 text-cyan-400" />
-              Diario di Bordo Micro-Ordini (Disciplina 5 Cartucce / Mese)
+              Diario di Bordo Micro-Ordini (Disciplina {summary.monthly_orders_limit || 10} Cartucce / Mese)
             </h2>
             <p className="mt-1 text-xs text-slate-400">
-              Registra micro-ordini simulati o reali e monitora P&amp;L live, target TP/SL e deriva della tesi AI.
+              Budget virtuale: €{(summary.virtual_budget_eur ?? 1000).toFixed(0)} (cassa disponibile €
+              {(summary.paper_cash_available_eur ?? 1000).toFixed(2)}) · Monitora TP1/TP2, Trailing Stop e deriva tesi AI.
             </p>
           </div>
 
@@ -195,12 +196,12 @@ export default function MicroOrderJournal({
                 Slot Mese Corrente ({summary.current_month})
               </div>
               <div className="mt-1.5 flex items-center gap-1.5">
-                {Array.from({ length: summary.monthly_orders_limit || 5 }).map((_, i) => {
+                {Array.from({ length: summary.monthly_orders_limit || 10 }).map((_, i) => {
                   const used = i < summary.monthly_orders_used;
                   return (
                     <span
                       key={i}
-                      className={`h-3 w-7 rounded-sm transition ${
+                      className={`h-3 w-4 rounded-sm transition ${
                         used ? "bg-cyan-400" : "border border-slate-700 bg-slate-900"
                       }`}
                       title={used ? "Slot utilizzato" : "Slot disponibile"}
@@ -243,7 +244,7 @@ export default function MicroOrderJournal({
             <h3 className="text-sm font-semibold text-slate-100">Nuovo Micro-Ordine</h3>
             {summary.monthly_slots_remaining === 0 && (
               <span className="inline-flex items-center gap-1 rounded bg-amber-500/20 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                <Lock className="h-3 w-3" /> Soglia 5/mese raggiunta
+                <Lock className="h-3 w-3" /> Soglia {summary.monthly_orders_limit || 10}/mese raggiunta
               </span>
             )}
           </div>
@@ -424,7 +425,7 @@ export default function MicroOrderJournal({
                   checked={overrideLimit}
                   onChange={(e) => setOverrideLimit(e.target.checked)}
                 />
-                Forza ordine extra per {selectedYm} oltre il limite di {summary.monthly_orders_limit || 5} cartucce
+                Forza ordine extra per {selectedYm} oltre il limite di {summary.monthly_orders_limit || 10} cartucce
               </label>
             )}
 
@@ -470,6 +471,11 @@ export default function MicroOrderJournal({
                           {ord.broker} {ord.fractional ? "· Frazionato" : "· Intero"}
                         </span>
                         <DriftBadge status={ord.thesis_drift_status} />
+                        {ord.tp1_executed && (
+                          <span className="rounded border border-cyan-500/30 bg-cyan-500/15 px-1.5 py-0.5 font-mono-num text-[10px] font-semibold text-cyan-300">
+                            TP1 +€{(ord.partial_realized_pnl_eur ?? 0).toFixed(2)}
+                          </span>
+                        )}
                       </div>
                       <p className="mt-2 text-xs leading-relaxed text-slate-300">
                         <span className="font-semibold text-slate-400">Tesi: </span>
@@ -478,6 +484,11 @@ export default function MicroOrderJournal({
                       {ord.invalidation_rule && (
                         <p className="mt-1 text-[11px] text-rose-300/90">
                           <span className="font-semibold">Invalidazione:</span> {ord.invalidation_rule}
+                        </p>
+                      )}
+                      {ord.tp1_note && (
+                        <p className="mt-1 text-[11px] font-medium text-emerald-300">
+                          {ord.tp1_note}
                         </p>
                       )}
                       {ord.close_reason && (
@@ -501,7 +512,7 @@ export default function MicroOrderJournal({
                         {ord.pnl_pct}% (${ord.entry_price_usd} → ${ord.latest_price_usd})
                       </div>
                       <div className="text-[11px] text-slate-400">
-                        TP +{ord.take_profit_pct ?? 60}% / SL {ord.stop_loss_pct ?? -35}% · Score{" "}
+                        TP +{ord.take_profit_pct ?? 80}% / {ord.tp1_executed && ord.stop_loss_pct === 0 ? "BE 0%" : `SL ${ord.stop_loss_pct ?? -30}%`} · Score{" "}
                         <span className="font-mono-num text-slate-200">{ord.initial_ai_score ?? "N/D"}</span>
                         {" → "}
                         <span className="font-mono-num text-cyan-300">{ord.latest_ai_score ?? "N/D"}</span>

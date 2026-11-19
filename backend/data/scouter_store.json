@@ -4396,7 +4396,7 @@
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.133741+00:00",
       "last_live_price_usd": 25.49,
-      "last_monitored_at": "2026-11-19T09:38:09.390442+00:00",
+      "last_monitored_at": "2026-11-19T10:22:35.926693+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -4427,8 +4427,23 @@
           "price_usd": 25.49,
           "pnl_pct": 4.04,
           "ai_score": 77
+        },
+        {
+          "ts": "2026-11-19T10:17:46.768771+00:00",
+          "price_usd": 25.49,
+          "pnl_pct": 4.04,
+          "ai_score": 77
+        },
+        {
+          "ts": "2026-11-19T10:22:35.926693+00:00",
+          "price_usd": 25.49,
+          "pnl_pct": 4.04,
+          "ai_score": 77
         }
-      ]
+      ],
+      "take_profit_pct": 80.0,
+      "stop_loss_pct": -30.0,
+      "peak_price_usd": 25.49
     },
     {
       "id": "002e9cf8",
@@ -4445,7 +4460,7 @@
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.148135+00:00",
       "last_live_price_usd": 6.82,
-      "last_monitored_at": "2026-11-19T09:38:09.390442+00:00",
+      "last_monitored_at": "2026-11-19T10:22:35.926693+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -4476,8 +4491,23 @@
           "price_usd": 6.82,
           "pnl_pct": 6.56,
           "ai_score": 73
+        },
+        {
+          "ts": "2026-11-19T10:17:46.768771+00:00",
+          "price_usd": 6.82,
+          "pnl_pct": 6.56,
+          "ai_score": 73
+        },
+        {
+          "ts": "2026-11-19T10:22:35.926693+00:00",
+          "price_usd": 6.82,
+          "pnl_pct": 6.56,
+          "ai_score": 73
         }
-      ]
+      ],
+      "take_profit_pct": 80.0,
+      "stop_loss_pct": -30.0,
+      "peak_price_usd": 6.82
     },
     {
       "id": "1a507bb4",
@@ -4490,10 +4520,10 @@
       "fractional": true,
       "mode": "PAPER_AUTO",
       "auto_registered": true,
-      "take_profit_pct": 60.0,
-      "stop_loss_pct": -35.0,
+      "take_profit_pct": 80.0,
+      "stop_loss_pct": -30.0,
       "last_live_price_usd": 53.07,
-      "last_monitored_at": "2026-11-19T09:38:09.390442+00:00",
+      "last_monitored_at": "2026-11-19T10:22:35.926693+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -4516,13 +4546,26 @@
           "price_usd": 53.07,
           "pnl_pct": 0.0,
           "ai_score": 76
+        },
+        {
+          "ts": "2026-11-19T10:17:46.768771+00:00",
+          "price_usd": 53.07,
+          "pnl_pct": 0.0,
+          "ai_score": 76
+        },
+        {
+          "ts": "2026-11-19T10:22:35.926693+00:00",
+          "price_usd": 53.07,
+          "pnl_pct": 0.0,
+          "ai_score": 76
         }
       ],
       "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
       "invalidation_rule": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
       "initial_ai_score": 76,
       "status": "APERTO",
-      "created_at": "2026-11-19T09:29:16.074235+00:00"
+      "created_at": "2026-11-19T09:29:16.074235+00:00",
+      "peak_price_usd": 53.07
     }
   ],
   "pipeline_runs": [
@@ -4653,11 +4696,14 @@
       "errors": []
     }
   ],
-  "updated_at": "2026-11-19T09:38:11.124666+00:00",
+  "updated_at": "2026-11-19T10:22:37.222729+00:00",
   "autopilot_config": {
     "enabled": true,
     "background_monitor_enabled": false,
     "monitor_interval_minutes": 60,
+    "monthly_order_limit": 10,
+    "virtual_budget_eur": 1000.0,
+    "portfolio_roi_target_pct": 20.0,
     "min_asymmetry_score": 75,
     "min_audit_score": 80,
     "min_runway_months": 12.0,
@@ -4666,8 +4712,14 @@
     "default_broker": "Trading 212 (Paper)",
     "max_positions_per_ticker": 1,
     "respect_monthly_5_limit": true,
-    "take_profit_pct": 60.0,
-    "stop_loss_pct": -35.0,
+    "enable_partial_tp1": true,
+    "tp1_pct": 35.0,
+    "tp1_sell_ratio_pct": 50.0,
+    "take_profit_pct": 80.0,
+    "stop_loss_pct": -30.0,
+    "enable_trailing_stop": true,
+    "trailing_activation_pct": 25.0,
+    "trailing_stop_pct": 15.0,
     "auto_close_on_tp_sl": true,
     "auto_close_on_thesis_degrade": true,
     "thesis_degrade_min_score": 55,
@@ -4675,6 +4727,28 @@
     "notify_telegram": true
   },
   "autopilot_logs": [
+    {
+      "id": "9207b1b7",
+      "ts": "2026-11-19T10:22:37.221265+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "RKLB,RDW,ASTS",
+      "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 3,
+        "rescan_ai": false
+      }
+    },
+    {
+      "id": "8eff6715",
+      "ts": "2026-11-19T10:17:48.643183+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "RKLB,RDW,ASTS",
+      "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 3,
+        "rescan_ai": false
+      }
+    },
     {
       "id": "79f7869e",
       "ts": "2026-11-19T09:38:11.120204+00:00",

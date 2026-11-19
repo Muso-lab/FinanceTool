@@ -25,6 +25,9 @@ DEFAULT_AUTOPILOT_CONFIG: dict[str, Any] = {
     "enabled": True,
     "background_monitor_enabled": False,
     "monitor_interval_minutes": 60,
+    "monthly_order_limit": 10,
+    "virtual_budget_eur": 1000.0,
+    "portfolio_roi_target_pct": 20.0,
     "min_asymmetry_score": 75,
     "min_audit_score": 80,
     "min_runway_months": 12.0,
@@ -33,8 +36,14 @@ DEFAULT_AUTOPILOT_CONFIG: dict[str, Any] = {
     "default_broker": "Trading 212 (Paper)",
     "max_positions_per_ticker": 1,
     "respect_monthly_5_limit": True,
-    "take_profit_pct": 60.0,
-    "stop_loss_pct": -35.0,
+    "enable_partial_tp1": True,
+    "tp1_pct": 35.0,
+    "tp1_sell_ratio_pct": 50.0,
+    "take_profit_pct": 80.0,
+    "stop_loss_pct": -30.0,
+    "enable_trailing_stop": True,
+    "trailing_activation_pct": 25.0,
+    "trailing_stop_pct": 15.0,
     "auto_close_on_tp_sl": True,
     "auto_close_on_thesis_degrade": True,
     "thesis_degrade_min_score": 55,
@@ -279,7 +288,7 @@ class ScouterStorage:
         return logs[:limit]
 
     # ------------------------------------------------------------------
-    # Micro-Order Journal ("Diario di Bordo Micro-Ordini" + Paper Auto)
+    # Micro-Order Journal + Paper Trading Virtual Budget Accounting
     # ------------------------------------------------------------------
     def list_micro_orders(self) -> dict[str, Any]:
         with self._lock:
@@ -298,6 +307,9 @@ class ScouterStorage:
         opps = data.get("opportunities", {})
         cfg = {**DEFAULT_AUTOPILOT_CONFIG, **(data.get("autopilot_config") or {})}
         now_ym = datetime.now(timezone.utc).strftime("%Y-%m")
+        monthly_limit = int(cfg.get("monthly_order_limit") or settings.MONTHLY_MICRO_ORDER_LIMIT)
+        virtual_budget_eur = float(cfg.get("virtual_budget_eur") or 1000.0)
+        roi_target_pct = float(cfg.get("portfolio_roi_target_pct") or 20.0)
 
         monthly_count = 0
         monthly_eur = 0.0
@@ -323,6 +335,8 @@ class ScouterStorage:
             opp = opps.get(sym)
             entry_price = float(order.get("entry_price_usd") or 0.0)
             amount_eur = float(order.get("amount_eur") or 0.0)
+            original_amount_eur = float(order.get("original_amount_eur") or amount_eur)
+            partial_realized = float(order.get("partial_realized_pnl_eur") or 0.0)
             status = order.get("status", "APERTO")
             mode = order.get("mode") or ("PAPER_AUTO" if order.get("auto_registered") else "PAPER_MANUAL")
             is_paper = mode in ("PAPER_AUTO", "PAPER_MANUAL")
@@ -356,7 +370,11 @@ class ScouterStorage:
             ratio = (ref_price / entry_price) if entry_price > 0 else 1.0
             pnl_pct = round((ratio - 1.0) * 100.0, 2) if entry_price > 0 else 0.0
             current_val_eur = round(amount_eur * ratio, 2)
-            pnl_eur = round(current_val_eur - amount_eur, 2)
+            remaining_pnl_eur = round(current_val_eur - amount_eur, 2)
+            total_order_pnl_eur = round(partial_realized + remaining_pnl_eur, 2)
+
+            peak_price = max(float(order.get("peak_price_usd") or entry_price), ref_price)
+            peak_gain_pct = round(((peak_price - entry_price) / entry_price) * 100.0, 2) if entry_price > 0 else 0.0
 
             initial_score = order.get("initial_ai_score")
             thesis_drift = "STABILE"
@@ -370,30 +388,36 @@ class ScouterStorage:
             order_month = (order.get("order_date") or "")[:7]
             if order_month == now_ym:
                 monthly_count += 1
-                monthly_eur += amount_eur
+                monthly_eur += original_amount_eur
 
             if mode == "PAPER_AUTO":
                 auto_orders_count += 1
+
+            # Conservazione monetaria esatta:
+            # I profitti parziali incassati con TP1 sono già realizzati anche su ordini ancora aperti.
+            realized_pnl_eur += partial_realized
+            if is_paper:
+                paper_realized_pnl_eur += partial_realized
 
             if status == "APERTO":
                 open_count += 1
                 total_invested_eur += amount_eur
                 total_current_eur += current_val_eur
-                unrealized_pnl_eur += pnl_eur
+                unrealized_pnl_eur += remaining_pnl_eur
                 if is_paper:
                     paper_open_count += 1
                     paper_invested_eur += amount_eur
                     paper_current_eur += current_val_eur
-                    paper_unrealized_pnl_eur += pnl_eur
+                    paper_unrealized_pnl_eur += remaining_pnl_eur
             else:
                 closed_count += 1
-                realized_pnl_eur += pnl_eur
-                if pnl_pct > 0:
+                realized_pnl_eur += remaining_pnl_eur
+                if total_order_pnl_eur > 0:
                     closed_wins += 1
                 if is_paper:
                     paper_closed_count += 1
-                    paper_realized_pnl_eur += pnl_eur
-                    if pnl_pct > 0:
+                    paper_realized_pnl_eur += remaining_pnl_eur
+                    if total_order_pnl_eur > 0:
                         paper_wins += 1
 
             tp_pct = order.get("take_profit_pct")
@@ -417,13 +441,19 @@ class ScouterStorage:
                     **order,
                     "mode": mode,
                     "auto_registered": bool(order.get("auto_registered", mode == "PAPER_AUTO")),
+                    "original_amount_eur": round(original_amount_eur, 2),
+                    "partial_realized_pnl_eur": round(partial_realized, 2),
+                    "tp1_executed": bool(order.get("tp1_executed", False)),
+                    "peak_price_usd": round(peak_price, 4),
+                    "peak_gain_pct": peak_gain_pct,
                     "take_profit_pct": tp_pct,
                     "stop_loss_pct": sl_pct,
                     "price_history": history,
                     "raw_latest_price_usd": round(ref_price, 4),
                     "latest_price_usd": round(ref_price, 2),
                     "pnl_pct": pnl_pct,
-                    "pnl_eur": pnl_eur,
+                    "pnl_eur": remaining_pnl_eur,
+                    "total_order_pnl_eur": total_order_pnl_eur,
                     "current_value_eur": current_val_eur,
                     "latest_ai_score": latest_score,
                     "thesis_drift_status": thesis_drift,
@@ -436,13 +466,23 @@ class ScouterStorage:
             round((total_pnl_eur / total_invested_eur) * 100.0, 2) if total_invested_eur > 0 else 0.0
         )
 
+        # Cassa & Equity Portafoglio Virtuale (Paper Trading)
+        paper_cash_available_eur = round(virtual_budget_eur - paper_invested_eur + paper_realized_pnl_eur, 2)
+        paper_total_equity_eur = round(paper_cash_available_eur + paper_current_eur, 2)
+        paper_total_roi_pct = (
+            round(((paper_total_equity_eur - virtual_budget_eur) / virtual_budget_eur) * 100.0, 2)
+            if virtual_budget_eur > 0
+            else 0.0
+        )
+        portfolio_target_eur = round(virtual_budget_eur * (1.0 + roi_target_pct / 100.0), 2)
+
         return {
             "orders": enriched,
             "summary": {
                 "current_month": now_ym,
                 "monthly_orders_used": monthly_count,
-                "monthly_orders_limit": settings.MONTHLY_MICRO_ORDER_LIMIT,
-                "monthly_slots_remaining": max(0, settings.MONTHLY_MICRO_ORDER_LIMIT - monthly_count),
+                "monthly_orders_limit": monthly_limit,
+                "monthly_slots_remaining": max(0, monthly_limit - monthly_count),
                 "monthly_allocated_eur": round(monthly_eur, 2),
                 "total_invested_eur": round(total_invested_eur, 2),
                 "total_current_value_eur": round(total_current_eur, 2),
@@ -454,6 +494,12 @@ class ScouterStorage:
                 "closed_count": closed_count,
                 "auto_orders_count": auto_orders_count,
                 "win_rate_pct": round((closed_wins / closed_count) * 100.0, 1) if closed_count > 0 else None,
+                "virtual_budget_eur": round(virtual_budget_eur, 2),
+                "portfolio_roi_target_pct": round(roi_target_pct, 1),
+                "portfolio_target_eur": portfolio_target_eur,
+                "paper_cash_available_eur": paper_cash_available_eur,
+                "paper_total_equity_eur": paper_total_equity_eur,
+                "paper_total_roi_pct": paper_total_roi_pct,
                 "paper_open_count": paper_open_count,
                 "paper_closed_count": paper_closed_count,
                 "paper_invested_eur": round(paper_invested_eur, 2),
@@ -470,18 +516,16 @@ class ScouterStorage:
         with self._lock:
             data = self._read_local()
             cfg = {**DEFAULT_AUTOPILOT_CONFIG, **(data.get("autopilot_config") or {})}
+            monthly_limit = int(cfg.get("monthly_order_limit") or settings.MONTHLY_MICRO_ORDER_LIMIT)
             order_date = payload.get("order_date") or datetime.now(timezone.utc).strftime("%Y-%m-%d")
             order_ym = order_date[:7]
             existing_orders = data.get("micro_orders", [])
             existing_month_count = sum(
                 1 for o in existing_orders if (o.get("order_date") or "")[:7] == order_ym
             )
-            if (
-                not payload.get("override_monthly_limit", False)
-                and existing_month_count >= settings.MONTHLY_MICRO_ORDER_LIMIT
-            ):
+            if not payload.get("override_monthly_limit", False) and existing_month_count >= monthly_limit:
                 raise ValueError(
-                    f"Limite disciplinato di {settings.MONTHLY_MICRO_ORDER_LIMIT} micro-ordini raggiunto per {order_ym}. "
+                    f"Limite disciplinato di {monthly_limit} micro-ordini raggiunto per {order_ym}. "
                     "Abilita l'override esplicito solo se vuoi forzare un ordine extra."
                 )
 
@@ -497,7 +541,10 @@ class ScouterStorage:
                     raise ValueError(f"Posizione già aperta su {sym} (limite duplicati Auto-Pilot).")
 
             opp = (data.get("opportunities") or {}).get(sym)
-            entry_price = round(float(payload["entry_price_usd"]), 4)
+            entry_price = round(float(payload["entry_price_usd"]), 6)
+            if entry_price <= 0:
+                raise ValueError("Prezzo d'ingresso non valido (deve essere > 0).")
+            amount_eur = round(float(payload["amount_eur"]), 2)
             initial_score = payload.get("initial_ai_score") or (
                 opp.get("asymmetry_score") if opp else None
             )
@@ -510,7 +557,12 @@ class ScouterStorage:
                 "id": str(uuid.uuid4())[:8],
                 "ticker": sym,
                 "order_date": order_date,
-                "amount_eur": round(float(payload["amount_eur"]), 2),
+                "amount_eur": amount_eur,
+                "original_amount_eur": amount_eur,
+                "partial_realized_pnl_eur": 0.0,
+                "tp1_executed": False,
+                "tp1_note": None,
+                "peak_price_usd": entry_price,
                 "entry_price_usd": entry_price,
                 "exit_price_usd": None,
                 "broker": payload.get("broker") or "Trading 212",
@@ -565,14 +617,17 @@ class ScouterStorage:
             orders = data.get("micro_orders", [])
             for idx, o in enumerate(orders):
                 if o.get("id") == order_id:
-                    o["last_live_price_usd"] = round(float(price_usd), 4)
+                    clean_p = round(float(price_usd), 4)
+                    o["last_live_price_usd"] = clean_p
                     o["last_monitored_at"] = ts
+                    existing_peak = float(o.get("peak_price_usd") or o.get("entry_price_usd") or clean_p)
+                    o["peak_price_usd"] = round(max(existing_peak, clean_p), 4)
                     hist = o.get("price_history")
                     if not hist:
                         hist = [
                             {
                                 "ts": o.get("created_at") or o.get("order_date"),
-                                "price_usd": round(float(o.get("entry_price_usd") or price_usd), 4),
+                                "price_usd": round(float(o.get("entry_price_usd") or clean_p), 4),
                                 "pnl_pct": 0.0,
                                 "ai_score": o.get("initial_ai_score"),
                             }
@@ -580,7 +635,7 @@ class ScouterStorage:
                     hist.append(
                         {
                             "ts": ts,
-                            "price_usd": round(float(price_usd), 4),
+                            "price_usd": clean_p,
                             "pnl_pct": round(float(pnl_pct), 2),
                             "ai_score": ai_score,
                         }
@@ -609,6 +664,11 @@ class ScouterStorage:
                     for key in (
                         "status",
                         "amount_eur",
+                        "original_amount_eur",
+                        "partial_realized_pnl_eur",
+                        "tp1_executed",
+                        "tp1_note",
+                        "peak_price_usd",
                         "entry_price_usd",
                         "exit_price_usd",
                         "broker",
@@ -627,6 +687,13 @@ class ScouterStorage:
                         if key in updates and updates[key] is not None:
                             o[key] = updates[key]
 
+                    if updates.get("amount_eur") is not None and not o.get("tp1_executed"):
+                        o["original_amount_eur"] = round(float(updates["amount_eur"]), 2)
+                    if updates.get("entry_price_usd") is not None:
+                        ep = round(float(updates["entry_price_usd"]), 6)
+                        o["entry_price_usd"] = ep
+                        o["peak_price_usd"] = round(max(ep, float(o.get("last_live_price_usd") or ep)), 4)
+
                     if updates.get("status") == "CHIUSO":
                         if not o.get("closed_at"):
                             o["closed_at"] = datetime.now(timezone.utc).isoformat()
@@ -641,9 +708,14 @@ class ScouterStorage:
                             if locked_price is not None:
                                 o["exit_price_usd"] = round(float(locked_price), 4)
                     elif updates.get("status") == "APERTO":
+                        cfg_now = {**DEFAULT_AUTOPILOT_CONFIG, **(data.get("autopilot_config") or {})}
                         o["exit_price_usd"] = None
                         o["closed_at"] = None
                         o["close_reason"] = None
+                        if o.get("tp1_executed") and float(o.get("stop_loss_pct") or 0.0) == 0.0:
+                            o["stop_loss_pct"] = 0.0
+                        elif not o.get("tp1_executed") and float(o.get("stop_loss_pct") or 0.0) == 0.0:
+                            o["stop_loss_pct"] = float(cfg_now["stop_loss_pct"])
 
                     orders[idx] = o
                     self._write_local(data)
@@ -698,7 +770,9 @@ class ScouterStorage:
                     settings.GEMINI_API_KEY and not settings.GEMINI_API_KEY.startswith("your_")
                 ),
                 "alert_threshold": settings.ALERT_SCORE_THRESHOLD,
-                "monthly_micro_order_limit": settings.MONTHLY_MICRO_ORDER_LIMIT,
+                "monthly_micro_order_limit": int(
+                    cfg.get("monthly_order_limit") or settings.MONTHLY_MICRO_ORDER_LIMIT
+                ),
                 "static_readonly": True,
             },
             "opportunities": {
