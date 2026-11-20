@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-11-19T22:20:53.211996+00:00",
+  "generated_at": "2026-11-20T14:10:16.348771+00:00",
   "health": {
     "status": "ok",
     "storage_mode": "local_json",
-    "gemini_configured": false,
+    "gemini_configured": true,
     "alert_threshold": 75,
     "monthly_micro_order_limit": 10,
     "static_readonly": true
   },
   "opportunities": {
-    "count": 8,
+    "count": 9,
     "top_daily": [
       {
         "ticker": "ASTS",
@@ -6975,6 +6975,615 @@
         }
       },
       {
+        "ticker": "LMND",
+        "company_name": "Lemonade, Inc.",
+        "sector": "Financial Services",
+        "industry": "Insurance - Property & Casualty",
+        "exchange": "NYQ",
+        "analyzed_at": "2026-11-20T14:10:08.976600+00:00",
+        "asymmetry_score": 69,
+        "verdict_label": "WATCHLIST_ACCUMULATE",
+        "sub_scores": {
+          "catalyst_strength": 19,
+          "financial_survival_runway": 23,
+          "insider_alignment": 4,
+          "valuation_asymmetry": 12,
+          "audit_confidence": 11
+        },
+        "thesis_5_lines": [
+          "Lemonade scala l'insurtech con AI crescendo a oltre 1,11B$ TTM, trainata da un riprezzamento da forte discesa (-79,7% post-IPO).",
+          "Solidità finanziaria verificata con cassa netta di 192,4M$, crescita fatturato del 72,8% YoY e svolta a FCF positivo a 18,79M$.",
+          "Segnale insider negativo con oltre 7M$ venduti dalla C-suite e zero acquisti, mitigato da 42 posizioni aperte in R&D/Engineering.",
+          "Rischio primario legato allo shelf S-3ASR di novembre 2026, ma con burn nullo e cassa di 442M$ non sussiste emergenza di liquidità.",
+          "Strategia micro-bullet frazionata da 35€ su correzioni sotto $36, con invalidazione su ritorno a FCF marcatamente negativo in 12-24 mesi."
+        ],
+        "signal_tags": [
+          "FCF_POSITIVO",
+          "RICAVI_+72PCT",
+          "INSIDER_SELLING",
+          "SHELF_S3_ATTIVO",
+          "DRAWDOWN_-80PCT",
+          "HIRING_SPIKE"
+        ],
+        "micro_strategy": {
+          "recommended_bullet_eur": 35,
+          "entry_zone": "Accumulo frazionato su debolezza tra $32.00 e $36.00",
+          "invalidation_trigger": "Inversione del trend di cassa con burn operativo > 10M$/trimestre o massiccia diluizione ATM",
+          "time_horizon": "12-24 mesi"
+        },
+        "quant_metrics": {
+          "ticker": "LMND",
+          "company_name": "Lemonade, Inc.",
+          "sector": "Financial Services",
+          "industry": "Insurance - Property & Casualty",
+          "exchange": "NYQ",
+          "currency": "USD",
+          "website": "https://www.lemonade.com",
+          "business_summary": "Lemonade, Inc. provides various insurance products in the United States, Europe, and the United Kingdom. The company provides renters and homeowners, building, car, pet, and life insurance products, as well as landlord insurance products. It also offers insurance for stolen or damaged property, personal liability that protects its customers if they are responsible for an accident or damage to another person or their property, and pet insurance. In addition, it operates as an agent for other insurance companies. The company was formerly known as Lemonade Group, Inc. Lemonade, Inc. was incorporated in 2015 and is headquartered in New York, New York.",
+          "current_price": 38.22,
+          "ipo_date": "2020-07-02",
+          "months_since_ipo": 76.6,
+          "post_ipo_high": 188.3,
+          "post_ipo_drawdown_pct": -79.7,
+          "post_ipo_change_pct": -44.94,
+          "market_cap": 2978148864.0,
+          "enterprise_value": 2785748736.0,
+          "cash_and_equivalents": 442000000.0,
+          "total_debt": 249600000.0,
+          "net_cash": 192400000.0,
+          "revenue_ttm": 1116600064.0,
+          "revenue_growth_yoy_pct": 72.8,
+          "gross_margin_pct": 49.02,
+          "ev_to_sales": 2.49,
+          "operating_cash_flow_ttm": 24000000.0,
+          "free_cash_flow_ttm": 18787500.0,
+          "monthly_burn_usd": 0.0,
+          "is_cash_flow_positive": true,
+          "runway_months": 99.0,
+          "current_ratio": 1.23,
+          "debt_to_equity": 52.9,
+          "toxic_debt_flag": false,
+          "toxic_debt_reasons": [],
+          "full_time_employees": 1282,
+          "is_micro_or_small_cap": true,
+          "data_available": true
+        },
+        "screening": {
+          "passed": true,
+          "strict_ipo_window": false,
+          "filter_breakdown": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          },
+          "quant_tags": [
+            "Post-IPO -80%",
+            "Ricavi +73% YoY",
+            "Cash Flow Positivo",
+            "Net Cash Positiva"
+          ]
+        },
+        "sec_filings": {
+          "ticker": "LMND",
+          "cik": "0001691421",
+          "entity_name": "Lemonade, Inc.",
+          "sic_description": "Fire, Marine & Casualty Insurance",
+          "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001691421",
+          "filings_8k": [
+            {
+              "form": "8-K",
+              "filing_date": "2026-11-05",
+              "items": [
+                "2.02",
+                "9.01"
+              ],
+              "item_descriptions": [
+                "Item 2.02: Risultati Finanziari",
+                "Item 9.01: Bilanci ed Exhibit"
+              ],
+              "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000064/lmnd-20261105.htm"
+            },
+            {
+              "form": "8-K/A",
+              "filing_date": "2026-10-15",
+              "items": [
+                "5.02"
+              ],
+              "item_descriptions": [
+                "Item 5.02: Cambio Dirigenti / CdA"
+              ],
+              "description": "Item 5.02: Cambio Dirigenti / CdA",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000061/lmnd-20260727.htm"
+            },
+            {
+              "form": "8-K",
+              "filing_date": "2026-07-29",
+              "items": [
+                "5.02"
+              ],
+              "item_descriptions": [
+                "Item 5.02: Cambio Dirigenti / CdA"
+              ],
+              "description": "Item 5.02: Cambio Dirigenti / CdA",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000050/lmnd-20260727.htm"
+            },
+            {
+              "form": "8-K",
+              "filing_date": "2026-07-29",
+              "items": [
+                "2.02",
+                "9.01"
+              ],
+              "item_descriptions": [
+                "Item 2.02: Risultati Finanziari",
+                "Item 9.01: Bilanci ed Exhibit"
+              ],
+              "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000047/lmnd-20260729.htm"
+            },
+            {
+              "form": "8-K",
+              "filing_date": "2026-06-24",
+              "items": [
+                "1.01",
+                "2.03"
+              ],
+              "item_descriptions": [
+                "Item 1.01: Accordo / Contratto Materiale",
+                "Item 2.03: Nuovo Debito / Obbligazione Diretta"
+              ],
+              "description": "Item 1.01: Accordo / Contratto Materiale, Item 2.03: Nuovo Debito / Obbligazione Diretta",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000041/lmnd-20260622.htm"
+            },
+            {
+              "form": "8-K",
+              "filing_date": "2026-06-05",
+              "items": [
+                "5.07"
+              ],
+              "item_descriptions": [
+                "Item 5.07: Voto Azionisti"
+              ],
+              "description": "Item 5.07: Voto Azionisti",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000038/lmnd-20260603.htm"
+            }
+          ],
+          "filings_periodic": [
+            {
+              "form": "10-Q",
+              "filing_date": "2026-11-05",
+              "description": "10-Q",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000068/lmnd-20260930.htm"
+            },
+            {
+              "form": "10-Q",
+              "filing_date": "2026-08-04",
+              "description": "10-Q",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000055/lmnd-20260630.htm"
+            },
+            {
+              "form": "10-Q",
+              "filing_date": "2026-04-30",
+              "description": "10-Q",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000034/lmnd-20260331.htm"
+            },
+            {
+              "form": "10-K",
+              "filing_date": "2026-02-25",
+              "description": "10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000016/lmnd-20251231.htm"
+            }
+          ],
+          "filings_s1_ipo": [
+            {
+              "form": "424B4",
+              "filing_date": "2021-01-14",
+              "description": "FORM 424(B)(4)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000110465921004294/tm2039289-8_424b4.htm"
+            },
+            {
+              "form": "S-1",
+              "filing_date": "2021-01-11",
+              "description": "FORM S-1",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000110465921002997/lmnd-20210111xs1.htm"
+            },
+            {
+              "form": "424B4",
+              "filing_date": "2020-07-02",
+              "description": "424B4",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000104746920003943/a2242013z424b4.htm"
+            }
+          ],
+          "filings_s3_shelf": [
+            {
+              "form": "S-3ASR",
+              "filing_date": "2026-11-06",
+              "description": "Shelf / ATM Takedown S-3ASR (Rischio Diluizione)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000169142126000077/lmndforms-3asr2026.htm"
+            }
+          ],
+          "shelf_dilution_risk": true,
+          "form4_transactions": [
+            {
+              "filing_date": "2026-09-08",
+              "transaction_date": "2026-09-03",
+              "insider_name": "Prosor Maya",
+              "role": "Chief Business Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 1040.0,
+              "price_usd": 54.63,
+              "value_usd": 56815.2,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000201111826000008/xslF345X06/wk-form4_1788903384.xml"
+            },
+            {
+              "filing_date": "2026-09-08",
+              "transaction_date": "2026-09-03",
+              "insider_name": "BIXBY TIMOTHY E",
+              "role": "Chief Financial Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 1893.0,
+              "price_usd": 54.63,
+              "value_usd": 103414.59,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000123214226000008/xslF345X06/wk-form4_1788903219.xml"
+            },
+            {
+              "filing_date": "2026-09-08",
+              "transaction_date": "2026-09-03",
+              "insider_name": "Peters John Sheldon",
+              "role": "Chief Insurance Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 859.0,
+              "price_usd": 54.63,
+              "value_usd": 46927.17,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000181629926000023/xslF345X06/wk-form4_1788903193.xml"
+            },
+            {
+              "filing_date": "2026-09-08",
+              "transaction_date": "2026-09-04",
+              "insider_name": "Peters John Sheldon",
+              "role": "Chief Insurance Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 2249.0,
+              "price_usd": 54.45,
+              "value_usd": 122458.05,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000181629926000023/xslF345X06/wk-form4_1788903193.xml"
+            },
+            {
+              "filing_date": "2026-09-04",
+              "transaction_date": "2026-09-02",
+              "insider_name": "Wininger Shai",
+              "role": "President",
+              "code": "G",
+              "acquired_or_disposed": "D",
+              "shares": 1876.0,
+              "price_usd": 0.0,
+              "value_usd": 0.0,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000180336526000004/xslF345X06/wk-form4_1788548756.xml"
+            },
+            {
+              "filing_date": "2026-08-17",
+              "transaction_date": "2026-08-13",
+              "insider_name": "Peters John Sheldon",
+              "role": "Chief Insurance Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 11000.0,
+              "price_usd": 52.55,
+              "value_usd": 578050.0,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000181629926000021/xslF345X06/wk-form4_1787000748.xml"
+            },
+            {
+              "filing_date": "2026-07-29",
+              "transaction_date": "2026-07-27",
+              "insider_name": "Peters John Sheldon",
+              "role": "Chief Insurance Officer",
+              "code": "A",
+              "acquired_or_disposed": "A",
+              "shares": 10000.0,
+              "price_usd": 0.0,
+              "value_usd": 0.0,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000181629926000019/xslF345X06/wk-form4_1785365232.xml"
+            },
+            {
+              "filing_date": "2026-07-09",
+              "transaction_date": "2026-07-07",
+              "insider_name": "BIXBY TIMOTHY E",
+              "role": "Chief Financial Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 73000.0,
+              "price_usd": 79.18,
+              "value_usd": 5780140.0,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000123214226000006/xslF345X06/wk-form4_1783623778.xml"
+            },
+            {
+              "filing_date": "2026-07-08",
+              "transaction_date": "2026-07-06",
+              "insider_name": "Peters John Sheldon",
+              "role": "Chief Insurance Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 3444.0,
+              "price_usd": 79.0,
+              "value_usd": 272076.0,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000181629926000016/xslF345X06/wk-form4_1783561243.xml"
+            },
+            {
+              "filing_date": "2026-06-12",
+              "transaction_date": "2026-06-10",
+              "insider_name": "Eisenberg Michael A",
+              "role": "Director",
+              "code": "G",
+              "acquired_or_disposed": "D",
+              "shares": 5000.0,
+              "price_usd": 0.0,
+              "value_usd": 0.0,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000129575126000003/xslF345X06/wk-form4_1781297130.xml"
+            },
+            {
+              "filing_date": "2026-06-05",
+              "transaction_date": "2026-06-03",
+              "insider_name": "BIXBY TIMOTHY E",
+              "role": "Chief Financial Officer",
+              "code": "S",
+              "acquired_or_disposed": "D",
+              "shares": 2227.0,
+              "price_usd": 53.17,
+              "value_usd": 118409.59,
+              "url": "https://www.sec.gov/Archives/edgar/data/1691421/000123214226000004/xslF345X06/wk-form4_1780695335.xml"
+            }
+          ],
+          "open_market_buys_count": 0,
+          "open_market_buys_usd": 0,
+          "open_market_sales_count": 8,
+          "open_market_sales_usd": 7078290.6,
+          "cluster_insider_buying": false,
+          "sec_tags": [
+            "8-K Contratto / Catalyst",
+            "Rischio Diluizione (S-3/424B5)"
+          ],
+          "status": "ok"
+        },
+        "news": {
+          "articles": [
+            {
+              "title": "Lemonade vs. Root: Which Insurtech Stock Has an Edge Now? - TradingView",
+              "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQeXdOVG0tR0Q1M2tYaWFqdHZpUmdHZGtvV1RCd3hEemdFbGdDcVdHTXg2ZUx5SjhBQlBlNGZzTnBWSTVNR1JfTHhjY0pxc2pGWkd0V1ptVWJ5N1JScmp2c3piMWxyb2J0V3JKVUc2akc4SHE2M3EzOGlnQ1o0OU40YjBqVkpXdW1Sc3FFbVpBVEpPNlBvSzZoSGZuRG52SmR4Um5ibFUxbFl0LUNzTlM0?oc=5",
+              "published": "Thu, 19 Nov 2026 15:54:00 GMT",
+              "source": "TradingView",
+              "sentiment_hint": "NEUTRAL"
+            },
+            {
+              "title": "Prediction: This Growth Stock Will Double by the End of 2027 - The Motley Fool",
+              "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNaEhILTZKVGdzSWFnaVhGaU1jOWVsYXliREprWnBUN1U1eWpkcXdtTENXNkNBaWRQbFFZb0hPeTBxNm42dy1RY1ZJX2NBa2o1eXVDa2U1LThHVG9MaU9XSXVDaERPdzBvNGc5dXZVbmxOeFFCSXpxNGREYTZHR0UzUjBPX3JXV0Fzc0tRZWFzd18?oc=5",
+              "published": "Tue, 17 Nov 2026 16:02:01 GMT",
+              "source": "The Motley Fool",
+              "sentiment_hint": "NEUTRAL"
+            },
+            {
+              "title": "Is Lemonade, Inc. (LMND) A Good Stock To Buy Now? - Yahoo Finance",
+              "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOeWwtdFIzclR3Z0h3d1cwYWtOSURxZ05GVkNXN3MzendtdjVFeU1weHVrYThPU2hqTUtZME52SVFCcVFLUndBM1RxTjVCMjdFZXBHLVdNWjdMY3lfVlltZTFCQ0RRXzl3Vkx1bW1NYW5fMjhQdDJwMWVzeTZmY3ZPOC1RaElZMGNrZFNYNzYzeUZGLTRoQm1KMQ?oc=5",
+              "published": "Sun, 07 Jun 2026 07:00:00 GMT",
+              "source": "Yahoo Finance",
+              "sentiment_hint": "NEUTRAL"
+            },
+            {
+              "title": "LMND - Lemonade Inc Stock Price and Quote - Finviz",
+              "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1jbVRzM1FmMmpFeVlhczd2TU9JcjFLek14OE0yc0g3eGxibTlMWE0zc1hLUjdSWXM1aU5zOW5pQzhxZmpnSGc?oc=5",
+              "published": "Tue, 26 May 2026 11:38:30 GMT",
+              "source": "Finviz",
+              "sentiment_hint": "NEUTRAL"
+            },
+            {
+              "title": "Why Lemonade (LMND) Stock Is Nosediving - StockStory",
+              "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNTkFCSDVSMUlndGhxWDVnRkw0VE9kV1I1RHpBTklmN1BHc0FBb0VXbTRoYXVZb0MtcEVjZ19xeURsTHFyUVhKT21WWGRXWjEzRlZOM2NFRF9DMG9VN2dYcWpMMC1nejBjX3VBQ3BWM1IzcGJsQ2prdE5hbi1rRU95aGg0d2ZhQV9PYmNlOUx6ejZaM0NueUJLeHd4dkpWdw?oc=5",
+              "published": "Wed, 29 Jul 2026 07:00:00 GMT",
+              "source": "StockStory",
+              "sentiment_hint": "NEUTRAL"
+            },
+            {
+              "title": "Can Europe Expansion Become a Long-Term Growth Driver for Lemonade? - TradingView",
+              "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOZ05ROFpHSFl0NUxZNEI3dFVFQkZ0Zzhjb1p4dFF6MjdENjdrcmUwV09nUEg2aEFyaDJubThWbFhPWUd4UUFJV0o2ZFJSUFZMQlJkQjZGdjJLdWoya0h3R0MyTTNOTW1EcGtYUEEtYTlCSjllOVhuWFdkSjJPd2YweUdRak1LSnF1ZmJzVjFxQ0twb3IzY2xrX1pOTWwzZnJaa21ZdW5icWtDckQ0NDRPQThoWGNoNWVvYVNvd2swUQ?oc=5",
+              "published": "Tue, 17 Nov 2026 19:55:47 GMT",
+              "source": "TradingView",
+              "sentiment_hint": "CATALYST"
+            }
+          ],
+          "catalyst_headlines_count": 1,
+          "risk_headlines_count": 0
+        },
+        "hiring_signals": {
+          "open_roles_count": 42,
+          "hiring_trend": "HIRING_SPIKE",
+          "department_focus": "R&D / Engineering",
+          "ats_source": "Ashby",
+          "careers_url": "https://jobs.ashbyhq.com/lemonade",
+          "sample_roles": [
+            "Senior Backend Engineer",
+            "Senior Growth Product Manager",
+            "Backend Engineer - ML Platform",
+            "Senior Product Manager - Claims Experience",
+            "Associate General Counsel, Securities & Corporate Legal"
+          ],
+          "evidence_note": "Rilevate 42 posizioni aperte via Ashby (focus R&D / Engineering)."
+        },
+        "broker_availability": [
+          {
+            "broker": "Trading 212",
+            "fractional_supported": true,
+            "zero_commission": true,
+            "min_order_amount": 1.0,
+            "min_order_currency": "EUR",
+            "fx_fee": "0.15%",
+            "italian_tax_regime": "Dichiarativo",
+            "status": "DISPONIBILE_0_COMM",
+            "notes": "LMND negoziabile frazionato da €1 su NYQ; commissione 0% (solo 0.15% FX)."
+          },
+          {
+            "broker": "Interactive Brokers (IBKR)",
+            "fractional_supported": true,
+            "zero_commission": false,
+            "min_order_amount": 1.0,
+            "min_order_currency": "USD",
+            "fx_fee": "~0.002% (min $2) o auto-FX",
+            "italian_tax_regime": "Dichiarativo",
+            "status": "DISPONIBILE_FRAZIONATO",
+            "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+          },
+          {
+            "broker": "Trade Republic",
+            "fractional_supported": true,
+            "zero_commission": false,
+            "min_order_amount": 1.0,
+            "min_order_currency": "EUR",
+            "fx_fee": "Spread L&S Exchange",
+            "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+            "status": "DISPONIBILE_FRAZIONATO",
+            "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+          },
+          {
+            "broker": "Scalable Capital",
+            "fractional_supported": true,
+            "zero_commission": false,
+            "min_order_amount": 1.0,
+            "min_order_currency": "EUR",
+            "fx_fee": "Spread Gettex/Xetra",
+            "italian_tax_regime": "Dichiarativo",
+            "status": "DISPONIBILE_FRAZIONATO",
+            "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+          },
+          {
+            "broker": "Revolut",
+            "fractional_supported": true,
+            "zero_commission": true,
+            "min_order_amount": 1.0,
+            "min_order_currency": "USD",
+            "fx_fee": "0% entro soglia piano (poi 1%)",
+            "italian_tax_regime": "Dichiarativo",
+            "status": "DISPONIBILE_0_COMM",
+            "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+          },
+          {
+            "broker": "Directa SIM",
+            "fractional_supported": false,
+            "zero_commission": false,
+            "min_order_amount": 38.22,
+            "min_order_currency": "USD",
+            "fx_fee": "Inclusa",
+            "italian_tax_regime": "Regime Amministrato IT",
+            "status": "SOLO_AZIONI_INTERE",
+            "notes": "Niente frazionate e 1 azione ($38.22, ~€35.16) supera il micro-ticket da €35."
+          }
+        ],
+        "debate": {
+          "ai_engine": "gemini-3.8-flash (4/4 Gemini)",
+          "bull": {
+            "headline": "Crescita TTM +72.8% e svolta FCF positiva a fronte di un drawdown del 79.7% dai massimi",
+            "core_catalysts": [
+              {
+                "title": "Accelerazione ricavi ed espansione margini",
+                "detail": "La società ha generato ricavi TTM per 1,116 miliardi di dollari con una crescita YoY del 72.8% e un margine lordo del 49.02%, scambiando a un multiplo EV/Sales contenuto di 2.49x.",
+                "source_tag": "[FIN-DATA]",
+                "impact": "ALTO"
+              },
+              {
+                "title": "Generazione di cassa positiva e net cash solido",
+                "detail": "Raggiunta la sostenibilità di cassa con Operating Cash Flow TTM positivo a 24,0M$ e Free Cash Flow a 18,79M$, supportati da una posizione di cassa netta pari a 192,4M$ (442,0M$ di liquidità contro 249,6M$ di debito).",
+                "source_tag": "[FIN-DATA]",
+                "impact": "ALTO"
+              },
+              {
+                "title": "Espansione geografica nel mercato europeo",
+                "detail": "L'espansione in Europa e Regno Unito si conferma un driver strategico a lungo termine per sostenere la traiettoria di crescita nei segmenti assicurativi.",
+                "source_tag": "[NEWS]",
+                "impact": "MEDIO"
+              },
+              {
+                "title": "Asimmetria di prezzo post-IPO",
+                "detail": "Il titolo quota a 38.22$, riflettendo un drawdown del -79.7% rispetto al picco post-IPO di 188.3$, creando una forte divergenza rispetto al miglioramento dei fondamentali operativi.",
+                "source_tag": "[FIN-DATA]",
+                "impact": "MEDIO"
+              }
+            ],
+            "insider_conviction_read": "Assenza totale di acquisti sul mercato aperto (0 Form 4 con codice P) a fronte di 8 operazioni di vendita per circa 7,08M$, inclusi disinvestimenti da parte di CFO, CBO e Chief Insurance Officer.",
+            "expansion_signal": "Forte segnale di investimento tecnologico con uno spike di 42 posizioni aperte su Ashby focalizzate su R&D / Engineering (ML Platform, Backend, Growth Product Management).",
+            "bull_conviction": 68
+          },
+          "bear": {
+            "headline": "Nuovo Shelf S-3ASR pronto alla diluizione e insider selling costante della C-Suite",
+            "red_flags": [
+              {
+                "title": "Deposito Shelf Registration S-3ASR attivo per potenziale diluizione",
+                "detail": "La società ha depositato un form S-3ASR in data 06/11/2026, aprendo la strada a offerte azionarie secondarie o programmi ATM (At-The-Market) che possono erodere il valore per gli azionisti esistenti.",
+                "source_tag": "[SEC-S3]",
+                "severity": "ALTO"
+              },
+              {
+                "title": "C-Suite in sola vendita: oltre 7M$ liquidati e zero acquisti insider",
+                "detail": "Negli ultimi mesi si registrano 8 vendite sul mercato aperto (Codice S) per complessivi 7,08 milioni di dollari da parte di figure chiave (CFO Timothy Bixby, Chief Insurance Officer John Peters, Chief Business Officer Maya Prosor) a fronte di zero acquisti aperti.",
+                "source_tag": "[FORM-4]",
+                "severity": "ALTO"
+              },
+              {
+                "title": "Avvicendamenti ripetuti nel management / Consiglio di Amministrazione",
+                "detail": "Sono stati registrati plurimi depositi Form 8-K con Item 5.02 (inclusi emendamenti 8-K/A tra luglio e ottobre 2026), segnalando turnover a livello esecutivo e instabilità nella governance.",
+                "source_tag": "[SEC-8K]",
+                "severity": "MEDIO"
+              },
+              {
+                "title": "Crollo strutturale post-IPO e ratio di liquidità compresso",
+                "detail": "Il titolo sconta un drawdown del -79,7% dai massimi storici post-IPO. Nonostante la positività temporanea del FCF ($18,8M TTM), il current ratio è modesto a 1,23 a fronte di 249,6M$ di debito totale, fattore critico per una compagnia assicurativa che necessita di ampi cuscinetti patrimoniali.",
+                "source_tag": "[FIN-DATA]",
+                "severity": "MEDIO"
+              },
+              {
+                "title": "Accelerazione delle assunzioni con rischio di compressione margini",
+                "detail": "Rilevate 42 posizioni aperte concentrate in R&D e Engineering; l'espansione dei costi fissi del personale rischia di riassorbire il limitato free cash flow operativo generato.",
+                "source_tag": "[CAREERS]",
+                "severity": "MEDIO"
+              }
+            ],
+            "dilution_risk_level": "MODERATO",
+            "burn_and_balance_sheet_audit": "La società mostra al momento una cassa positiva ($442M) e FCF TTM positivo ($18,8M), eliminando l'urgenza di un cash burn a breve termine. Tuttavia, la presenza di 249,6M$ di debito e un current ratio di appena 1,23, combinati con la registrazione S-3ASR di novembre 2026, creano il presupposto per un'emissione di equity opportunistica approfittando della recente ripresa del titolo.",
+            "bear_severity": 62
+          },
+          "auditor": {
+            "verification_score": 96,
+            "overall_reliability": "ALTA",
+            "accounting_sanity_check": "Tutti i calcoli matematici risultano esatti: Net Cash pari a 192,4M$ ($442,0M liquidità - $249,6M debito); EV/Sales corretto a 2,49x; Drawdown coerente a -79,7% ($38,22 vs massimo storico $188,30); Flussi di cassa operativi ($24,0M) e FCF ($18,79M) positivi con monthly burn pari a zero e runway virtuale a 99 mesi. Nessun acquisto insider (codice P) confuso con grant; vendite Form 4 (codice S) verificate a 7,08M$.",
+            "verified_facts": [
+              "Fatturato TTM a 1.116,6M$ con crescita YoY del 72,8% e margine lordo del 49,02%.",
+              "Posizione di cassa netta positiva di 192,4M$ (Cassa di 442,0M$ contro Debito Totale di 249,6M$).",
+              "Generazione di cassa positiva con Operating Cash Flow TTM di 24,0M$ e Free Cash Flow TTM di 18,79M$.",
+              "Form S-3ASR (Shelf Registration automatica) effettivamente depositato in data 06/11/2026.",
+              "Zero acquisti open-market e 8 vendite insider sul mercato per 7,08M$ totali da parte della C-suite."
+            ],
+            "challenged_claims": [
+              {
+                "agent": "BULL",
+                "claim": "L'espansione in Europa e Regno Unito si conferma un driver strategico a lungo termine",
+                "audit_verdict": "NON_VERIFICATO",
+                "correction": "Nei dati forniti l'espansione europea è un tema editoriale/interrogativo ('Can Europe Expansion Become a Long-Term Growth Driver...?') e non un driver quantificato o certificato nei filing finanziari."
+              },
+              {
+                "agent": "BEAR",
+                "claim": "Positività temporanea del FCF ($18,8M TTM)",
+                "audit_verdict": "ESAGERAZIONE",
+                "correction": "Definire la generazione di cassa 'temporanea' è una speculazione qualitativa: i dati TTM mostrano strutturalmente sia OCF (+24M$) che FCF (+18,79M$) positivi senza evidenza quantitativa di ritorno immediato al cash burn."
+              }
+            ]
+          }
+        }
+      },
+      {
         "ticker": "TEM",
         "company_name": "Tempus AI, Inc.",
         "sector": "Healthcare",
@@ -8260,7 +8869,7 @@
         "take_profit_pct": 80.0,
         "stop_loss_pct": -30.0,
         "last_live_price_usd": 50.99,
-        "last_monitored_at": "2026-11-19T22:20:51.970646+00:00",
+        "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
         "closed_at": null,
         "close_reason": null,
         "last_alert_reason": null,
@@ -8319,6 +8928,12 @@
             "price_usd": 50.99,
             "pnl_pct": -3.92,
             "ai_score": 76
+          },
+          {
+            "ts": "2026-11-20T14:10:15.828642+00:00",
+            "price_usd": 50.99,
+            "pnl_pct": -3.92,
+            "ai_score": 76
           }
         ],
         "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -8355,7 +8970,7 @@
         "status": "APERTO",
         "created_at": "2026-11-19T08:01:44.148135+00:00",
         "last_live_price_usd": 6.51,
-        "last_monitored_at": "2026-11-19T22:20:51.970646+00:00",
+        "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
         "price_history": [
           {
             "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -8422,6 +9037,12 @@
             "price_usd": 6.51,
             "pnl_pct": 1.72,
             "ai_score": 73
+          },
+          {
+            "ts": "2026-11-20T14:10:15.828642+00:00",
+            "price_usd": 6.51,
+            "pnl_pct": 1.72,
+            "ai_score": 73
           }
         ],
         "take_profit_pct": 80.0,
@@ -8457,7 +9078,7 @@
         "status": "APERTO",
         "created_at": "2026-11-19T08:01:44.133741+00:00",
         "last_live_price_usd": 25.55,
-        "last_monitored_at": "2026-11-19T22:20:51.970646+00:00",
+        "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
         "price_history": [
           {
             "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -8521,6 +9142,12 @@
           },
           {
             "ts": "2026-11-19T22:20:51.970646+00:00",
+            "price_usd": 25.55,
+            "pnl_pct": 4.29,
+            "ai_score": 77
+          },
+          {
+            "ts": "2026-11-20T14:10:15.828642+00:00",
             "price_usd": 25.55,
             "pnl_pct": 4.29,
             "ai_score": 77
@@ -8614,6 +9241,34 @@
       "time_stop_max_pnl_pct": 10.0
     },
     "logs": [
+      {
+        "id": "9e39488a",
+        "ts": "2026-11-20T14:10:16.324181+00:00",
+        "action": "SKIPPED_GUARDRAIL",
+        "ticker": "ALL",
+        "summary": "Nessun nuovo ordine auto-registrato: 9 candidati filtrati dai guardrail.",
+        "details": {
+          "skipped_tickers": [
+            "ASTS",
+            "RKLB",
+            "RDW",
+            "ALAB",
+            "PL",
+            "OUST"
+          ]
+        }
+      },
+      {
+        "id": "64c1ec14",
+        "ts": "2026-11-20T14:10:16.304296+00:00",
+        "action": "MONITOR_CHECK",
+        "ticker": "RKLB,RDW,ASTS",
+        "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+        "details": {
+          "checked_count": 3,
+          "rescan_ai": false
+        }
+      },
       {
         "id": "237e4b3f",
         "ts": "2026-11-19T22:20:53.203116+00:00",
@@ -8829,7 +9484,7 @@
         }
       }
     ],
-    "last_monitor_at": "2026-11-19T22:20:53.203116+00:00",
+    "last_monitor_at": "2026-11-20T14:10:16.304296+00:00",
     "journal": {
       "orders": [
         {
@@ -8846,7 +9501,7 @@
           "take_profit_pct": 80.0,
           "stop_loss_pct": -30.0,
           "last_live_price_usd": 50.99,
-          "last_monitored_at": "2026-11-19T22:20:51.970646+00:00",
+          "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
           "closed_at": null,
           "close_reason": null,
           "last_alert_reason": null,
@@ -8905,6 +9560,12 @@
               "price_usd": 50.99,
               "pnl_pct": -3.92,
               "ai_score": 76
+            },
+            {
+              "ts": "2026-11-20T14:10:15.828642+00:00",
+              "price_usd": 50.99,
+              "pnl_pct": -3.92,
+              "ai_score": 76
             }
           ],
           "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -8941,7 +9602,7 @@
           "status": "APERTO",
           "created_at": "2026-11-19T08:01:44.148135+00:00",
           "last_live_price_usd": 6.51,
-          "last_monitored_at": "2026-11-19T22:20:51.970646+00:00",
+          "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
           "price_history": [
             {
               "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -9008,6 +9669,12 @@
               "price_usd": 6.51,
               "pnl_pct": 1.72,
               "ai_score": 73
+            },
+            {
+              "ts": "2026-11-20T14:10:15.828642+00:00",
+              "price_usd": 6.51,
+              "pnl_pct": 1.72,
+              "ai_score": 73
             }
           ],
           "take_profit_pct": 80.0,
@@ -9043,7 +9710,7 @@
           "status": "APERTO",
           "created_at": "2026-11-19T08:01:44.133741+00:00",
           "last_live_price_usd": 25.55,
-          "last_monitored_at": "2026-11-19T22:20:51.970646+00:00",
+          "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
           "price_history": [
             {
               "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -9110,6 +9777,12 @@
               "price_usd": 25.55,
               "pnl_pct": 4.29,
               "ai_score": 77
+            },
+            {
+              "ts": "2026-11-20T14:10:15.828642+00:00",
+              "price_usd": 25.55,
+              "pnl_pct": 4.29,
+              "ai_score": 77
             }
           ],
           "take_profit_pct": 80.0,
@@ -9164,6 +9837,259 @@
     }
   },
   "pipeline_runs": [
+    {
+      "run_at": "2026-11-20T14:10:15.819748+00:00",
+      "candidates_scanned": 36,
+      "stage1_passed_count": 5,
+      "stage2_deep_analyzed_count": 1,
+      "analyzed_count": 1,
+      "skipped_count": 14,
+      "error_count": 13,
+      "discovery_sources": {
+        "sec_live_form_4": 18,
+        "curated_post_ipo_microcap": 18
+      },
+      "top_tickers": [
+        {
+          "ticker": "LMND",
+          "score": 69,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        }
+      ],
+      "skipped": [
+        {
+          "ticker": "IMMX",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "NMAD",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SMR",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "VNRX",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "CLIK",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "DAVI",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "VANI",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "STEM",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "CTGO",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "COOK",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "HNST",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "MTDR",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ENVX",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "FTAI",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        }
+      ],
+      "errors": [
+        {
+          "ticker": "CHH",
+          "error": "year 28761 is out of range"
+        },
+        {
+          "ticker": "DGICB",
+          "error": "year 18796 is out of range"
+        },
+        {
+          "ticker": "KTOS",
+          "error": "year 31814 is out of range"
+        },
+        {
+          "ticker": "SMSI",
+          "error": "year 27685 is out of range"
+        },
+        {
+          "ticker": "AEHR",
+          "error": "year 29591 is out of range"
+        },
+        {
+          "ticker": "RMCF",
+          "error": "year 18084 is out of range"
+        },
+        {
+          "ticker": "FLNA",
+          "error": "year 32504 is out of range"
+        },
+        {
+          "ticker": "BFH",
+          "error": "year 33424 is out of range"
+        },
+        {
+          "ticker": "AFL",
+          "error": "year 12178 is out of range"
+        },
+        {
+          "ticker": "SEZL",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "CDNA",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "DAVE",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "CLBT",
+          "error": "name 'time' is not defined"
+        }
+      ],
+      "auto_monitor": {
+        "checked_count": 3,
+        "auto_closed": [],
+        "alerts": []
+      },
+      "auto_register": {
+        "registered_tickers": [],
+        "skipped_count": 9
+      }
+    },
     {
       "run_at": "2026-11-19T22:07:22.476879+00:00",
       "candidates_scanned": 12,
