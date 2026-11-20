@@ -5670,7 +5670,7 @@
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.133741+00:00",
       "last_live_price_usd": 23.27,
-      "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
+      "last_monitored_at": "2026-11-20T21:54:12.207155+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -5749,6 +5749,12 @@
           "price_usd": 23.27,
           "pnl_pct": -5.02,
           "ai_score": 77
+        },
+        {
+          "ts": "2026-11-20T21:54:12.207155+00:00",
+          "price_usd": 23.27,
+          "pnl_pct": -5.02,
+          "ai_score": 77
         }
       ],
       "take_profit_pct": 80.0,
@@ -5770,7 +5776,7 @@
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.148135+00:00",
       "last_live_price_usd": 5.65,
-      "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
+      "last_monitored_at": "2026-11-20T21:54:12.207155+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -5849,6 +5855,12 @@
           "price_usd": 5.65,
           "pnl_pct": -11.72,
           "ai_score": 73
+        },
+        {
+          "ts": "2026-11-20T21:54:12.207155+00:00",
+          "price_usd": 5.65,
+          "pnl_pct": -11.72,
+          "ai_score": 73
         }
       ],
       "take_profit_pct": 80.0,
@@ -5869,7 +5881,7 @@
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
       "last_live_price_usd": 45.42,
-      "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
+      "last_monitored_at": "2026-11-20T21:54:12.207155+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -5937,6 +5949,12 @@
         },
         {
           "ts": "2026-11-20T21:25:33.000061+00:00",
+          "price_usd": 45.42,
+          "pnl_pct": -14.41,
+          "ai_score": 76
+        },
+        {
+          "ts": "2026-11-20T21:54:12.207155+00:00",
           "price_usd": 45.42,
           "pnl_pct": -14.41,
           "ai_score": 76
@@ -6746,7 +6764,7 @@
       "errors": []
     }
   ],
-  "updated_at": "2026-11-20T21:25:33.472969+00:00",
+  "updated_at": "2026-11-20T21:54:13.301037+00:00",
   "autopilot_config": {
     "enabled": true,
     "background_monitor_enabled": false,
@@ -6777,6 +6795,17 @@
     "notify_telegram": true
   },
   "autopilot_logs": [
+    {
+      "id": "48af1388",
+      "ts": "2026-11-20T21:54:13.299479+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "RKLB,RDW,ASTS",
+      "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 3,
+        "rescan_ai": false
+      }
+    },
     {
       "id": "31fb3d83",
       "ts": "2026-11-20T21:25:33.460739+00:00",
