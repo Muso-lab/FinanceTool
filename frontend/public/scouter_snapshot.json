@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T14:10:16.348771+00:00",
+  "generated_at": "2026-11-20T21:25:33.485643+00:00",
   "health": {
     "status": "ok",
     "storage_mode": "local_json",
@@ -8868,8 +8868,8 @@
         "auto_registered": true,
         "take_profit_pct": 80.0,
         "stop_loss_pct": -30.0,
-        "last_live_price_usd": 50.99,
-        "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+        "last_live_price_usd": 45.42,
+        "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
         "closed_at": null,
         "close_reason": null,
         "last_alert_reason": null,
@@ -8934,6 +8934,12 @@
             "price_usd": 50.99,
             "pnl_pct": -3.92,
             "ai_score": 76
+          },
+          {
+            "ts": "2026-11-20T21:25:33.000061+00:00",
+            "price_usd": 45.42,
+            "pnl_pct": -14.41,
+            "ai_score": 76
           }
         ],
         "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -8946,12 +8952,12 @@
         "partial_realized_pnl_eur": 0.0,
         "tp1_executed": false,
         "peak_gain_pct": 0.0,
-        "raw_latest_price_usd": 50.99,
-        "latest_price_usd": 50.99,
-        "pnl_pct": -3.92,
-        "pnl_eur": -1.37,
-        "total_order_pnl_eur": -1.37,
-        "current_value_eur": 33.63,
+        "raw_latest_price_usd": 45.42,
+        "latest_price_usd": 45.42,
+        "pnl_pct": -14.41,
+        "pnl_eur": -5.05,
+        "total_order_pnl_eur": -5.05,
+        "current_value_eur": 29.95,
         "latest_ai_score": 76,
         "thesis_drift_status": "ATTENZIONE_DILUIZIONE"
       },
@@ -8969,8 +8975,8 @@
         "initial_ai_score": 73,
         "status": "APERTO",
         "created_at": "2026-11-19T08:01:44.148135+00:00",
-        "last_live_price_usd": 6.51,
-        "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+        "last_live_price_usd": 5.65,
+        "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
         "price_history": [
           {
             "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -9043,6 +9049,12 @@
             "price_usd": 6.51,
             "pnl_pct": 1.72,
             "ai_score": 73
+          },
+          {
+            "ts": "2026-11-20T21:25:33.000061+00:00",
+            "price_usd": 5.65,
+            "pnl_pct": -11.72,
+            "ai_score": 73
           }
         ],
         "take_profit_pct": 80.0,
@@ -9054,12 +9066,12 @@
         "partial_realized_pnl_eur": 0.0,
         "tp1_executed": false,
         "peak_gain_pct": 6.56,
-        "raw_latest_price_usd": 6.51,
-        "latest_price_usd": 6.51,
-        "pnl_pct": 1.72,
-        "pnl_eur": 0.6,
-        "total_order_pnl_eur": 0.6,
-        "current_value_eur": 35.6,
+        "raw_latest_price_usd": 5.65,
+        "latest_price_usd": 5.65,
+        "pnl_pct": -11.72,
+        "pnl_eur": -4.1,
+        "total_order_pnl_eur": -4.1,
+        "current_value_eur": 30.9,
         "latest_ai_score": 73,
         "thesis_drift_status": "ATTENZIONE_DILUIZIONE"
       },
@@ -9077,8 +9089,8 @@
         "initial_ai_score": 77,
         "status": "APERTO",
         "created_at": "2026-11-19T08:01:44.133741+00:00",
-        "last_live_price_usd": 25.55,
-        "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+        "last_live_price_usd": 23.27,
+        "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
         "price_history": [
           {
             "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -9151,6 +9163,12 @@
             "price_usd": 25.55,
             "pnl_pct": 4.29,
             "ai_score": 77
+          },
+          {
+            "ts": "2026-11-20T21:25:33.000061+00:00",
+            "price_usd": 23.27,
+            "pnl_pct": -5.02,
+            "ai_score": 77
           }
         ],
         "take_profit_pct": 80.0,
@@ -9162,12 +9180,12 @@
         "partial_realized_pnl_eur": 0.0,
         "tp1_executed": false,
         "peak_gain_pct": 4.29,
-        "raw_latest_price_usd": 25.55,
-        "latest_price_usd": 25.55,
-        "pnl_pct": 4.29,
-        "pnl_eur": 1.5,
-        "total_order_pnl_eur": 1.5,
-        "current_value_eur": 36.5,
+        "raw_latest_price_usd": 23.27,
+        "latest_price_usd": 23.27,
+        "pnl_pct": -5.02,
+        "pnl_eur": -1.76,
+        "total_order_pnl_eur": -1.76,
+        "current_value_eur": 33.24,
         "latest_ai_score": 77,
         "thesis_drift_status": "ATTENZIONE_DILUIZIONE"
       }
@@ -9179,10 +9197,10 @@
       "monthly_slots_remaining": 7,
       "monthly_allocated_eur": 105.0,
       "total_invested_eur": 105.0,
-      "total_current_value_eur": 105.73,
-      "total_pnl_eur": 0.73,
-      "total_pnl_pct": 0.7,
-      "unrealized_pnl_eur": 0.73,
+      "total_current_value_eur": 94.09,
+      "total_pnl_eur": -10.91,
+      "total_pnl_pct": -10.39,
+      "unrealized_pnl_eur": -10.91,
       "realized_pnl_eur": 0.0,
       "open_count": 3,
       "closed_count": 0,
@@ -9192,13 +9210,13 @@
       "portfolio_roi_target_pct": 20.0,
       "portfolio_target_eur": 1200.0,
       "paper_cash_available_eur": 895.0,
-      "paper_total_equity_eur": 1000.73,
-      "paper_total_roi_pct": 0.07,
+      "paper_total_equity_eur": 989.09,
+      "paper_total_roi_pct": -1.09,
       "paper_open_count": 3,
       "paper_closed_count": 0,
       "paper_invested_eur": 105.0,
-      "paper_current_value_eur": 105.73,
-      "paper_unrealized_pnl_eur": 0.73,
+      "paper_current_value_eur": 94.09,
+      "paper_unrealized_pnl_eur": -10.91,
       "paper_realized_pnl_eur": 0.0,
       "paper_win_rate_pct": null
     }
@@ -9241,6 +9259,34 @@
       "time_stop_max_pnl_pct": 10.0
     },
     "logs": [
+      {
+        "id": "31fb3d83",
+        "ts": "2026-11-20T21:25:33.460739+00:00",
+        "action": "SKIPPED_GUARDRAIL",
+        "ticker": "ALL",
+        "summary": "Nessun nuovo ordine auto-registrato: 9 candidati filtrati dai guardrail.",
+        "details": {
+          "skipped_tickers": [
+            "ASTS",
+            "RKLB",
+            "RDW",
+            "ALAB",
+            "PL",
+            "OUST"
+          ]
+        }
+      },
+      {
+        "id": "114ddb0c",
+        "ts": "2026-11-20T21:25:33.440565+00:00",
+        "action": "MONITOR_CHECK",
+        "ticker": "RKLB,RDW,ASTS",
+        "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+        "details": {
+          "checked_count": 3,
+          "rescan_ai": false
+        }
+      },
       {
         "id": "9e39488a",
         "ts": "2026-11-20T14:10:16.324181+00:00",
@@ -9484,7 +9530,7 @@
         }
       }
     ],
-    "last_monitor_at": "2026-11-20T14:10:16.304296+00:00",
+    "last_monitor_at": "2026-11-20T21:25:33.440565+00:00",
     "journal": {
       "orders": [
         {
@@ -9500,8 +9546,8 @@
           "auto_registered": true,
           "take_profit_pct": 80.0,
           "stop_loss_pct": -30.0,
-          "last_live_price_usd": 50.99,
-          "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+          "last_live_price_usd": 45.42,
+          "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
           "closed_at": null,
           "close_reason": null,
           "last_alert_reason": null,
@@ -9566,6 +9612,12 @@
               "price_usd": 50.99,
               "pnl_pct": -3.92,
               "ai_score": 76
+            },
+            {
+              "ts": "2026-11-20T21:25:33.000061+00:00",
+              "price_usd": 45.42,
+              "pnl_pct": -14.41,
+              "ai_score": 76
             }
           ],
           "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -9578,12 +9630,12 @@
           "partial_realized_pnl_eur": 0.0,
           "tp1_executed": false,
           "peak_gain_pct": 0.0,
-          "raw_latest_price_usd": 50.99,
-          "latest_price_usd": 50.99,
-          "pnl_pct": -3.92,
-          "pnl_eur": -1.37,
-          "total_order_pnl_eur": -1.37,
-          "current_value_eur": 33.63,
+          "raw_latest_price_usd": 45.42,
+          "latest_price_usd": 45.42,
+          "pnl_pct": -14.41,
+          "pnl_eur": -5.05,
+          "total_order_pnl_eur": -5.05,
+          "current_value_eur": 29.95,
           "latest_ai_score": 76,
           "thesis_drift_status": "ATTENZIONE_DILUIZIONE"
         },
@@ -9601,8 +9653,8 @@
           "initial_ai_score": 73,
           "status": "APERTO",
           "created_at": "2026-11-19T08:01:44.148135+00:00",
-          "last_live_price_usd": 6.51,
-          "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+          "last_live_price_usd": 5.65,
+          "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
           "price_history": [
             {
               "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -9675,6 +9727,12 @@
               "price_usd": 6.51,
               "pnl_pct": 1.72,
               "ai_score": 73
+            },
+            {
+              "ts": "2026-11-20T21:25:33.000061+00:00",
+              "price_usd": 5.65,
+              "pnl_pct": -11.72,
+              "ai_score": 73
             }
           ],
           "take_profit_pct": 80.0,
@@ -9686,12 +9744,12 @@
           "partial_realized_pnl_eur": 0.0,
           "tp1_executed": false,
           "peak_gain_pct": 6.56,
-          "raw_latest_price_usd": 6.51,
-          "latest_price_usd": 6.51,
-          "pnl_pct": 1.72,
-          "pnl_eur": 0.6,
-          "total_order_pnl_eur": 0.6,
-          "current_value_eur": 35.6,
+          "raw_latest_price_usd": 5.65,
+          "latest_price_usd": 5.65,
+          "pnl_pct": -11.72,
+          "pnl_eur": -4.1,
+          "total_order_pnl_eur": -4.1,
+          "current_value_eur": 30.9,
           "latest_ai_score": 73,
           "thesis_drift_status": "ATTENZIONE_DILUIZIONE"
         },
@@ -9709,8 +9767,8 @@
           "initial_ai_score": 77,
           "status": "APERTO",
           "created_at": "2026-11-19T08:01:44.133741+00:00",
-          "last_live_price_usd": 25.55,
-          "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+          "last_live_price_usd": 23.27,
+          "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
           "price_history": [
             {
               "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -9783,6 +9841,12 @@
               "price_usd": 25.55,
               "pnl_pct": 4.29,
               "ai_score": 77
+            },
+            {
+              "ts": "2026-11-20T21:25:33.000061+00:00",
+              "price_usd": 23.27,
+              "pnl_pct": -5.02,
+              "ai_score": 77
             }
           ],
           "take_profit_pct": 80.0,
@@ -9794,12 +9858,12 @@
           "partial_realized_pnl_eur": 0.0,
           "tp1_executed": false,
           "peak_gain_pct": 4.29,
-          "raw_latest_price_usd": 25.55,
-          "latest_price_usd": 25.55,
-          "pnl_pct": 4.29,
-          "pnl_eur": 1.5,
-          "total_order_pnl_eur": 1.5,
-          "current_value_eur": 36.5,
+          "raw_latest_price_usd": 23.27,
+          "latest_price_usd": 23.27,
+          "pnl_pct": -5.02,
+          "pnl_eur": -1.76,
+          "total_order_pnl_eur": -1.76,
+          "current_value_eur": 33.24,
           "latest_ai_score": 77,
           "thesis_drift_status": "ATTENZIONE_DILUIZIONE"
         }
@@ -9811,10 +9875,10 @@
         "monthly_slots_remaining": 7,
         "monthly_allocated_eur": 105.0,
         "total_invested_eur": 105.0,
-        "total_current_value_eur": 105.73,
-        "total_pnl_eur": 0.73,
-        "total_pnl_pct": 0.7,
-        "unrealized_pnl_eur": 0.73,
+        "total_current_value_eur": 94.09,
+        "total_pnl_eur": -10.91,
+        "total_pnl_pct": -10.39,
+        "unrealized_pnl_eur": -10.91,
         "realized_pnl_eur": 0.0,
         "open_count": 3,
         "closed_count": 0,
@@ -9824,19 +9888,226 @@
         "portfolio_roi_target_pct": 20.0,
         "portfolio_target_eur": 1200.0,
         "paper_cash_available_eur": 895.0,
-        "paper_total_equity_eur": 1000.73,
-        "paper_total_roi_pct": 0.07,
+        "paper_total_equity_eur": 989.09,
+        "paper_total_roi_pct": -1.09,
         "paper_open_count": 3,
         "paper_closed_count": 0,
         "paper_invested_eur": 105.0,
-        "paper_current_value_eur": 105.73,
-        "paper_unrealized_pnl_eur": 0.73,
+        "paper_current_value_eur": 94.09,
+        "paper_unrealized_pnl_eur": -10.91,
         "paper_realized_pnl_eur": 0.0,
         "paper_win_rate_pct": null
       }
     }
   },
   "pipeline_runs": [
+    {
+      "run_at": "2026-11-20T21:25:32.989989+00:00",
+      "candidates_scanned": 36,
+      "stage1_passed_count": 8,
+      "stage2_deep_analyzed_count": 0,
+      "analyzed_count": 0,
+      "skipped_count": 10,
+      "error_count": 15,
+      "discovery_sources": {
+        "sec_live_form_4": 18,
+        "curated_post_ipo_microcap": 18
+      },
+      "top_tickers": [],
+      "skipped": [
+        {
+          "ticker": "HPP",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SMR",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "WOOF",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "TGT",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "STEM",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "COOK",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "IMDX",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "HNST",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ENVX",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "PLMR",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        }
+      ],
+      "errors": [
+        {
+          "ticker": "IRS",
+          "error": "year 26938 is out of range"
+        },
+        {
+          "ticker": "RPM",
+          "error": "year 12178 is out of range"
+        },
+        {
+          "ticker": "UFI",
+          "error": "year 12178 is out of range"
+        },
+        {
+          "ticker": "KTOS",
+          "error": "year 31814 is out of range"
+        },
+        {
+          "ticker": "AUBN",
+          "error": "year 27557 is out of range"
+        },
+        {
+          "ticker": "AEHR",
+          "error": "year 29591 is out of range"
+        },
+        {
+          "ticker": "DGICB",
+          "error": "year 18796 is out of range"
+        },
+        {
+          "ticker": "AMZN",
+          "error": "year 29339 is out of range"
+        },
+        {
+          "ticker": "CWBC",
+          "error": "year 31152 is out of range"
+        },
+        {
+          "ticker": "OFRM",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "IMTX",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "CTOS",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "SEZL",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "CDNA",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "DAVE",
+          "error": "name 'time' is not defined"
+        }
+      ],
+      "auto_monitor": {
+        "checked_count": 3,
+        "auto_closed": [],
+        "alerts": []
+      },
+      "auto_register": {
+        "registered_tickers": [],
+        "skipped_count": 9
+      }
+    },
     {
       "run_at": "2026-11-20T14:10:15.819748+00:00",
       "candidates_scanned": 36,

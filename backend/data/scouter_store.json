@@ -5669,8 +5669,8 @@
       "initial_ai_score": 77,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.133741+00:00",
-      "last_live_price_usd": 25.55,
-      "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+      "last_live_price_usd": 23.27,
+      "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -5743,6 +5743,12 @@
           "price_usd": 25.55,
           "pnl_pct": 4.29,
           "ai_score": 77
+        },
+        {
+          "ts": "2026-11-20T21:25:33.000061+00:00",
+          "price_usd": 23.27,
+          "pnl_pct": -5.02,
+          "ai_score": 77
         }
       ],
       "take_profit_pct": 80.0,
@@ -5763,8 +5769,8 @@
       "initial_ai_score": 73,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.148135+00:00",
-      "last_live_price_usd": 6.51,
-      "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+      "last_live_price_usd": 5.65,
+      "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -5837,6 +5843,12 @@
           "price_usd": 6.51,
           "pnl_pct": 1.72,
           "ai_score": 73
+        },
+        {
+          "ts": "2026-11-20T21:25:33.000061+00:00",
+          "price_usd": 5.65,
+          "pnl_pct": -11.72,
+          "ai_score": 73
         }
       ],
       "take_profit_pct": 80.0,
@@ -5856,8 +5868,8 @@
       "auto_registered": true,
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "last_live_price_usd": 50.99,
-      "last_monitored_at": "2026-11-20T14:10:15.828642+00:00",
+      "last_live_price_usd": 45.42,
+      "last_monitored_at": "2026-11-20T21:25:33.000061+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -5922,6 +5934,12 @@
           "price_usd": 50.99,
           "pnl_pct": -3.92,
           "ai_score": 76
+        },
+        {
+          "ts": "2026-11-20T21:25:33.000061+00:00",
+          "price_usd": 45.42,
+          "pnl_pct": -14.41,
+          "ai_score": 76
         }
       ],
       "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -5933,6 +5951,213 @@
     }
   ],
   "pipeline_runs": [
+    {
+      "run_at": "2026-11-20T21:25:32.989989+00:00",
+      "candidates_scanned": 36,
+      "stage1_passed_count": 8,
+      "stage2_deep_analyzed_count": 0,
+      "analyzed_count": 0,
+      "skipped_count": 10,
+      "error_count": 15,
+      "discovery_sources": {
+        "sec_live_form_4": 18,
+        "curated_post_ipo_microcap": 18
+      },
+      "top_tickers": [],
+      "skipped": [
+        {
+          "ticker": "HPP",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SMR",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "WOOF",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "TGT",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "STEM",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "COOK",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "IMDX",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "HNST",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ENVX",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "PLMR",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        }
+      ],
+      "errors": [
+        {
+          "ticker": "IRS",
+          "error": "year 26938 is out of range"
+        },
+        {
+          "ticker": "RPM",
+          "error": "year 12178 is out of range"
+        },
+        {
+          "ticker": "UFI",
+          "error": "year 12178 is out of range"
+        },
+        {
+          "ticker": "KTOS",
+          "error": "year 31814 is out of range"
+        },
+        {
+          "ticker": "AUBN",
+          "error": "year 27557 is out of range"
+        },
+        {
+          "ticker": "AEHR",
+          "error": "year 29591 is out of range"
+        },
+        {
+          "ticker": "DGICB",
+          "error": "year 18796 is out of range"
+        },
+        {
+          "ticker": "AMZN",
+          "error": "year 29339 is out of range"
+        },
+        {
+          "ticker": "CWBC",
+          "error": "year 31152 is out of range"
+        },
+        {
+          "ticker": "OFRM",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "IMTX",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "CTOS",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "SEZL",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "CDNA",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "DAVE",
+          "error": "name 'time' is not defined"
+        }
+      ],
+      "auto_monitor": {
+        "checked_count": 3,
+        "auto_closed": [],
+        "alerts": []
+      },
+      "auto_register": {
+        "registered_tickers": [],
+        "skipped_count": 9
+      }
+    },
     {
       "run_at": "2026-11-20T14:10:15.819748+00:00",
       "candidates_scanned": 36,
@@ -6521,7 +6746,7 @@
       "errors": []
     }
   ],
-  "updated_at": "2026-11-20T14:10:16.336263+00:00",
+  "updated_at": "2026-11-20T21:25:33.472969+00:00",
   "autopilot_config": {
     "enabled": true,
     "background_monitor_enabled": false,
@@ -6552,6 +6777,34 @@
     "notify_telegram": true
   },
   "autopilot_logs": [
+    {
+      "id": "31fb3d83",
+      "ts": "2026-11-20T21:25:33.460739+00:00",
+      "action": "SKIPPED_GUARDRAIL",
+      "ticker": "ALL",
+      "summary": "Nessun nuovo ordine auto-registrato: 9 candidati filtrati dai guardrail.",
+      "details": {
+        "skipped_tickers": [
+          "ASTS",
+          "RKLB",
+          "RDW",
+          "ALAB",
+          "PL",
+          "OUST"
+        ]
+      }
+    },
+    {
+      "id": "114ddb0c",
+      "ts": "2026-11-20T21:25:33.440565+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "RKLB,RDW,ASTS",
+      "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 3,
+        "rescan_ai": false
+      }
+    },
     {
       "id": "9e39488a",
       "ts": "2026-11-20T14:10:16.324181+00:00",
