@@ -82,22 +82,22 @@ class Settings:
     MONTHLY_MICRO_ORDER_LIMIT: int = _env_int("MONTHLY_MICRO_ORDER_LIMIT", 10)
     DEFAULT_MICRO_ORDER_EUR: float = _env_float("DEFAULT_MICRO_ORDER_EUR", 35.0)
 
-    # Universo curato di default affiancato dal calendario IPO Finnhub
+    # Rotazione e Imbuto a 2 Stadi (evita di rianalizzare sempre gli stessi titoli)
+    DISCOVERY_COOLDOWN_DAYS: int = _env_int("DISCOVERY_COOLDOWN_DAYS", 7)
+    MAX_DEEP_ANALYZE: int = _env_int("MAX_DEEP_ANALYZE", 6)
+
+    # Universo curato multi-settoriale affiancato dal calendario IPO Finnhub e dal Radar SEC live
     DEFAULT_UNIVERSE: list[str] = [
-        "RDW",
-        "PL",
-        "BKSY",
-        "OUST",
-        "TEM",
-        "ALAB",
-        "ASTS",
-        "ENVX",
-        "HNST",
-        "NRDY",
-        "COOK",
-        "SOUN",
-        "SERV",
-        "RKLB",
+        # Aerospace, Space & Defense
+        "RDW", "PL", "BKSY", "ASTS", "RKLB", "LUNR", "KTOS", "AVAV",
+        # AI, Robotics, Lidar & Semiconductors
+        "OUST", "ALAB", "SOUN", "SERV", "SYM", "RR", "POET", "AEHR",
+        # Biotech, MedTech & Genomics
+        "TEM", "RXRX", "SDGR", "TMDX", "TWST", "NRIX", "CDNA",
+        # Energy, Battery & CleanTech
+        "ENVX", "EOSE", "STEM", "FLNC", "AMPX", "OKLO", "SMR",
+        # Consumer, Fintech & Vertical SaaS
+        "HNST", "NRDY", "COOK", "OSCR", "LMND", "DAVE", "SEZL", "CLBT",
     ]
 
 

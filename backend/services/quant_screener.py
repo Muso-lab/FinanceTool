@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import hashlib
 import math
+import random
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -10,6 +12,7 @@ import requests
 import yfinance as yf
 
 from config import settings
+from services.sec_edgar import _is_valid_common_ticker, discover_recent_sec_filing_tickers
 
 _US_EXCHANGES = ("NASDAQ", "NYSE", "AMEX", "BATS", "CBOE")
 
@@ -30,14 +33,64 @@ def _safe_float(val: Any) -> float | None:
         return None
 
 
-def discover_candidate_tickers(max_candidates: int = 20) -> list[dict[str, Any]]:
-    """Discover recent IPOs via Finnhub (if configured) balanced with curated post-IPO / micro-cap tickers."""
-    candidates: dict[str, dict[str, Any]] = {}
-    finnhub_cap = max(1, max_candidates // 2)
+def _is_in_cooldown(
+    ticker: str,
+    recently_analyzed: dict[str, str],
+    open_portfolio_tickers: set[str],
+    cutoff_dt: datetime,
+) -> bool:
+    """Return True if ticker is already held in open portfolio or analyzed within cooldown window."""
+    sym = ticker.strip().upper()
+    if sym in open_portfolio_tickers:
+        return True
+    ts_str = recently_analyzed.get(sym)
+    if not ts_str:
+        return False
+    try:
+        analyzed_dt = datetime.fromisoformat(str(ts_str).replace("Z", "+00:00"))
+        if analyzed_dt.tzinfo is None:
+            analyzed_dt = analyzed_dt.replace(tzinfo=timezone.utc)
+        return analyzed_dt >= cutoff_dt
+    except Exception:
+        return False
 
+
+def _deterministic_rotate(items: list[dict[str, Any]], seed_key: str) -> list[dict[str, Any]]:
+    """Deterministically shuffle/rotate a candidate list based on UTC date so every day explores new slices."""
+    if len(items) <= 1:
+        return list(items)
+    copied = list(items)
+    digest = int(hashlib.sha256(seed_key.encode("utf-8")).hexdigest()[:12], 16)
+    rng = random.Random(digest)
+    rng.shuffle(copied)
+    return copied
+
+
+def discover_candidate_tickers(
+    max_candidates: int = 36,
+    recently_analyzed: dict[str, str] | None = None,
+    open_portfolio_tickers: set[str] | None = None,
+    cooldown_days: int | None = None,
+    include_sec_radar: bool = True,
+    rotation_seed: str | None = None,
+) -> list[dict[str, Any]]:
+    """Multi-source rotating universe discovery with cooldown anti-repetition:
+    1. Full Finnhub US IPO calendar (6-24 months, excluding warrants/units)
+    2. Live SEC EDGAR Form 4 & 8-K event-driven radar
+    3. Multi-sector curated post-IPO / micro-cap universe
+    Deprioritizes tickers analyzed within `cooldown_days` or already open in portfolio.
+    """
+    now = datetime.now(timezone.utc)
+    cd_days = settings.DISCOVERY_COOLDOWN_DAYS if cooldown_days is None else max(0, int(cooldown_days))
+    cutoff_dt = now - timedelta(days=cd_days)
+    recent_map = {k.strip().upper(): v for k, v in (recently_analyzed or {}).items() if k}
+    open_set = {t.strip().upper() for t in (open_portfolio_tickers or set()) if t}
+    day_seed = rotation_seed or now.strftime("%Y-%m-%d")
+
+    # Pool 1: Full Finnhub US IPO Calendar (6-24m)
+    finnhub_pool: list[dict[str, Any]] = []
     if _is_configured(settings.FINNHUB_API_KEY):
         try:
-            now = datetime.now(timezone.utc)
             start = (now - timedelta(days=settings.IPO_MAX_MONTHS * 30)).strftime("%Y-%m-%d")
             end = (now - timedelta(days=settings.IPO_MIN_MONTHS * 30)).strftime("%Y-%m-%d")
             resp = requests.get(
@@ -46,40 +99,105 @@ def discover_candidate_tickers(max_candidates: int = 20) -> list[dict[str, Any]]
                 timeout=12,
             )
             if resp.ok:
+                seen_fh: set[str] = set()
                 for item in resp.json().get("ipoCalendar", []):
                     symbol = (item.get("symbol") or "").strip().upper()
                     exchange = (item.get("exchange") or "").upper()
                     status = (item.get("status") or "").lower()
                     valid_exchange = (not exchange) or any(ex in exchange for ex in _US_EXCHANGES)
                     if (
-                        symbol
-                        and symbol.isalpha()
-                        and len(symbol) <= 5
+                        _is_valid_common_ticker(symbol)
                         and status in ("priced", "")
                         and valid_exchange
+                        and symbol not in seen_fh
                     ):
-                        candidates[symbol] = {
-                            "ticker": symbol,
-                            "source": "finnhub_ipo_calendar",
-                            "ipo_date_hint": item.get("date"),
-                        }
-                        if len(candidates) >= finnhub_cap:
-                            break
+                        seen_fh.add(symbol)
+                        finnhub_pool.append(
+                            {
+                                "ticker": symbol,
+                                "source": "finnhub_ipo_calendar",
+                                "ipo_date_hint": item.get("date"),
+                            }
+                        )
         except Exception:
             pass
 
-    for ticker in settings.DEFAULT_UNIVERSE:
-        t = ticker.strip().upper()
-        if t not in candidates:
-            candidates[t] = {
-                "ticker": t,
-                "source": "curated_post_ipo_microcap",
-                "ipo_date_hint": None,
-            }
-        if len(candidates) >= max_candidates:
-            break
+    # Pool 2: Live SEC EDGAR Radar (Form 4 Insider + 8-K Catalysts)
+    sec_pool: list[dict[str, Any]] = []
+    if include_sec_radar:
+        try:
+            sec_pool = discover_recent_sec_filing_tickers(forms=("4", "8-K"), max_per_form=18)
+        except Exception:
+            sec_pool = []
 
-    return list(candidates.values())[:max_candidates]
+    # Pool 3: Multi-sector curated post-IPO / micro-cap universe
+    curated_pool: list[dict[str, Any]] = [
+        {
+            "ticker": t.strip().upper(),
+            "source": "curated_post_ipo_microcap",
+            "ipo_date_hint": None,
+        }
+        for t in settings.DEFAULT_UNIVERSE
+        if t.strip()
+    ]
+
+    # Deterministic daily rotation so we explore fresh slices instead of repeating index 0..5
+    finnhub_rot = _deterministic_rotate(finnhub_pool, f"fh:{day_seed}")
+    curated_rot = _deterministic_rotate(curated_pool, f"cur:{day_seed}")
+    # SEC live pool is already ordered by most recent filing first
+
+    def _split_fresh(pool: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        fresh, cooling = [], []
+        for item in pool:
+            if _is_in_cooldown(item["ticker"], recent_map, open_set, cutoff_dt):
+                cooling.append(item)
+            else:
+                fresh.append(item)
+        return fresh, cooling
+
+    fh_fresh, fh_cool = _split_fresh(finnhub_rot)
+    sec_fresh, sec_cool = _split_fresh(sec_pool)
+    cur_fresh, cur_cool = _split_fresh(curated_rot)
+
+    # Round-robin interleave fresh candidates across all 3 sources
+    selected: list[dict[str, Any]] = []
+    seen_all: set[str] = set()
+
+    def _interleave(queues: list[list[dict[str, Any]]]) -> None:
+        idxs = [0] * len(queues)
+        while len(selected) < max_candidates:
+            progressed = False
+            for q_i, q in enumerate(queues):
+                while idxs[q_i] < len(q):
+                    cand = q[idxs[q_i]]
+                    idxs[q_i] += 1
+                    sym = cand["ticker"]
+                    if sym not in seen_all:
+                        seen_all.add(sym)
+                        selected.append(cand)
+                        progressed = True
+                        break
+                if len(selected) >= max_candidates:
+                    break
+            if not progressed:
+                break
+
+    # Priority 1: Fresh/unseen candidates across Finnhub IPOs, SEC Live Radar, and Curated Universe
+    _interleave([fh_fresh, sec_fresh, cur_fresh])
+
+    # Priority 2 (fallback only if fewer than max_candidates fresh tickers exist): oldest-analyzed cooldown tickers
+    if len(selected) < max_candidates:
+        all_cooling = fh_cool + sec_cool + cur_cool
+        all_cooling.sort(key=lambda c: recent_map.get(c["ticker"], ""))
+        for cand in all_cooling:
+            sym = cand["ticker"]
+            if sym not in seen_all:
+                seen_all.add(sym)
+                selected.append(cand)
+            if len(selected) >= max_candidates:
+                break
+
+    return selected[:max_candidates]
 
 
 def _extract_statement_value(df: Any, row_candidates: list[str]) -> tuple[float | None, float | None]:

@@ -923,43 +923,129 @@ def analyze_single_ticker(
     return record
 
 
+def _compute_stage1_prescore(
+    quant: dict[str, Any],
+    screening: dict[str, Any],
+    source: str,
+) -> float:
+    """Fast quantitative Stage-1 ranking score used to pick the best finalists for Stage-2 4-agent AI debate."""
+    score = 0.0
+    if screening.get("passed"):
+        score += 40.0
+
+    rev_g = quant.get("revenue_growth_yoy_pct")
+    if rev_g is not None and rev_g > 0:
+        score += min(20.0, float(rev_g) * 0.4)
+
+    if quant.get("is_cash_flow_positive"):
+        score += 15.0
+    else:
+        runway = quant.get("runway_months")
+        if runway is not None and runway >= 12:
+            score += min(15.0, float(runway) * 0.5)
+
+    dd = abs(float(quant.get("post_ipo_drawdown_pct") or 0.0))
+    if 15.0 <= dd <= 75.0:
+        score += 15.0
+    elif dd > 75.0:
+        score += 5.0
+
+    mcap = quant.get("market_cap")
+    if mcap is not None and mcap > 0:
+        if mcap <= 2_000_000_000:
+            score += 10.0
+        elif mcap <= 5_000_000_000:
+            score += 5.0
+
+    # Event-driven discovery bonus
+    if source == "sec_live_form_4":
+        score += 12.0
+    elif source == "sec_live_form_8k":
+        score += 8.0
+    elif source == "finnhub_ipo_calendar":
+        score += 5.0
+
+    return round(score, 2)
+
+
 def run_daily_pipeline(
     tickers: list[str] | None = None,
-    max_candidates: int = 10,
+    max_candidates: int = 36,
+    max_deep_analyze: int | None = None,
     top_n_save: int = 5,
     notify: bool = True,
     auto_register: bool = False,
     auto_monitor: bool = False,
     export_snapshot: bool = True,
 ) -> dict[str, Any]:
-    """Execute full daily screening, alternative data ingestion, 4-agent debate, and alerting."""
+    """Execute 2-Stage Funnel daily pipeline:
+    Stage 1: Fast quantitative pre-screening across a wide rotating universe (Finnhub IPO + SEC Live Radar + Curated).
+    Stage 2: Deep SEC EDGAR + News + Careers + 4-Agent Gemini debate on top finalists only.
+    """
     if tickers:
         candidate_list = [{"ticker": t.strip().upper(), "source": "cli_override"} for t in tickers if t.strip()]
     else:
-        candidate_list = discover_candidate_tickers(max_candidates=max_candidates)
+        existing_opps = storage.list_opportunities(min_score=0, limit=500)
+        recently_analyzed = {
+            (o.get("ticker") or "").upper(): o.get("analyzed_at", "")
+            for o in existing_opps
+            if o.get("ticker")
+        }
+        open_orders = storage.list_micro_orders().get("orders", [])
+        open_portfolio_tickers = {
+            (o.get("ticker") or "").upper()
+            for o in open_orders
+            if o.get("status", "APERTO") == "APERTO" and o.get("ticker")
+        }
+        candidate_list = discover_candidate_tickers(
+            max_candidates=max_candidates,
+            recently_analyzed=recently_analyzed,
+            open_portfolio_tickers=open_portfolio_tickers,
+        )
 
-    analyzed: list[dict[str, Any]] = []
-    borderline: list[tuple[str, dict[str, Any], dict[str, Any]]] = []
+    # ---------------- STAGE 1: Fast Quantitative Funnel ----------------
+    stage1_passed: list[tuple[float, str, dict[str, Any], dict[str, Any], str]] = []
+    borderline: list[tuple[float, str, dict[str, Any], dict[str, Any], str]] = []
     skipped: list[dict[str, Any]] = []
     errors: list[dict[str, str]] = []
 
     for item in candidate_list:
         sym = item["ticker"]
+        src = item.get("source", "unknown")
         try:
             quant = fetch_quant_metrics(sym)
             if not quant.get("data_available"):
                 errors.append({"ticker": sym, "error": "Dati yfinance non disponibili"})
                 continue
             screening = evaluate_screening_criteria(quant)
-            if not screening["passed"] and not tickers:
-                # Retain borderline positive-growth/runway small caps in case fewer than 3 pass strict filters
+            pre_score = _compute_stage1_prescore(quant, screening, src)
+
+            if screening["passed"] or tickers:
+                stage1_passed.append((pre_score, sym, quant, screening, src))
+            else:
                 fb = screening["filter_breakdown"]
                 if fb["revenue_growth_ok"] and fb["runway_ok"] and fb["liquidity_no_toxic_debt"]:
-                    borderline.append((sym, quant, screening))
+                    borderline.append((pre_score, sym, quant, screening, src))
                 else:
-                    skipped.append({"ticker": sym, "reasons": fb})
-                continue
+                    skipped.append({"ticker": sym, "source": src, "reasons": fb})
+        except Exception as exc:
+            errors.append({"ticker": sym, "error": str(exc)})
 
+    stage1_passed.sort(key=lambda x: x[0], reverse=True)
+    borderline.sort(key=lambda x: x[0], reverse=True)
+
+    deep_limit = len(stage1_passed) if tickers else int(max_deep_analyze or settings.MAX_DEEP_ANALYZE)
+    finalists = list(stage1_passed[:deep_limit])
+
+    # If fewer than 3 strict candidates passed in batch mode, supplement with top borderline candidates
+    if not tickers and len(finalists) < min(3, deep_limit) and borderline:
+        needed = min(3, deep_limit) - len(finalists)
+        finalists.extend(borderline[:needed])
+
+    # ---------------- STAGE 2: Deep 4-Agent AI Debate on Finalists ----------------
+    analyzed: list[dict[str, Any]] = []
+    for _pre_score, sym, quant, screening, src in finalists:
+        try:
             rec = analyze_single_ticker(
                 sym,
                 save_to_store=True,
@@ -967,34 +1053,28 @@ def run_daily_pipeline(
                 preloaded_quant=quant,
                 preloaded_screening=screening,
             )
+            rec["discovery_source"] = src
             analyzed.append(rec)
         except Exception as exc:
             errors.append({"ticker": sym, "error": str(exc)})
 
-    # If fewer than 3 strict candidates passed in batch mode, supplement with top borderline candidates
-    if not tickers and len(analyzed) < 3 and borderline:
-        for sym, quant, screening in borderline[: 3 - len(analyzed)]:
-            try:
-                rec = analyze_single_ticker(
-                    sym,
-                    save_to_store=True,
-                    notify=notify,
-                    preloaded_quant=quant,
-                    preloaded_screening=screening,
-                )
-                analyzed.append(rec)
-            except Exception as exc:
-                errors.append({"ticker": sym, "error": str(exc)})
-
     analyzed.sort(key=lambda r: r.get("asymmetry_score", 0), reverse=True)
     top_picks = analyzed[:top_n_save]
+
+    source_counts: dict[str, int] = {}
+    for item in candidate_list:
+        s = item.get("source", "unknown")
+        source_counts[s] = source_counts.get(s, 0) + 1
 
     summary = {
         "run_at": datetime.now(timezone.utc).isoformat(),
         "candidates_scanned": len(candidate_list),
+        "stage1_passed_count": len(stage1_passed),
+        "stage2_deep_analyzed_count": len(analyzed),
         "analyzed_count": len(analyzed),
         "skipped_count": len(skipped),
         "error_count": len(errors),
+        "discovery_sources": source_counts,
         "top_tickers": [
             {"ticker": r["ticker"], "score": r["asymmetry_score"], "verdict": r["verdict_label"]}
             for r in top_picks
@@ -1059,7 +1139,8 @@ def run_monitor_only(export_snapshot: bool = True) -> dict[str, Any]:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="IPO & Micro-Cap AI Scouter Daily Pipeline")
     parser.add_argument("--tickers", nargs="*", help="Optional explicit list of tickers to analyze")
-    parser.add_argument("--max-candidates", type=int, default=10, help="Max universe tickers to screen")
+    parser.add_argument("--max-candidates", type=int, default=36, help="Stage 1: max universe tickers to pre-screen")
+    parser.add_argument("--max-deep", type=int, default=settings.MAX_DEEP_ANALYZE, help="Stage 2: max finalists for 4-agent AI debate")
     parser.add_argument("--no-notify", action="store_true", help="Disable Telegram alerts")
     parser.add_argument("--auto-register", action="store_true", help="Run Paper Auto-Registration after scan")
     parser.add_argument("--auto-monitor", action="store_true", help="Run Portfolio Auto-Monitor after scan")
@@ -1084,6 +1165,7 @@ if __name__ == "__main__":
         result = run_daily_pipeline(
             tickers=args.tickers,
             max_candidates=args.max_candidates,
+            max_deep_analyze=args.max_deep,
             notify=not args.no_notify,
             auto_register=args.auto_register,
             auto_monitor=args.auto_monitor,

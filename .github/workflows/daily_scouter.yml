@@ -77,7 +77,7 @@ jobs:
             # shellcheck disable=SC2086
             python scouter_pipeline.py --tickers $TICKERS_OVERRIDE $EXTRA_FLAGS
           else
-            python scouter_pipeline.py --max-candidates 12 $EXTRA_FLAGS
+            python scouter_pipeline.py --max-candidates 36 --max-deep 6 $EXTRA_FLAGS
           fi
 
       - name: Clean temporary Firebase key file

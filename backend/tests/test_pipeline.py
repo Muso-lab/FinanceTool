@@ -822,3 +822,133 @@ def test_time_stop_catalyst_expiration(tmp_path: Path) -> None:
     assert mon["journal"]["summary"]["paper_cash_available_eur"] == 500.50
 
 
+def test_sec_live_atom_parser_and_ticker_filter() -> None:
+    """Verify SEC Atom feed parser keeps only Issuer/Filer CIKs and filters SPAC warrants/units."""
+    from services.sec_edgar import _is_valid_common_ticker, _parse_sec_atom_ciks
+
+    sample_form4_xml = """
+    <feed>
+      <title>Latest Filings</title>
+      <entry><title>4 - Doe John (0009999999) (Reporting)</title></entry>
+      <entry><title>4 - ALPHA SPACE CORP (0001335105) (Issuer)</title></entry>
+      <entry><title>4 - ALPHA SPACE CORP (0001335105) (Issuer)</title></entry>
+      <entry><title>4 - BETA BIO INC (0000093314) (Issuer)</title></entry>
+    </feed>
+    """
+    ciks = _parse_sec_atom_ciks(sample_form4_xml, "4")
+    assert ciks == ["0001335105", "0000093314"]
+
+    assert _is_valid_common_ticker("RDW") is True
+    assert _is_valid_common_ticker("ASTS") is True
+    assert _is_valid_common_ticker("SPACW") is False  # 5-letter warrant
+    assert _is_valid_common_ticker("SPACU") is False  # 5-letter unit
+    assert _is_valid_common_ticker("BRK.B") is False
+
+
+def test_discovery_cooldown_rotation_deprioritizes_recent_and_open_tickers(monkeypatch) -> None:
+    """Verify discover_candidate_tickers skips recently analyzed & open tickers in favor of unseen ones."""
+    from services import quant_screener
+
+    monkeypatch.setattr(quant_screener, "_is_configured", lambda _v: False)
+    monkeypatch.setattr(
+        quant_screener,
+        "discover_recent_sec_filing_tickers",
+        lambda forms=("4", "8-K"), max_per_form=18: [
+            {"ticker": "SECNEW1", "source": "sec_live_form_4", "ipo_date_hint": None},
+            {"ticker": "SECOLD", "source": "sec_live_form_8k", "ipo_date_hint": None},
+        ],
+    )
+
+    now_iso = datetime.now(timezone.utc).isoformat()
+    old_iso = (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
+
+    recent_map = {
+        "SECOLD": now_iso,   # analyzed today -> cooldown
+        "RDW": now_iso,      # analyzed today -> cooldown
+        "PL": old_iso,       # analyzed 14 days ago -> fresh again!
+    }
+    open_set = {"ASTS", "RKLB"}
+
+    picks = quant_screener.discover_candidate_tickers(
+        max_candidates=6,
+        recently_analyzed=recent_map,
+        open_portfolio_tickers=open_set,
+        cooldown_days=7,
+        include_sec_radar=True,
+        rotation_seed="2026-11-20",
+    )
+    picked_syms = [p["ticker"] for p in picks]
+
+    assert len(picked_syms) == 6
+    assert "SECNEW1" in picked_syms
+    assert "SECOLD" not in picked_syms
+    assert "RDW" not in picked_syms
+    assert "ASTS" not in picked_syms
+    assert "RKLB" not in picked_syms
+
+    # Different date seed produces a different rotation order on curated pool
+    picks_next_day = quant_screener.discover_candidate_tickers(
+        max_candidates=6,
+        recently_analyzed=recent_map,
+        open_portfolio_tickers=open_set,
+        cooldown_days=7,
+        include_sec_radar=False,
+        rotation_seed="2026-11-21",
+    )
+    picks_day1 = quant_screener.discover_candidate_tickers(
+        max_candidates=6,
+        recently_analyzed=recent_map,
+        open_portfolio_tickers=open_set,
+        cooldown_days=7,
+        include_sec_radar=False,
+        rotation_seed="2026-11-20",
+    )
+    assert [p["ticker"] for p in picks_day1] != [p["ticker"] for p in picks_next_day]
+
+
+def test_two_stage_funnel_caps_deep_ai_analysis_to_top_finalists(monkeypatch, tmp_path: Path) -> None:
+    """Verify Stage 1 screens all candidates and Stage 2 runs deep AI debate only on top max_deep_analyze."""
+    store = ScouterStorage(store_path=tmp_path / "funnel_store.json")
+    monkeypatch.setattr(scouter_pipeline, "storage", store)
+
+    candidates = [
+        {"ticker": f"C{i}", "source": "sec_live_form_4" if i == 4 else "curated_post_ipo_microcap", "ipo_date_hint": None}
+        for i in range(1, 7)
+    ]
+    monkeypatch.setattr(scouter_pipeline, "discover_candidate_tickers", lambda **_kw: candidates)
+
+    def _fake_quant(sym: str) -> dict:
+        idx = int(sym[1:])
+        q = _sample_quant_pass()
+        q["ticker"] = sym
+        q["revenue_growth_yoy_pct"] = 5.0 * idx  # C6 (30%) has highest growth, C4 has SEC Form 4 bonus
+        return q
+
+    deep_called: list[str] = []
+
+    def _fake_analyze(sym: str, **_kw) -> dict:
+        deep_called.append(sym)
+        return {
+            "ticker": sym,
+            "asymmetry_score": 80,
+            "verdict_label": "STRONG_ASYMMETRIC_BUY",
+        }
+
+    monkeypatch.setattr(scouter_pipeline, "fetch_quant_metrics", _fake_quant)
+    monkeypatch.setattr(scouter_pipeline, "analyze_single_ticker", _fake_analyze)
+
+    res = scouter_pipeline.run_daily_pipeline(
+        max_candidates=6,
+        max_deep_analyze=2,
+        notify=False,
+        export_snapshot=False,
+    )
+    assert res["candidates_scanned"] == 6
+    assert res["stage1_passed_count"] == 6
+    assert res["stage2_deep_analyzed_count"] == 2
+    assert len(deep_called) == 2
+    assert "C6" in deep_called
+    assert "C4" in deep_called
+
+
+

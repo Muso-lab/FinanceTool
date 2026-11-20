@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -339,3 +340,90 @@ def fetch_sec_filings(ticker: str, lookback_days: int = 365) -> dict[str, Any]:
         "sec_tags": sec_tags,
         "status": "ok",
     }
+
+
+def _is_valid_common_ticker(symbol: str) -> bool:
+    """Filter out warrants, units, rights, and non-alpha OTC/preferred suffixes."""
+    sym = symbol.strip().upper()
+    if not sym or not sym.isalpha() or len(sym) > 5:
+        return False
+    # 5-letter NASDAQ tickers ending in W (warrant), U (unit), R (right) are typically SPAC derivatives
+    if len(sym) == 5 and sym[-1] in ("W", "U", "R"):
+        return False
+    return True
+
+
+def _parse_sec_atom_ciks(atom_xml: str, form_type: str) -> list[str]:
+    """Extract ordered, deduplicated 10-digit issuer/filer CIKs from a SEC EDGAR Atom feed."""
+    titles = re.findall(r"<title>(.*?)</title>", atom_xml, flags=re.IGNORECASE | re.DOTALL)
+    # Form 4 feeds list both (Reporting) individuals and (Issuer) companies — keep only (Issuer)
+    want_tag = "(issuer)" if form_type.strip() == "4" else "(filer)"
+    ciks: list[str] = []
+    seen: set[str] = set()
+    for raw_title in titles:
+        t_lower = raw_title.lower()
+        if want_tag not in t_lower:
+            continue
+        match = re.search(r"\((\d{10})\)", raw_title)
+        if match:
+            cik = match.group(1)
+            if cik not in seen:
+                seen.add(cik)
+                ciks.append(cik)
+    return ciks
+
+
+def discover_recent_sec_filing_tickers(
+    forms: tuple[str, ...] = ("4", "8-K"),
+    max_per_form: int = 18,
+) -> list[dict[str, Any]]:
+    """Event-driven SEC EDGAR live radar: discovers US listed tickers with fresh Form 4 or 8-K filings."""
+    ticker_to_cik = _load_ticker_cik_map()
+    if not ticker_to_cik:
+        return []
+
+    # Invert mapping (keep shortest / cleanest primary ticker per CIK)
+    cik_to_ticker: dict[str, str] = {}
+    for sym, cik in ticker_to_cik.items():
+        if not _is_valid_common_ticker(sym):
+            continue
+        prev = cik_to_ticker.get(cik)
+        if prev is None or len(sym) < len(prev):
+            cik_to_ticker[cik] = sym
+
+    discovered: list[dict[str, Any]] = []
+    seen_tickers: set[str] = set()
+
+    for form_type in forms:
+        owner_param = "only" if form_type.strip() == "4" else "include"
+        url = (
+            f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent"
+            f"&type={form_type}&owner={owner_param}&count=80&output=atom"
+        )
+        try:
+            resp = requests.get(url, headers=_sec_headers(), timeout=12)
+            if not resp.ok:
+                continue
+            ciks = _parse_sec_atom_ciks(resp.text, form_type)
+            added_for_form = 0
+            source_label = f"sec_live_form_{form_type.lower().replace('-', '')}"
+            for cik in ciks:
+                sym = cik_to_ticker.get(cik)
+                if not sym or sym in seen_tickers:
+                    continue
+                seen_tickers.add(sym)
+                discovered.append(
+                    {
+                        "ticker": sym,
+                        "source": source_label,
+                        "ipo_date_hint": None,
+                    }
+                )
+                added_for_form += 1
+                if added_for_form >= max_per_form:
+                    break
+            time.sleep(0.15)
+        except Exception:
+            continue
+
+    return discovered
