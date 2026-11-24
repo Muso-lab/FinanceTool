@@ -5652,6 +5652,515 @@
           ]
         }
       }
+    },
+    "HFRO": {
+      "ticker": "HFRO",
+      "company_name": "Highland Funds I - Highland Opportunities and Income Fund",
+      "sector": "Financial Services",
+      "industry": "Asset Management",
+      "exchange": "NYQ",
+      "analyzed_at": "2026-11-24T23:14:49.895293+00:00",
+      "asymmetry_score": 74,
+      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "sub_scores": {
+        "catalyst_strength": 17,
+        "financial_survival_runway": 18,
+        "insider_alignment": 15,
+        "valuation_asymmetry": 11,
+        "audit_confidence": 13
+      },
+      "thesis_5_lines": [
+        "Fondo chiuso (CEF) di credito ad alto rendimento catalizzato dall'arbitraggio sul NAV guidato dall'attivismo di Saba Capital e da un piano di buyback annunciato da 100M$.",
+        "Generazione di cassa operativa e FCF positiva per 9,26M$ TTM a burn mensile nullo, sebbene la posizione netta sia a debito per -13,37M$ con ricavi contabili da portafoglio negativi.",
+        "Rastrellamento massiccio sul mercato da parte del 10% owner Saba Capital con oltre 4,4M$ acquistati in Form 4 Codice P, controbilanciato da hiring non monitorabile.",
+        "Il Bear segnala overhang da azioni privilegiate serie B all'8% e potenziale diluizione shelf 424B3, mitigati dalla pressione attivista per la valorizzazione del NAV.",
+        "Accumulo frazionato da 35€ su debolezza sotto 5,10$, con orizzonte 12-18 mesi e invalidazione in caso di rottura ribassista sotto 4,50$ o cessazione acquisti Saba."
+      ],
+      "signal_tags": [
+        "Saba Capital Activism",
+        "$100M Buyback",
+        "Positive FCF",
+        "Form 4 Cluster P",
+        "Shelf Overhang",
+        "CEF Discount"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 35,
+        "entry_zone": "Accumulo scaglionato tra $4.90 e $5.20",
+        "invalidation_trigger": "Chiusura mensile sotto $4.50 o dismissione totale della quota da parte di Saba Capital",
+        "time_horizon": "12-18 mesi"
+      },
+      "quant_metrics": {
+        "ticker": "HFRO",
+        "company_name": "Highland Funds I - Highland Opportunities and Income Fund",
+        "sector": "Financial Services",
+        "industry": "Asset Management",
+        "exchange": "NYQ",
+        "currency": "USD",
+        "website": "https://www.highlandfunds.com/Funds---Performance/Mutual-Funds/Alternative-Investment/Floating-Rate-Opportunities",
+        "business_summary": "Highland Funds I - Highland Opportunities and Income Fund is a close-ended fixed income mutual fund launched by Highland Capital Management, L.P. It is managed by Highland Capital Management Fund Advisors, L.P. The fund invests in fixed income markets of countries across the globe. It primarily invests in floating rate loans and other securities deemed to be floating rate investments, with an emphasis on adjustable rate senior loans to corporations and partnerships. The fund seeks to invest in below investment grade securities. It also invests through derivatives. The fund benchmarks the performance of its portfolio against the Credit Suisse Leveraged Loan Index. It was formerly known as Hig",
+        "current_price": 5.36,
+        "ipo_date": "2017-11-06",
+        "months_since_ipo": 108.6,
+        "post_ipo_high": 8.36,
+        "post_ipo_drawdown_pct": -35.89,
+        "post_ipo_change_pct": -27.27,
+        "market_cap": 295971072.0,
+        "enterprise_value": null,
+        "cash_and_equivalents": 7319737.0,
+        "total_debt": 20690000.0,
+        "net_cash": -13370263.0,
+        "revenue_ttm": -5589906.0,
+        "revenue_growth_yoy_pct": 76.52,
+        "gross_margin_pct": 0.0,
+        "ev_to_sales": null,
+        "operating_cash_flow_ttm": 9256081.0,
+        "free_cash_flow_ttm": 9256081.0,
+        "monthly_burn_usd": 0.0,
+        "is_cash_flow_positive": true,
+        "runway_months": 99.0,
+        "current_ratio": null,
+        "debt_to_equity": 2.38,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": null,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -36%",
+          "Ricavi +77% YoY",
+          "Cash Flow Positivo",
+          "Pure Micro-Cap"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "HFRO",
+        "cik": "0001710680",
+        "entity_name": "HIGHLAND OPPORTUNITIES & INCOME FUND",
+        "sic_description": "",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001710680",
+        "filings_8k": [
+          {
+            "form": "8-K",
+            "filing_date": "2026-01-28",
+            "items": [
+              "5.02",
+              "5.03",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 5.02: Cambio Dirigenti / CdA",
+              "Item 5.03: Modifica Statuto / Reverse Split",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 5.02: Cambio Dirigenti / CdA, Item 5.03: Modifica Statuto / Reverse Split, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000119312526026852/d79673d8k.htm"
+          }
+        ],
+        "filings_periodic": [],
+        "filings_s1_ipo": [],
+        "filings_s3_shelf": [
+          {
+            "form": "424B3",
+            "filing_date": "2024-07-24",
+            "description": "Shelf / ATM Takedown 424B3 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000119312524183840/d550162d424b3.htm"
+          }
+        ],
+        "shelf_dilution_risk": true,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-23",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 50851.0,
+            "price_usd": 5.22,
+            "value_usd": 265442.22,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000475/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-11-23",
+            "transaction_date": "2026-11-20",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 135765.0,
+            "price_usd": 5.08,
+            "value_usd": 689686.2,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000467/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-11-20",
+            "transaction_date": "2026-11-19",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 72720.0,
+            "price_usd": 5.16,
+            "value_usd": 375235.2,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000461/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-11-19",
+            "transaction_date": "2026-11-18",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 13234.0,
+            "price_usd": 5.1,
+            "value_usd": 67493.4,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000455/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-17",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 255199.0,
+            "price_usd": 5.01,
+            "value_usd": 1278546.99,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000451/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-11-17",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 1140.0,
+            "price_usd": 4.86,
+            "value_usd": 5540.4,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000448/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-06-11",
+            "transaction_date": "2026-06-09",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 123589.0,
+            "price_usd": 6.88,
+            "value_usd": 850292.32,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000213/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-06-08",
+            "transaction_date": "2026-06-04",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 18017.0,
+            "price_usd": 6.73,
+            "value_usd": 121254.41,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000209/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-06-08",
+            "transaction_date": "2026-06-05",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 6759.0,
+            "price_usd": 6.69,
+            "value_usd": 45217.71,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000209/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-06-04",
+            "transaction_date": "2026-06-03",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 28440.0,
+            "price_usd": 6.66,
+            "value_usd": 189410.4,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000202/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-06-03",
+            "transaction_date": "2026-06-01",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 5520.0,
+            "price_usd": 6.55,
+            "value_usd": 36156.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000201/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-06-03",
+            "transaction_date": "2026-06-02",
+            "insider_name": "Saba Capital Management, L.P.",
+            "role": "10% Owner",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 78346.0,
+            "price_usd": 6.71,
+            "value_usd": 525701.66,
+            "url": "https://www.sec.gov/Archives/edgar/data/1710680/000151028126000201/xslF345X06/primary_doc.xml"
+          }
+        ],
+        "open_market_buys_count": 12,
+        "open_market_buys_usd": 4449976.91,
+        "open_market_sales_count": 0,
+        "open_market_sales_usd": 0,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "Insider Buying (Form 4)",
+          "8-K Red Flag (Delisting/Restatement)",
+          "Rischio Diluizione (S-3/424B5)"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "HFRO 10% owner Saba Capital Management bought $265K of shares (Form 4) - Quantisnow",
+            "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPU0V6UVVpdXpVdUMzbHliTklrbXZxUDhCUnhXNE5VRHBCaFVJbFlGU1NRNFBwTEJFQ3lPVExEYlM1Sk42RERCeFN3S2I0VVFva3cwRnV0RmdGQmRlUXFlUTlzQzROeWdIYmNqZlFZT3g0QnlFb2ZxUTVNZEtmTEFsZm5Yb1drdmFfVHN4cmsyV0xOck5fRmNMbVVLN3Y4YjhIYmVJNWtPMA?oc=5",
+            "published": "Tue, 24 Nov 2026 22:56:26 GMT",
+            "source": "Quantisnow",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Highland Opportunities and Income Fund (HFRO) Announces New $100 Million Share Repurchase Program - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQdDFnd24zSUtNNVhJQmJiR0wyMHpHNFd5MWtGM29lRmN2Qy05TFJTT3hUSVBLQ2tXWGl3SG5SUEhBNWZCTmd1bUE2LXpUNC10VjhoTnFEaV8wVC04alVEV0NmcE42X2N2eVFrR2wxTGlncmdJN1RJSXFjTWNhS1lONWs4VHlxbVFFUFk4RnV0UDhoWTI3T1JuVHdlZ1R6RFRCUmlVVDJZbw?oc=5",
+            "published": "Tue, 09 Jun 2026 07:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Portfolio updates and recent performance are on the agenda for a Dec. 8 fund call. - Stock Titan",
+            "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPQVE0Z2J5aF9aVEN2QzhYNHlnTVJiSDY3ZTFDX0t5am92dVZBX3FRS3R5QXVkNnMtdERIRllRUlNEdG9LVXlVdGVzNVZ3UjBkVElUd1RmMkNfSWRxTENYTk8xNDNkWUVLN0ozUVNyblVXUEpGaDg0WE9SOTU3VWMtY2U0Q18xblBuakx6cEJjNlZCaHdFbmx0ckZYdWxWcXNmQjBkbG1OdjdMM0NhZGdiQlJ6Qlc2UFFUU0xB?oc=5",
+            "published": "Wed, 18 Nov 2026 21:30:00 GMT",
+            "source": "Stock Titan",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "HFRO - Highland Opportunities and Income Fund Stock Price and Quote - Finviz",
+            "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBvMWVibWd0cXZxZmFnbkZPSzgzZDNOM3ZrZTVIZVlwcC0tU3hSMnVWbTV2ZjgxXzE3WU5mQ0d6b0dWaVNyQmc?oc=5",
+            "published": "Tue, 26 May 2026 17:35:42 GMT",
+            "source": "Finviz",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "HFRO: Reassessing 8% Yield On Preferreds After Monetization Of Large Asset (NYSE:HFRO) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNaVV1V2NFZE5HV3c3d29BYkRYV1JyQm9tS0NGUDJmb2lEWmVGUl9fcnp4WWt2eS1tZlpCbnBrMGtFWUg3NHFIc2Y3cU0wWl9ZWUZLdGtJc0lRU0NiWS1MaWlUM1ZVbmVkXzk3dVQxM3VVU1JKLUNxWVQtdzc4TUxUQzhObDdWalpLNXZWUElUWU43eUVMV3pFaGpvMVJFWnlyNzJxVmYzWGFWcmswWnpJODZLdGpfb2hRaDctQTlR?oc=5",
+            "published": "Mon, 13 Jul 2026 07:00:00 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "HFRO: The Series B Preferred Shares Look Attractive (NYSE:HFRO.PR.B) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxObHozZkxQX3FjTHcxNkNRUXh3NWs2MDB6ZkNnUjd1dTZGeWc0TmpjaFZjSlcwdE4xUWg5RXJSaDBYN1YxZ1lMek12QndJdC02N0tOOFA3azN5SGZBSmVfMDFvY01UTXdLNGZaWXg2cVpmOFZhclp6ZC1GVHVkb3RPc0EwNHAtSHFOVEh1RUQwSDFyNzU3RHc?oc=5",
+            "published": "Tue, 28 Apr 2026 07:00:00 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": null,
+        "hiring_trend": "UNKNOWN",
+        "department_focus": "Bilanciato",
+        "ats_source": "N/D",
+        "careers_url": "https://www.highlandfunds.com/Funds---Performance/Mutual-Funds/Alternative-Investment/Floating-Rate-Opportunities/careers",
+        "sample_roles": [],
+        "evidence_note": "Board careers proprietario o dietro JS; verifica manuale consigliata."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "HFRO negoziabile frazionato da €1 su NYQ; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "VERIFICA_MICRO_CAP",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "VERIFICA_MICRO_CAP",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "VERIFICA_MICRO_CAP",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 5.36,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate. Prezzo $5.36 (~€4.93) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+        }
+      ],
+      "debate": {
+        "ai_engine": "gemini-3.8-flash (4/4 Gemini)",
+        "bull": {
+          "headline": "Accumulazione aggressiva di Saba Capital ($4,4M) e piano di buyback da $100M su HFRO",
+          "core_catalysts": [
+            {
+              "title": "Massiccio rastrellamento sul mercato da parte di Saba Capital",
+              "detail": "Saba Capital Management (10% Owner) ha effettuato 12 transazioni di acquisto sul mercato aperto (Codice P) per un valore complessivo di 4.449.976,91 USD a prezzi compresi tra 4,86$ e 5,22$.",
+              "source_tag": "[FORM-4]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Nuovo programma di share repurchase da 100 milioni di dollari",
+              "detail": "Annunciato piano di riacquisto di azioni proprie da 100M USD, rappresentante circa un terzo dell'intera capitalizzazione di mercato attuale (295,97M USD).",
+              "source_tag": "[NEWS]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Generazione di Free Cash Flow positivo e rimbalzo ricavi YoY",
+              "detail": "Il fondo mostra Operating Cash Flow e FCF TTM positivi per 9,26M USD con una crescita dei ricavi YoY del 76,52%, a fronte di un drawdown post-IPO del -35,89%.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "MEDIO"
+            }
+          ],
+          "insider_conviction_read": "Convinzione istituzionale/insider eccezionale: Saba Capital Management (10% Owner) ha continuato ad accumulare costantemente sul mercato aperto senza alcuna vendita insider segnalata (0 vendite).",
+          "expansion_signal": "Trend assunzioni non valutabile a causa di career board proprietario non tracciabile [CAREERS]; catalizzatori focalizzati su allocazione di capitale e monetizzazione asset del portafoglio prestiti.",
+          "bull_conviction": 75
+        },
+        "bear": {
+          "headline": "HFRO: Ricavi TTM negativi, overhang da shelf offering e modifica statutaria/turnover del CdA",
+          "red_flags": [
+            {
+              "title": "Ricavi negativi e posizione di debito netto",
+              "detail": "Il fondo riporta ricavi TTM negativi pari a -5,59M$ e una liquidità di soli 7,32M$ a fronte di un debito totale di 20,69M$, determinando una cassa netta negativa per -13,37M$.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Modifiche statutarie e avvicendamento del management (8-K)",
+              "detail": "Il filing 8-K del 28/01/2026 evidenzia modifiche allo statuto/reverse split (Item 5.03) e cambi a livello dirigenziale/CdA (Item 5.02), segnali tipici di frizioni di governance o ristrutturazione interna.",
+              "source_tag": "[SEC-8K]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Presenza di Shelf Registration / Takedown 424B3",
+              "detail": "È attivo un prospetto 424B3 collegato a shelf/ATM takedown, che espone gli azionisti ordinari al rischio di emissioni diluitive per finanziare la leva o ricostituire capitale.",
+              "source_tag": "[SEC-S3]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Overhang da azioni privilegiate ad alto costo",
+              "detail": "La struttura di capitale include azioni privilegiate (es. Series B con rendimenti intorno all'8%), i cui dividendi prioritari comprimono i ritorni e aumentano la vulnerabilità per gli azionisti comuni.",
+              "source_tag": "[NEWS]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Deterioramento storico del valore azionario",
+              "detail": "Dall'IPO il titolo ha perso il 27,27% registrando un drawdown del 35,89% rispetto ai massimi, riflettendo la scarsa capacità di generare rendimento al netto della leva e delle commissioni.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            }
+          ],
+          "dilution_risk_level": "MODERATO",
+          "burn_and_balance_sheet_audit": "La struttura patrimoniale presenta cassa limitata (7,32M$) rispetto all'indebitamento lordo (20,69M$), con net cash negativo di -13,37M$. Sebbene il cash flow operativo TTM risulti positivo (9,26M$), i ricavi contabili TTM in territorio negativo (-5,59M$) e l'onere delle azioni privilegiate creano rigidità finanziaria, supportata da costanti emissioni shelf/ATM.",
+          "bear_severity": 58
+        },
+        "auditor": {
+          "verification_score": 92,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Cassa (7,32M$) - Debito Totale (20,69M$) = Cassa Netta di -13,37M$, calcolo coerente con il dato contabile. Essendo il Cash Flow Operativo e FCF positivo a 9,26M$ TTM, il monthly burn è pari a 0,00$ e la runway è convenzionalmente impostata a 99 mesi. Il drawdown post-IPO (-35,89%) e la performance post-IPO (-27,27%) quadrano con i massimi a 8,36$ e prezzo corrente a 5,36$. Tutte le transazioni Form 4 di Saba Capital Management riportano Codice P (Open Market Purchase) effettivo, senza assegnazioni o opzioni.",
+          "verified_facts": [
+            "Saba Capital Management (10% Owner) ha acquistato sul mercato aperto azioni HFRO per 4.449.976,91 USD complessivi tramite 12 transazioni (Codice P).",
+            "La posizione finanziaria netta è negativa per -13.370.263 USD, con 7,32M$ di cassa a fronte di 20,69M$ di debito complessivo.",
+            "Il fondo genera Free Cash Flow TTM positivo pari a 9.256.081 USD, con burn rate mensile pari a zero.",
+            "Esiste un filing 8-K del 28/01/2026 recante Item 5.02 (cambio CdA/dirigenza) e Item 5.03 (modifica statuto/reverse split), oltre a un prospetto 424B3 shelf takedown del 2024."
+          ],
+          "challenged_claims": [
+            {
+              "agent": "BULL",
+              "claim": "Rimbalzo ricavi YoY del 76,52% come segnale di crescita operativa",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "I ricavi TTM complessivi del fondo rimangono negativi a -5,59M$ USD. Trattandosi di un Closed-End Fund (CEF) di credito/prestiti a tasso variabile, la variazione percentuale YoY riflette fluttuazioni di valutazione e reddito da investimenti, non un'espansione commerciale canonica."
+            },
+            {
+              "agent": "BULL",
+              "claim": "Convinzione istituzionale/insider eccezionale",
+              "audit_verdict": "NON_VERIFICATO",
+              "correction": "Saba Capital è un investitore istituzionale attivista (10% owner) noto per campagne ostili e arbitraggi sui CEF a sconto rispetto al NAV, non un dirigente interno (C-suite). I suoi acquisti possono preludere a contestazioni assembleari o richieste di liquidazione/tender offer piuttosto che a fiducia nel management."
+            },
+            {
+              "agent": "BEAR",
+              "claim": "Cassa limitata e rigidità finanziaria acuita da burn",
+              "audit_verdict": "CORREZIONE_NUMERICA",
+              "correction": "Nonostante la cassa netta negativa, HFRO ha registrato un Free Cash Flow positivo di 9,26M$ negli ultimi 12 mesi, con burn rate mensile a 0, rendendo il rischio di insolvenza a breve termine meno imminente di quanto prospettato."
+            }
+          ]
+        }
+      }
     }
   },
   "micro_orders": [
@@ -5669,8 +6178,8 @@
       "initial_ai_score": 77,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.133741+00:00",
-      "last_live_price_usd": 25.67,
-      "last_monitored_at": "2026-11-24T01:46:49.024699+00:00",
+      "last_live_price_usd": 23.6,
+      "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -5773,6 +6282,12 @@
           "price_usd": 25.67,
           "pnl_pct": 4.78,
           "ai_score": 77
+        },
+        {
+          "ts": "2026-11-24T23:29:20.160989+00:00",
+          "price_usd": 23.6,
+          "pnl_pct": -3.67,
+          "ai_score": 77
         }
       ],
       "take_profit_pct": 80.0,
@@ -5793,8 +6308,8 @@
       "initial_ai_score": 73,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.148135+00:00",
-      "last_live_price_usd": 6.42,
-      "last_monitored_at": "2026-11-24T01:46:49.024699+00:00",
+      "last_live_price_usd": 5.9,
+      "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -5897,6 +6412,12 @@
           "price_usd": 6.42,
           "pnl_pct": 0.31,
           "ai_score": 73
+        },
+        {
+          "ts": "2026-11-24T23:29:20.160989+00:00",
+          "price_usd": 5.9,
+          "pnl_pct": -7.81,
+          "ai_score": 73
         }
       ],
       "take_profit_pct": 80.0,
@@ -5916,8 +6437,8 @@
       "auto_registered": true,
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "last_live_price_usd": 49.63,
-      "last_monitored_at": "2026-11-24T01:46:49.024699+00:00",
+      "last_live_price_usd": 45.98,
+      "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -6012,6 +6533,12 @@
           "price_usd": 49.63,
           "pnl_pct": -6.48,
           "ai_score": 76
+        },
+        {
+          "ts": "2026-11-24T23:29:20.160989+00:00",
+          "price_usd": 45.98,
+          "pnl_pct": -13.36,
+          "ai_score": 76
         }
       ],
       "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -6023,6 +6550,223 @@
     }
   ],
   "pipeline_runs": [
+    {
+      "run_at": "2026-11-24T23:29:20.151926+00:00",
+      "candidates_scanned": 36,
+      "stage1_passed_count": 6,
+      "stage2_deep_analyzed_count": 1,
+      "analyzed_count": 1,
+      "skipped_count": 11,
+      "error_count": 13,
+      "discovery_sources": {
+        "sec_live_form_4": 18,
+        "curated_post_ipo_microcap": 18
+      },
+      "top_tickers": [
+        {
+          "ticker": "HFRO",
+          "score": 74,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        }
+      ],
+      "skipped": [
+        {
+          "ticker": "SSII",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SQFT",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "STEM",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "NRDY",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "COOK",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SMR",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ENVX",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "VERA",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "OKLO",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SMC",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SCOR",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        }
+      ],
+      "errors": [
+        {
+          "ticker": "LEO",
+          "error": "year 19696 is out of range"
+        },
+        {
+          "ticker": "SPB",
+          "error": "year 10973 is out of range"
+        },
+        {
+          "ticker": "DGII",
+          "error": "year 21733 is out of range"
+        },
+        {
+          "ticker": "ALG",
+          "error": "year 25183 is out of range"
+        },
+        {
+          "ticker": "AMKR",
+          "error": "year 30300 is out of range"
+        },
+        {
+          "ticker": "KTOS",
+          "error": "year 31814 is out of range"
+        },
+        {
+          "ticker": "PDEX",
+          "error": "year 18568 is out of range"
+        },
+        {
+          "ticker": "MXF",
+          "error": "year 13394 is out of range"
+        },
+        {
+          "ticker": "CDNA",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "POET",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "CLBT",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "SDGR",
+          "error": "name 'time' is not defined"
+        },
+        {
+          "ticker": "AVAV",
+          "error": "name 'time' is not defined"
+        }
+      ],
+      "auto_monitor": {
+        "checked_count": 3,
+        "auto_closed": [],
+        "alerts": []
+      },
+      "auto_register": {
+        "registered_tickers": [],
+        "skipped_count": 10
+      }
+    },
     {
       "run_at": "2026-11-24T01:06:42.920987+00:00",
       "candidates_scanned": 36,
@@ -7272,7 +8016,7 @@
       "errors": []
     }
   ],
-  "updated_at": "2026-11-24T01:46:49.602965+00:00",
+  "updated_at": "2026-11-24T23:29:20.824714+00:00",
   "autopilot_config": {
     "enabled": true,
     "background_monitor_enabled": false,
@@ -7303,6 +8047,34 @@
     "notify_telegram": true
   },
   "autopilot_logs": [
+    {
+      "id": "8cefceb1",
+      "ts": "2026-11-24T23:29:20.810187+00:00",
+      "action": "SKIPPED_GUARDRAIL",
+      "ticker": "ALL",
+      "summary": "Nessun nuovo ordine auto-registrato: 10 candidati filtrati dai guardrail.",
+      "details": {
+        "skipped_tickers": [
+          "ASTS",
+          "RKLB",
+          "HFRO",
+          "RDW",
+          "ALAB",
+          "PL"
+        ]
+      }
+    },
+    {
+      "id": "dfacb0c4",
+      "ts": "2026-11-24T23:29:20.786853+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "RKLB,RDW,ASTS",
+      "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 3,
+        "rescan_ai": false
+      }
+    },
     {
       "id": "896a0540",
       "ts": "2026-11-24T01:46:49.601377+00:00",
