@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-24T23:29:20.839388+00:00",
+  "generated_at": "2026-11-24T23:34:45.283664+00:00",
   "health": {
     "status": "ok",
     "storage_mode": "local_json",
-    "gemini_configured": true,
+    "gemini_configured": false,
     "alert_threshold": 75,
     "monthly_micro_order_limit": 10,
     "static_readonly": true
@@ -9271,7 +9271,7 @@
         "take_profit_pct": 80.0,
         "stop_loss_pct": -30.0,
         "last_live_price_usd": 45.98,
-        "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
+        "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
         "closed_at": null,
         "close_reason": null,
         "last_alert_reason": null,
@@ -9372,6 +9372,12 @@
             "price_usd": 45.98,
             "pnl_pct": -13.36,
             "ai_score": 76
+          },
+          {
+            "ts": "2026-11-24T23:34:44.752464+00:00",
+            "price_usd": 45.98,
+            "pnl_pct": -13.36,
+            "ai_score": 76
           }
         ],
         "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -9408,7 +9414,7 @@
         "status": "APERTO",
         "created_at": "2026-11-19T08:01:44.148135+00:00",
         "last_live_price_usd": 5.9,
-        "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
+        "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
         "price_history": [
           {
             "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -9517,6 +9523,12 @@
             "price_usd": 5.9,
             "pnl_pct": -7.81,
             "ai_score": 73
+          },
+          {
+            "ts": "2026-11-24T23:34:44.752464+00:00",
+            "price_usd": 5.9,
+            "pnl_pct": -7.81,
+            "ai_score": 73
           }
         ],
         "take_profit_pct": 80.0,
@@ -9552,7 +9564,7 @@
         "status": "APERTO",
         "created_at": "2026-11-19T08:01:44.133741+00:00",
         "last_live_price_usd": 23.6,
-        "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
+        "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
         "price_history": [
           {
             "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -9661,6 +9673,12 @@
             "price_usd": 23.6,
             "pnl_pct": -3.67,
             "ai_score": 77
+          },
+          {
+            "ts": "2026-11-24T23:34:44.752464+00:00",
+            "price_usd": 23.6,
+            "pnl_pct": -3.67,
+            "ai_score": 77
           }
         ],
         "take_profit_pct": 80.0,
@@ -9751,6 +9769,17 @@
       "time_stop_max_pnl_pct": 10.0
     },
     "logs": [
+      {
+        "id": "40bd87f1",
+        "ts": "2026-11-24T23:34:45.267206+00:00",
+        "action": "MONITOR_CHECK",
+        "ticker": "RKLB,RDW,ASTS",
+        "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+        "details": {
+          "checked_count": 3,
+          "rescan_ai": false
+        }
+      },
       {
         "id": "8cefceb1",
         "ts": "2026-11-24T23:29:20.810187+00:00",
@@ -10128,7 +10157,7 @@
         }
       }
     ],
-    "last_monitor_at": "2026-11-24T23:29:20.786853+00:00",
+    "last_monitor_at": "2026-11-24T23:34:45.267206+00:00",
     "journal": {
       "orders": [
         {
@@ -10145,7 +10174,7 @@
           "take_profit_pct": 80.0,
           "stop_loss_pct": -30.0,
           "last_live_price_usd": 45.98,
-          "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
+          "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
           "closed_at": null,
           "close_reason": null,
           "last_alert_reason": null,
@@ -10246,6 +10275,12 @@
               "price_usd": 45.98,
               "pnl_pct": -13.36,
               "ai_score": 76
+            },
+            {
+              "ts": "2026-11-24T23:34:44.752464+00:00",
+              "price_usd": 45.98,
+              "pnl_pct": -13.36,
+              "ai_score": 76
             }
           ],
           "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -10282,7 +10317,7 @@
           "status": "APERTO",
           "created_at": "2026-11-19T08:01:44.148135+00:00",
           "last_live_price_usd": 5.9,
-          "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
+          "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
           "price_history": [
             {
               "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -10391,6 +10426,12 @@
               "price_usd": 5.9,
               "pnl_pct": -7.81,
               "ai_score": 73
+            },
+            {
+              "ts": "2026-11-24T23:34:44.752464+00:00",
+              "price_usd": 5.9,
+              "pnl_pct": -7.81,
+              "ai_score": 73
             }
           ],
           "take_profit_pct": 80.0,
@@ -10426,7 +10467,7 @@
           "status": "APERTO",
           "created_at": "2026-11-19T08:01:44.133741+00:00",
           "last_live_price_usd": 23.6,
-          "last_monitored_at": "2026-11-24T23:29:20.160989+00:00",
+          "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
           "price_history": [
             {
               "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -10532,6 +10573,12 @@
             },
             {
               "ts": "2026-11-24T23:29:20.160989+00:00",
+              "price_usd": 23.6,
+              "pnl_pct": -3.67,
+              "ai_score": 77
+            },
+            {
+              "ts": "2026-11-24T23:34:44.752464+00:00",
               "price_usd": 23.6,
               "pnl_pct": -3.67,
               "ai_score": 77
