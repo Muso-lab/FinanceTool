@@ -6161,6 +6161,3470 @@
           ]
         }
       }
+    },
+    "NRIX": {
+      "ticker": "NRIX",
+      "company_name": "Nurix Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology",
+      "exchange": "NGM",
+      "analyzed_at": "2026-11-25T22:47:06.797268+00:00",
+      "asymmetry_score": 63,
+      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "sub_scores": {
+        "catalyst_strength": 14,
+        "financial_survival_runway": 24,
+        "insider_alignment": 3,
+        "valuation_asymmetry": 11,
+        "audit_confidence": 11
+      },
+      "thesis_5_lines": [
+        "Piattaforma biotecnologica focalizzata su degradatori mirati BTK (NX-5948 e NX-2127) in sperimentazione clinica di Fase 1b/2 per patologie ematologiche e autoimmuni.",
+        "Solidità patrimoniale eccezionale con 982,9M$ di cassa netta, assenza di debito tossico e runway operativa garantita per oltre 4 anni anche a fronte di un rialzo del burn rate.",
+        "Allineamento insider assente sul lato acquisti (0 Form 4 Codice P) a fronte di 15 vendite (Codice S) per 1,71M$ da parte del CFO e del CLO.",
+        "La risoluzione della partnership con Sanofi ha penalizzato il prezzo (-71,8% dai massimi), ma l'EV compresso a 622M$ sconta ampiamente lo shock preservando il capitale.",
+        "Accumulo frazionato a basso importo (30-35 EUR) su debolezza sotto 14,00$, con invalidazione tesi a rottura confermata di 9,80$ e orizzonte temporale a 18-24 mesi."
+      ],
+      "signal_tags": [
+        "NET_CASH_KING",
+        "EV_SUB_CASH",
+        "SANOFI_TERMINATION",
+        "ZERO_INSIDER_BUYS",
+        "ATM_DILUTION_ACTIVE",
+        "CLINICAL_BTK"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 35,
+        "entry_zone": "Accumulo frazionato graduale sotto $14.00",
+        "invalidation_trigger": "Chiusura settimanale sotto $9.80 o fallimento clinico del trial NX-5948",
+        "time_horizon": "18-24 mesi"
+      },
+      "quant_metrics": {
+        "ticker": "NRIX",
+        "company_name": "Nurix Therapeutics, Inc.",
+        "sector": "Healthcare",
+        "industry": "Biotechnology",
+        "exchange": "NGM",
+        "currency": "USD",
+        "website": "https://www.nurixtx.com",
+        "business_summary": "Nurix Therapeutics, Inc., a clinical stage biopharmaceutical company, focuses on the discovery, development, and commercialization of small molecule and antibody therapies for the treatment of cancer, inflammatory conditions, and other diseases. The company develops NX-5948, an orally bioavailable BTK degrader that is in Phase 2 clinical trials for the treatment of relapsed or refractory B-cell malignancies and autoimmune diseases; NX-2127, an orally bioavailable Bruton's tyrosine kinase (BTK) degrader, which is in Phase 1a/1b clinical trials for the treatment of relapsed or refractory B-cell malignancies; and NX-1607, an orally bioavailable Casitas B-lineage lymphoma proto-oncogene-B (CBL-B",
+        "current_price": 14.76,
+        "ipo_date": "2020-07-24",
+        "months_since_ipo": 76.1,
+        "post_ipo_high": 52.38,
+        "post_ipo_drawdown_pct": -71.82,
+        "post_ipo_change_pct": -22.36,
+        "market_cap": 1612527360.0,
+        "enterprise_value": 621956736.0,
+        "cash_and_equivalents": 1048254976.0,
+        "total_debt": 65332000.0,
+        "net_cash": 982922976.0,
+        "revenue_ttm": 701936000.0,
+        "revenue_growth_yoy_pct": 8426.3,
+        "gross_margin_pct": 52.41,
+        "ev_to_sales": 0.89,
+        "operating_cash_flow_ttm": 379312000.0,
+        "free_cash_flow_ttm": 233337632.0,
+        "monthly_burn_usd": 0.0,
+        "is_cash_flow_positive": true,
+        "runway_months": 99.0,
+        "current_ratio": 8.44,
+        "debt_to_equity": 6.75,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 317,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -72%",
+          "Ricavi +8426% YoY",
+          "Cash Flow Positivo",
+          "Net Cash Positiva"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "NRIX",
+        "cik": "0001549595",
+        "entity_name": "Nurix Therapeutics, Inc.",
+        "sic_description": "Pharmaceutical Preparations",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001549595",
+        "filings_8k": [
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-03",
+            "items": [
+              "8.01"
+            ],
+            "item_descriptions": [
+              "Item 8.01: Altri Eventi / Brevetti / Milestone"
+            ],
+            "description": "Item 8.01: Altri Eventi / Brevetti / Milestone",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000055/nrix-20261103.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-10-13",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000048/nrix-20261012.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-07-09",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000038/nrix-20260709.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-06-11",
+            "items": [
+              "7.01",
+              "8.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 7.01: Regulation FD Disclosure",
+              "Item 8.01: Altri Eventi / Brevetti / Milestone",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 7.01: Regulation FD Disclosure, Item 8.01: Altri Eventi / Brevetti / Milestone, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000034/nrix-20260611.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-06-08",
+            "items": [
+              "1.01",
+              "7.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 1.01: Accordo / Contratto Materiale",
+              "Item 7.01: Regulation FD Disclosure",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 1.01: Accordo / Contratto Materiale, Item 7.01: Regulation FD Disclosure, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000030/nrix-20260606.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-05-15",
+            "items": [
+              "5.07",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 5.07: Voto Azionisti",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 5.07: Voto Azionisti, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000028/nrix-20260515.htm"
+          }
+        ],
+        "filings_periodic": [
+          {
+            "form": "10-Q",
+            "filing_date": "2026-10-13",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000049/nrix-20260831.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-07-09",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000040/nrix-20260531.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-04-08",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000025/nrix-20260228.htm"
+          },
+          {
+            "form": "10-K",
+            "filing_date": "2026-01-28",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000154959526000016/nrix-20251130.htm"
+          }
+        ],
+        "filings_s1_ipo": [
+          {
+            "form": "424B4",
+            "filing_date": "2021-03-05",
+            "description": "424B4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312521071458/d97958d424b4.htm"
+          },
+          {
+            "form": "S-1",
+            "filing_date": "2021-03-02",
+            "description": "S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312521065468/d97958ds1.htm"
+          },
+          {
+            "form": "424B4",
+            "filing_date": "2020-07-24",
+            "description": "424B4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312520198537/d903927d424b4.htm"
+          }
+        ],
+        "filings_s3_shelf": [
+          {
+            "form": "424B5",
+            "filing_date": "2026-03-06",
+            "description": "Shelf / ATM Takedown 424B5 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312526096717/d96244d424b5.htm"
+          },
+          {
+            "form": "424B5",
+            "filing_date": "2025-10-22",
+            "description": "Shelf / ATM Takedown 424B5 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312525246969/d78277d424b5.htm"
+          },
+          {
+            "form": "424B5",
+            "filing_date": "2024-10-31",
+            "description": "Shelf / ATM Takedown 424B5 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312524248749/d904482d424b5.htm"
+          },
+          {
+            "form": "424B5",
+            "filing_date": "2024-07-11",
+            "description": "Shelf / ATM Takedown 424B5 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312524177748/d858457d424b5.htm"
+          },
+          {
+            "form": "S-3ASR",
+            "filing_date": "2024-06-11",
+            "description": "Shelf / ATM Takedown S-3ASR (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000119312524159103/d845980ds3asr.htm"
+          }
+        ],
+        "shelf_dilution_risk": true,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-04",
+            "transaction_date": "2026-11-04",
+            "insider_name": "van Houte Hans",
+            "role": "Chief Financial Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 3300.0,
+            "price_usd": 15.3824,
+            "value_usd": 50761.92,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181721726000016/xslF345X06/wk-form4_1793829946.xml"
+          },
+          {
+            "filing_date": "2026-11-04",
+            "transaction_date": "2026-11-04",
+            "insider_name": "van Houte Hans",
+            "role": "Chief Financial Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 1469.0,
+            "price_usd": 16.2018,
+            "value_usd": 23800.44,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181721726000016/xslF345X06/wk-form4_1793829946.xml"
+          },
+          {
+            "filing_date": "2026-11-04",
+            "transaction_date": "2026-11-02",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 5786.0,
+            "price_usd": 8.72,
+            "value_usd": 50453.92,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000036/xslF345X06/wk-form4_1793829786.xml"
+          },
+          {
+            "filing_date": "2026-11-04",
+            "transaction_date": "2026-11-02",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 9527.0,
+            "price_usd": 25.7392,
+            "value_usd": 245217.36,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000036/xslF345X06/wk-form4_1793829786.xml"
+          },
+          {
+            "filing_date": "2026-11-04",
+            "transaction_date": "2026-11-02",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 1075.0,
+            "price_usd": 26.7628,
+            "value_usd": 28770.01,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000036/xslF345X06/wk-form4_1793829786.xml"
+          },
+          {
+            "filing_date": "2026-11-04",
+            "transaction_date": "2026-11-03",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 6113.0,
+            "price_usd": 25.8329,
+            "value_usd": 157916.52,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000036/xslF345X06/wk-form4_1793829786.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "van Houte Hans",
+            "role": "Chief Financial Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 3750.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181721726000014/xslF345X06/wk-form4_1793666820.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "van Houte Hans",
+            "role": "Chief Financial Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 2859.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181721726000014/xslF345X06/wk-form4_1793666820.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "van Houte Hans",
+            "role": "Chief Financial Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 3573.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181721726000014/xslF345X06/wk-form4_1793666820.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "van Houte Hans",
+            "role": "Chief Financial Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 2834.0,
+            "price_usd": 26.2791,
+            "value_usd": 74474.97,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181721726000014/xslF345X06/wk-form4_1793666820.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 3750.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000034/xslF345X06/wk-form4_1793666682.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 2859.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000034/xslF345X06/wk-form4_1793666682.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 3573.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000034/xslF345X06/wk-form4_1793666682.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "Ring Christine",
+            "role": "Chief Legal Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 3957.0,
+            "price_usd": 26.2791,
+            "value_usd": 103986.4,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181719926000034/xslF345X06/wk-form4_1793666682.xml"
+          },
+          {
+            "filing_date": "2026-11-02",
+            "transaction_date": "2026-10-30",
+            "insider_name": "Hansen Gwenn",
+            "role": "Chief Scientific Officer",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 3750.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1549595/000181716026000023/xslF345X06/wk-form4_1793666538.xml"
+          }
+        ],
+        "open_market_buys_count": 0,
+        "open_market_buys_usd": 0,
+        "open_market_sales_count": 15,
+        "open_market_sales_usd": 1712859.42,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "8-K Contratto / Catalyst",
+          "Rischio Diluizione (S-3/424B5)"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "Nurix Therapeutics (NRIX) Could Be 60% Below Fair Value On CMO Appointment - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPUS15dEJ1NWNPWXd4QTZjb1V1WWhEVzMxNmFjdjZkZW10QWx0RmZHdjV6Tk5TcTJPLWd3blZWV19MZERuSjN0b2J2MVVVZ2V5S0h1R0VyZ1RkTWhaUWVBU0NPZ2gwN21zOHA5OHRobTluc0I3eFAwTGh2X0NIMWNPLUNsNXIzaFZINnAyaDY4enBPMFdkOFVPVQ?oc=5",
+            "published": "Tue, 24 Nov 2026 09:10:26 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Why Nurix Therapeutics (NRIX) stock is down today - FinancialContent",
+            "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYmtxbUR4M2VDM090eUhBaHJNZ2gybHlZMnBON04wMkJ6T2UyWHhQN3RhUGRucjZRQWZhMUVWWHlOcWRWYnNmcVpTQjlGSVhaZ041Y3hwTU5IajJTZWZLNFBwc3Q0RHV0a2FXSVdEN1o0SlNwUEo3Z25nX3lCWTRacmFpNVZyaVdEQmFlMGpBdWRuWWNIUGFIcW9rckRZWjN1U0xrMEp3VDhPbW5wYzY4aU5hYkFXdVBmVDBjNw?oc=5",
+            "published": "Wed, 04 Nov 2026 08:00:00 GMT",
+            "source": "FinancialContent",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Nurix Therapeutics stock is up, what you need to know - TradingView",
+            "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaEFodC15VVRycDRyTmE0bkUzRlV6VjhFYnVuZ0cwckFxS0stMmlMQ0FUbHlRWmtSbUZzdno5bHphVF9tdDc1YkhtLXgxajRNQ0Q5eWVJRnhxeHdXU1VoVlllWHNTTW1lMkJCcU9qX0dXWkVQV0g4cXREdU5lbmViY080MG03Y0h0T203OXkyd1lHOVNHR3BDR3B3anFqN1FKeXI5SnNhQTN6VmhfcnZoTjhhVQ?oc=5",
+            "published": "Wed, 11 Nov 2026 08:00:00 GMT",
+            "source": "TradingView",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Nurix falls as Sanofi scraps inflammatory disease drug - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRGd2ak1MTGFuckxmajlSenl1U1BlenhCZlhvYlplTDZ5Z3dtMkhJcnhwX29VVnFQczBuTHVMeGl5clBGR0lGYnlncjdjSU5iRndkQWl6VXpHS1diVWlLTWRSYTFSWkZqb1lqdnFzU09CNU02VjhqbVlMbFhtVV9GeUpWZ0N0WThsZENFSw?oc=5",
+            "published": "Wed, 04 Nov 2026 08:00:00 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "NRIX - Nurix Therapeutics Inc Stock Price and Quote - Finviz",
+            "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9BRW1VQkR1MkhlMDQ4NFptRW9XUTlqb2lIX3pEX0JMQmpDbnNiNmZiaWlxNnZQbXVXRG1mX3VSQnhQS0NBbVE?oc=5",
+            "published": "Tue, 26 May 2026 19:56:50 GMT",
+            "source": "Finviz",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "NRIX Slumps 35% After-Hours — What’s Driving The Selloff? - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNmxYQkdacHJ1STZlUi1lczBnMWlFcm5URjNzM1Ffb2QzeHhJMHNlQkp0aFlzWnAtYmItN1dHZ2RJaGp5b0FOWENpVkxmRWVfaG1NTVFGRjdxbC1vX2VsdmxkV3VxaF8zMjB0Mm9uelFncERtb1h6aG85U1VadEpTTTlzeHR6aUxTV2ltZXBubENuSjRpOVBTdQ?oc=5",
+            "published": "Tue, 03 Nov 2026 08:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": null,
+        "hiring_trend": "UNKNOWN",
+        "department_focus": "Bilanciato",
+        "ats_source": "N/D",
+        "careers_url": "https://www.nurixtx.com/careers",
+        "sample_roles": [],
+        "evidence_note": "Board careers proprietario o dietro JS; verifica manuale consigliata."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "NRIX negoziabile frazionato da €1 su NGM; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 14.76,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate. Prezzo $14.76 (~€13.58) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+        }
+      ],
+      "debate": {
+        "ai_engine": "gemini-3.8-flash (4/4 Gemini)",
+        "bull": {
+          "headline": "Valutazione depressa con EV/Sales a 0.89x, oltre 980M$ di cassa netta e FCF positivo post-drawdown del 71%",
+          "core_catalysts": [
+            {
+              "title": "Solida struttura patrimoniale e generazione di cassa",
+              "detail": "La società vanta 1,05 miliardi di dollari in cassa ed equivalenti contro soli 65,33M$ di debito (cassa netta pari a 982,92M$), con Free Cash Flow TTM positivo a 233,34M$ e un EV/Sales compresso a 0,89x a fronte di ricavi TTM di 701,94M$.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Forte disallineamento tra crescita ricavi e drawdown post-IPO",
+              "detail": "Il titolo registra un drawdown del -71,82% dai massimi post-IPO ($52,38 vs $14,76 attuale), creando un'asimmetria rispetto a una crescita esplosiva dei ricavi YoY (+8426,3%) e una runway dichiarata di oltre 99 mesi.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Avanzamenti clinici e milestone comunicati via 8-K",
+              "detail": "Presentati molteplici depositi 8-K contenenti Item 8.01 (altri eventi/milestone) a giugno e novembre 2026, a supporto dello sviluppo della pipeline proprietaria di degradatori BTK (NX-5948 e NX-2127).",
+              "source_tag": "[SEC-8K]",
+              "impact": "MEDIO"
+            },
+            {
+              "title": "Segnali di forte sconto rispetto al fair value da analisi di mercato",
+              "detail": "La stampa finanziaria ha evidenziato scenari di sottovalutazione fino al 60% al di sotto del fair value in concomitanza con la nomina del nuovo CMO.",
+              "source_tag": "[NEWS]",
+              "impact": "MEDIO"
+            }
+          ],
+          "insider_conviction_read": "Assenza totale di acquisti a mercato aperto (Codice P = 0); si rilevano unicamente 15 vendite insider (Codice S) per complessivi 1,71M$ effettuate da CFO e CLO, non evidenziando accumulo da parte del management.",
+          "expansion_signal": "Dati di recruiting proprietari non indicizzati pubblicamente (trend UNKNOWN); la pipeline clinica rimane attiva come desumibile dai depositi 8-K, nonostante la perdita del partner Sanofi segnalata dalle news.",
+          "bull_conviction": 65
+        },
+        "bear": {
+          "headline": "Sanofi abbandona la partnership chiave; massiccio sell-off e rischio diluizione ricorrente via 424B5",
+          "red_flags": [
+            {
+              "title": "Rottura della partnership con Sanofi e crollo delle quotazioni",
+              "detail": "Sanofi ha cancellato lo sviluppo congiunto del farmaco per malattie infiammatorie, innescando un crollo del titolo fino al 35% in after-hours e minando la visibilità sulle milestone future.",
+              "source_tag": "[NEWS]",
+              "severity": "CRITICO"
+            },
+            {
+              "title": "Ricorso seriale a prelievi Shelf / ATM (424B5)",
+              "detail": "Nonostante la cassa nominale, l'emittente ha continuato a depositare molteplici takedown 424B5 su shelf S-3ASR (marzo 2026, ottobre 2025, ottobre 2024, luglio 2024), mantenendo costante la pressione diluitiva sul mercato.",
+              "source_tag": "[SEC-S3]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Vendite insider sistematiche e assenza totale di acquisti",
+              "detail": "Nessun acquisto sul mercato aperto a fronte di 15 transazioni di vendita insider ($1,71M totali). Vendite recenti con Codice S eseguite dai massimi vertici tra cui il Chief Financial Officer e il Chief Legal Officer.",
+              "source_tag": "[FORM-4]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Ricavi TTM non ricorrenti e pesante drawdown post-IPO",
+              "detail": "L'impennata dei ricavi TTM (+8426% YoY) riflette introiti una tantum da accordi di licenza e non vendite commerciali stabili. Il titolo sconta un drawdown del 71,82% dai massimi post-IPO, confermando l'alta distruzione di valore per il retail.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "ALTO"
+            }
+          ],
+          "dilution_risk_level": "MODERATO",
+          "burn_and_balance_sheet_audit": "Attualmente la società vanta una solida cassa di $1,05B e un FCF TTM positivo ($233,3M) alimentato da milestone upfront straordinarie. Tuttavia, con la cancellazione del programma da parte di Sanofi e l'avanzamento dei trial clinici di Fase 2 proprietari, i costi di R&D riporteranno rapidamente il conto economico in burn netto, giustificando la presenza perenne dei moduli 424B5 attivi.",
+          "bear_severity": 68
+        },
+        "auditor": {
+          "verification_score": 96,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Tutti i calcoli matematici e contabili risultano corretti al 100%: Cassa netta pari a 982,92M$ (Cassa 1.048,25M$ - Debito 65,33M$). FCF TTM positivo a 233,34M$, OCF positivo a 379,31M$, burn rate mensile a 0,00$ e runway nominale impostata a 99 mesi. Drawdown post-IPO confermato a -71,82% ($14,76 vs $52,38). Sul fronte Form 4, entrambi gli agenti hanno correttamente registrato 0 acquisti sul mercato aperto (Codice P) e 15 vendite (Codice S per 1,71M$), senza confondere l'esercizio di opzioni di Christine Ring (Codice M) con acquisti a mercato.",
+          "verified_facts": [
+            "Cassa ed equivalenti pari a 1,05 miliardi di dollari con debito totale contenuto a 65,33M$, per una cassa netta di 982,92M$",
+            "Flusso di cassa operativo TTM positivo a 379,31M$ e Free Cash Flow a 233,34M$, che portano l'EV/Sales a 0,89x su un fatturato TTM di 701,94M$",
+            "Assenza totale di acquisti insider a mercato aperto negli ultimi filing e presenza di 15 transazioni di vendita con Codice S per circa 1,71M$ (inclusi CFO e CLO)",
+            "Sanofi ha interrotto la collaborazione sul farmaco per malattie infiammatorie, provocando un sell-off fino al 35% in after-hours segnalato dalle fonti stampa",
+            "Presenza verificata di molteplici takedown 424B5 collegati al modulo S-3ASR attivo (marzo 2026, ottobre 2025, ottobre 2024, luglio 2024)"
+          ],
+          "challenged_claims": [
+            {
+              "agent": "BULL",
+              "claim": "Forte disallineamento rispetto a una crescita esplosiva dei ricavi YoY (+8426,3%) e runway di 99 mesi",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "La crescita dell'8426% dei ricavi per una biotech in fase clinica deriva da pagamenti milestone upfront straordinari una tantum legati a partnership (es. accordi di collaborazione passati), non da vendite commerciali ricorrenti. Presentarla come pura crescita organica senza menzionare la natura non ricorrente è fuorviante."
+            },
+            {
+              "agent": "BEAR",
+              "claim": "I costi di R&D riporteranno rapidamente il conto economico in burn netto",
+              "audit_verdict": "NON_VERIFICATO",
+              "correction": "Sebbene plausibile data la fine della partnership con Sanofi e la natura clinica di NRIX, la proiezione di un imminente ritorno al burn netto è una tesi inferenziale del Bear e non un dato contabile certificato nel payload TTM (attualmente positivo per 233M$ di FCF)."
+            }
+          ]
+        }
+      }
+    },
+    "SEZL": {
+      "ticker": "SEZL",
+      "company_name": "Sezzle Inc.",
+      "sector": "Financial Services",
+      "industry": "Credit Services",
+      "exchange": "NCM",
+      "analyzed_at": "2026-11-25T22:53:42.141665+00:00",
+      "asymmetry_score": 71,
+      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "sub_scores": {
+        "catalyst_strength": 19,
+        "financial_survival_runway": 22,
+        "insider_alignment": 8,
+        "valuation_asymmetry": 9,
+        "audit_confidence": 13
+      },
+      "thesis_5_lines": [
+        "Piattaforma BNPL ad alta marginalità lorda (76,5%) spinta dall'espansione del servizio Sezzle Anywhere e accordi strategici.",
+        "Profilo finanziario solido con ricavi TTM a 581,6M$ (+42,6% YoY), FCF ampiamente positivo a 91,9M$ e burn-rate azzerato.",
+        "Acquisto insider Codice P trascurabile (<29k$), ma fortissima espansione operativa testimoniata da 229 posizioni aperte in R&D.",
+        "Rischio di credito al consumo e shelf S-3 mitigati da consistente generazione di cassa operativa (OCF 298,6M$) e assenza di vendite sul mercato aperto.",
+        "Piano micro-investimento da 35€ mediante ingressi frazionati, con invalidazione a rottura strutturale di 110$ o inversione del FCF su orizzonte 12-18 mesi."
+      ],
+      "signal_tags": [
+        "BNPL_GROWTH",
+        "FCF_POSITIVO",
+        "EXPANSION_HIRING",
+        "SHELF_S3",
+        "HIGH_MARGIN",
+        "NO_CLUSTER_BUY"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 35,
+        "entry_zone": "Accumulo frazionato su pull-back tra $130 e $145",
+        "invalidation_trigger": "Deterioramento della qualità del credito con FCF negativo o rottura confermata sotto $110",
+        "time_horizon": "12-18 mesi"
+      },
+      "quant_metrics": {
+        "ticker": "SEZL",
+        "company_name": "Sezzle Inc.",
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "exchange": "NCM",
+        "currency": "USD",
+        "website": "https://www.sezzle.com",
+        "business_summary": "Sezzle Inc. operates as a technology-enabled payments company in the United States and Canada. The company offers Sezzle Platform that provides a payments solution for consumers that extends credit at the point-of-sale allowing consumers to purchase and receive the ordered merchandise at the time of sale while paying in installments over time; Pay-in-Four, which allows consumers to pay a fourth of the purchase price up front and then another fourth of the purchase price every two weeks thereafter over a total of six weeks; Pay-in-Full that allows consumers to pay for the full value of their order up-front through the Sezzle Platform without the extension of credit; Pay-in-five which allows e",
+        "current_price": 145.71,
+        "ipo_date": "2023-09-13",
+        "months_since_ipo": 38.4,
+        "post_ipo_high": 195.71,
+        "post_ipo_drawdown_pct": -25.55,
+        "post_ipo_change_pct": 978.27,
+        "market_cap": 4922579456.0,
+        "enterprise_value": 4958573056.0,
+        "cash_and_equivalents": 70142000.0,
+        "total_debt": 102757000.0,
+        "net_cash": -32615000.0,
+        "revenue_ttm": 581593984.0,
+        "revenue_growth_yoy_pct": 42.6,
+        "gross_margin_pct": 76.52,
+        "ev_to_sales": 8.53,
+        "operating_cash_flow_ttm": 298563008.0,
+        "free_cash_flow_ttm": 91929624.0,
+        "monthly_burn_usd": 0.0,
+        "is_cash_flow_positive": true,
+        "runway_months": 99.0,
+        "current_ratio": 4.21,
+        "debt_to_equity": 37.01,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 201,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -26%",
+          "Ricavi +43% YoY",
+          "Cash Flow Positivo"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "SEZL",
+        "cik": "0001662991",
+        "entity_name": "Sezzle Inc.",
+        "sic_description": "Services-Business Services, NEC",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001662991",
+        "filings_8k": [
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-24",
+            "items": [
+              "1.01",
+              "2.03",
+              "5.05",
+              "5.07",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 1.01: Accordo / Contratto Materiale",
+              "Item 2.03: Nuovo Debito / Obbligazione Diretta",
+              "Item 5.05: Disclosure",
+              "Item 5.07: Voto Azionisti",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 1.01: Accordo / Contratto Materiale, Item 2.03: Nuovo Debito / Obbligazione Diretta, Item 5.05: Disclosure, Item 5.07: Voto Azionisti, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000194/sezl-20261118.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-10",
+            "items": [
+              "7.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 7.01: Regulation FD Disclosure",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 7.01: Regulation FD Disclosure, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000173/sezl-20261109.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-04",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000169/sezl-20261104.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-10-08",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000165/sezl-20261008.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-08-28",
+            "items": [
+              "8.01"
+            ],
+            "item_descriptions": [
+              "Item 8.01: Altri Eventi / Brevetti / Milestone"
+            ],
+            "description": "Item 8.01: Altri Eventi / Brevetti / Milestone",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000148/sezl-20260828.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-08-18",
+            "items": [
+              "1.01",
+              "2.03",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 1.01: Accordo / Contratto Materiale",
+              "Item 2.03: Nuovo Debito / Obbligazione Diretta",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 1.01: Accordo / Contratto Materiale, Item 2.03: Nuovo Debito / Obbligazione Diretta, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000144/sezl-20260812.htm"
+          }
+        ],
+        "filings_periodic": [
+          {
+            "form": "10-Q",
+            "filing_date": "2026-11-05",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000171/szl-20260930.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-08-07",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000126/szl-20260630.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-05-07",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000065/szl-20260331.htm"
+          },
+          {
+            "form": "10-K",
+            "filing_date": "2026-02-26",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000016/szl-20251231.htm"
+          }
+        ],
+        "filings_s1_ipo": [
+          {
+            "form": "S-1/A",
+            "filing_date": "2023-07-28",
+            "description": "AMENDMENT NO. 2 TO FORM S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000121390023060829/ea182428-s1a2_sezzleinc.htm"
+          },
+          {
+            "form": "S-1/A",
+            "filing_date": "2023-06-16",
+            "description": "AMENDMENT NO. 1 TO FORM S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000121390023049726/ea179018-s1a1_sezzleinc.htm"
+          },
+          {
+            "form": "S-1",
+            "filing_date": "2023-03-22",
+            "description": "REGISTRATION STATEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000121390023022123/ea175545-s1_sezzleinc.htm"
+          }
+        ],
+        "filings_s3_shelf": [
+          {
+            "form": "S-3ASR",
+            "filing_date": "2024-11-13",
+            "description": "Shelf / ATM Takedown S-3ASR (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000121390024097571/ea0220764-s3asr_sezzle.htm"
+          },
+          {
+            "form": "S-3",
+            "filing_date": "2024-07-10",
+            "description": "Shelf / ATM Takedown S-3 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000121390024060491/ea0208600-s3_sezzleinc.htm"
+          },
+          {
+            "form": "424B3",
+            "filing_date": "2023-12-08",
+            "description": "Shelf / ATM Takedown 424B3 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299123000178/q32023424b3.htm"
+          }
+        ],
+        "shelf_dilution_risk": true,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-20",
+            "transaction_date": "2026-11-18",
+            "insider_name": "Paradis Paul",
+            "role": "Director & President",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 78954.0,
+            "price_usd": 5.32,
+            "value_usd": 420035.28,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000192/xslF345X06/wk-form4_1795209926.xml"
+          },
+          {
+            "filing_date": "2026-11-13",
+            "transaction_date": "2026-11-11",
+            "insider_name": "Paradis Paul",
+            "role": "Director & President",
+            "code": "G",
+            "acquired_or_disposed": "D",
+            "shares": 13333.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000190/xslF345X06/wk-form4_1794604419.xml"
+          },
+          {
+            "filing_date": "2026-11-10",
+            "transaction_date": "2026-11-06",
+            "insider_name": "Brading Lee Dickson",
+            "role": "Chief Financial Officer",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 1722.0,
+            "price_usd": 149.43,
+            "value_usd": 257318.46,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000183/xslF345X06/wk-form4_1794349791.xml"
+          },
+          {
+            "filing_date": "2026-11-10",
+            "transaction_date": "2026-11-06",
+            "insider_name": "Krause Justin",
+            "role": "SVP FINANCE AND CONTROLLER",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 1892.0,
+            "price_usd": 149.43,
+            "value_usd": 282721.56,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000182/xslF345X06/wk-form4_1794349786.xml"
+          },
+          {
+            "filing_date": "2026-11-10",
+            "transaction_date": "2026-11-06",
+            "insider_name": "Paradis Paul",
+            "role": "Director & President",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 7108.0,
+            "price_usd": 149.43,
+            "value_usd": 1062148.44,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000181/xslF345X06/wk-form4_1794349781.xml"
+          },
+          {
+            "filing_date": "2026-11-10",
+            "transaction_date": "2026-11-06",
+            "insider_name": "Sabzivand Amin",
+            "role": "Chief Operating Officer",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 6976.0,
+            "price_usd": 149.43,
+            "value_usd": 1042423.68,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000180/xslF345X06/wk-form4_1794349775.xml"
+          },
+          {
+            "filing_date": "2026-11-10",
+            "transaction_date": "2026-11-06",
+            "insider_name": "Youakim Charles",
+            "role": "Executive Chairman and CEO",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 6975.0,
+            "price_usd": 149.43,
+            "value_usd": 1042274.25,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000179/xslF345X06/wk-form4_1794349769.xml"
+          },
+          {
+            "filing_date": "2026-09-24",
+            "transaction_date": "2026-09-21",
+            "insider_name": "Sabzivand Amin",
+            "role": "Chief Operating Officer",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 342.0,
+            "price_usd": 116.55,
+            "value_usd": 39860.1,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000162/xslF345X06/wk-form4_1790283395.xml"
+          },
+          {
+            "filing_date": "2026-09-24",
+            "transaction_date": "2026-09-21",
+            "insider_name": "Krause Justin",
+            "role": "SVP FINANCE AND CONTROLLER",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 68.0,
+            "price_usd": 116.55,
+            "value_usd": 7925.4,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000161/xslF345X06/wk-form4_1790283387.xml"
+          },
+          {
+            "filing_date": "2026-09-22",
+            "transaction_date": "2026-09-18",
+            "insider_name": "Hunt Bryan Cecil",
+            "role": "Director",
+            "code": "P",
+            "acquired_or_disposed": "A",
+            "shares": 250.0,
+            "price_usd": 115.86,
+            "value_usd": 28965.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1662991/000166299126000158/xslF345X06/wk-form4_1790109618.xml"
+          }
+        ],
+        "open_market_buys_count": 1,
+        "open_market_buys_usd": 28965.0,
+        "open_market_sales_count": 0,
+        "open_market_sales_usd": 0,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "Insider Buying (Form 4)",
+          "8-K Contratto / Catalyst",
+          "Rischio Diluizione (S-3/424B5)"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "Sezzle Inc. (SEZL) stock price, news, quote and history - Yahoo Finance UK",
+            "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1WN0o0Z1ZEV2wxX3RDcGpyOFJVWUwzQ045VHhjdWJ5b29rUUJ5UkxZVWJDcTViajVqaEdkYlEyOVVXSWZNMUxEQ19mQmV0SGhaSEE?oc=5",
+            "published": "Wed, 25 Nov 2026 17:13:25 GMT",
+            "source": "Yahoo Finance UK",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Sezzle: Same Beat-And-Raise, Cheaper Stock (Rating Upgrade) (NASDAQ:SEZL) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQYnloXzhtY2xfek5hTkZWeHR6Uk1LRndOSy1Hb29Ta0NpY3RiRUFqcDRKajdHWGtTNDJOMXFYNXFRRzlkQmI0OGplY2NSYmRpQUc1V1VoWUtSZ3phclVMd2tyU3FlRnZaVXJRcTdjQ1g1eEwtRkkxUTYzRWp1elR6TG9rYzFUc2R1?oc=5",
+            "published": "Wed, 25 Nov 2026 10:03:39 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Looking for a Growth Stock? 3 Reasons Why Sezzle Inc. (SEZL) is a Solid Choice - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQMnVRYUdaellSamFodENVUGR3WkJ0QjVFQjRtUWF3dms4Uy1PbVJXQ2k1c3VzdjN0NUR2MWdZSkJHaEZSM1Y5UVQtSm9qYnc0bmhlS3JqT2EydFVISE05Z1kySHVTVXc5TzRvajBfZzRLVnFtdEZmVExMcVlNME9yRndQUmJ0RjZMeFBHQ3I5WFVBMExnU2VRVjIwQQ?oc=5",
+            "published": "Wed, 25 Nov 2026 16:45:02 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "SEZL Strengthens Canadian Presence With Sezzle Anywhere Launch - TradingView",
+            "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPLXFLUk52aUgyX0VmR1VneXFGaGpUUVZBTktiazlCZnNUaVlyX0lkZXBHRGo2YXhFRmczOVRtV3lfc3FkT3YxY1doXzZTWVZfM011RHNfMkNEVWRtNkgzM2lmN2ltdDdlNnpPZUp5YTlPanlJdG5tZzc2OXFubjRKYnRZTDJTeE93WUdnYXpHV2M4R3dZUmlhOXZYMm9lLVZ0STJpMURYVG0tanQ2NVRzQmhWS3JuTFprdnc?oc=5",
+            "published": "Thu, 19 Nov 2026 17:36:00 GMT",
+            "source": "TradingView",
+            "sentiment_hint": "CATALYST"
+          },
+          {
+            "title": "I'm Buying More Of Sezzle After The Broad Market Sell-Off (NASDAQ:SEZL) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdkMybThQX3Q5R1F1YXpnRzBtdVVoQ3NGOU05dHFGeXd6dDJvWXlPUnFMZzNaWHpBOEY4X2RvSllBM1pyaV9fMDRLVkp4MkhhdzNsb3c3TV9yaHBScVNKNHJxWnI5dFJGb3dEVmlVbHRDZ28zcWhmLUZNTlVLNk5oRm1kakhyb3NRSm1VSW9YRU1CdUYzaHJuSjlweDVtZkVr?oc=5",
+            "published": "Tue, 24 Nov 2026 08:25:52 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Sezzle stock jumps after Q3 earnings exceed estimates, positive 2026, 2027 guidance delivered (SEZL:NASDAQ) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOdnJNNkdvTlBHc1pYeFJGTFFkb0xDU2N0NzRjWnJZWkdUUU4yd3pwTHdXNGtSUnJXaGRIOGVyNGhaMzhndF9zYzR1UkNPSUN4RzVOc2ZGelYzd1JsbTB0Y0QzUHg5OG9STmhwSlN5Z3lwb2NackNHOGZJaGZuVkhJMEtLcnRiRXBmbl9jcDd3UUVlS3l2djdWNTExOEZpb1FOTFA2WWQzS1otcGh0dzVEZ0JTZUlISnhIblBGT0dQN01sOTQwTERaSQ?oc=5",
+            "published": "Wed, 04 Nov 2026 08:00:00 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 1,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": 229,
+        "hiring_trend": "HIRING_SPIKE",
+        "department_focus": "R&D / Engineering",
+        "ats_source": "Greenhouse",
+        "careers_url": "https://boards.greenhouse.io/sezzle",
+        "sample_roles": [
+          "A.I. Engineering Intern ",
+          "A.I. Engineering Intern ",
+          "A.I. Engineering Intern ",
+          "A.I. Engineering Intern ",
+          "AI Engineering Intern "
+        ],
+        "evidence_note": "Rilevate 229 posizioni aperte via Greenhouse (focus R&D / Engineering)."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "SEZL negoziabile frazionato da €1 su NCM; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 145.71,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate e 1 azione ($145.71, ~€134.05) supera il micro-ticket da €35."
+        }
+      ],
+      "debate": {
+        "ai_engine": "hybrid (3/4 Gemini + Fallback)",
+        "bull": {
+          "headline": "Asimmetria su SEZL: fondamentali in crescita nonostante calo post-IPO",
+          "core_catalysts": [
+            {
+              "title": "Crescita Ricavi YoY +42.6% vs Prezzo Scontato (-25.6% dal picco)",
+              "detail": "Il titolo quota con un drawdown del 25.6% dal massimo post-IPO nonostante ricavi TTM pari a $581.6M in crescita del +42.6% YoY.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Acquisto Diretto Insider sul Mercato (Form 4)",
+              "detail": "Rilevati 1 acquisti open-market (Codice P) per un controvalore complessivo di $29K.",
+              "source_tag": "[FORM-4]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Deposito SEC 8-K (2026-11-24): Eventi Materiali / Contratti",
+              "detail": "Item 1.01: Accordo / Contratto Materiale, Item 2.03: Nuovo Debito / Obbligazione Diretta, Item 5.05: Disclosure, Item 5.07: Voto Azionisti, Item 9.01: Bilanci ed Exhibit",
+              "source_tag": "[SEC-8K]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Espansione Organico: 229 posizioni aperte",
+              "detail": "Rilevate 229 posizioni aperte via Greenhouse (focus R&D / Engineering). Focus prevalente su R&D / Engineering.",
+              "source_tag": "[CAREERS]",
+              "impact": "MEDIO"
+            },
+            {
+              "title": "Catalizzatori Media & News (1 articoli positivi)",
+              "detail": "SEZL Strengthens Canadian Presence With Sezzle Anywhere Launch - TradingView",
+              "source_tag": "[NEWS]",
+              "impact": "MEDIO"
+            }
+          ],
+          "insider_conviction_read": "Segnale forte: 1 acquisti diretti Codice P ($29K).",
+          "expansion_signal": "Rilevate 229 posizioni aperte via Greenhouse (focus R&D / Engineering).",
+          "bull_conviction": 95
+        },
+        "bear": {
+          "headline": "Shelf S-3ASR attivo, nuovo debito su 8-K e rally estremo: rischio saturazione nel credito al consumo",
+          "red_flags": [
+            {
+              "title": "Presenza di Shelf Registration attiva (S-3ASR / ATM)",
+              "detail": "La società ha depositato una registrazione a scaffale S-3ASR e S-3. Nonostante la redditività attuale, la shelf attiva offre al management la leva per emettere equity diluendo gli azionisti ai prezzi correnti.",
+              "source_tag": "[SEC-S3]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Nuovo debito e accordi materiali registrati su Form 8-K",
+              "detail": "L'8-K del 24/11/2026 riporta Item 1.01 e Item 2.03 (Creazione di obbligazione diretta/nuovo debito). Il bilancio presenta già una posizione finanziaria netta negativa (-32,6M$ con 102,8M$ di debito totale), evidenziando continua dipendenza da funding line esterne.",
+              "source_tag": "[SEC-8K]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Esercizio opzioni a sconto e liquidazioni del top management",
+              "detail": "Il presidente ha esercitato stock option a 5,32$ contro un mercato a 145$+, mentre l'intera prima linea (CFO, COO, Controller, Presidente) ha ceduto complessivamente oltre 3,5M$ in azioni per obblighi fiscali (Codice F) ai massimi di periodo.",
+              "source_tag": "[FORM-4]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Rally speculativo (+978%) ed esposizione al rischio di credito non garantito",
+              "detail": "Con un multiplo EV/Sales di 8,53x e un rialzo post-IPO vicino al 1.000%, il modello BNPL Pay-in-Four rimane altamente vulnerabile a insolvenze dei consumatori o a compressione dei margini di commissione in caso di contrazione economica.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            }
+          ],
+          "dilution_risk_level": "MODERATO",
+          "burn_and_balance_sheet_audit": "La società è cash flow positive con FCF TTM di 91,9M$ e burn mensile azzerato, allontanando il rischio di default a breve termine. Tuttavia, la liquidità assoluta (70,1M$) è inferiore al debito complessivo (102,8M$), rendendo la società dipendente da linee di credito esterne (confermate dall'ultimo 8-K Item 2.03) e dallo shelf S-3ASR per finanziare la rapida espansione dei crediti erogati.",
+          "bear_severity": 42
+        },
+        "auditor": {
+          "verification_score": 88,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Parametri contabili verificati con successo: Cash Flow TTM positivo ($91,93M FCF, $298,56M OCF), Burn mensile $0,0 e Runway convenzionale a 99 mesi. Posizione finanziaria netta verificata a -$32,62M ($70,14M cassa - $102,76M debito totale). Drawdown post-IPO matematicamente coerente (-25,55% rispetto al picco di $195,71). Le transazioni Form 4 campionate mostrano esercizi opzioni (Codice M) e trattenute fiscali (Codice F), senza vendite discrezionali sul mercato aperto.",
+          "verified_facts": [
+            "Fatturato TTM a $581,59M con crescita YoY del +42,60% e margine lordo del 76,52%.",
+            "Flussi di cassa operativi TTM positivi per $298,56M e Free Cash Flow TTM a $91,93M.",
+            "Drawdown del -25,55% rispetto al massimo post-IPO di $195,71 con prezzo attuale a $145,71 (+978,27% dall'IPO).",
+            "Presenza confermata di Shelf Registration S-3ASR (13/11/2024) e filing 8-K (24/11/2026) recante Item 1.01 e Item 2.03 (nuovo debito/obbligazione diretta).",
+            "Net Cash negativo a -$32,62M (Cassa $70,14M contro Debito Totale $102,76M)."
+          ],
+          "challenged_claims": [
+            {
+              "agent": "BULL",
+              "claim": "Acquisto Diretto Insider sul Mercato (Codice P da $29K) definito come 'Segnale forte' e catalizzatore ad 'ALTO' impatto.",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "Un singolo acquisto open-market di $28.965 su una capitalizzazione di mercato di oltre $4,92 miliardi rappresenta una quota trascurabile (<0,0006%) e non configura 'cluster buying' né un segnale direzionale ad alto impatto."
+            },
+            {
+              "agent": "BULL",
+              "claim": "Classificazione del Form 8-K del 24/11/2026 (Item 2.03 Nuovo Debito) come catalizzatore rialzista primario ad alto impatto.",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "L'Item 2.03 denota la creazione di una nuova obbligazione diretta/debito; trattandosi di passività finanziaria per sostenere l'erogazione dei crediti, non rappresenta intrinsecamente un catalizzatore rialzista."
+            },
+            {
+              "agent": "BEAR",
+              "claim": "La prima linea manageriale ha ceduto complessivamente oltre 3,5M$ in azioni per obblighi fiscali (Codice F).",
+              "audit_verdict": "CORREZIONE_NUMERICA",
+              "correction": "La somma esatta delle cessioni con Codice F (tax withholding) presenti nel campione Form 4 (Brading, Krause, Paradis, Sabzivand) ammonta a $2.644.612,14, non a 'oltre 3,5M$'."
+            }
+          ]
+        }
+      }
+    },
+    "CDNA": {
+      "ticker": "CDNA",
+      "company_name": "CareDx, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research",
+      "exchange": "NGM",
+      "analyzed_at": "2026-11-25T23:00:01.103389+00:00",
+      "asymmetry_score": 66,
+      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "sub_scores": {
+        "catalyst_strength": 15,
+        "financial_survival_runway": 25,
+        "insider_alignment": 5,
+        "valuation_asymmetry": 10,
+        "audit_confidence": 11
+      },
+      "thesis_5_lines": [
+        "1. Tesi Core: CareDx, Inc. (CDNA) tratta a -24.01% dal picco post-IPO; driver principale: Forte espansione top-line e marginalità elevata.",
+        "2. Sopravvivenza: Ricavi YoY a +39.3% con cassa di $250.5M e Cash Flow Positivo (Net Cash $221.5M).",
+        "3. Segnali Lenti: SEC Form 4 mostra nessun acquisto open-market Codice P recente; segnale Careers 'UNKNOWN' (Bilanciato).",
+        "4. Contro-Verifica Bear/Auditor: Rischio diluizione MODERATO; affidabilità dati verificata al 92%.",
+        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$75.86; invalidazione se runway < 9m o emissione S-3 diluitiva."
+      ],
+      "signal_tags": [
+        "Cash Flow Positivo",
+        "Net Cash",
+        "Rischio Diluizione"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 25.0,
+        "entry_zone": "Accumulo frazionato area $71.31 - $78.14",
+        "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
+        "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
+      },
+      "quant_metrics": {
+        "ticker": "CDNA",
+        "company_name": "CareDx, Inc.",
+        "sector": "Healthcare",
+        "industry": "Diagnostics & Research",
+        "exchange": "NGM",
+        "currency": "USD",
+        "website": "https://caredx.com",
+        "business_summary": "CareDx, Inc. provides solutions for improving outcomes for transplant patients and advancing organ health in the United States and internationally. The company provides AlloSure Kidney, a donor-derived cell-free DNA (dd-cfDNA) solution for kidney transplant patients; AlloMap Heart, a gene expression profiling solution for heart transplant patients; AlloSure Heart, a dd-cfDNA solution for heart transplant patients; and AlloSure Lung, a dd-cfDNA solution for lung transplant patients. It also offers HeartCare, which provides information about distinct biological processes, such as immune quiescence, active injury, acute cellular rejection, and antibody mediated rejection; HistoMap Kidney, a sol",
+        "current_price": 75.86,
+        "ipo_date": "2014-07-17",
+        "months_since_ipo": 148.3,
+        "post_ipo_high": 99.83,
+        "post_ipo_drawdown_pct": -24.01,
+        "post_ipo_change_pct": 738.23,
+        "market_cap": 3985895680.0,
+        "enterprise_value": 3867926016.0,
+        "cash_and_equivalents": 250480000.0,
+        "total_debt": 29001000.0,
+        "net_cash": 221479000.0,
+        "revenue_ttm": 497396000.0,
+        "revenue_growth_yoy_pct": 39.3,
+        "gross_margin_pct": 70.97,
+        "ev_to_sales": 7.78,
+        "operating_cash_flow_ttm": 69018000.0,
+        "free_cash_flow_ttm": 130446872.0,
+        "monthly_burn_usd": 0.0,
+        "is_cash_flow_positive": true,
+        "runway_months": 99.0,
+        "current_ratio": 2.31,
+        "debt_to_equity": 6.2,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 761,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -24%",
+          "Ricavi +39% YoY",
+          "Cash Flow Positivo",
+          "Net Cash Positiva"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "CDNA",
+        "cik": "0001217234",
+        "entity_name": "CareDx, Inc.",
+        "sic_description": "Services-Medical Laboratories",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001217234",
+        "filings_8k": [
+          {
+            "form": "8-K",
+            "filing_date": "2026-10-29",
+            "items": [
+              "2.02",
+              "7.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 7.01: Regulation FD Disclosure",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 7.01: Regulation FD Disclosure, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000059/cdna-20261029.htm"
+          },
+          {
+            "form": "8-K/A",
+            "filing_date": "2026-09-16",
+            "items": [
+              "2.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.01: Disclosure",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.01: Disclosure, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000052/cdna-20260630.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-07-30",
+            "items": [
+              "2.02",
+              "7.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 7.01: Regulation FD Disclosure",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 7.01: Regulation FD Disclosure, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000045/cdna-20260730.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-07-07",
+            "items": [
+              "2.01",
+              "7.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.01: Disclosure",
+              "Item 7.01: Regulation FD Disclosure",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.01: Disclosure, Item 7.01: Regulation FD Disclosure, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000038/cdna-20260630.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-06-15",
+            "items": [
+              "5.02",
+              "5.07",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 5.02: Cambio Dirigenti / CdA",
+              "Item 5.07: Voto Azionisti",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 5.02: Cambio Dirigenti / CdA, Item 5.07: Voto Azionisti, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000036/cdna-20260611.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-04-28",
+            "items": [
+              "1.01",
+              "2.02",
+              "7.01",
+              "8.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 1.01: Accordo / Contratto Materiale",
+              "Item 2.02: Risultati Finanziari",
+              "Item 7.01: Regulation FD Disclosure",
+              "Item 8.01: Altri Eventi / Brevetti / Milestone",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 1.01: Accordo / Contratto Materiale, Item 2.02: Risultati Finanziari, Item 7.01: Regulation FD Disclosure, Item 8.01: Altri Eventi / Brevetti / Milestone, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000110465926050317/tm2611749d3_8k.htm"
+          }
+        ],
+        "filings_periodic": [
+          {
+            "form": "10-Q",
+            "filing_date": "2026-10-29",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000061/cdna-20260930.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-07-30",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000046/cdna-20260630.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-04-28",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000033/cdna-20260331.htm"
+          },
+          {
+            "form": "10-K",
+            "filing_date": "2026-02-25",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000121723426000018/cdna-20251231.htm"
+          }
+        ],
+        "filings_s1_ipo": [],
+        "filings_s3_shelf": [
+          {
+            "form": "S-3ASR",
+            "filing_date": "2026-04-28",
+            "description": "Shelf / ATM Takedown S-3ASR (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000110465926050471/tm2612370-1_s3asr.htm"
+          }
+        ],
+        "shelf_dilution_risk": true,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Riggsbee Richard Bryan",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 2418.0,
+            "price_usd": 74.0181,
+            "value_usd": 178975.77,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000162189926000002/xslF345X06/form4-11192026_011111.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Riggsbee Richard Bryan",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 1667.0,
+            "price_usd": 74.7402,
+            "value_usd": 124591.91,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000162189926000002/xslF345X06/form4-11192026_011111.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Riggsbee Richard Bryan",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 800.0,
+            "price_usd": 75.9508,
+            "value_usd": 60760.64,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000162189926000002/xslF345X06/form4-11192026_011111.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Riggsbee Richard Bryan",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 400.0,
+            "price_usd": 77.0225,
+            "value_usd": 30809.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000162189926000002/xslF345X06/form4-11192026_011111.xml"
+          },
+          {
+            "filing_date": "2026-11-16",
+            "transaction_date": "2026-11-12",
+            "insider_name": "Goldberg Michael",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 3547.0,
+            "price_usd": 78.3158,
+            "value_usd": 277786.14,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000136641226000010/xslF345X06/form4-11162026_091144.xml"
+          },
+          {
+            "filing_date": "2026-11-16",
+            "transaction_date": "2026-11-12",
+            "insider_name": "Goldberg Michael",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 8024.0,
+            "price_usd": 79.3206,
+            "value_usd": 636468.49,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000136641226000010/xslF345X06/form4-11162026_091144.xml"
+          },
+          {
+            "filing_date": "2026-11-16",
+            "transaction_date": "2026-11-12",
+            "insider_name": "Goldberg Michael",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 2229.0,
+            "price_usd": 79.853,
+            "value_usd": 177992.34,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000136641226000010/xslF345X06/form4-11162026_091144.xml"
+          },
+          {
+            "filing_date": "2026-11-16",
+            "transaction_date": "2026-11-12",
+            "insider_name": "Kennedy Keith",
+            "role": "CFO & COO",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 2097.0,
+            "price_usd": 29.43,
+            "value_usd": 61714.71,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000154350326000010/xslF345X06/form4-11162026_091130.xml"
+          },
+          {
+            "filing_date": "2026-11-16",
+            "transaction_date": "2026-11-12",
+            "insider_name": "Kennedy Keith",
+            "role": "CFO & COO",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 800.0,
+            "price_usd": 78.7825,
+            "value_usd": 63026.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000154350326000010/xslF345X06/form4-11162026_091130.xml"
+          },
+          {
+            "filing_date": "2026-11-16",
+            "transaction_date": "2026-11-12",
+            "insider_name": "Kennedy Keith",
+            "role": "CFO & COO",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 1297.0,
+            "price_usd": 79.6068,
+            "value_usd": 103250.02,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000154350326000010/xslF345X06/form4-11162026_091130.xml"
+          },
+          {
+            "filing_date": "2026-11-12",
+            "transaction_date": "2026-11-10",
+            "insider_name": "Bickerstaff George",
+            "role": "Director",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 15000.0,
+            "price_usd": 14.74,
+            "value_usd": 221100.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000132964626000005/xslF345X06/form4-11122026_091123.xml"
+          },
+          {
+            "filing_date": "2026-11-12",
+            "transaction_date": "2026-11-10",
+            "insider_name": "Novack Jeffrey Adam",
+            "role": "Secretary and General Counsel",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 2996.0,
+            "price_usd": 80.4694,
+            "value_usd": 241086.32,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000201997626000016/xslF345X06/form4-11122026_091117.xml"
+          },
+          {
+            "filing_date": "2026-11-12",
+            "transaction_date": "2026-11-10",
+            "insider_name": "Novack Jeffrey Adam",
+            "role": "Secretary and General Counsel",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 200.0,
+            "price_usd": 81.05,
+            "value_usd": 16210.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000201997626000016/xslF345X06/form4-11122026_091117.xml"
+          },
+          {
+            "filing_date": "2026-11-12",
+            "transaction_date": "2026-11-10",
+            "insider_name": "Novack Jeffrey Adam",
+            "role": "Secretary and General Counsel",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 900.0,
+            "price_usd": 83.3278,
+            "value_usd": 74995.02,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000201997626000016/xslF345X06/form4-11122026_091117.xml"
+          },
+          {
+            "filing_date": "2026-11-09",
+            "transaction_date": "2026-11-05",
+            "insider_name": "Kennedy Keith",
+            "role": "CFO & COO",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 52422.0,
+            "price_usd": 29.43,
+            "value_usd": 1542779.46,
+            "url": "https://www.sec.gov/Archives/edgar/data/1217234/000154350326000008/xslF345X06/form4-11092026_111118.xml"
+          }
+        ],
+        "open_market_buys_count": 0,
+        "open_market_buys_usd": 0,
+        "open_market_sales_count": 20,
+        "open_market_sales_usd": 6807662.82,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "8-K Contratto / Catalyst",
+          "Rischio Diluizione (S-3/424B5)"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "CareDx, Inc. (CDNA) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+            "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE4xcFBZT0RPMmh3cTltX1A5OG9NY2U3WF9aRi05V25QcHd1cUFrMDluTUJHN2dQTzNaRVFqMlZSY0U1cG9vLVRDR1F1M1ozRlctWXc?oc=5",
+            "published": "Tue, 24 Nov 2026 22:40:53 GMT",
+            "source": "Yahoo! Finance Canada",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "CareDx (NASDAQ:CDNA): High Growth Momentum Meets a Breakout Setup - ChartMill",
+            "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNRUpOYk84cVhVUVVOUVp1V0xjcV92MGJwUHFMek9LVmc1Qi1HVkRzeFRVWGlDV053MmR6SzdwcDUzTkY5ekgyY0x3MDduOWQ2S0MxbVpBcnpFVTU1Smd4dUFxVzVSdGV4Mkt6X3JHWjRDVW0wbHdDSGttQV8xWF83U2RJeWVTaG1hT21HTmcxQ2EzbndjNlRsRnJLYm5BTGYyNTRoUGx3NUdZbWRNVUstZGV6Zw?oc=5",
+            "published": "Wed, 25 Nov 2026 09:30:56 GMT",
+            "source": "ChartMill",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "CareDx (CDNA) May Find a Bottom Soon, Here's Why You Should Buy the Stock Now - Yahoo! Finance Canada",
+            "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPSzIzalpKRUtSSDdxT05iSUlvaUhEQVVjdmJyQlFZcjZJZ2ZudkVPb0g4OVNOMW5CMWhrSXFENHlEazZpTjAyVk1yaXBJWDJhSmVFVWxjX1ExaHhQcmRoMWJuRWhPalVOdFRQX2h6dVl5MWtYOENET3g1NVVaRUdBQzZn?oc=5",
+            "published": "Tue, 24 Nov 2026 13:55:03 GMT",
+            "source": "Yahoo! Finance Canada",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Why CareDx Stock Soared Today - The Motley Fool",
+            "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBsbi1nakRsVFdSdkZGejFvbkNOQ2pBNHZUX0ZvdVJzNnJYLURrRVQ2OWktVGpUeUF6dndzdnM3M2F5b3ZCTnZmX05WVXR1N1JQaHcxdVhaM2tHYjRxSkZYeGtLbmthMlZPbDdFNU84OXd3WUZXQXlNUjZUcTQ?oc=5",
+            "published": "Fri, 30 Oct 2026 07:00:00 GMT",
+            "source": "The Motley Fool",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "CareDx is a new Overweight at Piper Sandler on transplant testing opportunity - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNRU9FM1VZUk4tejZseHExRjFlX0s4MExreDRqbmhsVXJNdVBMUDdjaGp6cElKcTdDNFl5bTBrVmFfX2RkZ1VhZWtleWtkSzRzSWkyWGlsODN4cVlla1ppZ3pTaU1VcUFXM1cxYU42YlJ0T2FITm1KZzhqTmYxMEt1QXZueHMteU5rdWQyYg?oc=5",
+            "published": "Wed, 11 Nov 2026 08:00:00 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "CareDx (CDNA) Stock Still Looks Reasonable Following Its Huge 3 Year Run - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQRHVHOWlqNnhTTUVFOHVCeHZoOHRuakhULWxRd0NhSzJVd2liS0FUWHFLd3JqSUNuRVdibTdpZVg3dFRkN0N4NVdFQmVBOV9DRGVIaDRlVER6ZWdvYTFOc1dYRk5NSmVNTVFKOFVKZFhYd2pqWHpfblhkZnZwZmRqSGhvU0FyZWh3NzkxT1Q4WFlRUUFHdC1sZ2hR?oc=5",
+            "published": "Sat, 31 Oct 2026 07:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": null,
+        "hiring_trend": "UNKNOWN",
+        "department_focus": "Bilanciato",
+        "ats_source": "N/D",
+        "careers_url": "https://caredx.com/careers",
+        "sample_roles": [],
+        "evidence_note": "Board careers proprietario o dietro JS; verifica manuale consigliata."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "CDNA negoziabile frazionato da €1 su NGM; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 75.86,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate e 1 azione ($75.86, ~€69.79) supera il micro-ticket da €35."
+        }
+      ],
+      "debate": {
+        "ai_engine": "hybrid (2/4 Gemini + Fallback)",
+        "bull": {
+          "headline": "Crescita ricavi accelerata al 39,3% YoY, margini lordi al 71% e generazione di FCF a $130M",
+          "core_catalysts": [
+            {
+              "title": "Forte espansione top-line e marginalità elevata",
+              "detail": "I ricavi TTM toccano 497,4M$ con una crescita YoY del 39,3% e un margine lordo del 70,97%, evidenziando un solido disallineamento rispetto al drawdown del -24% dai massimi storici.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Generazione di cassa robusta e bilancio solido",
+              "detail": "Free Cash Flow TTM pari a 130,45M$ e Operating Cash Flow di 69,02M$, supportati da una posizione finanziaria netta positiva di 221,48M$ in net cash che azzera il burn rate operativo.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Attività straordinaria e chiusura operazioni (Item 2.01)",
+              "detail": "Depositi SEC Form 8-K e 8-K/A a luglio e settembre 2026 segnalano l'esecuzione e il perfezionamento di operazioni di asset/acquisizioni sotto l'Item 2.01.",
+              "source_tag": "[SEC-8K]",
+              "impact": "MEDIO"
+            },
+            {
+              "title": "Upgrade e sentiment analisti positivo sul mercato trapianti",
+              "detail": "Piper Sandler ha avviato la copertura/fissato rating Overweight sul titolo puntando sull'opportunità di espansione nei test per i trapianti.",
+              "source_tag": "[NEWS]",
+              "impact": "MEDIO"
+            }
+          ],
+          "insider_conviction_read": "Assenza totale di acquisti a mercato aperto (Codice P = 0); al contrario, si rilevano 20 vendite Form 4 (Codice S) per complessivi 6,81M$ da parte di amministratori (Riggsbee, Goldberg), indicando prese di beneficio anziché accumulo da parte degli insider [FORM-4].",
+          "expansion_signal": "Trend assunzioni non quantificabile dai feed proprietari [CAREERS], ma la presenza di filing 8-K Item 2.01 indica dinamismo nell'espansione per linee esterne [SEC-8K].",
+          "bull_conviction": 68
+        },
+        "bear": {
+          "headline": "Overhang da Shelf S-3ASR e vendite continue degli insider nonostante la solida generazione di cassa",
+          "red_flags": [
+            {
+              "title": "Shelf Registration S-3ASR attiva per potenziale diluizione",
+              "detail": "CareDx ha depositato una registrazione a scaffale S-3ASR (shelf/ATM takedown) il 28/04/2026, lasciando aperta la facoltà di emettere nuove azioni sul mercato aperto a discrezione del management.",
+              "source_tag": "[SEC-S3]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Totale assenza di acquisti e vendite insider per oltre 6,8M USD",
+              "detail": "Nelle ultime registrazioni Form 4 si contano 20 vendite sul mercato aperto (Codice S) per complessivi 6.807.662 USD da parte di amministratori (es. Goldberg e Riggsbee a prezzi tra 74$ e 79$), con zero acquisti insider a supporto.",
+              "source_tag": "[FORM-4]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Multiplo di valutazione esigente esposto a shock operativi",
+              "detail": "Il titolo scambia a un multiplo EV/Sales di 7,78x con una capitalizzazione vicina a 4 miliardi di USD; valutazioni elevate nel settore diagnostico scontano una perfetta prosecuzione della crescita (+39,3% YoY) e possono subire forti compressioni in caso di attriti di rimborso assicurativo.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            }
+          ],
+          "dilution_risk_level": "MODERATO",
+          "burn_and_balance_sheet_audit": "La struttura patrimoniale è solida: cassa disponibile per 250,5M USD a fronte di soli 29M USD di debito (cassa netta di 221,5M USD) e current ratio a 2,31. La società è cash flow positive (FCF TTM di 130,4M USD e OCF di 69,0M USD), con burn rate nullo. Il rischio non deriva dalla necessità immediata di cassa per sopravvivere, bensì dall'opportunismo di sfruttare la shelf S-3ASR per operazioni straordinarie o diluizioni a valutazioni correnti.",
+          "bear_severity": 38
+        },
+        "auditor": {
+          "verification_score": 92,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Coerenza verificata: Net Cash $221.5M, Runway CF Positivo, Form 4 Codice P separato correttamente da grant (Codice A/M).",
+          "verified_facts": [
+            "Bilancio: Cassa $250.5M vs Debito Totale $29.0M (Net Cash: $221.5M).",
+            "Sostenibilità: Cash flow positivo, nessuna dipendenza immediata da aumenti di capitale.",
+            "Form 4 SEC: verificati 0 acquisti reali Codice P vs 20 vendite Codice S (esclusi grant/opzioni).",
+            "Drawdown post-IPO confermato a -24.01% rispetto al picco di $100."
+          ],
+          "challenged_claims": []
+        }
+      }
+    },
+    "POET": {
+      "ticker": "POET",
+      "company_name": "POET Technologies Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "exchange": "NCM",
+      "analyzed_at": "2026-11-25T23:03:03.731917+00:00",
+      "asymmetry_score": 63,
+      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "sub_scores": {
+        "catalyst_strength": 15,
+        "financial_survival_runway": 22,
+        "insider_alignment": 8,
+        "valuation_asymmetry": 7,
+        "audit_confidence": 11
+      },
+      "thesis_5_lines": [
+        "1. Tesi Core: POET Technologies Inc. (POET) tratta a -86.28% dal picco post-IPO; driver principale: Crescita Ricavi YoY +243.8% vs Prezzo Scontato (-86.3% dal picco).",
+        "2. Sopravvivenza: Ricavi YoY a +243.8% con cassa di $774.4M e runway di 99.0 mesi (Net Cash $766.1M).",
+        "3. Segnali Lenti: SEC Form 4 mostra nessun acquisto open-market Codice P recente; segnale Careers 'STABLE' (R&D / Engineering).",
+        "4. Contro-Verifica Bear/Auditor: Rischio diluizione ALTO; affidabilità dati verificata al 92%.",
+        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$3.58; invalidazione se runway < 9m o emissione S-3 diluitiva."
+      ],
+      "signal_tags": [
+        "Runway > 24m",
+        "Net Cash",
+        "Post-IPO -86%",
+        "Rischio Diluizione"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 25.0,
+        "entry_zone": "Accumulo frazionato area $3.37 - $3.69",
+        "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
+        "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
+      },
+      "quant_metrics": {
+        "ticker": "POET",
+        "company_name": "POET Technologies Inc.",
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "exchange": "NCM",
+        "currency": "USD",
+        "website": "https://www.poet-technologies.com",
+        "business_summary": "POET Technologies Inc., together with its subsidiaries, designs, develops, manufactures, and sells semiconductor products and services for commercial applications in the United States, Canada, the rest of North and South America, Europe, Malaysia, Singapore, China, and the rest of Asia. The company offers photonic integrated packaging solutions based on the POET Optical Interposer, a platform that allows the integration of electronic and photonic devices onto a single chip using advanced wafer-level semiconductor manufacturing techniques. Its products include photonic integrated circuits, optical engines, optical transceiver modules, and light source products. The company serves the data cen",
+        "current_price": 3.58,
+        "ipo_date": "2008-06-25",
+        "months_since_ipo": 221.0,
+        "post_ipo_high": 26.1,
+        "post_ipo_drawdown_pct": -86.28,
+        "post_ipo_change_pct": -64.2,
+        "market_cap": 623693056.0,
+        "enterprise_value": -142412240.0,
+        "cash_and_equivalents": 774372800.0,
+        "total_debt": 8267485.0,
+        "net_cash": 766105315.0,
+        "revenue_ttm": 2440603.0,
+        "revenue_growth_yoy_pct": 243.8,
+        "gross_margin_pct": 100.0,
+        "ev_to_sales": -58.35,
+        "operating_cash_flow_ttm": -45264848.0,
+        "free_cash_flow_ttm": -63081976.0,
+        "monthly_burn_usd": 5256831.33,
+        "is_cash_flow_positive": false,
+        "runway_months": 99.0,
+        "current_ratio": 30.6,
+        "debt_to_equity": 0.97,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 80,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -86%",
+          "Ricavi +244% YoY",
+          "Runway 99m",
+          "Net Cash Positiva"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "POET",
+        "cik": "0001437424",
+        "entity_name": "POET TECHNOLOGIES INC.",
+        "sic_description": "Semiconductors & Related Devices",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001437424",
+        "filings_8k": [],
+        "filings_periodic": [
+          {
+            "form": "20-F",
+            "filing_date": "2026-03-31",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315226014253/form20-f.htm"
+          },
+          {
+            "form": "20-F",
+            "filing_date": "2025-04-01",
+            "description": "Periodic Report 20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000164117225002143/form20-f.htm"
+          },
+          {
+            "form": "20-F",
+            "filing_date": "2024-03-28",
+            "description": "Periodic Report 20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315224011806/form20-f.htm"
+          },
+          {
+            "form": "20-F",
+            "filing_date": "2023-03-31",
+            "description": "Periodic Report 20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315223010387/form20-f.htm"
+          }
+        ],
+        "filings_s1_ipo": [],
+        "filings_s3_shelf": [
+          {
+            "form": "424B5",
+            "filing_date": "2026-05-18",
+            "description": "Shelf / ATM Takedown 424B5 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315226024090/form424b5.htm"
+          },
+          {
+            "form": "424B5",
+            "filing_date": "2026-01-23",
+            "description": "Shelf / ATM Takedown 424B5 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315226003330/form424b5.htm"
+          },
+          {
+            "form": "F-3ASR",
+            "filing_date": "2026-01-22",
+            "description": "Shelf / ATM Takedown F-3ASR (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315226003188/formf-3asr.htm"
+          },
+          {
+            "form": "F-3ASR",
+            "filing_date": "2025-11-28",
+            "description": "Shelf / ATM Takedown F-3ASR (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315225025394/formf-3asr.htm"
+          },
+          {
+            "form": "424B5",
+            "filing_date": "2024-07-19",
+            "description": "Shelf / ATM Takedown 424B5 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1437424/000149315224028521/form424b5.htm"
+          }
+        ],
+        "shelf_dilution_risk": true,
+        "form4_transactions": [],
+        "open_market_buys_count": 0,
+        "open_market_buys_usd": 0,
+        "open_market_sales_count": 0,
+        "open_market_sales_usd": 0,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "Rischio Diluizione (S-3/424B5)"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "POET Stock Drops Amid Tech Weakness and AI Concerns - Benzinga",
+            "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdm9rM0xFUHdFeF9SVkhiSldVUEZ6UTZwRWRJNkg0QUk3YnlGQW5LMnFzWjdlQ0JHeFNKYWdORzNWeFZ4TTNyaVZ4eVRCaFA1QVZDZWRHU3dubGxBcmZBQUljMnJzdUk2ck1vM2tYVy1aRjNLczlUMGJieHBscDloUTJzWjZVN2VjRExXVHV4NHc3TXBLLTkyN0lNSkJPVWgwMUUwdVQtR2w4LTQ5YlRxcEJn?oc=5",
+            "published": "Wed, 25 Nov 2026 18:00:04 GMT",
+            "source": "Benzinga",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "POET Technologies Is Just One Of 3 Top Growth Stocks - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdU83WjhOUExQdzV2aXJvZldIVzJVX2VsdWJndTBIaTNGTXBIUzRNU1RTbmhSWnRRRzlRWWhoRGZmRS1DcDVLZ3pfNzVwYktDc0JJQWJuNHA0Zk9FU1JWSDNzSnZzdzNqZzQyTUl5VE1mV0VfLXVIOF82N0tyb0VQY1ZZNW5TRnBHY2tORFo3M0xLVVJyc09FNQ?oc=5",
+            "published": "Tue, 24 Nov 2026 03:15:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "POET Technologies (POET) Stock May Still Look Like A Bargain On Record Revenue - Simply Wall St",
+            "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQeFkzRk1RNElZcmkwWWotdGdjMTZEUjh1b2FGTHBHYTlyMjhKbUR0Qm9hdzVoS0JudXhfS2RxQXlUTVNhajNLUG9ueUJESGltMGk1MnhUNl9CWTV4VnFNbnJRaXhFQlpLdGJXbjlCX0ZGb2pHR3lNelJpVi1HdFdJSDg5MlgzRU5IRXNEN0JvaHdvcTZacHhjZVBhdnAwUzBJb2hQa1lEMkMyS3VnUWFEMVg3ZTNyc3VOVXgyZkx0YW5HSGlBMW41Vkd3cjVSUnlBUkh2WHRwbjI5UQ?oc=5",
+            "published": "Wed, 25 Nov 2026 04:23:07 GMT",
+            "source": "Simply Wall St",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "MOD SUN Shares Gorgeous New Song ‘Poet’ - Rock Sound",
+            "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9icGp6Z0tERkRUR0pucVhpUXgwUmd6cEdYT19EaW9lVTA0c2t3MnNmbnpPbVM0UHBnZURfdFY5X0VBaHhHODJaUGMwQTBJWHgxUnAtYURjeENkRDRHUlFlb2pXWThkTGFsSE9SUkExNUc?oc=5",
+            "published": "Mon, 23 Nov 2026 10:34:52 GMT",
+            "source": "Rock Sound",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Wall Street May Not Be Ready for What’s Coming Next for This Little-Known AI Stock - 24/7 Wall St.",
+            "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNR2JGdlZ1a0JyRi1XX2NjQ0trYlNaU2JxMFdYczVvTXdXYmlaWWNLNFZoYjRfbWxtZThQRmVPeGRIX1VLUkhRMFlVejhFb3AyNWhYZVZuaERLMUlaQ3ZJckJocVBXRVByOWpELVVjLXBkb1pKSmFUaTgxS09xdmlBb0pIS2F3MmNmMFF0c2hvYzA1em1EM05xVms5dUF3RVZSc2t2NmNTRFVxcm9aSlFtTnJGYkdzaFl3b09XODZHeWpDbE0?oc=5",
+            "published": "Tue, 24 Nov 2026 14:04:00 GMT",
+            "source": "24/7 Wall St.",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "POET Technologies retreats 15% as tech stocks fall (POET:NASDAQ) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQblZHMUJYZmhieUpTaGVOLVpIU0M3SFprRU5COUdiT0tTUHFLcmVoamRIMFdNS0lYMkk4N1hNaWtFUm9oa0NEc2sxOUxQWVJuMVlZMmtUVF9SUzVOdTlUZzBJZ0J5NFZaZXhHR3BKVUl4dGFWQVRSRHNibEhMc182Y1dfbTN2REEtUDVTOWl2dkw?oc=5",
+            "published": "Fri, 20 Nov 2026 20:01:53 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": 6,
+        "hiring_trend": "STABLE",
+        "department_focus": "R&D / Engineering",
+        "ats_source": "Company Careers Page",
+        "careers_url": "https://www.poet-technologies.com/careers",
+        "sample_roles": [
+          "Associate Engineer, Process Singapore Learn More",
+          "Engineer, Reliability Penang, Malaysia Learn More",
+          "Engineer, Failure Analysis Penang, Malaysia Learn More",
+          "Senior Engineer, Information Technology Penang, Malaysia Learn More",
+          "Data Engineer, Supply Chain Penang, Malaysia Learn More"
+        ],
+        "evidence_note": "6 ruoli aperti individuati su Company Careers Page (assunzioni selettive)."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "POET negoziabile frazionato da €1 su NCM; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 3.58,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate. Prezzo $3.58 (~€3.29) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+        }
+      ],
+      "debate": {
+        "ai_engine": "hybrid (1/4 Gemini + Fallback)",
+        "bull": {
+          "headline": "Asimmetria su POET: fondamentali in crescita nonostante calo post-IPO",
+          "core_catalysts": [
+            {
+              "title": "Crescita Ricavi YoY +243.8% vs Prezzo Scontato (-86.3% dal picco)",
+              "detail": "Il titolo quota con un drawdown del 86.3% dal massimo post-IPO nonostante ricavi TTM pari a $2.4M in crescita del +243.8% YoY.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            }
+          ],
+          "insider_conviction_read": "Nessun acquisto Codice P recente nei Form 4 ispezionati; allineamento affidato alle partecipazioni esistenti.",
+          "expansion_signal": "6 ruoli aperti individuati su Company Careers Page (assunzioni selettive).",
+          "bull_conviction": 63
+        },
+        "bear": {
+          "headline": "Allerta diluizione e burn rate su POET",
+          "red_flags": [
+            {
+              "title": "Cash Burn Attivo ($5.3M/mese)",
+              "detail": "Cash flow effettivo negativo (OCF -$45.3M, FCF -$63.1M). Autonomia di cassa stimata in 99.0 mesi.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Rischio Diluizione Attivo (Depositi S-3/424B5 o 8-K Item 3.02)",
+              "detail": "Rilevati 5 moduli S-3/424B5 recenti o emissioni non registrate: la società può emettere nuove azioni diluendo i micro-azionisti.",
+              "source_tag": "[SEC-S3]",
+              "severity": "ALTO"
+            }
+          ],
+          "dilution_risk_level": "ALTO",
+          "burn_and_balance_sheet_audit": "Cassa $774.4M, Debito $8.3M, Current Ratio 30.6x. Burn mensile $5.3M.",
+          "bear_severity": 48
+        },
+        "auditor": {
+          "verification_score": 92,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Verifica numerica coerente: Cassa a $774.37M contro Debito Totale di $8.27M determina una Posizione Finanziaria Netta positiva di $766.11M. FCF negativo TTM di -$63.08M corrisponde a un burn mensile di circa $5.26M, garantendo una runway ampiamente superiore a 8 anni (99+ mesi come da metrica quantitativa). Zero acquisti Form 4 Codice P confermati.",
+          "verified_facts": [
+            "I ricavi TTM si attestano a $2.44M con una variazione YoY del +243.8%.",
+            "La posizione di cassa ed equivalenti è pari a $774.37M con debito totale contenuto a $8.27M (Current Ratio pari a 30.6x).",
+            "Il drawdown dal massimo post-IPO ($26.10) al prezzo attuale ($3.58) è esattamente pari al -86.28%.",
+            "Risultano registrati 5 filing di tipo shelf/takedown (F-3ASR e 424B5) nell'archivio SEC.",
+            "Non figurano acquisti sul mercato aperto (Codice P) da parte di insider nei dati Form 4."
+          ],
+          "challenged_claims": [
+            {
+              "agent": "BEAR",
+              "claim": "Allerta critica su cash burn rate e rischio liquidità imminente",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "Sebbene il FCF annuale sia negativo (-$63.1M), la società dispone di $774.4M in cassa con debito di appena $8.3M, garantendo un'autonomia stimata di almeno 99 mesi (~8,2 anni); il rischio di insolvenza a breve termine è nullo."
+            },
+            {
+              "agent": "BULL",
+              "claim": "Asimmetria favorevole basata su fondamentali in forte crescita",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "La crescita del +243.8% poggia su una base di ricavi assoluti estremamente esigua ($2.44M TTM) a fronte di una capitalizzazione di $623.7M e perdite operative cospicue (-$45.3M OCF)."
+            }
+          ]
+        }
+      }
+    },
+    "DAVE": {
+      "ticker": "DAVE",
+      "company_name": "Dave Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "exchange": "NGM",
+      "analyzed_at": "2026-11-25T23:07:12.046240+00:00",
+      "asymmetry_score": 75,
+      "verdict_label": "STRONG_ASYMMETRIC_BUY",
+      "sub_scores": {
+        "catalyst_strength": 18,
+        "financial_survival_runway": 25,
+        "insider_alignment": 5,
+        "valuation_asymmetry": 13,
+        "audit_confidence": 14
+      },
+      "thesis_5_lines": [
+        "1. Tesi Core: Dave Inc. (DAVE) tratta a -52.05% dal picco post-IPO; driver principale: Crescita Ricavi YoY +31.2% vs Prezzo Scontato (-52.0% dal picco).",
+        "2. Sopravvivenza: Ricavi YoY a +31.2% con cassa di $334.1M e Cash Flow Positivo (Net Cash $65.3M).",
+        "3. Segnali Lenti: SEC Form 4 mostra nessun acquisto open-market Codice P recente; segnale Careers 'STABLE' (R&D / Engineering).",
+        "4. Contro-Verifica Bear/Auditor: Rischio diluizione BASSO; affidabilità dati verificata al 92%.",
+        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$235.46; invalidazione se runway < 9m o emissione S-3 diluitiva."
+      ],
+      "signal_tags": [
+        "8-K Contratto/Brevetto",
+        "Cash Flow Positivo",
+        "Net Cash",
+        "Post-IPO -52%"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 35.0,
+        "entry_zone": "Accumulo frazionato area $221.33 - $242.52",
+        "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
+        "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
+      },
+      "quant_metrics": {
+        "ticker": "DAVE",
+        "company_name": "Dave Inc.",
+        "sector": "Technology",
+        "industry": "Software - Application",
+        "exchange": "NGM",
+        "currency": "USD",
+        "website": "https://dave.com",
+        "business_summary": "Dave Inc. provides various financial products and services through its financial services platform in the United States. It offers Budget, personal financial management tool that helps members anticipate upcoming transactions and receive notifications by utilizing historical bank account data to identify recurring charges; ExtraCash, a form of a discretionary overdraft to bridge liquidity gaps between paycheck; Side Hustle, a job application portal to find supplemental or temporary work. The company also provides Dave Checking, a digital demand deposit account. Dave Inc. was founded in 2015 and is headquartered in Los Angeles, California.",
+        "current_price": 235.46,
+        "ipo_date": "2021-04-26",
+        "months_since_ipo": 67.0,
+        "post_ipo_high": 491.07,
+        "post_ipo_drawdown_pct": -52.05,
+        "post_ipo_change_pct": -24.92,
+        "market_cap": 3012255488.0,
+        "enterprise_value": 2876548352.0,
+        "cash_and_equivalents": 334076000.0,
+        "total_debt": 268731008.0,
+        "net_cash": 65344992.0,
+        "revenue_ttm": 690632000.0,
+        "revenue_growth_yoy_pct": 31.2,
+        "gross_margin_pct": 70.07,
+        "ev_to_sales": 4.17,
+        "operating_cash_flow_ttm": 325096992.0,
+        "free_cash_flow_ttm": 267481744.0,
+        "monthly_burn_usd": 0.0,
+        "is_cash_flow_positive": true,
+        "runway_months": 99.0,
+        "current_ratio": 4.22,
+        "debt_to_equity": 98.17,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 280,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -52%",
+          "Ricavi +31% YoY",
+          "Cash Flow Positivo",
+          "Net Cash Positiva"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "DAVE",
+        "cik": "0001841408",
+        "entity_name": "Dave Inc./DE",
+        "sic_description": "Finance Services",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001841408",
+        "filings_8k": [
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-16",
+            "items": [
+              "8.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 8.01: Altri Eventi / Brevetti / Milestone",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 8.01: Altri Eventi / Brevetti / Milestone, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526463559/dave-20261116.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-04",
+            "items": [
+              "1.01",
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 1.01: Accordo / Contratto Materiale",
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 1.01: Accordo / Contratto Materiale, Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526447333/dave-20261104.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-08-14",
+            "items": [
+              "5.02"
+            ],
+            "item_descriptions": [
+              "Item 5.02: Cambio Dirigenti / CdA"
+            ],
+            "description": "Item 5.02: Cambio Dirigenti / CdA",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526352390/dave-20260812.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-08-05",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526335119/dave-20260805.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-06-02",
+            "items": [
+              "5.07"
+            ],
+            "item_descriptions": [
+              "Item 5.07: Voto Azionisti"
+            ],
+            "description": "Item 5.07: Voto Azionisti",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526253774/dave-20260602.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-05-05",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526206471/dave-20260505.htm"
+          }
+        ],
+        "filings_periodic": [
+          {
+            "form": "10-Q",
+            "filing_date": "2026-11-04",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526447414/dave-20260930.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-08-05",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526335154/dave-20260630.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-05-05",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526206446/dave-20260331.htm"
+          },
+          {
+            "form": "10-K",
+            "filing_date": "2026-03-02",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526085370/dave-20251231.htm"
+          }
+        ],
+        "filings_s1_ipo": [
+          {
+            "form": "S-1",
+            "filing_date": "2022-02-02",
+            "description": "S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312522025767/d40462ds1.htm"
+          },
+          {
+            "form": "424B4",
+            "filing_date": "2021-03-08",
+            "description": "424B4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312521073380/d95784d424b4.htm"
+          },
+          {
+            "form": "S-1/A",
+            "filing_date": "2021-02-26",
+            "description": "S-1/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312521059021/d95784ds1a.htm"
+          }
+        ],
+        "filings_s3_shelf": [],
+        "shelf_dilution_risk": false,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-23",
+            "insider_name": "Beilman Kyle",
+            "role": "CFO and COO and Secretary",
+            "code": "M",
+            "acquired_or_disposed": "A",
+            "shares": 8000.0,
+            "price_usd": 1.42,
+            "value_usd": 11360.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526473321/xslF345X06/ownership.xml"
+          },
+          {
+            "filing_date": "2026-09-04",
+            "transaction_date": "2026-09-02",
+            "insider_name": "Beilman Kyle",
+            "role": "CFO and COO and Secretary",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 3748.0,
+            "price_usd": 372.85,
+            "value_usd": 1397441.8,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526383910/xslF345X06/ownership.xml"
+          },
+          {
+            "filing_date": "2026-09-04",
+            "transaction_date": "2026-09-02",
+            "insider_name": "Wilk Jason",
+            "role": "Chief Executive Officer",
+            "code": "F",
+            "acquired_or_disposed": "D",
+            "shares": 7809.0,
+            "price_usd": 372.85,
+            "value_usd": 2911585.65,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526383909/xslF345X06/ownership.xml"
+          },
+          {
+            "filing_date": "2026-06-09",
+            "transaction_date": "2026-06-05",
+            "insider_name": "Rozov Yadin",
+            "role": "Director",
+            "code": "G",
+            "acquired_or_disposed": "D",
+            "shares": 2200.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526263065/xslF345X06/ownership.xml"
+          },
+          {
+            "filing_date": "2026-06-08",
+            "transaction_date": "2026-06-04",
+            "insider_name": "Preston Dan",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 275.0,
+            "price_usd": 247.65,
+            "value_usd": 68103.75,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526262530/xslF345X06/ownership.xml"
+          },
+          {
+            "filing_date": "2026-06-08",
+            "transaction_date": "2026-06-05",
+            "insider_name": "Preston Dan",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 275.0,
+            "price_usd": 259.83,
+            "value_usd": 71453.25,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526262530/xslF345X06/ownership.xml"
+          },
+          {
+            "filing_date": "2026-06-04",
+            "transaction_date": "2026-06-02",
+            "insider_name": "Beilman Kyle",
+            "role": "CFO and COO and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 49.0,
+            "price_usd": 277.23,
+            "value_usd": 13584.27,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526257870/xslF345X06/ownership.xml"
+          },
+          {
+            "filing_date": "2026-06-04",
+            "transaction_date": "2026-06-02",
+            "insider_name": "Beilman Kyle",
+            "role": "CFO and COO and Secretary",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 4073.0,
+            "price_usd": 275.0,
+            "value_usd": 1120075.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1841408/000119312526257870/xslF345X06/ownership.xml"
+          }
+        ],
+        "open_market_buys_count": 0,
+        "open_market_buys_usd": 0,
+        "open_market_sales_count": 4,
+        "open_market_sales_usd": 1273216.27,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "8-K Contratto / Catalyst"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "Dave (DAVE) Stock Still Looks Undervalued As Its Three Year Run Continues - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRk05X0xMR0lXX25ncnNhQXpxVkp4R3Z5dmpLcmdLTVpjS2dmM0FEUmZJRG9KeFU0VHZxVXZHVFpoQlNZTmlwaWlFTGsyUEo2YVoyLW5yZW91cnhmX2c5cVh1SnRZXzVGYUt6bTRSM3Z0M0ZncGZhQ2VRczZEWk9LcjZzQlpzVXR6aFBDZ3U0NVRwVkRGZGdj?oc=5",
+            "published": "Tue, 17 Nov 2026 22:08:50 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Why Dave Stock Got Thrashed on Thursday - The Motley Fool",
+            "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNMzl6SFdnRU1jM3B0XzRzNmxzNi11cDJHaE84ZENDcV9iV3FQdng2VERnQVZFNW1TREVScXg2MW9rZzJCRkl2OVZXbWZOZm5na3E3dFVSVHdHWGYtclhUYXFuMFdZb2RYUTljbjdodWh1bkY0QjJnZk04YjNZMkE0S0VWODZWZDRDa3c?oc=5",
+            "published": "Thu, 06 Aug 2026 07:00:00 GMT",
+            "source": "The Motley Fool",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Dave stock slumps as Q3 profit trails estimates regardless of higher revenue, raised guidance - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQUkxZNFF3XzQ1Q01oWjRxTjI2RlpvWEZ2TmZOenU1c0NPdzFJS0F5UlpQT01td01GZk5QaFk4VlNxRk5YVThETTVLbm9SS1V3c01od0hhYTktTl9iMXQxOUk1ZnlULTRQZ2J0MlBDVlA1VTgxMi1jVU5xdFJLWkpkVmx2cHdQMkJtZ1hpanRLVE85Sm4xOTRJa0xYeUhMUVZ6dS1vRHk4VjRLQkJFaDJDbkNTYy1VU3BrOWNUQXRiNmp4SXdZTGhmRnR3?oc=5",
+            "published": "Wed, 04 Nov 2026 08:00:00 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Dave Stock Sinks From Buy Zone. Will Earnings Lift It Back Up? - Investor's Business Daily",
+            "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBhM2pYTHdEZnB4WHJVa29TSUhRUGZQQTdZTVd2S1JiNUlablpkZksxU3JSNVJUYWYwV29sRE9kanlmLVo5eHZkZW1CREJMTUotUUNXUHVPT0d0a3JUM1BaY2VyYzJXb0dTeGxlZWNzYkh3eGhXNjVHd1p3?oc=5",
+            "published": "Wed, 29 Apr 2026 07:00:00 GMT",
+            "source": "Investor's Business Daily",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "DAVE - Dave Inc Stock Price and Quote - Finviz",
+            "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9OOUFMZU1UbzA0S2JWakFwakFTNmhfcWNRVlFUZlF6aUt6RTlwd0ZxTFBZQzNFSks0amg3dTJ4b0dFQnVfUHc?oc=5",
+            "published": "Tue, 26 May 2026 11:25:28 GMT",
+            "source": "Finviz",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Is DAVE Stock Still Worth Buying After Its Run and Raised Outlook - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQN1NQRk5SenpyRVptd2JEdDdTSzJDZVNEMndZNWkwYll2ejdPbXJ0YTdOSzBnb0R4aUJLRTFnd3VrcUZJcDI3M1BpMkQ4WktYc0o0czVUUy1QXzIyWk5DSDZpSmI3R1o1dFpyelhtNG1RS0xEUG1VbGZNMV9hYUZOOWtHNkJVanRzRHoyNnFQNXVRM2E3RmJHTXln?oc=5",
+            "published": "Tue, 30 Jun 2026 07:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": 9,
+        "hiring_trend": "STABLE",
+        "department_focus": "R&D / Engineering",
+        "ats_source": "Ashby",
+        "careers_url": "https://jobs.ashbyhq.com/dave",
+        "sample_roles": [
+          "Lead Machine Learning Scientist",
+          "Director of Product, Financial Platform",
+          "Senior Product Manager, Financial Data Intelligence",
+          "Product and Regulatory Legal Director",
+          "Commercial Legal Director"
+        ],
+        "evidence_note": "9 ruoli aperti individuati su Ashby (assunzioni selettive)."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "DAVE negoziabile frazionato da €1 su NGM; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 235.46,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate e 1 azione ($235.46, ~€216.62) supera il micro-ticket da €35."
+        }
+      ],
+      "debate": {
+        "ai_engine": "hybrid (1/4 Gemini + Fallback)",
+        "bull": {
+          "headline": "Asimmetria su DAVE: fondamentali in crescita nonostante calo post-IPO",
+          "core_catalysts": [
+            {
+              "title": "Crescita Ricavi YoY +31.2% vs Prezzo Scontato (-52.0% dal picco)",
+              "detail": "Il titolo quota con un drawdown del 52.0% dal massimo post-IPO nonostante ricavi TTM pari a $690.6M in crescita del +31.2% YoY.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Deposito SEC 8-K (2026-11-16): Eventi Materiali / Contratti",
+              "detail": "Item 8.01: Altri Eventi / Brevetti / Milestone, Item 9.01: Bilanci ed Exhibit",
+              "source_tag": "[SEC-8K]",
+              "impact": "ALTO"
+            }
+          ],
+          "insider_conviction_read": "Nessun acquisto Codice P recente nei Form 4 ispezionati; allineamento affidato alle partecipazioni esistenti.",
+          "expansion_signal": "9 ruoli aperti individuati su Ashby (assunzioni selettive).",
+          "bull_conviction": 73
+        },
+        "bear": {
+          "headline": "Volatilità post-utili e debito lordo di 268M$: utili Q3 sotto le stime e turnover manageriale",
+          "red_flags": [
+            {
+              "title": "Crescita dei ricavi disaccoppiata dalla redditività netta",
+              "detail": "Nonostante la crescita del fatturato (+31,2% YoY), la società ha subito vendite pesanti sul titolo a seguito di utili Q3 inferiori alle stime di consenso, evidenziando vulnerabilità sui margini reali e pressione sui costi operativi.",
+              "source_tag": "[NEWS]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Debito complessivo rilevante e drawdown pesante dai massimi",
+              "detail": "Il titolo registra un drawdown del -52,05% rispetto al massimo post-IPO di 491,07$. Inoltre, a fronte di 334,08M$ di cassa, l'azienda porta a bilancio 268,73M$ di debito totale, riducendo la liquidità netta a soli 65,34M$.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Avvicendamento a livello dirigenziale / CdA",
+              "detail": "In data 14/08/2026 è stato depositato un Form 8-K relativo all'Item 5.02 (cambio dirigenti o membri del Consiglio di Amministrazione), segnalando instabilità o riorganizzazioni interne nei vertici della società.",
+              "source_tag": "[SEC-8K]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Assenza totale di acquisti insider e vendite sul mercato aperto",
+              "detail": "Non si registra alcun acquisto sul mercato aperto da parte di insider (0$ buy), mentre risultano dismissioni azionarie tra cui vendite di amministratori (Codice S) e liquidazioni fiscali consistenti da parte di CEO e CFO.",
+              "source_tag": "[FORM-4]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Rischio regolatorio intrinseco nel core business dell'overdraft",
+              "detail": "L'apertura di selezioni mirate per figure quali 'Product and Regulatory Legal Director' e 'Commercial Legal Director' riflette la crescente complessità e pressione normativa sul modello di anticipo contanti (ExtraCash) e commissioni assimilate.",
+              "source_tag": "[CAREERS]",
+              "severity": "MEDIO"
+            }
+          ],
+          "dilution_risk_level": "BASSO",
+          "burn_and_balance_sheet_audit": "La struttura di cassa corrente è sostenibile nell'immediato grazie a un FCF positivo di 267,48M$ e un current ratio di 4,22, con assenza di burn mensile. Tuttavia, la presenza di 268,73M$ di indebitamento lordo riduce il margine di sicurezza patrimoniale (cassa netta compressa a 65,34M$), rendendo l'azienda vulnerabile a improvvisi shock di credito o regolatori sul portafoglio overdraft.",
+          "bear_severity": 42
+        },
+        "auditor": {
+          "verification_score": 92,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Coerenza verificata: Net Cash $65.3M, Runway CF Positivo, Form 4 Codice P separato correttamente da grant (Codice A/M).",
+          "verified_facts": [
+            "Bilancio: Cassa $334.1M vs Debito Totale $268.7M (Net Cash: $65.3M).",
+            "Sostenibilità: Cash flow positivo, nessuna dipendenza immediata da aumenti di capitale.",
+            "Form 4 SEC: verificati 0 acquisti reali Codice P vs 4 vendite Codice S (esclusi grant/opzioni).",
+            "Drawdown post-IPO confermato a -52.05% rispetto al picco di $491."
+          ],
+          "challenged_claims": []
+        }
+      }
+    },
+    "AMPX": {
+      "ticker": "AMPX",
+      "company_name": "Amprius Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts",
+      "exchange": "NYQ",
+      "analyzed_at": "2026-11-25T23:07:20.892576+00:00",
+      "asymmetry_score": 64,
+      "verdict_label": "WATCHLIST_ACCUMULATE",
+      "sub_scores": {
+        "catalyst_strength": 20,
+        "financial_survival_runway": 18,
+        "insider_alignment": 5,
+        "valuation_asymmetry": 10,
+        "audit_confidence": 11
+      },
+      "thesis_5_lines": [
+        "1. Tesi Core: Amprius Technologies, Inc. (AMPX) tratta a -78.12% dal picco post-IPO; driver principale: Crescita Ricavi YoY +82.7% vs Prezzo Scontato (-78.1% dal picco).",
+        "2. Sopravvivenza: Ricavi YoY a +82.7% con cassa di $60.7M e runway di 19.6 mesi (Net Cash $53.6M).",
+        "3. Segnali Lenti: SEC Form 4 mostra nessun acquisto open-market Codice P recente; segnale Careers 'UNKNOWN' (Bilanciato).",
+        "4. Contro-Verifica Bear/Auditor: Rischio diluizione ALTO; affidabilità dati verificata al 92%.",
+        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$5.69; invalidazione se runway < 9m o emissione S-3 diluitiva."
+      ],
+      "signal_tags": [
+        "8-K Contratto/Brevetto",
+        "Net Cash",
+        "Post-IPO -78%",
+        "Rischio Diluizione"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 25.0,
+        "entry_zone": "Accumulo frazionato area $5.35 - $5.86",
+        "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
+        "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
+      },
+      "quant_metrics": {
+        "ticker": "AMPX",
+        "company_name": "Amprius Technologies, Inc.",
+        "sector": "Industrials",
+        "industry": "Electrical Equipment & Parts",
+        "exchange": "NYQ",
+        "currency": "USD",
+        "website": "https://amprius.com",
+        "business_summary": "Amprius Technologies, Inc. develops, manufactures, and markets lithium-ion batteries for mobility applications. The company provides silicon anode lithium-ion batteries under the SiCore and SiMaxx product platforms. Its batteries are primarily used for existing and emerging aviation applications, including unmanned aerial systems, such as drones and high-altitude pseudo satellites. The company was founded in 2008 and is headquartered in Fremont, California.",
+        "current_price": 5.69,
+        "ipo_date": "2022-09-15",
+        "months_since_ipo": 50.3,
+        "post_ipo_high": 26.01,
+        "post_ipo_drawdown_pct": -78.12,
+        "post_ipo_change_pct": -43.1,
+        "market_cap": 834402176.0,
+        "enterprise_value": 785195456.0,
+        "cash_and_equivalents": 60685000.0,
+        "total_debt": 7079000.0,
+        "net_cash": 53606000.0,
+        "revenue_ttm": 126947000.0,
+        "revenue_growth_yoy_pct": 82.7,
+        "gross_margin_pct": 24.82,
+        "ev_to_sales": 6.19,
+        "operating_cash_flow_ttm": -51461000.0,
+        "free_cash_flow_ttm": -37144624.0,
+        "monthly_burn_usd": 3095385.33,
+        "is_cash_flow_positive": false,
+        "runway_months": 19.6,
+        "current_ratio": 4.21,
+        "debt_to_equity": 5.68,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 97,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -78%",
+          "Ricavi +83% YoY",
+          "Runway > 12m (20m)",
+          "Net Cash Positiva"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "AMPX",
+        "cik": "0001899287",
+        "entity_name": "Amprius Technologies, Inc.",
+        "sic_description": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001899287",
+        "filings_8k": [
+          {
+            "form": "8-K",
+            "filing_date": "2026-11-10",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000069/ampx-20261110.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-09-28",
+            "items": [
+              "1.01",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 1.01: Accordo / Contratto Materiale",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 1.01: Accordo / Contratto Materiale, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000065/ampx-20260923.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-08-13",
+            "items": [
+              "1.01",
+              "2.03",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 1.01: Accordo / Contratto Materiale",
+              "Item 2.03: Nuovo Debito / Obbligazione Diretta",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 1.01: Accordo / Contratto Materiale, Item 2.03: Nuovo Debito / Obbligazione Diretta, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000062/ampx-20260807.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-08-04",
+            "items": [
+              "2.02",
+              "9.01"
+            ],
+            "item_descriptions": [
+              "Item 2.02: Risultati Finanziari",
+              "Item 9.01: Bilanci ed Exhibit"
+            ],
+            "description": "Item 2.02: Risultati Finanziari, Item 9.01: Bilanci ed Exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000056/ampx-20260804.htm"
+          },
+          {
+            "form": "8-K",
+            "filing_date": "2026-06-17",
+            "items": [
+              "5.07"
+            ],
+            "item_descriptions": [
+              "Item 5.07: Voto Azionisti"
+            ],
+            "description": "Item 5.07: Voto Azionisti",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000053/ampx-20260611.htm"
+          },
+          {
+            "form": "8-K/A",
+            "filing_date": "2026-05-19",
+            "items": [
+              "3.02"
+            ],
+            "item_descriptions": [
+              "Item 3.02: Emissione Azioni Non Registrate (Diluizione)"
+            ],
+            "description": "Item 3.02: Emissione Azioni Non Registrate (Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000051/ampx-20260506.htm"
+          }
+        ],
+        "filings_periodic": [
+          {
+            "form": "10-Q",
+            "filing_date": "2026-11-12",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000071/ampx-20260930.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-08-06",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000059/ampx-20260630.htm"
+          },
+          {
+            "form": "10-Q",
+            "filing_date": "2026-05-07",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000045/ampx-20260331.htm"
+          },
+          {
+            "form": "10-K",
+            "filing_date": "2026-03-06",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000015/ampx-20251231.htm"
+          }
+        ],
+        "filings_s1_ipo": [
+          {
+            "form": "S-1",
+            "filing_date": "2023-04-05",
+            "description": "S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000119312523092391/d490458ds1.htm"
+          },
+          {
+            "form": "S-1/A",
+            "filing_date": "2022-12-27",
+            "description": "PART II FILING",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000119312522312577/d377019ds1a.htm"
+          },
+          {
+            "form": "S-1/A",
+            "filing_date": "2022-11-16",
+            "description": "S-1/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000119312522286833/d377019ds1a.htm"
+          }
+        ],
+        "filings_s3_shelf": [
+          {
+            "form": "S-3ASR",
+            "filing_date": "2026-10-09",
+            "description": "Shelf / ATM Takedown S-3ASR (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000110465926115105/tm2626736d1_s3asr.htm"
+          },
+          {
+            "form": "424B3",
+            "filing_date": "2024-07-08",
+            "description": "Shelf / ATM Takedown 424B3 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000119312524176335/d834668d424b3.htm"
+          },
+          {
+            "form": "424B3",
+            "filing_date": "2024-05-13",
+            "description": "Shelf / ATM Takedown 424B3 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000119312524136752/d738624d424b3.htm"
+          },
+          {
+            "form": "424B3",
+            "filing_date": "2024-05-13",
+            "description": "Shelf / ATM Takedown 424B3 (Rischio Diluizione)",
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000119312524136751/d835540d424b3.htm"
+          }
+        ],
+        "shelf_dilution_risk": true,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-23",
+            "insider_name": "Stefan Constantin Ionel",
+            "role": "Chief Technology Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 26845.0,
+            "price_usd": 6.468,
+            "value_usd": 173633.46,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000194092826000028/xslF345X06/wk-form4_1795568822.xml"
+          },
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-23",
+            "insider_name": "RODRIGUEZ RICARDO C.",
+            "role": "Chief Financial Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 23246.0,
+            "price_usd": 6.468,
+            "value_usd": 150355.13,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000192099626000008/xslF345X06/wk-form4_1795568804.xml"
+          },
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-24",
+            "insider_name": "RODRIGUEZ RICARDO C.",
+            "role": "Chief Financial Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 13719.0,
+            "price_usd": 5.7245,
+            "value_usd": 78534.42,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000192099626000008/xslF345X06/wk-form4_1795568804.xml"
+          },
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-23",
+            "insider_name": "Stepien Thomas M",
+            "role": "Chief Executive Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 21281.0,
+            "price_usd": 6.468,
+            "value_usd": 137645.51,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000206723326000023/xslF345X06/wk-form4_1795568787.xml"
+          },
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-24",
+            "insider_name": "Stepien Thomas M",
+            "role": "Chief Executive Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 5118.0,
+            "price_usd": 5.7249,
+            "value_usd": 29300.04,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000206723326000023/xslF345X06/wk-form4_1795568787.xml"
+          },
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-23",
+            "insider_name": "Sun Kang",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 56166.0,
+            "price_usd": 6.468,
+            "value_usd": 363281.69,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000147622026000040/xslF345X06/wk-form4_1795568768.xml"
+          },
+          {
+            "filing_date": "2026-11-17",
+            "transaction_date": "2026-11-13",
+            "insider_name": "Sun Kang",
+            "role": "Director",
+            "code": "G",
+            "acquired_or_disposed": "D",
+            "shares": 306709.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000147622026000036/xslF345X06/wk-form4_1794956703.xml"
+          },
+          {
+            "filing_date": "2026-11-17",
+            "transaction_date": "2026-11-13",
+            "insider_name": "Sun Kang",
+            "role": "Director",
+            "code": "G",
+            "acquired_or_disposed": "A",
+            "shares": 306709.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000147622026000036/xslF345X06/wk-form4_1794956703.xml"
+          },
+          {
+            "filing_date": "2026-08-25",
+            "transaction_date": "2026-08-21",
+            "insider_name": "Sun Kang",
+            "role": "Director",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 62101.0,
+            "price_usd": 10.341,
+            "value_usd": 642186.44,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000147622026000034/xslF345X06/wk-form4_1787692956.xml"
+          },
+          {
+            "filing_date": "2026-08-25",
+            "transaction_date": "2026-08-21",
+            "insider_name": "Stefan Constantin Ionel",
+            "role": "Chief Technology Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 29681.0,
+            "price_usd": 10.341,
+            "value_usd": 306931.22,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000194092826000024/xslF345X06/wk-form4_1787692925.xml"
+          },
+          {
+            "filing_date": "2026-08-25",
+            "transaction_date": "2026-08-21",
+            "insider_name": "Stepien Thomas M",
+            "role": "Chief Executive Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 23529.0,
+            "price_usd": 10.341,
+            "value_usd": 243313.39,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000206723326000019/xslF345X06/wk-form4_1787692877.xml"
+          },
+          {
+            "filing_date": "2026-08-25",
+            "transaction_date": "2026-08-24",
+            "insider_name": "Stepien Thomas M",
+            "role": "Chief Executive Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 8000.0,
+            "price_usd": 10.03,
+            "value_usd": 80240.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000206723326000019/xslF345X06/wk-form4_1787692877.xml"
+          },
+          {
+            "filing_date": "2026-08-25",
+            "transaction_date": "2026-08-25",
+            "insider_name": "Stepien Thomas M",
+            "role": "Chief Executive Officer",
+            "code": "G",
+            "acquired_or_disposed": "D",
+            "shares": 5000.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000206723326000019/xslF345X06/wk-form4_1787692877.xml"
+          },
+          {
+            "filing_date": "2026-08-25",
+            "transaction_date": "2026-08-25",
+            "insider_name": "Stepien Thomas M",
+            "role": "Chief Executive Officer",
+            "code": "G",
+            "acquired_or_disposed": "D",
+            "shares": 5000.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000206723326000019/xslF345X06/wk-form4_1787692877.xml"
+          },
+          {
+            "filing_date": "2026-08-25",
+            "transaction_date": "2026-08-25",
+            "insider_name": "Stepien Thomas M",
+            "role": "Chief Executive Officer",
+            "code": "G",
+            "acquired_or_disposed": "D",
+            "shares": 5000.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1899287/000206723326000019/xslF345X06/wk-form4_1787692877.xml"
+          }
+        ],
+        "open_market_buys_count": 0,
+        "open_market_buys_usd": 0,
+        "open_market_sales_count": 10,
+        "open_market_sales_usd": 2205421.3,
+        "cluster_insider_buying": false,
+        "sec_tags": [
+          "8-K Contratto / Catalyst",
+          "Rischio Diluizione (S-3/424B5)"
+        ],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "Amprius Technologies(AMPX) Stock Price Today | Quotes & News - Moomoo",
+            "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxQNG40NHZjOVZuUzhpVC1BekgtZm5YYkp1OVlDY2tkdUlwcUV6MzRCQ2ZaM3hLaDdYVm9CSGRxZjd5MDBhZUZYUUplMGhiNUY1eklqY1N3MWxSY3p1VTV5bXgxTnJ3NXJmUDc5Qkg2MU01c0VhcTR5WVdONno0VUpqNFowQk5FYnBWaFJ2NWIzV1UwbW5DMXFjVlFjY3pKNGV0MlpHNWdFWHpTY0pPdUZuWTJMdC1weUxwWWE1em55ZkQ4ZVBiMk1SUkZXRk9MNG1Zdi0wakpsSUxhd1EtNkZGNXdPM214VENNR2ozNW85MXVOZlhfTWhFVkMwbnZZMXgzbVl2VkwzdFotellDcllDR2FqRXd1ZG5Jc0xwaTln?oc=5",
+            "published": "Tue, 24 Nov 2026 19:16:00 GMT",
+            "source": "Moomoo",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Are Business Services Stocks Lagging Amprius Technologies, Inc. (AMPX) This Year? - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQaGFDOFcwZ3d5bVJVOHduMnZMa3dRMkJvdEFOYjNTcFBvWWRaQlRXbnpZVmlXcjRITjNzUUlkOUhjVnlQOW9xcERYOWhteGpqSm9PYkF5LVZ3ajROMmZIYzlNcVVWSFZUYi01dmVuQW5TV0dEWHdtY3JKbk1ibzlBWWlrM1FCUHljRnlTajFvLTB6NGRBcC1QODFrTF9VZENvSzdLYTYxbTg?oc=5",
+            "published": "Fri, 13 Nov 2026 08:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Amprius Technologies (AMPX) Stock Looks Pricey On Raised Full Year Guidance - Simply Wall St",
+            "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPSGhrRGw0SDZUcEFRT1UxLWtoZ2R4bEhkODBzTGtDdkpjWGpSUlA4WDZiTjlmUzVLRW05U3BkUnNVUDNBNlZ1ZEhycXJiSFBHOHJtZFZoQS00QjVEM3NnbUNqaVZ0ZFBDOEljLUo0LXRSUnZaRVdJa25LdHkwTFAyV2xvRFY5YmRPWS0zNnFoS2JpREZhYS1DeF9MdEh1c1MtNjFJd3hoQ29wTHUyQWowSlZVNUk3bldBNTRWR2J1emQzenIwWmVtTU5lWXJab3MtY2dJQWVtNEzSAd4BQVVfeXFMUDBmbTVfamJOTnFOZWRrMTBDRkNNeXdrTlVoWGNTTmNnUGYxU25aSm94NHh5UHVpMExNYWlVME9qb3Q3V3kzbHpsQi1BMEZUQ25fVG1KRTJ6VDFiUUVFMnpZdEZEdno2TUpKclV4bTBkVHpQbERVd1lZUl90Vk10REhzV0pJQ21uWXd0ZU9oLV9FTnZYUTZyZ2NpOVNvaVBuc2dPV0tISjhHV0ZJcVhUQl8xYnZJOWRVMVpzTUpFaTFqSnBFalV6a29FYS1TWTRLMDFVMnRCMEJpNkFHZjRB?oc=5",
+            "published": "Mon, 23 Nov 2026 19:08:07 GMT",
+            "source": "Simply Wall St",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Two sales by the Amprius Technologies (AMPX) CEO totaled 26,399 shares. One covered tax withholding. - Stock Titan",
+            "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNemNRYVNiUldSVXdvT084eU81NzBLQ1ZXZ1VFcVhsemYwYXkta2RpdW51TDFiTlo1MTVkT182UnFvRnB6RGpHMmYwMjUxSHB5Y0xIUFg2Q1NEc3hpdHNrNmtqV3dQdVdsVENZLW4zYUt5M3k5UklHSTlfWVhTZDRwcy15bkFSQ2NzXzhOYkJIMDdmTlVJM25TaWFBcURXLTdxUTI4NEFuNlRWOGJHaDUwUHlhVENsUVp6OEE?oc=5",
+            "published": "Wed, 25 Nov 2026 01:06:00 GMT",
+            "source": "Stock Titan",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Amprius Technologies (AMPX) Lifted Its 2026 Outlook, Is It A Bargain? - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQUTFiTThKS2QxRTZ0M1dSdHpHc2wwQ1VBVGhWVmtSUWxSa18ySHp0dDF6YjFRRllCemUyUk9OSFJFZHlEZ29uVGd6RWVHVWFEVlU5ZUgzT250bi1hOXlFUlRjaktwN0thc2p1Tk5hTi1oYUdkOHlaay1HRE5NY1c4U21NblQ1RUFrT0lXMDRYVVNnTFh1Z3RvLVRjckNLMmFwSWQxbQ?oc=5",
+            "published": "Thu, 12 Nov 2026 08:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Amprius Technologies director sells 56,166 shares - Stock Titan",
+            "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdGZyWGJXSWFwU0hqanJlMDFlWHpINjFrQUxKZ0JEZDZxaVE3VTFYWlRsUUVRSm5oeFpnU3k2dXBWTHotRTFjemU4MGF1cGNHLWIySU9pR294Y1pGQ0N5WUNuVmpsRl9GV251S3VGd081c0o3SDhScDE5eVpKNi1MZnE1STJjZkhkT2lOX3BsVFU1dTJwbHJjaS1FOFA3ZWFwY0RkUG5DcjN2S2hmSFRORjM2X0YzdzVMclE?oc=5",
+            "published": "Wed, 25 Nov 2026 01:06:00 GMT",
+            "source": "Stock Titan",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": null,
+        "hiring_trend": "UNKNOWN",
+        "department_focus": "Bilanciato",
+        "ats_source": "N/D",
+        "careers_url": "https://amprius.com/careers",
+        "sample_roles": [],
+        "evidence_note": "Board careers proprietario o dietro JS; verifica manuale consigliata."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "AMPX negoziabile frazionato da €1 su NYQ; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 5.69,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate. Prezzo $5.69 (~€5.23) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+        }
+      ],
+      "debate": {
+        "ai_engine": "forensic_rules_engine_fallback",
+        "bull": {
+          "headline": "Asimmetria su AMPX: fondamentali in crescita nonostante calo post-IPO",
+          "core_catalysts": [
+            {
+              "title": "Crescita Ricavi YoY +82.7% vs Prezzo Scontato (-78.1% dal picco)",
+              "detail": "Il titolo quota con un drawdown del 78.1% dal massimo post-IPO nonostante ricavi TTM pari a $126.9M in crescita del +82.7% YoY.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Deposito SEC 8-K (2026-09-28): Eventi Materiali / Contratti",
+              "detail": "Item 1.01: Accordo / Contratto Materiale, Item 9.01: Bilanci ed Exhibit",
+              "source_tag": "[SEC-8K]",
+              "impact": "ALTO"
+            }
+          ],
+          "insider_conviction_read": "Nessun acquisto Codice P recente nei Form 4 ispezionati; allineamento affidato alle partecipazioni esistenti.",
+          "expansion_signal": "Board careers proprietario o dietro JS; verifica manuale consigliata.",
+          "bull_conviction": 73
+        },
+        "bear": {
+          "headline": "Allerta diluizione e burn rate su AMPX",
+          "red_flags": [
+            {
+              "title": "Cash Burn Attivo ($3.1M/mese)",
+              "detail": "Cash flow effettivo negativo (OCF -$51.5M, FCF -$37.1M). Autonomia di cassa stimata in 19.6 mesi.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Rischio Diluizione Attivo (Depositi S-3/424B5 o 8-K Item 3.02)",
+              "detail": "Rilevati 4 moduli S-3/424B5 recenti o emissioni non registrate: la società può emettere nuove azioni diluendo i micro-azionisti.",
+              "source_tag": "[SEC-S3]",
+              "severity": "ALTO"
+            },
+            {
+              "title": "Vendite Insider Form 4 ($2.2M)",
+              "detail": "Registrate 10 transazioni Codice S in uscita nei Form 4 recenti.",
+              "source_tag": "[FORM-4]",
+              "severity": "MEDIO"
+            }
+          ],
+          "dilution_risk_level": "ALTO",
+          "burn_and_balance_sheet_audit": "Cassa $60.7M, Debito $7.1M, Current Ratio 4.21x. Burn mensile $3.1M.",
+          "bear_severity": 58
+        },
+        "auditor": {
+          "verification_score": 92,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Coerenza verificata: Net Cash $53.6M, Runway 19.6 mesi, Form 4 Codice P separato correttamente da grant (Codice A/M).",
+          "verified_facts": [
+            "Bilancio: Cassa $60.7M vs Debito Totale $7.1M (Net Cash: $53.6M).",
+            "Runway calcolata: $60.7M / $3.1M al mese = 19.6 mesi.",
+            "Form 4 SEC: verificati 0 acquisti reali Codice P vs 10 vendite Codice S (esclusi grant/opzioni).",
+            "Drawdown post-IPO confermato a -78.12% rispetto al picco di $26."
+          ],
+          "challenged_claims": []
+        }
+      }
     }
   },
   "micro_orders": [
@@ -6178,8 +9642,8 @@
       "initial_ai_score": 77,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.133741+00:00",
-      "last_live_price_usd": 23.6,
-      "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
+      "last_live_price_usd": 26.02,
+      "last_monitored_at": "2026-11-25T23:07:20.913797+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -6294,11 +9758,17 @@
           "price_usd": 23.6,
           "pnl_pct": -3.67,
           "ai_score": 77
+        },
+        {
+          "ts": "2026-11-25T23:07:20.913797+00:00",
+          "price_usd": 26.02,
+          "pnl_pct": 6.2,
+          "ai_score": 77
         }
       ],
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "peak_price_usd": 25.67
+      "peak_price_usd": 26.02
     },
     {
       "id": "002e9cf8",
@@ -6314,8 +9784,8 @@
       "initial_ai_score": 73,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.148135+00:00",
-      "last_live_price_usd": 5.9,
-      "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
+      "last_live_price_usd": 5.89,
+      "last_monitored_at": "2026-11-25T23:07:20.913797+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -6430,6 +9900,12 @@
           "price_usd": 5.9,
           "pnl_pct": -7.81,
           "ai_score": 73
+        },
+        {
+          "ts": "2026-11-25T23:07:20.913797+00:00",
+          "price_usd": 5.89,
+          "pnl_pct": -7.97,
+          "ai_score": 73
         }
       ],
       "take_profit_pct": 80.0,
@@ -6449,8 +9925,8 @@
       "auto_registered": true,
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "last_live_price_usd": 45.98,
-      "last_monitored_at": "2026-11-24T23:34:44.752464+00:00",
+      "last_live_price_usd": 47.02,
+      "last_monitored_at": "2026-11-25T23:07:20.913797+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -6557,6 +10033,12 @@
           "price_usd": 45.98,
           "pnl_pct": -13.36,
           "ai_score": 76
+        },
+        {
+          "ts": "2026-11-25T23:07:20.913797+00:00",
+          "price_usd": 47.02,
+          "pnl_pct": -11.4,
+          "ai_score": 76
         }
       ],
       "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -6565,9 +10047,341 @@
       "status": "APERTO",
       "created_at": "2026-11-19T09:29:16.074235+00:00",
       "peak_price_usd": 53.07
+    },
+    {
+      "id": "aa6f78a7",
+      "ticker": "DAVE",
+      "order_date": "2026-11-25",
+      "amount_eur": 35.0,
+      "original_amount_eur": 35.0,
+      "partial_realized_pnl_eur": 0.0,
+      "tp1_executed": false,
+      "tp1_note": null,
+      "peak_price_usd": 235.46,
+      "entry_price_usd": 235.46,
+      "exit_price_usd": null,
+      "broker": "Trading 212 (Paper)",
+      "fractional": true,
+      "mode": "PAPER_AUTO",
+      "auto_registered": true,
+      "take_profit_pct": 80.0,
+      "stop_loss_pct": -30.0,
+      "last_live_price_usd": 235.46,
+      "last_monitored_at": "2026-11-25T23:07:21.632985+00:00",
+      "closed_at": null,
+      "close_reason": null,
+      "last_alert_reason": null,
+      "last_alert_at": null,
+      "price_history": [
+        {
+          "ts": "2026-11-25T23:07:21.632985+00:00",
+          "price_usd": 235.46,
+          "pnl_pct": 0.0,
+          "ai_score": 75
+        }
+      ],
+      "initial_thesis": "1. Tesi Core: Dave Inc. (DAVE) tratta a -52.05% dal picco post-IPO; driver principale: Crescita Ricavi YoY +31.2% vs Prezzo Scontato (-52.0% dal picco). 2. Sopravvivenza: Ricavi YoY a +31.2% con cassa di $334.1M e Cash Flow Positivo (Net Cash $65.3M).",
+      "invalidation_rule": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
+      "initial_ai_score": 75,
+      "status": "APERTO",
+      "created_at": "2026-11-25T23:07:21.632985+00:00"
     }
   ],
   "pipeline_runs": [
+    {
+      "run_at": "2026-11-25T23:07:20.904774+00:00",
+      "candidates_scanned": 36,
+      "stage1_passed_count": 10,
+      "stage2_deep_analyzed_count": 6,
+      "analyzed_count": 6,
+      "skipped_count": 20,
+      "error_count": 0,
+      "discovery_sources": {
+        "sec_live_form_4": 18,
+        "curated_post_ipo_microcap": 18
+      },
+      "top_tickers": [
+        {
+          "ticker": "DAVE",
+          "score": 75,
+          "verdict": "STRONG_ASYMMETRIC_BUY"
+        },
+        {
+          "ticker": "SEZL",
+          "score": 71,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        },
+        {
+          "ticker": "CDNA",
+          "score": 66,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        },
+        {
+          "ticker": "AMPX",
+          "score": 64,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        },
+        {
+          "ticker": "NRIX",
+          "score": 63,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        }
+      ],
+      "skipped": [
+        {
+          "ticker": "NRDY",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "NWTG",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "TGEN",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "CYDY",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "KDP",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "NP",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": true
+          }
+        },
+        {
+          "ticker": "PDX",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "EOSE",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "CVLG",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "DCO",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "LOCL",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "STEM",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "AVD",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "PPTA",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "AEHR",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "CLW",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SCM",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "FLNC",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ZYME",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ENVX",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        }
+      ],
+      "errors": [],
+      "auto_monitor": {
+        "checked_count": 3,
+        "auto_closed": [],
+        "alerts": []
+      },
+      "auto_register": {
+        "registered_tickers": [
+          "DAVE"
+        ],
+        "skipped_count": 15
+      }
+    },
     {
       "run_at": "2026-11-24T23:29:20.151926+00:00",
       "candidates_scanned": 36,
@@ -8034,7 +11848,7 @@
       "errors": []
     }
   ],
-  "updated_at": "2026-11-24T23:34:45.268679+00:00",
+  "updated_at": "2026-11-25T23:07:22.032465+00:00",
   "autopilot_config": {
     "enabled": true,
     "background_monitor_enabled": false,
@@ -8065,6 +11879,29 @@
     "notify_telegram": true
   },
   "autopilot_logs": [
+    {
+      "id": "7e20da89",
+      "ts": "2026-11-25T23:07:21.641790+00:00",
+      "action": "AUTO_REGISTER",
+      "ticker": "DAVE",
+      "summary": "Auto-registrato micro-ordine PAPER_AUTO €35.00 su DAVE @ $235.46 (Score 75/100, TP1 +35.0%, TP2 +80.0%).",
+      "details": {
+        "order_id": "aa6f78a7",
+        "score": 75,
+        "price_usd": 235.46
+      }
+    },
+    {
+      "id": "07237c0d",
+      "ts": "2026-11-25T23:07:21.603888+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "RKLB,RDW,ASTS",
+      "summary": "Monitorate 3 posizioni aperte (3 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 3,
+        "rescan_ai": false
+      }
+    },
     {
       "id": "40bd87f1",
       "ts": "2026-11-24T23:34:45.267206+00:00",
