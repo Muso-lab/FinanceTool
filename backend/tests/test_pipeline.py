@@ -951,4 +951,30 @@ def test_two_stage_funnel_caps_deep_ai_analysis_to_top_finalists(monkeypatch, tm
     assert "C4" in deep_called
 
 
+def test_gemini_503_retry_uses_time_module_without_nameerror(monkeypatch) -> None:
+    """Regression test: 503 retry in _call_gemini_agent must not raise NameError for `time`."""
+    slept: list[float] = []
+    monkeypatch.setattr(scouter_pipeline.time, "sleep", lambda s: slept.append(s))
+
+    attempts = {"n": 0}
+
+    class _FakeResp:
+        text = '{"ok": true}'
+
+    class _FakeModels:
+        def generate_content(self, **_kw):
+            attempts["n"] += 1
+            if attempts["n"] == 1:
+                raise RuntimeError("503 UNAVAILABLE: high demand")
+            return _FakeResp()
+
+    class _FakeClient:
+        models = _FakeModels()
+
+    res = scouter_pipeline._call_gemini_agent(_FakeClient(), "sys", {"a": 1}, "gemini-3.8-flash")
+    assert res == {"ok": True}
+    assert slept == [2]
+
+
+
 

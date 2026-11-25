@@ -245,15 +245,29 @@ def fetch_quant_metrics(ticker: str) -> dict[str, Any]:
     # Determine true IPO / first-trade date
     ipo_date_str: str | None = None
     months_since_ipo: float | None = None
-    first_trade_epoch = info.get("firstTradeDateEpochUtc") or info.get("firstTradeDateMilliseconds")
-    if first_trade_epoch:
-        ts = float(first_trade_epoch)
-        if ts > 1e12:
+    first_trade_sec = info.get("firstTradeDateEpochUtc")
+    first_trade_ms = info.get("firstTradeDateMilliseconds")
+    ts: float | None = None
+    if first_trade_sec is not None:
+        ts = _safe_float(first_trade_sec)
+        if ts is not None and abs(ts) > 1e10:
             ts /= 1000.0
-        ipo_dt = datetime.fromtimestamp(ts, tz=timezone.utc)
-        ipo_date_str = ipo_dt.strftime("%Y-%m-%d")
-        months_since_ipo = round((datetime.now(timezone.utc) - ipo_dt).days / 30.44, 1)
-    elif hist is not None and not hist.empty:
+    elif first_trade_ms is not None:
+        ts = _safe_float(first_trade_ms)
+        if ts is not None:
+            # firstTradeDateMilliseconds is always in ms (pre-2001 dates are < 1e12 ms!)
+            ts /= 1000.0
+
+    if ts is not None:
+        try:
+            ipo_dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+            ipo_date_str = ipo_dt.strftime("%Y-%m-%d")
+            months_since_ipo = round((datetime.now(timezone.utc) - ipo_dt).days / 30.44, 1)
+        except (OverflowError, OSError, ValueError):
+            ipo_date_str = None
+            months_since_ipo = None
+
+    if ipo_date_str is None and hist is not None and not hist.empty:
         first_idx = hist.index[0].to_pydatetime()
         if first_idx.tzinfo is None:
             first_idx = first_idx.replace(tzinfo=timezone.utc)
