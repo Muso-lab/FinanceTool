@@ -641,35 +641,36 @@
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
       "exchange": "NYQ",
-      "analyzed_at": "2026-11-19T09:08:58.666176+00:00",
-      "asymmetry_score": 71,
+      "analyzed_at": "2026-11-27T22:25:14.481512+00:00",
+      "asymmetry_score": 64,
       "verdict_label": "WATCHLIST_ACCUMULATE",
       "sub_scores": {
-        "catalyst_strength": 20,
-        "financial_survival_runway": 25,
-        "insider_alignment": 5,
-        "valuation_asymmetry": 10,
-        "audit_confidence": 11
+        "catalyst_strength": 16,
+        "financial_survival_runway": 24,
+        "insider_alignment": 3,
+        "valuation_asymmetry": 8,
+        "audit_confidence": 13
       },
       "thesis_5_lines": [
-        "1. Tesi Core: Planet Labs PBC (PL) tratta a -76.72% dal picco post-IPO; driver principale: Crescita Ricavi YoY +58.1% vs Prezzo Scontato (-76.7% dal picco).",
-        "2. Sopravvivenza: Ricavi YoY a +58.1% con cassa di $865.4M e Cash Flow Positivo (Net Cash $366.8M).",
-        "3. Segnali Lenti: SEC Form 4 mostra nessun acquisto open-market Codice P recente; segnale Careers 'UNKNOWN' (Bilanciato).",
-        "4. Contro-Verifica Bear/Auditor: Rischio diluizione ALTO; affidabilità dati verificata al 92%.",
-        "5. Piano Micro-Ordine: Ticket da €35 in frazionate a ~$12.05; invalidazione se runway < 9m o emissione S-3 diluitiva."
+        "Dati geospaziali e imaging satellitare proprietario con catalizzatore legato all'espansione dei contratti di difesa sovrana.",
+        "Cassa solida per $865M, FCF positivo ($51.8M), assenza di burn e ricavi in crescita del +58.1% YoY.",
+        "Segnali insider negativi con zero acquisti aperti e oltre $5.1M in vendite recenti da parte del board.",
+        "Rischio overhang da shelf S-3/ATM attivo, ma bilancio non a rischio grazie a una posizione di cassa netta positiva di $367M.",
+        "Micro-ordine frazionato consigliato a supporto tecnico sotto $10.00, con invalidazione su rottura del trend FCF e orizzonte 18-24 mesi."
       ],
       "signal_tags": [
-        "8-K Contratto/Brevetto",
-        "Cash Flow Positivo",
-        "Net Cash",
-        "Post-IPO -77%",
-        "Rischio Diluizione"
+        "FCF_POSITIVO",
+        "NET_CASH",
+        "INSIDER_SELLING",
+        "ATM_SHELF_RISK",
+        "GROWTH_58PCT",
+        "GEOINT_EXPANSION"
       ],
       "micro_strategy": {
-        "recommended_bullet_eur": 35.0,
-        "entry_zone": "Accumulo frazionato area $11.33 - $12.41",
-        "invalidation_trigger": "Runway < 9 mesi, annuncio offerta ATM/S-3 fortemente diluitiva o contrazione ricavi > -10%.",
-        "time_horizon": "12-24 mesi (orizzonte lento post-IPO)"
+        "recommended_bullet_eur": 30,
+        "entry_zone": "Accumulo frazionato sotto $10.50-$11.00",
+        "invalidation_trigger": "Ritorno a FCF negativo per due trimestri consecutivi o diluizione ATM aggressiva >10%",
+        "time_horizon": "18-24 mesi"
       },
       "quant_metrics": {
         "ticker": "PL",
@@ -680,21 +681,21 @@
         "currency": "USD",
         "website": "https://www.planet.com",
         "business_summary": "Planet Labs PBC engages in the design, construction, and launch of constellations of satellites with the intent of providing high-cadence geospatial data delivered to customers through an online platform in the United States and internationally. The company offers SuperDove satellites to create an always-online scanner for the planet, with the goal of imaging the Earth every day at a ground sampling distance (GSD) resolution of up to 3.5 meters. This combines planet monitoring with other scientific-grade radiometric data from public satellite data programs; and SkySat and Pelican satellites to capture a specified location several times per day, achieving a GSD resolution of up to 50 centimet",
-        "current_price": 12.05,
+        "current_price": 11.2,
         "ipo_date": "2021-04-26",
-        "months_since_ipo": 66.8,
+        "months_since_ipo": 67.0,
         "post_ipo_high": 51.76,
-        "post_ipo_drawdown_pct": -76.72,
-        "post_ipo_change_pct": 21.72,
-        "market_cap": 4384368640.0,
-        "enterprise_value": 4017573376.0,
+        "post_ipo_drawdown_pct": -78.36,
+        "post_ipo_change_pct": 13.13,
+        "market_cap": 4075097600.0,
+        "enterprise_value": 3708302592.0,
         "cash_and_equivalents": 865417984.0,
         "total_debt": 498623008.0,
         "net_cash": 366794976.0,
         "revenue_ttm": 378278016.0,
         "revenue_growth_yoy_pct": 58.1,
         "gross_margin_pct": 55.49,
-        "ev_to_sales": 10.62,
+        "ev_to_sales": 9.8,
         "operating_cash_flow_ttm": 117630000.0,
         "free_cash_flow_ttm": 51749876.0,
         "monthly_burn_usd": 0.0,
@@ -720,7 +721,7 @@
           "strict_ipo_6_24m": false
         },
         "quant_tags": [
-          "Post-IPO -77%",
+          "Post-IPO -78%",
           "Ricavi +58% YoY",
           "Cash Flow Positivo",
           "Net Cash Positiva"
@@ -1073,49 +1074,49 @@
       "news": {
         "articles": [
           {
-            "title": "Planet Labs (PL) Shares Skyrocket, What You Need To Know - Yahoo Finance",
-            "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPN0M4dnBacS1kanoxNzh5cUtfNWkwSjN4VDJIX3VyTXRYUW83NWtSQm0tUUZuZW9OdEhVQWRkTl9lM3o0cFViMmFNQWNiRTU5WW9sUllMbkplQlFTVDZCMTFLMlFtSW1PLVRLWWxLMVBBazVTVEJpOG9IY3pTdldCeHZiR3dyQm9WOWJBcFBfVTUxdExJYjdMbmhSREU?oc=5",
-            "published": "Fri, 02 Oct 2026 07:00:00 GMT",
+            "title": "Planet Labs PBC (PL) Beat Earnings Expectations but Its Stock Tumbled: What Went Wrong? - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPYVVzbVFLZTBaWmFZZDZLOTB5YVZnckdibFp1NnBqa2JoNVVrUS1Ca1VVRVhVLVkyMTJqY2R6a0xkSmdhckxXMTZxaHFJMVdJTHVKalgtSXBJM3RXLVVsRkRjY3BZRVZpN0NETTJMLThQYW9IMjJyTGd0eDJLUGs4QVVjUlJKTmdIUmsxRkZxRjd0UQ?oc=5",
+            "published": "Tue, 10 Nov 2026 08:00:00 GMT",
             "source": "Yahoo Finance",
             "sentiment_hint": "NEUTRAL"
           },
           {
-            "title": "Jim Cramer Says Planet Labs (PL) Has Fallen Enough to Start Buying - Yahoo Finance",
-            "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOS3NYVWprRTZ3WDNWVDRVdERxTVZGWGl2cnJUeXBKWVdMQkNHVUhkQm5CUkZaS3BobXdHSXB2dmlxX3A2OFh0akFDNHNmcjZhT2d3MUxwRk5hT21DX0ZsWkU1TmNMUl9OYzRJcFRBd3pJNzBCTnFNbTZYS2tPV0k0TlhCQTNzdUNBQ21UT3JIeHk0TGYyYnJj?oc=5",
-            "published": "Tue, 06 Oct 2026 07:00:00 GMT",
+            "title": "Planet Labs Stock Nears 52-Week Low - Here's Why - Benzinga",
+            "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVkt1bF9YcWRqNTJjbzBlRXpNYVNiclV0NkRPNE5iVE5GM0FGSmJrN01YUDJTUld0bXNKOWVILVpVVlNJaXpLZ1B2aW9BbU9pdnh4RHllamFoSzA5RnkwaU1pTW1qNklaNEg2MTRQODZ2ak5JdmJuZHEtZVZjaHNWYzJJcHF4ck1pLXFZRzM2cEZ4Q0lnTGU1M19yX2twdDRpTGxsYWZKNmRmUQ?oc=5",
+            "published": "Wed, 25 Nov 2026 18:22:54 GMT",
+            "source": "Benzinga",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "What Is Driving The Fall In Planet Labs Stock? - Trefis",
+            "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPVlVmZUoyTXdrSXJqUGNBYkFUWUlOQmpMTFVfaXZkV0h6NjhCMzBQYWN3cUYxbVVSdEs5SnJMNDVNcWZ3S1FJbHVUTnA1MW9GeEZZOTZoMDRkbFphMWVOTUM5ak1yazNKOEFEODZvNUx3a01pX09sck01Yi0zSTNOOUVuX3d0XzVrX01fR3VUbm1fTmlqNjVSek9Bc2pPR1lOenBXc2lsTQ?oc=5",
+            "published": "Thu, 12 Nov 2026 08:00:00 GMT",
+            "source": "Trefis",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Planet Labs: Waiting On The Next Sovereign Satellite Deal (NYSE:PL) - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQYngtUmViNWd1NUdDQlYtMjBWTFBueTRYdnRtQ3hud0R4b05IM01LQnJRZzNwZnhhTGNwUktPZ0JUSVdYWWpvVVZyRWRwSFVfaTFkd19wUDZyOXA3NlhwWUc1djNhb1pXNmVqTlNfRXFEcENGdW5oeVU3U1hMcEZNRmJPMV82MnNJTkc2bkVNUXpXTmFmZWo2OGpQcnZjQQ?oc=5",
+            "published": "Thu, 26 Nov 2026 09:04:56 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "CATALYST"
+          },
+          {
+            "title": "One Reason To Buy Planet Labs Stock - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNMlVSRHc1aENBQXhmb0FuLU1JU1BtdUFndkxfcndFWXNFZjNxQmNmT1lpUzQtaFJxZTZtLTlvZEVqektOa1NJcGhPTW0xVjFHVi1JcW40cUxpTzJUQkpZcVlKOTRVXzBPOGNwV0ZzNmtIcXNUTHFOTnNwZUdiSy1yTS1aVVI3eU0yMHlyaUV4XzhPN3BNY2c?oc=5",
+            "published": "Tue, 10 Nov 2026 08:00:00 GMT",
             "source": "Yahoo Finance",
             "sentiment_hint": "NEUTRAL"
           },
           {
-            "title": "Planet Labs (PL) Stock Looks Strong On Returns Yet Rich On Sales - Yahoo Finance",
-            "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQZWhZSTNoVVhlVi1OUXZxeHBxZmVtVnppdTZEdVBqeXp1NVlzTnZGSnFKLU80Y0N3ZDdlYUxURF9nbFNEYWJESFM5bUNNVmx0Z3hNZG84bzdXUUdEeGVDYk9MT0dqd3c1WF91WFBwZHRBZ2twMmQ2UUdobGZfZldpYlZuOWFUcUdEMHJTS3lUS1dMbTVwamc?oc=5",
-            "published": "Sat, 18 Jul 2026 07:00:00 GMT",
-            "source": "Yahoo Finance",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "Is Planet Labs PBC (PL) Cheap Following Its 20 Satellite Launches? - Yahoo Finance",
-            "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNejRzQjNCNERfY0ZKNUJOVkZOWXl4TV9zRWgwVmM2dDF0cDFUeWtRLUdTZFBwUUQxRGNnWGoyOElJRkU4YjlLN3ZqMXczaGhmMzJLUkxqSzFoSFlFbUR5anlwd2lvUUhpeV91c3BhMEZVYzAyeWNDX2lzZm9MMDRnMS1ETmVwTWpQbTk0VTNmeU84dVE?oc=5",
-            "published": "Tue, 06 Oct 2026 07:00:00 GMT",
-            "source": "Yahoo Finance",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "Jim Cramer Makes a Bold Call on Planet Labs (PL) - Yahoo Finance",
-            "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNWF9uRkxVQ0VLazdDVHpLTkpzLUNmaGxhaGc3MG15ZEwyX2lqREU0OXJLZ3FPX2xucEU1S1ZDbXlpWGNWd2RzZjZwZTRKSEhCZ2JCbGVJenYxejZCR2VNYTh0RmtKQ0NkOHBENEk5T2dYNFRSeElPWnlVaEpESGI2aGMzTUpXNjJpM2JWbjA0S2hiWmVBLUE?oc=5",
-            "published": "Fri, 09 Oct 2026 07:00:00 GMT",
-            "source": "Yahoo Finance",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "Planet Labs PBC (PL) Upgraded to Buy: Here's What You Should Know - Yahoo Finance",
-            "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSGZKMGQzZU9RWEE1WHp5RFgyM3VPbmxYUDdLU1ppN0x0dzdjMlJyQVA5bE1Wd2wtT2RQYmRzaU1rOFJfWDE1TEdqVXZDSXhsU2NrME5HdG5haHl0cm5pX0ZDcmljVEk0NlZxd01fR0s0NlZVdDNKV1J2SHhSX0xCanNQLXo0c2M2UXJlbHZCaTFZOHNCRVFn?oc=5",
-            "published": "Thu, 10 Sep 2026 07:00:00 GMT",
-            "source": "Yahoo Finance",
+            "title": "What Makes Planet Labs Stock A Buy Today? - Trefis",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPdlgxMi1xYlJLT2M2eTV0d3NESkgzcEVZZ0c3TlgxZmZoQ01mTnNVX2NqUHJPUjhvODVkV3NPSFh0UVVZbFJrM09WVm5UU0pabHY5Z3FzUVo4T3Q1RHcwQ2ktcFJUaFpZT2NwRC1hazcySTJHSWxTbl9jT1ppT0NtbnY2Tmd2Tjd0SG9oWGlJcEJLemp5S3IwUmtGbUV6dTBU?oc=5",
+            "published": "Tue, 03 Nov 2026 08:00:00 GMT",
+            "source": "Trefis",
             "sentiment_hint": "NEUTRAL"
           }
         ],
-        "catalyst_headlines_count": 0,
+        "catalyst_headlines_count": 1,
         "risk_headlines_count": 0
       },
       "hiring_signals": {
@@ -1187,67 +1188,99 @@
           "broker": "Directa SIM",
           "fractional_supported": false,
           "zero_commission": false,
-          "min_order_amount": 12.05,
+          "min_order_amount": 11.2,
           "min_order_currency": "USD",
           "fx_fee": "Inclusa",
           "italian_tax_regime": "Regime Amministrato IT",
           "status": "SOLO_AZIONI_INTERE",
-          "notes": "Niente frazionate. Prezzo $12.05 (~€11.09) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+          "notes": "Niente frazionate. Prezzo $11.20 (~€10.30) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
         }
       ],
       "debate": {
-        "ai_engine": "forensic_rules_engine_fallback",
+        "ai_engine": "gemini-3.8-flash (4/4 Gemini)",
         "bull": {
-          "headline": "Asimmetria su PL: fondamentali in crescita nonostante calo post-IPO",
+          "headline": "Forte crescita YoY (+58%) e FCF positivo creano asimmetria su drawdown post-IPO del 78%",
           "core_catalysts": [
             {
-              "title": "Crescita Ricavi YoY +58.1% vs Prezzo Scontato (-76.7% dal picco)",
-              "detail": "Il titolo quota con un drawdown del 76.7% dal massimo post-IPO nonostante ricavi TTM pari a $378.3M in crescita del +58.1% YoY.",
+              "title": "Disallineamento macro tra crescita ricavi e drawdown",
+              "detail": "A fronte di un crollo del -78.36% dal massimo post-IPO, la società registra ricavi TTM di 378,28M USD con una crescita YoY del +58.1% e un margine lordo del 55.49% [FIN-DATA].",
               "source_tag": "[FIN-DATA]",
               "impact": "ALTO"
             },
             {
-              "title": "Deposito SEC 8-K (2026-06-05): Eventi Materiali / Contratti",
-              "detail": "Item 1.01: Accordo / Contratto Materiale, Item 9.01: Bilanci ed Exhibit",
-              "source_tag": "[SEC-8K]",
+              "title": "Generazione di cassa e net cash solido",
+              "detail": "La società è cash flow positive con OCF TTM di 117,63M USD, FCF TTM di 51,75M USD e una cassa netta pari a 366,79M USD (865,42M USD di cassa contro 498,62M USD di debito), azzerando il burn rate [FIN-DATA].",
+              "source_tag": "[FIN-DATA]",
               "impact": "ALTO"
+            },
+            {
+              "title": "Stipula di contratto materiale",
+              "detail": "Deposito SEC Form 8-K del 05/06/2026 recante Item 1.01 relativo alla sottoscrizione di un accordo commerciale o strategico materiale [SEC-8K].",
+              "source_tag": "[SEC-8K]",
+              "impact": "MEDIO"
+            },
+            {
+              "title": "Pipeline di contratti governativi e sovrani",
+              "detail": "Copertura settoriale focalizzata sull'espansione e attesa di nuovi accordi per costellazioni satellitari sovrane [NEWS].",
+              "source_tag": "[NEWS]",
+              "impact": "MEDIO"
             }
           ],
-          "insider_conviction_read": "Nessun acquisto Codice P recente nei Form 4 ispezionati; allineamento affidato alle partecipazioni esistenti.",
-          "expansion_signal": "Board careers proprietario o dietro JS; verifica manuale consigliata.",
-          "bull_conviction": 73
+          "insider_conviction_read": "Assenza completa di acquisti sul mercato aperto (Codice P, 0 USD) a fronte di 7 vendite Form 4 per 5,11M USD effettuate da amministratori e co-fondatori [FORM-4].",
+          "expansion_signal": "Dati sulle posizioni aperte non disponibili via scraping diretto [CAREERS]; l'espansione commerciale è tuttavia corroborata dalla crescita del fatturato del +58.1% [FIN-DATA] e dall'attività contrattuale governativa [NEWS].",
+          "bull_conviction": 65
         },
         "bear": {
-          "headline": "Allerta diluizione e burn rate su PL",
+          "headline": "Overhang da shelf S-3/ATM, insider in uscita e crollo del 78% dai massimi nonostante FCF positivo",
           "red_flags": [
             {
-              "title": "Rischio Diluizione Attivo (Depositi S-3/424B5 o 8-K Item 3.02)",
-              "detail": "Rilevati 2 moduli S-3/424B5 recenti o emissioni non registrate: la società può emettere nuove azioni diluendo i micro-azionisti.",
+              "title": "Struttura Shelf Registration / ATM Takedown attiva",
+              "detail": "La società ha depositato un modulo S-3ASR e relativo prospetto 424B5 a giugno 2026, aprendo la strada a diluizioni sul mercato aperto (ATM) che fungono da tetto alle quotazioni.",
               "source_tag": "[SEC-S3]",
               "severity": "ALTO"
             },
             {
-              "title": "Vendite Insider Form 4 ($5.1M)",
-              "detail": "Registrate 7 transazioni Codice S in uscita nei Form 4 recenti.",
+              "title": "Vendite insider costanti e zero acquisti sul mercato aperto",
+              "detail": "Negli ultimi mesi si registrano 7 vendite da parte di insider per oltre 5,11 milioni di dollari (inclusi i consiglieri Robinson, Raymond e Brennan tra 14$ e 16$) a fronte di zero acquisti a mercato aperto.",
               "source_tag": "[FORM-4]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Massiccio drawdown post-IPO e sell-off post-utili",
+              "detail": "Il titolo registra una flessione del -78,36% dal massimo post-IPO di 51,76$ ed è scivolato verso i minimi a 52 settimane, subendo vendite anche a seguito del rilascio dei risultati trimestrali.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Multiplo EV/Sales elevato e dipendenza da commesse sovrane",
+              "detail": "Con un multiplo EV/Sales di 9,8x e un debito totale di 498,6 milioni di dollari, la società presenta una valutazione esigente mentre il mercato resta in attesa di complessi e lenti contratti satellitari governativi.",
+              "source_tag": "[NEWS]",
               "severity": "MEDIO"
             }
           ],
-          "dilution_risk_level": "ALTO",
-          "burn_and_balance_sheet_audit": "Cassa $865.4M, Debito $498.6M, Current Ratio 2.84x. Cash flow positivo.",
-          "bear_severity": 58
+          "dilution_risk_level": "MODERATO",
+          "burn_and_balance_sheet_audit": "La situazione di liquidità a breve termine è confortevole con 865,4M$ in cassa e un FCF TTM positivo di 51,7M$, senza burn rate immediato. Tuttavia, il debito totale di 498,6M$ è consistente e l'attivazione della shelf S-3ASR/424B5 evidenzia la disponibilità del management a ricorrere a emissioni azionarie opportunistiche a scapito dei soci retail.",
+          "bear_severity": 48
         },
         "auditor": {
-          "verification_score": 92,
+          "verification_score": 95,
           "overall_reliability": "ALTA",
-          "accounting_sanity_check": "Coerenza verificata: Net Cash $366.8M, Runway CF Positivo, Form 4 Codice P separato correttamente da grant (Codice A/M).",
+          "accounting_sanity_check": "I calcoli contabili sono perfettamente coerenti: Net Cash = 865,42M$ - 498,62M$ = 366,80M$; OCF TTM positivo a 117,63M$ e FCF TTM a 51,75M$ con burn mensile pari a 0,0$ (runway convenzionale 99+ mesi). Il drawdown post-IPO del -78,36% da 51,76$ a 11,20$ è matematicamente esatto. Nessun agente ha confuso opzioni o stock grant con acquisti open market (0 acquisti Codice P confermati, 7 vendite per 5,11M$).",
           "verified_facts": [
-            "Bilancio: Cassa $865.4M vs Debito Totale $498.6M (Net Cash: $366.8M).",
-            "Sostenibilità: Cash flow positivo, nessuna dipendenza immediata da aumenti di capitale.",
-            "Form 4 SEC: verificati 0 acquisti reali Codice P vs 7 vendite Codice S (esclusi grant/opzioni).",
-            "Drawdown post-IPO confermato a -76.72% rispetto al picco di $52."
+            "Crescita dei ricavi TTM pari al +58,1% YoY con fatturato a 378,28M USD e margine lordo del 55,49%.",
+            "Generazione di cassa positiva con Operating Cash Flow di 117,63M USD e Free Cash Flow di 51,75M USD.",
+            "Presenza di cassa netta positiva per 366,79M USD (865,42M USD in cassa contro 498,62M USD di debito).",
+            "Registrazione shelf S-3ASR e prospetto 424B5 depositati il 05/06/2026, attestanti rischio potenziale di diluizione sul mercato.",
+            "Totale assenza di acquisti insider a mercato aperto (0 USD) e vendite per 5,11M USD negli ultimi filing Form 4."
           ],
-          "challenged_claims": []
+          "challenged_claims": [
+            {
+              "agent": "BULL",
+              "claim": "Deposito SEC Form 8-K del 05/06/2026 recante Item 1.01 relativo alla sottoscrizione di un accordo commerciale o strategico materiale.",
+              "audit_verdict": "NON_VERIFICATO",
+              "correction": "L'Item 1.01 è stato depositato in data 05/06/2026 in concomitanza con il modulo S-3ASR e il prospetto 424B5, rendendo probabile che si tratti di un accordo di distribuzione azionaria/collocamento (ATM equity distribution agreement) piuttosto che di una commessa commerciale con clienti."
+            }
+          ]
         }
       }
     },
@@ -5071,35 +5104,35 @@
       "sector": "Financial Services",
       "industry": "Insurance - Property & Casualty",
       "exchange": "NYQ",
-      "analyzed_at": "2026-11-20T14:10:08.976600+00:00",
-      "asymmetry_score": 69,
+      "analyzed_at": "2026-11-27T22:31:02.029676+00:00",
+      "asymmetry_score": 70,
       "verdict_label": "WATCHLIST_ACCUMULATE",
       "sub_scores": {
-        "catalyst_strength": 19,
+        "catalyst_strength": 20,
         "financial_survival_runway": 23,
         "insider_alignment": 4,
-        "valuation_asymmetry": 12,
-        "audit_confidence": 11
+        "valuation_asymmetry": 11,
+        "audit_confidence": 12
       },
       "thesis_5_lines": [
-        "Lemonade scala l'insurtech con AI crescendo a oltre 1,11B$ TTM, trainata da un riprezzamento da forte discesa (-79,7% post-IPO).",
-        "Solidità finanziaria verificata con cassa netta di 192,4M$, crescita fatturato del 72,8% YoY e svolta a FCF positivo a 18,79M$.",
-        "Segnale insider negativo con oltre 7M$ venduti dalla C-suite e zero acquisti, mitigato da 42 posizioni aperte in R&D/Engineering.",
-        "Rischio primario legato allo shelf S-3ASR di novembre 2026, ma con burn nullo e cassa di 442M$ non sussiste emergenza di liquidità.",
-        "Strategia micro-bullet frazionata da 35€ su correzioni sotto $36, con invalidazione su ritorno a FCF marcatamente negativo in 12-24 mesi."
+        "Lemonade scala l'assicurazione digitale AI con ricavi TTM a 1,116 miliardi di dollari in crescita del +72,8% YoY e inversione a generazione di cassa.",
+        "Solidità finanziaria verificata con 442M$ di cassa, 192,4M$ di cassa netta, Free Cash Flow positivo (+18,79M$) e burn rate mensile azzerato.",
+        "Disallineamento insider per 8 vendite Form 4 (7,08M$) e zero acquisti Codice P, compensato sul fronte alternativo da un hiring spike di 41 posizioni in R&D e Machine Learning.",
+        "Il rischio principale è l'overhang diluitivo da shelf S-3ASR e il turnover dirigenziale (8-K 5.02), mitigato dalla totale assenza di urgenza di cassa certificata dall'Auditor.",
+        "Piano operativo: micro-bullet frazionato da 35 EUR in accumulo graduale sotto $36, con stop/invalidazione se il FCF torna strutturalmente in burn rate negativo su 2 trimestri consecutivi (orizzonte 12-24 mesi)."
       ],
       "signal_tags": [
         "FCF_POSITIVO",
-        "RICAVI_+72PCT",
-        "INSIDER_SELLING",
-        "SHELF_S3_ATTIVO",
-        "DRAWDOWN_-80PCT",
-        "HIRING_SPIKE"
+        "REV_GROWTH_72PCT",
+        "SHELF_S3_OVERHANG",
+        "INSIDER_SALES",
+        "HIRING_SPIKE_RD",
+        "DRAWDOWN_COMPRESSO"
       ],
       "micro_strategy": {
         "recommended_bullet_eur": 35,
-        "entry_zone": "Accumulo frazionato su debolezza tra $32.00 e $36.00",
-        "invalidation_trigger": "Inversione del trend di cassa con burn operativo > 10M$/trimestre o massiccia diluizione ATM",
+        "entry_zone": "Accumulo frazionato su ritracciamenti sotto $36.00",
+        "invalidation_trigger": "Ritorno del Free Cash Flow in territorio marcatamente negativo per due trimestri consecutivi o emissione azionaria fortemente diluitiva a sconto",
         "time_horizon": "12-24 mesi"
       },
       "quant_metrics": {
@@ -5111,21 +5144,21 @@
         "currency": "USD",
         "website": "https://www.lemonade.com",
         "business_summary": "Lemonade, Inc. provides various insurance products in the United States, Europe, and the United Kingdom. The company provides renters and homeowners, building, car, pet, and life insurance products, as well as landlord insurance products. It also offers insurance for stolen or damaged property, personal liability that protects its customers if they are responsible for an accident or damage to another person or their property, and pet insurance. In addition, it operates as an agent for other insurance companies. The company was formerly known as Lemonade Group, Inc. Lemonade, Inc. was incorporated in 2015 and is headquartered in New York, New York.",
-        "current_price": 38.22,
+        "current_price": 39.28,
         "ipo_date": "2020-07-02",
-        "months_since_ipo": 76.6,
+        "months_since_ipo": 76.8,
         "post_ipo_high": 188.3,
-        "post_ipo_drawdown_pct": -79.7,
-        "post_ipo_change_pct": -44.94,
-        "market_cap": 2978148864.0,
-        "enterprise_value": 2785748736.0,
+        "post_ipo_drawdown_pct": -79.14,
+        "post_ipo_change_pct": -43.41,
+        "market_cap": 3060745216.0,
+        "enterprise_value": 2868345344.0,
         "cash_and_equivalents": 442000000.0,
         "total_debt": 249600000.0,
         "net_cash": 192400000.0,
         "revenue_ttm": 1116600064.0,
         "revenue_growth_yoy_pct": 72.8,
         "gross_margin_pct": 49.02,
-        "ev_to_sales": 2.49,
+        "ev_to_sales": 2.57,
         "operating_cash_flow_ttm": 24000000.0,
         "free_cash_flow_ttm": 18787500.0,
         "monthly_burn_usd": 0.0,
@@ -5151,7 +5184,7 @@
           "strict_ipo_6_24m": false
         },
         "quant_tags": [
-          "Post-IPO -80%",
+          "Post-IPO -79%",
           "Ricavi +73% YoY",
           "Cash Flow Positivo",
           "Net Cash Positiva"
@@ -5446,53 +5479,53 @@
       "news": {
         "articles": [
           {
-            "title": "Lemonade vs. Root: Which Insurtech Stock Has an Edge Now? - TradingView",
-            "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQeXdOVG0tR0Q1M2tYaWFqdHZpUmdHZGtvV1RCd3hEemdFbGdDcVdHTXg2ZUx5SjhBQlBlNGZzTnBWSTVNR1JfTHhjY0pxc2pGWkd0V1ptVWJ5N1JScmp2c3piMWxyb2J0V3JKVUc2akc4SHE2M3EzOGlnQ1o0OU40YjBqVkpXdW1Sc3FFbVpBVEpPNlBvSzZoSGZuRG52SmR4Um5ibFUxbFl0LUNzTlM0?oc=5",
-            "published": "Thu, 19 Nov 2026 15:54:00 GMT",
-            "source": "TradingView",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "Prediction: This Growth Stock Will Double by the End of 2027 - The Motley Fool",
-            "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNaEhILTZKVGdzSWFnaVhGaU1jOWVsYXliREprWnBUN1U1eWpkcXdtTENXNkNBaWRQbFFZb0hPeTBxNm42dy1RY1ZJX2NBa2o1eXVDa2U1LThHVG9MaU9XSXVDaERPdzBvNGc5dXZVbmxOeFFCSXpxNGREYTZHR0UzUjBPX3JXV0Fzc0tRZWFzd18?oc=5",
-            "published": "Tue, 17 Nov 2026 16:02:01 GMT",
-            "source": "The Motley Fool",
-            "sentiment_hint": "NEUTRAL"
-          },
-          {
-            "title": "Is Lemonade, Inc. (LMND) A Good Stock To Buy Now? - Yahoo Finance",
-            "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOeWwtdFIzclR3Z0h3d1cwYWtOSURxZ05GVkNXN3MzendtdjVFeU1weHVrYThPU2hqTUtZME52SVFCcVFLUndBM1RxTjVCMjdFZXBHLVdNWjdMY3lfVlltZTFCQ0RRXzl3Vkx1bW1NYW5fMjhQdDJwMWVzeTZmY3ZPOC1RaElZMGNrZFNYNzYzeUZGLTRoQm1KMQ?oc=5",
-            "published": "Sun, 07 Jun 2026 07:00:00 GMT",
+            "title": "Lemonade (LMND) Stock Could Be Fully Priced Despite Strong Q3 Revenue - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNN0pHX1lBLUtLOGgxblFyVUtpVVpONUpTbjUyQjdLZWlKLTlSdVFiRU1tVmJUTHJ6cEU2OVZhTmVPYXZlNTJtNlZmcnRZS0ZGc1JXWElmakprUDZpLVdiV1dUak95OWtDMjBBZm1ZSmxqOGNpN0NxN0NUUEpyYU1EVjJGZkxNY25nbWNNR3JHal9FX05kUms5bWxoRF8?oc=5",
+            "published": "Tue, 10 Nov 2026 08:00:00 GMT",
             "source": "Yahoo Finance",
             "sentiment_hint": "NEUTRAL"
           },
           {
-            "title": "LMND - Lemonade Inc Stock Price and Quote - Finviz",
-            "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1jbVRzM1FmMmpFeVlhczd2TU9JcjFLek14OE0yc0g3eGxibTlMWE0zc1hLUjdSWXM1aU5zOW5pQzhxZmpnSGc?oc=5",
-            "published": "Tue, 26 May 2026 11:38:30 GMT",
-            "source": "Finviz",
+            "title": "This Fast-Growing Insurance Stock Is About to Do Something It's Never Done Before - The Motley Fool",
+            "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbFZzczlhNUR2NWdqMzAtM2hSZ00zZE8zdmhKSy1Hd1p6UmJrNmlvLVBDLWQ0WmpPRExIQlJwY3NsR3gxb04tWGlmdmpVQk0zbzAtWVRBZk1jZllidlFET2ZxQzVTWmdKcGNiQ0hjOVlWbUJzZFBkbUVSQnFSZmpsRXdkYTdWNVMtVEZxbHdXQ1NRNmtjM1NqOUd1TXRKYmY2TFViVFVDRHNKVXlJSFFXczZVTUQ5S0YxX1BrMGhtSWpRQQ?oc=5",
+            "published": "Wed, 11 Nov 2026 08:00:00 GMT",
+            "source": "The Motley Fool",
             "sentiment_hint": "NEUTRAL"
           },
           {
-            "title": "Why Lemonade (LMND) Stock Is Nosediving - StockStory",
-            "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNTkFCSDVSMUlndGhxWDVnRkw0VE9kV1I1RHpBTklmN1BHc0FBb0VXbTRoYXVZb0MtcEVjZ19xeURsTHFyUVhKT21WWGRXWjEzRlZOM2NFRF9DMG9VN2dYcWpMMC1nejBjX3VBQ3BWM1IzcGJsQ2prdE5hbi1rRU95aGg0d2ZhQV9PYmNlOUx6ejZaM0NueUJLeHd4dkpWdw?oc=5",
-            "published": "Wed, 29 Jul 2026 07:00:00 GMT",
-            "source": "StockStory",
+            "title": "Lemonade - Forbes",
+            "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBBd3pod0dGMEZDUmFBZWJjVHlhcndMRWhjR2ZqQ2o1dzY2TFBaOVJsck5zSW5yalRZYU83VHhBWElLV3FzYko3ZWlUdUxjODI2MFdfYg?oc=5",
+            "published": "Tue, 10 Nov 2026 08:00:00 GMT",
+            "source": "Forbes",
             "sentiment_hint": "NEUTRAL"
           },
           {
-            "title": "Can Europe Expansion Become a Long-Term Growth Driver for Lemonade? - TradingView",
-            "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOZ05ROFpHSFl0NUxZNEI3dFVFQkZ0Zzhjb1p4dFF6MjdENjdrcmUwV09nUEg2aEFyaDJubThWbFhPWUd4UUFJV0o2ZFJSUFZMQlJkQjZGdjJLdWoya0h3R0MyTTNOTW1EcGtYUEEtYTlCSjllOVhuWFdkSjJPd2YweUdRak1LSnF1ZmJzVjFxQ0twb3IzY2xrX1pOTWwzZnJaa21ZdW5icWtDckQ0NDRPQThoWGNoNWVvYVNvd2swUQ?oc=5",
-            "published": "Tue, 17 Nov 2026 19:55:47 GMT",
-            "source": "TradingView",
-            "sentiment_hint": "CATALYST"
+            "title": "Lemonade, Inc. (LMND) latest stock news and headlines - Yahoo Finance Australia",
+            "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE10b2I0SXBKYjlUd0pwdXplWXRZQjhSc1dhZjNiNlhrWXFYWW1YSHhqSDFfR3RCU0QxLXBHRmtPSEljc3UyajJQRzc0amIxMGoyU1o3cHVfYW8?oc=5",
+            "published": "Tue, 24 Nov 2026 16:49:42 GMT",
+            "source": "Yahoo Finance Australia",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Here’s Why AI Insurer Lemonade (LMND) May Skyrocket in 2027 - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNS29INWpHUmxPZXNBZWwyYU1SZ2dfQy1CdWgxNXpyZDJsTTk3WEl6TDNDUGFqTlhZcDNtSlY4M25CY2xTcFBxXzZVV2l3NEVpNHBHS0h1SlRnWHRrbWFibWlQeVRRcXhDR1U5UnBBaTJzdGJhLTFTZDNZWkVMN1BoMm1wVTRLaWozNHBXcHkzRkdGOTU2aDdTWQ?oc=5",
+            "published": "Thu, 05 Nov 2026 08:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Lemonade (NYSE:LMND) beats revenue expectations in Q3 2026 but stock drops - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQQ3JzTV9HS1NxWlBDdG5za19UOTB5MEt4NzZaaTlRRTRUbmFTSEhaajNGV2xHM0ltVHVIY2RoYkpFQnBYWkpQSjZza1MtQUMxbHFUZExjUVREZFppTnFEMkZJQVlod0dYX2VfMWo4d20tdlFPUHQ3eVlFcVRSb1pqV2dMVHdOcFhSTFZYUTRQU2lua0J1V1QweldqMWF5UQ?oc=5",
+            "published": "Thu, 05 Nov 2026 08:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
           }
         ],
-        "catalyst_headlines_count": 1,
+        "catalyst_headlines_count": 0,
         "risk_headlines_count": 0
       },
       "hiring_signals": {
-        "open_roles_count": 42,
+        "open_roles_count": 41,
         "hiring_trend": "HIRING_SPIKE",
         "department_focus": "R&D / Engineering",
         "ats_source": "Ashby",
@@ -5504,7 +5537,7 @@
           "Senior Product Manager - Claims Experience",
           "Associate General Counsel, Securities & Corporate Legal"
         ],
-        "evidence_note": "Rilevate 42 posizioni aperte via Ashby (focus R&D / Engineering)."
+        "evidence_note": "Rilevate 41 posizioni aperte via Ashby (focus R&D / Engineering)."
       },
       "broker_availability": [
         {
@@ -5566,109 +5599,97 @@
           "broker": "Directa SIM",
           "fractional_supported": false,
           "zero_commission": false,
-          "min_order_amount": 38.22,
+          "min_order_amount": 39.28,
           "min_order_currency": "USD",
           "fx_fee": "Inclusa",
           "italian_tax_regime": "Regime Amministrato IT",
           "status": "SOLO_AZIONI_INTERE",
-          "notes": "Niente frazionate e 1 azione ($38.22, ~€35.16) supera il micro-ticket da €35."
+          "notes": "Niente frazionate e 1 azione ($39.28, ~€36.14) supera il micro-ticket da €35."
         }
       ],
       "debate": {
         "ai_engine": "gemini-3.8-flash (4/4 Gemini)",
         "bull": {
-          "headline": "Crescita TTM +72.8% e svolta FCF positiva a fronte di un drawdown del 79.7% dai massimi",
+          "headline": "Svolta cash flow positivo e ricavi +72,8% YoY a sconto del 79% dai massimi con forte hiring R&D",
           "core_catalysts": [
             {
-              "title": "Accelerazione ricavi ed espansione margini",
-              "detail": "La società ha generato ricavi TTM per 1,116 miliardi di dollari con una crescita YoY del 72.8% e un margine lordo del 49.02%, scambiando a un multiplo EV/Sales contenuto di 2.49x.",
+              "title": "Inversione verso Free Cash Flow positivo e solida posizione di cassa netta",
+              "detail": "La società ha generato un operating cash flow TTM di 24,0M$ e un free cash flow TTM positivo di 18,79M$, con cassa ed equivalenti per 442,0M$ e cassa netta per 192,4M$, eliminando il burn rate mensile.",
               "source_tag": "[FIN-DATA]",
               "impact": "ALTO"
             },
             {
-              "title": "Generazione di cassa positiva e net cash solido",
-              "detail": "Raggiunta la sostenibilità di cassa con Operating Cash Flow TTM positivo a 24,0M$ e Free Cash Flow a 18,79M$, supportati da una posizione di cassa netta pari a 192,4M$ (442,0M$ di liquidità contro 249,6M$ di debito).",
-              "source_tag": "[FIN-DATA]",
+              "title": "Crescita dei ricavi a tripla cifra potenziale e battuto l'outlook",
+              "detail": "I ricavi TTM hanno raggiunto 1,116 miliardi di dollari segnando una crescita YoY del +72,8%, confermata dal superamento delle stime di ricavo nei risultati Q3 riportati via filing 8-K.",
+              "source_tag": "[SEC-8K]",
               "impact": "ALTO"
             },
             {
-              "title": "Espansione geografica nel mercato europeo",
-              "detail": "L'espansione in Europa e Regno Unito si conferma un driver strategico a lungo termine per sostenere la traiettoria di crescita nei segmenti assicurativi.",
-              "source_tag": "[NEWS]",
-              "impact": "MEDIO"
-            },
-            {
-              "title": "Asimmetria di prezzo post-IPO",
-              "detail": "Il titolo quota a 38.22$, riflettendo un drawdown del -79.7% rispetto al picco post-IPO di 188.3$, creando una forte divergenza rispetto al miglioramento dei fondamentali operativi.",
+              "title": "Forte disallineamento valutativo rispetto ai massimi storici",
+              "detail": "Il titolo scambia a un multiplo EV/Sales compresso di 2,57x e presenta un drawdown del -79,14% rispetto al picco post-IPO di 188,3$, a fronte di fondamentali operativi in netta accelerazione.",
               "source_tag": "[FIN-DATA]",
               "impact": "MEDIO"
             }
           ],
-          "insider_conviction_read": "Assenza totale di acquisti sul mercato aperto (0 Form 4 con codice P) a fronte di 8 operazioni di vendita per circa 7,08M$, inclusi disinvestimenti da parte di CFO, CBO e Chief Insurance Officer.",
-          "expansion_signal": "Forte segnale di investimento tecnologico con uno spike di 42 posizioni aperte su Ashby focalizzate su R&D / Engineering (ML Platform, Backend, Growth Product Management).",
+          "insider_conviction_read": "Assenza totale di acquisti a mercato aperto (Codice P) negli ultimi depositi Form 4; si registrano invece 8 vendite insider per un controvalore di oltre 7,07M$ da parte di figure chiave (CFO, CBO, CIO).",
+          "expansion_signal": "Segnale fortemente espansivo sul fronte dell'organico con 41 posizioni aperte (HIRING_SPIKE su ATS Ashby), fortemente focalizzate su R&D / Engineering e Machine Learning ('Backend Engineer - ML Platform', 'Senior Growth Product Manager').",
           "bull_conviction": 68
         },
         "bear": {
-          "headline": "Nuovo Shelf S-3ASR pronto alla diluizione e insider selling costante della C-Suite",
+          "headline": "Shelf S-3ASR attiva, insider dump da $7M e continui cambi executive minacciano la stabilità del titolo",
           "red_flags": [
             {
-              "title": "Deposito Shelf Registration S-3ASR attivo per potenziale diluizione",
-              "detail": "La società ha depositato un form S-3ASR in data 06/11/2026, aprendo la strada a offerte azionarie secondarie o programmi ATM (At-The-Market) che possono erodere il valore per gli azionisti esistenti.",
+              "title": "Deposito Shelf Registration S-3ASR",
+              "detail": "In data 06/11/2026 Lemonade ha depositato un modulo S-3ASR (Shelf automatico). Questa struttura consente collocamenti azionari rapidi o programmi ATM, esponendo gli azionisti a potenziale diluizione di mercato.",
               "source_tag": "[SEC-S3]",
               "severity": "ALTO"
             },
             {
-              "title": "C-Suite in sola vendita: oltre 7M$ liquidati e zero acquisti insider",
-              "detail": "Negli ultimi mesi si registrano 8 vendite sul mercato aperto (Codice S) per complessivi 7,08 milioni di dollari da parte di figure chiave (CFO Timothy Bixby, Chief Insurance Officer John Peters, Chief Business Officer Maya Prosor) a fronte di zero acquisti aperti.",
+              "title": "Scarichi Insider (Form 4) senza alcun acquisto",
+              "detail": "Rilevate 8 vendite insider per oltre 7,07M$ e 0 acquisti sul mercato aperto. Hanno liquidato posizioni il CFO Timothy Bixby, la CBO Maya Prosor e ripetutamente il Chief Insurance Officer John Peters a prezzi compresi tra $52 e $54.",
               "source_tag": "[FORM-4]",
               "severity": "ALTO"
             },
             {
-              "title": "Avvicendamenti ripetuti nel management / Consiglio di Amministrazione",
-              "detail": "Sono stati registrati plurimi depositi Form 8-K con Item 5.02 (inclusi emendamenti 8-K/A tra luglio e ottobre 2026), segnalando turnover a livello esecutivo e instabilità nella governance.",
+              "title": "Frequente turnover manageriale (Item 5.02)",
+              "detail": "Molteplici depositi Form 8-K con causale Item 5.02 (cambio dirigenti o membri del CdA) registrati a luglio 2026 e ottobre 2026 segnalano instabilità o riorganizzazioni interne nei ruoli chiave.",
               "source_tag": "[SEC-8K]",
               "severity": "MEDIO"
             },
             {
-              "title": "Crollo strutturale post-IPO e ratio di liquidità compresso",
-              "detail": "Il titolo sconta un drawdown del -79,7% dai massimi storici post-IPO. Nonostante la positività temporanea del FCF ($18,8M TTM), il current ratio è modesto a 1,23 a fronte di 249,6M$ di debito totale, fattore critico per una compagnia assicurativa che necessita di ampi cuscinetti patrimoniali.",
+              "title": "Current Ratio limitato e debito consistente",
+              "detail": "Nonostante la cassa positiva (442M$), la società presenta 249,6M$ di debito e un current ratio di appena 1,23, che lascia margini di manovra operativi contenuti in un settore assicurativo ad alta volatilità di sinistri.",
               "source_tag": "[FIN-DATA]",
-              "severity": "MEDIO"
-            },
-            {
-              "title": "Accelerazione delle assunzioni con rischio di compressione margini",
-              "detail": "Rilevate 42 posizioni aperte concentrate in R&D e Engineering; l'espansione dei costi fissi del personale rischia di riassorbire il limitato free cash flow operativo generato.",
-              "source_tag": "[CAREERS]",
               "severity": "MEDIO"
             }
           ],
           "dilution_risk_level": "MODERATO",
-          "burn_and_balance_sheet_audit": "La società mostra al momento una cassa positiva ($442M) e FCF TTM positivo ($18,8M), eliminando l'urgenza di un cash burn a breve termine. Tuttavia, la presenza di 249,6M$ di debito e un current ratio di appena 1,23, combinati con la registrazione S-3ASR di novembre 2026, creano il presupposto per un'emissione di equity opportunistica approfittando della recente ripresa del titolo.",
-          "bear_severity": 62
+          "burn_and_balance_sheet_audit": "Sebbene LMND abbia generato un Free Cash Flow TTM positivo di 18,8M$ con cassa netta positiva (192,4M$) e burn rate azzerato, il current ratio a 1,23 e la presenza di 249,6M$ di debito pongono vincoli di liquidità a breve termine. Il recente deposito della shelf S-3ASR a novembre 2026 conferma che il management intende mantenere una via aperta a ricapitalizzazioni diluitive.",
+          "bear_severity": 55
         },
         "auditor": {
-          "verification_score": 96,
+          "verification_score": 92,
           "overall_reliability": "ALTA",
-          "accounting_sanity_check": "Tutti i calcoli matematici risultano esatti: Net Cash pari a 192,4M$ ($442,0M liquidità - $249,6M debito); EV/Sales corretto a 2,49x; Drawdown coerente a -79,7% ($38,22 vs massimo storico $188,30); Flussi di cassa operativi ($24,0M) e FCF ($18,79M) positivi con monthly burn pari a zero e runway virtuale a 99 mesi. Nessun acquisto insider (codice P) confuso con grant; vendite Form 4 (codice S) verificate a 7,08M$.",
+          "accounting_sanity_check": "Tutti i calcoli matematici e contabili sono coerenti al 100%: Cassa ($442,0M) - Debito Totale ($249,6M) = Cassa Netta di $192,4M. Operating Cash Flow ($24,0M) e FCF ($18,79M) sono positivi con Monthly Burn pari a 0$ (runway convenzionale 99 mesi). Drawdown post-IPO pari a -79,14% calcolato esattamente su max $188,30 e prezzo corrente $39,28. Form 4 verificati: confermati 0 acquisti open market (Codice P) e 8 vendite insider (Codice S) per circa $7,08M, correttamente identificate da entrambe le parti.",
           "verified_facts": [
-            "Fatturato TTM a 1.116,6M$ con crescita YoY del 72,8% e margine lordo del 49,02%.",
-            "Posizione di cassa netta positiva di 192,4M$ (Cassa di 442,0M$ contro Debito Totale di 249,6M$).",
-            "Generazione di cassa positiva con Operating Cash Flow TTM di 24,0M$ e Free Cash Flow TTM di 18,79M$.",
-            "Form S-3ASR (Shelf Registration automatica) effettivamente depositato in data 06/11/2026.",
-            "Zero acquisti open-market e 8 vendite insider sul mercato per 7,08M$ totali da parte della C-suite."
+            "Cassa ed equivalenti a 442,0M$ con totale debito a 249,6M$, generando una posizione di cassa netta positiva di 192,4M$",
+            "Flusso di cassa operativo TTM positivo a 24,0M$ e Free Cash Flow TTM positivo a 18,79M$, con burn rate mensile azzerato",
+            "Ricavi TTM a 1.116,6M$ in crescita del +72,8% YoY e multiplo EV/Sales compresso a 2,57x",
+            "Effettivo deposito del modulo S-3ASR in data 06/11/2026 con rischio di diluizione / ATM takedown confermato",
+            "Totale assenza di acquisti insider a mercato aperto e presenza di 8 vendite (Codice S) per complessivi 7,08M$ tra agosto e settembre 2026"
           ],
           "challenged_claims": [
             {
               "agent": "BULL",
-              "claim": "L'espansione in Europa e Regno Unito si conferma un driver strategico a lungo termine",
-              "audit_verdict": "NON_VERIFICATO",
-              "correction": "Nei dati forniti l'espansione europea è un tema editoriale/interrogativo ('Can Europe Expansion Become a Long-Term Growth Driver...?') e non un driver quantificato o certificato nei filing finanziari."
+              "claim": "Crescita dei ricavi a tripla cifra potenziale",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "La crescita reale dei ricavi YoY riportata nei dati contabili è del +72,8%, solida ma non a tripla cifra (>=100%)."
             },
             {
               "agent": "BEAR",
-              "claim": "Positività temporanea del FCF ($18,8M TTM)",
+              "claim": "Current ratio a 1,23 e debito pongono vincoli di liquidità a breve termine",
               "audit_verdict": "ESAGERAZIONE",
-              "correction": "Definire la generazione di cassa 'temporanea' è una speculazione qualitativa: i dati TTM mostrano strutturalmente sia OCF (+24M$) che FCF (+18,79M$) positivi senza evidenza quantitativa di ritorno immediato al cash burn."
+              "correction": "Con 442M$ di cassa liquida, cassa netta positiva di 192,4M$, assenza di toxic debt e FCF positivo (+18,79M$), non sussiste alcuna crisi di liquidità imminente a breve termine."
             }
           ]
         }
@@ -12029,6 +12050,484 @@
           "challenged_claims": []
         }
       }
+    },
+    "CLBT": {
+      "ticker": "CLBT",
+      "company_name": "Cellebrite DI Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure",
+      "exchange": "NMS",
+      "analyzed_at": "2026-11-27T22:36:27.414327+00:00",
+      "asymmetry_score": 77,
+      "verdict_label": "STRONG_ASYMMETRIC_BUY",
+      "sub_scores": {
+        "catalyst_strength": 20,
+        "financial_survival_runway": 25,
+        "insider_alignment": 6,
+        "valuation_asymmetry": 11,
+        "audit_confidence": 15
+      },
+      "thesis_5_lines": [
+        "Piattaforma leader in digital forensics con catalizzatore asimmetrico nel passaggio al modello SaaS e integrazione di suite investigative basate su AI (Inseyets).",
+        "Fondamentali eccellenti con $460M di cassa netta, FCF positivo a $131,4M, margini lordi all'82% e ricavi in espansione del +18,2% YoY senza burn rate.",
+        "Form 4 privo di acquisti a mercato aperto e con dismissioni C-Level per $496k, segnale da monitorare ma di entità marginale rispetto alla capitalizzazione.",
+        "Il Bear segnala volatilità da transizione a sottoscrizione e drawdown del -54%, ma l'Auditor certifica debito quasi nullo ($23M) e rischio diluizione azzerato.",
+        "Micro-allocazione asimmetrica raccomandata in accumulo frazionato sotto i $12,50, con invalidazione su rottura del FCF positivo e orizzonte 18-24 mesi."
+      ],
+      "signal_tags": [
+        "FCF_POSITIVO",
+        "CASSA_NETTA_ELEVATA",
+        "DRAWDOWN_54_PCT",
+        "PIVOT_SAAS_AI",
+        "ZERO_DILUIZIONE",
+        "INSIDER_SALES_LIEVI"
+      ],
+      "micro_strategy": {
+        "recommended_bullet_eur": 45,
+        "entry_zone": "Accumulo frazionato tra $11.00 e $12.30",
+        "invalidation_trigger": "Deterioramento strutturale a OCF negativo o decelerazione ricavi YoY sotto il 5%",
+        "time_horizon": "18-24 mesi"
+      },
+      "quant_metrics": {
+        "ticker": "CLBT",
+        "company_name": "Cellebrite DI Ltd.",
+        "sector": "Technology",
+        "industry": "Software - Infrastructure",
+        "exchange": "NMS",
+        "currency": "USD",
+        "website": "https://www.cellebrite.com",
+        "business_summary": "Cellebrite DI Ltd. develops software and services for legally sanctioned investigations in Europe, the Middle East, Africa, the Americas, and the Asia-Pacific. The company provides a platform of software solutions used to access, collect, review, extract, decode, decrypt, analyze, share and manage digital evidence across the investigative lifecycle for a range of investigations, such as child exploitation, homicide, anti-terror, border control, sexual crimes, organized crime, human trafficking, corporate security, and intellectual property theft, as well as financial crimes, including those involving cryptocurrency. It also offers Inseyets, digital forensics software that collects and review",
+        "current_price": 12.17,
+        "ipo_date": "2020-11-06",
+        "months_since_ipo": 72.7,
+        "post_ipo_high": 26.3,
+        "post_ipo_drawdown_pct": -53.73,
+        "post_ipo_change_pct": 25.98,
+        "market_cap": 3058820608.0,
+        "enterprise_value": 2575604736.0,
+        "cash_and_equivalents": 483868992.0,
+        "total_debt": 23353000.0,
+        "net_cash": 460515992.0,
+        "revenue_ttm": 537281984.0,
+        "revenue_growth_yoy_pct": 18.2,
+        "gross_margin_pct": 82.26,
+        "ev_to_sales": 4.79,
+        "operating_cash_flow_ttm": 180866000.0,
+        "free_cash_flow_ttm": 131365128.0,
+        "monthly_burn_usd": 0.0,
+        "is_cash_flow_positive": true,
+        "runway_months": 99.0,
+        "current_ratio": 1.67,
+        "debt_to_equity": 4.03,
+        "toxic_debt_flag": false,
+        "toxic_debt_reasons": [],
+        "full_time_employees": 1285,
+        "is_micro_or_small_cap": true,
+        "data_available": true
+      },
+      "screening": {
+        "passed": true,
+        "strict_ipo_window": false,
+        "filter_breakdown": {
+          "drawdown_ok": true,
+          "revenue_growth_ok": true,
+          "runway_ok": true,
+          "liquidity_no_toxic_debt": true,
+          "small_or_micro_cap": true,
+          "strict_ipo_6_24m": false
+        },
+        "quant_tags": [
+          "Post-IPO -54%",
+          "Ricavi YoY Positivi",
+          "Cash Flow Positivo",
+          "Net Cash Positiva"
+        ]
+      },
+      "sec_filings": {
+        "ticker": "CLBT",
+        "cik": "0001854587",
+        "entity_name": "Cellebrite DI Ltd.",
+        "sic_description": "Services-Prepackaged Software",
+        "edgar_company_url": "https://www.sec.gov/edgar/browse/?CIK=0001854587",
+        "filings_8k": [],
+        "filings_periodic": [
+          {
+            "form": "20-F",
+            "filing_date": "2026-03-03",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026013790/cele-20251231.htm"
+          },
+          {
+            "form": "20-F",
+            "filing_date": "2025-03-18",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828025013334/cele-20241231.htm"
+          },
+          {
+            "form": "20-F",
+            "filing_date": "2024-03-21",
+            "description": "20-F 2023",
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000185458724000018/cele-20231231.htm"
+          },
+          {
+            "form": "20-F",
+            "filing_date": "2023-04-27",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828023013355/cele-20221231.htm"
+          }
+        ],
+        "filings_s1_ipo": [
+          {
+            "form": "F-1",
+            "filing_date": "2021-09-27",
+            "description": "REGISTRATION STATEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000121390021050072/ff12021_cellebritediltd.htm"
+          }
+        ],
+        "filings_s3_shelf": [],
+        "shelf_dilution_risk": false,
+        "form4_transactions": [
+          {
+            "filing_date": "2026-11-25",
+            "transaction_date": "2026-11-24",
+            "insider_name": "GEE DAVID NICHOLAS",
+            "role": "Chief Marketing Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 4002.0,
+            "price_usd": 11.6164,
+            "value_usd": 46488.83,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026075863/xslF345X06/wk-form4_1795606866.xml"
+          },
+          {
+            "filing_date": "2026-11-24",
+            "transaction_date": "2026-11-23",
+            "insider_name": "GEE DAVID NICHOLAS",
+            "role": "Chief Marketing Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 2090.0,
+            "price_usd": 10.9273,
+            "value_usd": 22838.06,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026075732/xslF345X06/wk-form4_1795554859.xml"
+          },
+          {
+            "filing_date": "2026-11-19",
+            "transaction_date": "2026-11-17",
+            "insider_name": "Windham Holly B.",
+            "role": "GC & Chief Compliance Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 3049.0,
+            "price_usd": 10.6497,
+            "value_usd": 32470.94,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026074949/xslF345X06/wk-form4_1795088463.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-16",
+            "insider_name": "Jewell Marcus",
+            "role": "Global Chief Revenue Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 12462.0,
+            "price_usd": 11.5522,
+            "value_usd": 143963.52,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026074647/xslF345X06/wk-form4_1795004092.xml"
+          },
+          {
+            "filing_date": "2026-11-18",
+            "transaction_date": "2026-11-17",
+            "insider_name": "Jewell Marcus",
+            "role": "Global Chief Revenue Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 9928.0,
+            "price_usd": 10.6608,
+            "value_usd": 105840.42,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026074647/xslF345X06/wk-form4_1795004092.xml"
+          },
+          {
+            "filing_date": "2026-11-13",
+            "transaction_date": "2026-11-12",
+            "insider_name": "GEE DAVID NICHOLAS",
+            "role": "Chief Marketing Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 234.0,
+            "price_usd": 13.3103,
+            "value_usd": 3114.61,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026073843/xslF345X06/wk-form4_1794604486.xml"
+          },
+          {
+            "filing_date": "2026-11-12",
+            "transaction_date": "2026-11-12",
+            "insider_name": "Jewell Marcus",
+            "role": "Global Chief Revenue Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 393.0,
+            "price_usd": 13.3103,
+            "value_usd": 5230.95,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026073412/xslF345X06/wk-form4_1794518269.xml"
+          },
+          {
+            "filing_date": "2026-10-19",
+            "transaction_date": "2026-10-16",
+            "insider_name": "Barter David",
+            "role": "Chief Financial Officer",
+            "code": "S",
+            "acquired_or_disposed": "D",
+            "shares": 12134.0,
+            "price_usd": 11.2139,
+            "value_usd": 136069.46,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000162828026066202/xslF345X06/wk-form4_1792407368.xml"
+          },
+          {
+            "filing_date": "2026-09-29",
+            "transaction_date": "2026-09-17",
+            "insider_name": "Utsumi Ryusuke",
+            "role": "Director",
+            "code": "A",
+            "acquired_or_disposed": "A",
+            "shares": 15190.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000197129826000003/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-09-29",
+            "transaction_date": "2026-09-17",
+            "insider_name": "Domnitz Yonatan",
+            "role": "Director",
+            "code": "A",
+            "acquired_or_disposed": "A",
+            "shares": 15190.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000197074826000002/xslF345X06/primary_doc.xml"
+          },
+          {
+            "filing_date": "2026-09-28",
+            "transaction_date": "2026-09-17",
+            "insider_name": "CLAMMER ADAM",
+            "role": "Director",
+            "code": "A",
+            "acquired_or_disposed": "A",
+            "shares": 15190.0,
+            "price_usd": 0.0,
+            "value_usd": 0.0,
+            "url": "https://www.sec.gov/Archives/edgar/data/1854587/000121390026104047/xslF345X06/ownership.xml"
+          }
+        ],
+        "open_market_buys_count": 0,
+        "open_market_buys_usd": 0,
+        "open_market_sales_count": 8,
+        "open_market_sales_usd": 496016.79,
+        "cluster_insider_buying": false,
+        "sec_tags": [],
+        "status": "ok"
+      },
+      "news": {
+        "articles": [
+          {
+            "title": "Cellebrite DI Ltd. (CLBT) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+            "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE11c2xQc1V1MnBvQXRWODhmVUh2ZzhlSVVoc19XajZhNTZoOGZrVnVHU1BjcDlGTnRZY0NWOTJnZmFDbjBFN3Z0cGg2aWM4aEx3UFE?oc=5",
+            "published": "Fri, 27 Nov 2026 08:16:12 GMT",
+            "source": "Yahoo! Finance Canada",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "CLBT Stock Price and Chart — NASDAQ:CLBT - TradingView",
+            "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1wNXY0X2hReTZHOEFMc1FWUkltMmtLYTVVRkFzWEVPVEtEMkd5cUxRQTFrT2loSFVSM0doa1ZDSEpCSU5CZFFXUS1XZFYySUEwNWkwQ0t3eWtiX0pV?oc=5",
+            "published": "Fri, 11 Sep 2026 07:00:00 GMT",
+            "source": "TradingView",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Cellebrite (CLBT) Stock Could Be Undervalued As Cash Flow Builds - Yahoo Finance",
+            "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxObmJSRFZtTm1rZ2J6VTZjSzNncWsyUHc2MG1WTDdIcktCc2pUZlZRNXFrUGQtclp0OXlIQUxFRXFNaV9objFxcnFjMkZ4R2xSc2xpRWpZdlZWeEJPeVlQRUVpcnBqVnl1eFJrUUtCSnVoMy10RXVuMy01TUhKRGpqdXoxQmpja1VOWjVDNWRWSEtqODZYaTN4elFzMWdsWFpzOElGeFkzZw?oc=5",
+            "published": "Sat, 14 Nov 2026 08:00:00 GMT",
+            "source": "Yahoo Finance",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Cellebrite DI: Continuous Innovation, Including AI, Can Drive Growth - Seeking Alpha",
+            "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOZ2JTak1IZ3I1aWlaQjJKQm5XbjhBY05mYnU3MDZhSVZKWThheUtCMnk0RXZzTE5SOTdyQ1RwSzN1WkY4cnNsVlpQNzFLUGxBaFBZQ1VNYnN2dVgyVkY4WkJ4OWtncXhUMFA3QVpndTR0UjhMVVg0enMyNVZraEx5bVZZRmwzX0l5S2FqbUNBUzBMZmtTU0dhakIyV2VUQlkyUmpVS0tEUWYxZw?oc=5",
+            "published": "Sun, 15 Nov 2026 08:00:00 GMT",
+            "source": "Seeking Alpha",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "A fireside chat is planned for UBS's technology and AI conference, with Cellebrite CFO David Barter. - Stock Titan",
+            "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxObDBlS0QxV2VTSUxCRnc2NVJISE1rSDR4MmtmckFrREhmeTlHQ19mZkU4dHItaG5YMWZ4LTNGS3RxM29YM2E4TWFyZUZNLWZieG5aLUw1c2lZd3JFX2p1X1dFZzBJRy02R3J2T0hwZlRXV05SWTMwa2FGZ3pJU1ZsRDU4SlFBSDZjczhUR3pTdEgxZmJ4UjZPMDloODc1UFBTM1Z6YWtYcnhVMXN3VU0tUXN5eUJYT2lka2NzOEt0QQ?oc=5",
+            "published": "Wed, 25 Nov 2026 13:30:00 GMT",
+            "source": "Stock Titan",
+            "sentiment_hint": "NEUTRAL"
+          },
+          {
+            "title": "Cellebrite's 2026 Outlook: Subscription Pivot Weighs on the Stock Today, Helps Lead a Future Rebound - The Motley Fool",
+            "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPekF1NnE1S0t0ajZXMS1LNjBCM3k3SXN1VE45ckR2Z2xTRFFiZUE5NEM5eDE5RnVXMVlKR01CTUI1LVJfYzJFdUg0ZmlpeGhRazJRcWNiSi1admNPR3dBaFRCdnJXRFFsaHFtVFZ0VXhnRTg0d1V6ZVpIU1ZjTFQzbWtHcl8tRmdiVUZiOHY4WjdycjhqVTZiQ0I3QkJYZ0hGYllzYVE0cHVLa1hBVFFsX0dON19IVlBkMTNhYVg3X0p6R05RTzJIVGYyM1ZDeWZXVlZoNldSdzJnQXRYb1JDT3hvblc?oc=5",
+            "published": "Tue, 29 Sep 2026 07:00:00 GMT",
+            "source": "The Motley Fool",
+            "sentiment_hint": "NEUTRAL"
+          }
+        ],
+        "catalyst_headlines_count": 0,
+        "risk_headlines_count": 0
+      },
+      "hiring_signals": {
+        "open_roles_count": null,
+        "hiring_trend": "UNKNOWN",
+        "department_focus": "Bilanciato",
+        "ats_source": "N/D",
+        "careers_url": "https://www.cellebrite.com/careers",
+        "sample_roles": [],
+        "evidence_note": "Board careers proprietario o dietro JS; verifica manuale consigliata."
+      },
+      "broker_availability": [
+        {
+          "broker": "Trading 212",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "0.15%",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "CLBT negoziabile frazionato da €1 su NMS; commissione 0% (solo 0.15% FX)."
+        },
+        {
+          "broker": "Interactive Brokers (IBKR)",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "~0.002% (min $2) o auto-FX",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "Copertura migliore sulle small/micro-cap US; frazionate da $1, commissioni ~$0.35 (Tiered)."
+        },
+        {
+          "broker": "Trade Republic",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread L&S Exchange",
+          "italian_tax_regime": "Amministrato / Dichiarativo (verifica IBAN IT)",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€1 fisso per ordine singolo (€0 in Piano Accumulo). Diverse micro-cap <$400M mancano su L&S."
+        },
+        {
+          "broker": "Scalable Capital",
+          "fractional_supported": true,
+          "zero_commission": false,
+          "min_order_amount": 1.0,
+          "min_order_currency": "EUR",
+          "fx_fee": "Spread Gettex/Xetra",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_FRAZIONATO",
+          "notes": "€0.99 per ordine (€0 con Prime+ sopra €250); verificare presenza su Gettex per micro-cap US."
+        },
+        {
+          "broker": "Revolut",
+          "fractional_supported": true,
+          "zero_commission": true,
+          "min_order_amount": 1.0,
+          "min_order_currency": "USD",
+          "fx_fee": "0% entro soglia piano (poi 1%)",
+          "italian_tax_regime": "Dichiarativo",
+          "status": "DISPONIBILE_0_COMM",
+          "notes": "Ordini gratis mensili in base al piano; selezione micro-cap più ristretta."
+        },
+        {
+          "broker": "Directa SIM",
+          "fractional_supported": false,
+          "zero_commission": false,
+          "min_order_amount": 12.17,
+          "min_order_currency": "USD",
+          "fx_fee": "Inclusa",
+          "italian_tax_regime": "Regime Amministrato IT",
+          "status": "SOLO_AZIONI_INTERE",
+          "notes": "Niente frazionate. Prezzo $12.17 (~€11.20) compatibile con micro-ordine intero, ma commissione $9 US incide su ticket piccoli."
+        }
+      ],
+      "debate": {
+        "ai_engine": "gemini-3.8-flash (4/4 Gemini)",
+        "bull": {
+          "headline": "CLBT: Forte generazione FCF ($131M) e bilancio de-risked su drawdown -54%, pivot AI/SaaS catalizzatore",
+          "core_catalysts": [
+            {
+              "title": "Disallineamento tra fondamentali finanziari e drawdown azionario",
+              "detail": "Il titolo segna un drawdown del -53,73% dal massimo post-IPO nonostante una crescita dei ricavi TTM del 18,20% ($537,28M) e margini lordi all'82,26%, supportati da un Operating Cash Flow di $180,87M e Free Cash Flow positivo per $131,37M.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Solida struttura patrimoniale a cassa netta",
+              "detail": "La società vanta una cassa netta di $460,52M (liquidità per $483,87M contro soli $23,35M di debito totale), garantendo assenza di burn rate mensile e un profilo finanziario interamente auto-finanziato senza rischi di diluizione shelf a breve.",
+              "source_tag": "[FIN-DATA]",
+              "impact": "ALTO"
+            },
+            {
+              "title": "Transizione subscription model e driver d'innovazione su AI",
+              "detail": "La narrativa di settore evidenzia come la transizione verso contratti ricorrenti/abbonamento e l'integrazione di capacità AI sulla suite forensics (Inseyets) rappresentino driver strategici di crescita a medio termine in fase di riprezzamento.",
+              "source_tag": "[NEWS]",
+              "impact": "MEDIO"
+            }
+          ],
+          "insider_conviction_read": "Nessun segnale rialzista dagli insider: totale assenza di acquisti sul mercato aperto (Codice P pari a 0), a fronte di 8 dismissioni ordinarie (Codice S) effettuate da figure C-level (CRO, CMO, GC) per $496.016,79.",
+          "expansion_signal": "Trend assunzioni e pipeline commerciale non determinabili dal dataset a causa di portale careers proprietario non indicizzato; espansione da verificare tramite fonti primarie.",
+          "bull_conviction": 68
+        },
+        "bear": {
+          "headline": "Drawdown del 53% dai massimi e vendite insider diffuse tra C-level durante la transizione del business",
+          "red_flags": [
+            {
+              "title": "Vendite insider sistematiche del management C-Level",
+              "detail": "Nelle ultime registrazioni Form 4 si rilevano 8 transazioni di vendita a mercato aperto per circa 496.000$ da parte di figure chiave (Global CRO Marcus Jewell, CMO David Gee e GC/CCO Holly Windham) a fronte di zero acquisti insider.",
+              "source_tag": "[FORM-4]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Forte drawdown post-IPO e attrito della transizione",
+              "detail": "Il titolo registra una flessione del -53,73% rispetto ai massimi post-IPO ($26,30 vs $12,17), riflettendo l'impatto sul breve termine del pivot strategico verso il modello subscription e la compressione dei multipli.",
+              "source_tag": "[FIN-DATA]",
+              "severity": "MEDIO"
+            },
+            {
+              "title": "Rischio transizione a sottoscrizione e impatto sui ricavi",
+              "detail": "La transizione in corso verso il modello SaaS/subscription genera incertezza sulle tempistiche di riconoscimento ricavi e volatilità sul prezzo del titolo, come evidenziato dalle analisi di settore.",
+              "source_tag": "[NEWS]",
+              "severity": "MEDIO"
+            }
+          ],
+          "dilution_risk_level": "BASSO",
+          "burn_and_balance_sheet_audit": "La posizione finanziaria è solida e priva di stress imminente: cassa disponibile per 483,9M$ contro un debito totale di appena 23,4M$ (cassa netta di 460,5M$). La società genera flusso di cassa libero positivo (FCF TTM a 131,4M$) e flusso operativo di 180,9M$, azzerando il burn rate e garantendo oltre 99 mesi di runway senza necessità di aumenti di capitale diluitivi a breve.",
+          "bear_severity": 30
+        },
+        "auditor": {
+          "verification_score": 98,
+          "overall_reliability": "ALTA",
+          "accounting_sanity_check": "Coerenza contabile perfetta: Net Cash verificata a $460.515.992 ($483,87M cassa - $23,35M debito). Burn rate mensile nullo ($0,00) data la generazione di Free Cash Flow positivo pari a $131,37M e Operating Cash Flow di $180,87M, che giustificano il runway convenzionale a 99 mesi. Drawdown post-IPO matematicamente coerente al -53,73% (prezzo attuale $12,17 vs massimo storico $26,30). Nessun acquisto Form 4 con Codice P confuso per grant.",
+          "verified_facts": [
+            "Cassa e mezzi equivalenti a $483,87M a fronte di un debito totale di $23,35M, con cassa netta pari a $460,52M.",
+            "Free Cash Flow TTM ammonta a $131,37M con Operating Cash Flow TTM a $180,87M su un fatturato di $537,28M (+18,2% YoY).",
+            "Totale assenza di acquisti insider a mercato aperto (Codice P = 0) e presenza di 8 vendite Form 4 (Codice S) per complessivi $496.016,79 condotte da CRO, CMO e CCO.",
+            "Drawdown del -53,73% dal picco post-IPO di $26,30 per azione.",
+            "Nessun filing S-3 / Shelf attivo registrato nel dataset e rischio di diluizione imminente assente."
+          ],
+          "challenged_claims": [
+            {
+              "agent": "BEAR",
+              "claim": "Vendite insider sistematiche del management C-Level come segnale di forte debolezza strutturale",
+              "audit_verdict": "ESAGERAZIONE",
+              "correction": "Sebbene le 8 dismissioni (Codice S) siano reali e coinvolgano figure C-Level, il controvalore complessivo è di $496.016,79, una cifra marginale rispetto alla capitalizzazione societaria di oltre 3,05 miliardi di dollari."
+            }
+          ]
+        }
+      }
     }
   },
   "micro_orders": [
@@ -12046,8 +12545,8 @@
       "initial_ai_score": 77,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.133741+00:00",
-      "last_live_price_usd": 26.02,
-      "last_monitored_at": "2026-11-26T23:09:39.778776+00:00",
+      "last_live_price_usd": 26.85,
+      "last_monitored_at": "2026-11-27T22:36:27.915945+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.133741+00:00",
@@ -12180,11 +12679,17 @@
           "price_usd": 26.02,
           "pnl_pct": 6.2,
           "ai_score": 77
+        },
+        {
+          "ts": "2026-11-27T22:36:27.915945+00:00",
+          "price_usd": 26.85,
+          "pnl_pct": 9.59,
+          "ai_score": 77
         }
       ],
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "peak_price_usd": 26.02
+      "peak_price_usd": 26.85
     },
     {
       "id": "002e9cf8",
@@ -12200,8 +12705,8 @@
       "initial_ai_score": 73,
       "status": "APERTO",
       "created_at": "2026-11-19T08:01:44.148135+00:00",
-      "last_live_price_usd": 5.89,
-      "last_monitored_at": "2026-11-26T23:09:39.778776+00:00",
+      "last_live_price_usd": 6.43,
+      "last_monitored_at": "2026-11-27T22:36:27.915945+00:00",
       "price_history": [
         {
           "ts": "2026-11-19T08:01:44.148135+00:00",
@@ -12334,6 +12839,12 @@
           "price_usd": 5.89,
           "pnl_pct": -7.97,
           "ai_score": 73
+        },
+        {
+          "ts": "2026-11-27T22:36:27.915945+00:00",
+          "price_usd": 6.43,
+          "pnl_pct": 0.47,
+          "ai_score": 73
         }
       ],
       "take_profit_pct": 80.0,
@@ -12353,8 +12864,8 @@
       "auto_registered": true,
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "last_live_price_usd": 47.02,
-      "last_monitored_at": "2026-11-26T23:09:39.778776+00:00",
+      "last_live_price_usd": 50.88,
+      "last_monitored_at": "2026-11-27T22:36:27.915945+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -12479,6 +12990,12 @@
           "price_usd": 47.02,
           "pnl_pct": -11.4,
           "ai_score": 76
+        },
+        {
+          "ts": "2026-11-27T22:36:27.915945+00:00",
+          "price_usd": 50.88,
+          "pnl_pct": -4.13,
+          "ai_score": 76
         }
       ],
       "initial_thesis": "1. Tesi Core: Rocket Lab Corporation (RKLB) tratta a -64.85% dal picco post-IPO; driver principale: Crescita Ricavi YoY +72.7% vs Prezzo Scontato (-64.8% dal picco). 2. Sopravvivenza: Ricavi YoY a +72.7% con cassa di $4.61B e runway di 99.0 mesi (Net Cash $4.49B).",
@@ -12497,7 +13014,7 @@
       "partial_realized_pnl_eur": 0.0,
       "tp1_executed": false,
       "tp1_note": null,
-      "peak_price_usd": 235.46,
+      "peak_price_usd": 246.37,
       "entry_price_usd": 235.46,
       "exit_price_usd": null,
       "broker": "Trading 212 (Paper)",
@@ -12506,8 +13023,8 @@
       "auto_registered": true,
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "last_live_price_usd": 235.46,
-      "last_monitored_at": "2026-11-26T23:09:39.778776+00:00",
+      "last_live_price_usd": 246.37,
+      "last_monitored_at": "2026-11-27T22:36:27.915945+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -12530,6 +13047,12 @@
           "price_usd": 235.46,
           "pnl_pct": 0.0,
           "ai_score": 75
+        },
+        {
+          "ts": "2026-11-27T22:36:27.915945+00:00",
+          "price_usd": 246.37,
+          "pnl_pct": 4.63,
+          "ai_score": 75
         }
       ],
       "initial_thesis": "1. Tesi Core: Dave Inc. (DAVE) tratta a -52.05% dal picco post-IPO; driver principale: Crescita Ricavi YoY +31.2% vs Prezzo Scontato (-52.0% dal picco). 2. Sopravvivenza: Ricavi YoY a +31.2% con cassa di $334.1M e Cash Flow Positivo (Net Cash $65.3M).",
@@ -12547,7 +13070,7 @@
       "partial_realized_pnl_eur": 0.0,
       "tp1_executed": false,
       "tp1_note": null,
-      "peak_price_usd": 94.36,
+      "peak_price_usd": 96.18,
       "entry_price_usd": 94.36,
       "exit_price_usd": null,
       "broker": "Trading 212 (Paper)",
@@ -12556,8 +13079,8 @@
       "auto_registered": true,
       "take_profit_pct": 80.0,
       "stop_loss_pct": -30.0,
-      "last_live_price_usd": 94.36,
-      "last_monitored_at": "2026-11-26T23:09:40.802771+00:00",
+      "last_live_price_usd": 96.18,
+      "last_monitored_at": "2026-11-27T22:36:27.915945+00:00",
       "closed_at": null,
       "close_reason": null,
       "last_alert_reason": null,
@@ -12567,6 +13090,12 @@
           "ts": "2026-11-26T23:09:40.802771+00:00",
           "price_usd": 94.36,
           "pnl_pct": 0.0,
+          "ai_score": 77
+        },
+        {
+          "ts": "2026-11-27T22:36:27.915945+00:00",
+          "price_usd": 96.18,
+          "pnl_pct": 1.93,
           "ai_score": 77
         }
       ],
@@ -12578,6 +13107,289 @@
     }
   ],
   "pipeline_runs": [
+    {
+      "run_at": "2026-11-27T22:36:27.907258+00:00",
+      "candidates_scanned": 36,
+      "stage1_passed_count": 3,
+      "stage2_deep_analyzed_count": 3,
+      "analyzed_count": 3,
+      "skipped_count": 20,
+      "error_count": 0,
+      "discovery_sources": {
+        "sec_live_form_4": 13,
+        "curated_post_ipo_microcap": 18,
+        "sec_live_form_8k": 5
+      },
+      "top_tickers": [
+        {
+          "ticker": "CLBT",
+          "score": 77,
+          "verdict": "STRONG_ASYMMETRIC_BUY"
+        },
+        {
+          "ticker": "LMND",
+          "score": 70,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        },
+        {
+          "ticker": "PL",
+          "score": 64,
+          "verdict": "WATCHLIST_ACCUMULATE"
+        }
+      ],
+      "skipped": [
+        {
+          "ticker": "FLNC",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "WM",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ETD",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SWMR",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": true
+          }
+        },
+        {
+          "ticker": "TEM",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "AEHR",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "IRS",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "STUB",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": true
+          }
+        },
+        {
+          "ticker": "ES",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "CRESY",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "WAT",
+          "source": "sec_live_form_4",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": false,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "SNTL",
+          "source": "sec_live_form_8k",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "EOSE",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "QCLS",
+          "source": "sec_live_form_8k",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "HNST",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "MBRX",
+          "source": "sec_live_form_8k",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "ENVX",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "MACI",
+          "source": "sec_live_form_8k",
+          "reasons": {
+            "drawdown_ok": true,
+            "revenue_growth_ok": false,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": false,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "GURE",
+          "source": "sec_live_form_8k",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": true,
+            "runway_ok": false,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        },
+        {
+          "ticker": "NRDY",
+          "source": "curated_post_ipo_microcap",
+          "reasons": {
+            "drawdown_ok": false,
+            "revenue_growth_ok": false,
+            "runway_ok": true,
+            "liquidity_no_toxic_debt": true,
+            "small_or_micro_cap": true,
+            "strict_ipo_6_24m": false
+          }
+        }
+      ],
+      "errors": [],
+      "auto_monitor": {
+        "checked_count": 5,
+        "auto_closed": [],
+        "alerts": []
+      },
+      "auto_register": {
+        "registered_tickers": [],
+        "skipped_count": 21
+      }
+    },
     {
       "run_at": "2026-11-26T23:09:39.772084+00:00",
       "candidates_scanned": 36,
@@ -14608,7 +15420,7 @@
       "errors": []
     }
   ],
-  "updated_at": "2026-11-26T23:09:41.395259+00:00",
+  "updated_at": "2026-11-27T22:36:29.134833+00:00",
   "autopilot_config": {
     "enabled": true,
     "background_monitor_enabled": false,
@@ -14639,6 +15451,34 @@
     "notify_telegram": true
   },
   "autopilot_logs": [
+    {
+      "id": "0b493d7f",
+      "ts": "2026-11-27T22:36:29.109727+00:00",
+      "action": "SKIPPED_GUARDRAIL",
+      "ticker": "ALL",
+      "summary": "Nessun nuovo ordine auto-registrato: 21 candidati filtrati dai guardrail.",
+      "details": {
+        "skipped_tickers": [
+          "CLBT",
+          "TMDX",
+          "ASTS",
+          "RKLB",
+          "DAVE",
+          "HFRO"
+        ]
+      }
+    },
+    {
+      "id": "65fbbe1e",
+      "ts": "2026-11-27T22:36:29.062346+00:00",
+      "action": "MONITOR_CHECK",
+      "ticker": "TMDX,DAVE,RKLB,RDW,ASTS",
+      "summary": "Monitorate 5 posizioni aperte (5 quote aggiornate, 0 TP1 parziali, 0 chiusure).",
+      "details": {
+        "checked_count": 5,
+        "rescan_ai": false
+      }
+    },
     {
       "id": "933bdcfa",
       "ts": "2026-11-26T23:09:40.814134+00:00",
